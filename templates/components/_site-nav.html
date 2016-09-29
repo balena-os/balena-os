@@ -1,0 +1,21 @@
+<nav class="navbar navbar-light bg-faded navbar-fixed-top">
+  <div class="container">
+    <div class="row">
+      <a class="navbar-brand" href="/">Noise boilerplate</a>
+      <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#nav-items" aria-controls="nav-items" aria-expanded="false" aria-label="Toggle navigation">
+        &#9776;
+      </button>
+      <div class="collapse navbar-toggleable-xs pull-xs-left pull-sm-right" id="nav-items">
+        <ul class="nav navbar-nav">
+          {% for menuItem in menuLinks %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ menuItem.link }}">
+                {{ menuItem.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,32 @@
+{% macro label(text) %}
+  <span>{{ text }}</span>
+{% endmacro %}
+
+{% macro select(dictName, dict, currentValue) %}
+  <select name="{{ dictName }}" class="form-control dynamic-switch__select">
+    {% for entry in dict %}
+      <option
+        value="{{ entry.id }}"
+        {% if entry.id === currentValue%}selected{% endif %}>
+        {{ entry.name }}
+      </option>
+    {% endfor %}
+  </select>
+{% endmacro %}
+
+<div class="form-inline js-dynamic-switch"
+  data-url-template="/{{ $ref_template }}">
+  <div class="form-group">
+    {% for part in $switch_text %}
+      {% if loop.index % 2 %}
+        {{ label(part) }}
+      {% else %}
+        {{ select(
+          part,
+          $dictionaries.getDict(part),
+          $variables[part] || $dictionaries.getDefault(part)
+        ) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

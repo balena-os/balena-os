@@ -1,0 +1,12 @@
+{% extends "default.html" %}
+
+{% block "contents" %}
+  <h1>Page not found</h1>
+
+  <p>We think we don't have a page you're looking for.</p>
+  <p>
+    Try starting from the <a href="/">home page</a> or use the search:
+  </p>
+  {% include "components/_search-form.html" %}
+
+{% endblock %}

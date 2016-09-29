@@ -1,0 +1,45 @@
+{% macro navNode(subtree) %}
+  {% if subtree.children and subtree|navIsCurrentTree($nav) %}
+    <ul class="nav">
+      {% for child in subtree.children %}
+        {% if child|navIsCurrentPage($nav) %}
+          {% set isCurrentLink = true %}
+        {% else %}
+          {% set isCurrentLink = false %}
+        {% endif %}
+        <li class="{% if isCurrentLink %}active{% endif %}">
+          <a href="{{ child|navGetLink($nav) }}">
+            {{ child|navGetTitle($nav) }}
+          </a>
+        </li>
+        {% if isCurrentLink and !child.isGateway and headings %}
+          <div class="in-page-nav">
+            <ul class="expand nav">
+              {% for heading in headings %}
+                <li><a href="#{{ heading.id }}">{{ heading.text }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+        {{ navNode(child) }}
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+{% macro navRoot(subtrees) %}
+  <div class="nav-menu">
+    {% for subtree in subtrees %}
+      <h5 class="{% if subtree|navIsCurrentTree($nav) %}active{% endif %}">
+        <a href="{{ subtree|navGetLink($nav) }}">
+          {{ subtree|navGetTitle($nav) }}
+        </a>
+      </h5>
+      {{ navNode(subtree) }}
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+<nav class="docs-navigation">
+  {{ navRoot(nav.children) }}
+</nav>

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "linux",
+    "name": "Linux"
+  },
+  {
+    "id": "windows",
+    "name": "Windows"
+  },
+  {
+    "id": "osx",
+    "name": "OS X"
+  }
+]

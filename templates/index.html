@@ -1,0 +1,10 @@
+{% extends "default.html" %}
+{% block "contents" %}
+  {% if jumbotron %}
+    {% include "components/_jumbotron.html" %}
+  {% endif %}
+  {% if features %}
+    {% include "components/_features.html" %}
+  {% endif %}
+  {{ contents|safe }}
+{% endblock %}

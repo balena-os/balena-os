@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Doxx Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Montserrat:400,600">
+    <!-- your generated css -->
+    <link rel="stylesheet" href="/static/styles/main.min.css">
+  </head>
+  <body data-spy="scroll" data-target=".in-page-nav">
+    {% include "components/_site-nav.html" %}
+    <section class="page-content">
+      {% block "contents" %}
+      {% endblock %}
+    </section>
+    <!-- your browserified scripts -->
+    <script src="/static/js/bundle.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </body>
+</html>
