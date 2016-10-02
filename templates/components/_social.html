@@ -1,0 +1,15 @@
+
+<div class="social">
+  <!-- Place this tag where you want the button to render. -->
+  {% if tweet %}
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-size="large"
+    data-text="{{ tweet }}">
+  Tweet
+  </a>
+  {% endif %}
+  {% if repo %}
+  <a class="github-button" href="https://github.com/resin-io/etcher" data-style="mega" data-count-href="/resin-io/etcher/stargazers" data-count-api="/repos/resin-io/etcher#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star resin-io/etcher on GitHub">Star</a>
+  {% endif %}
+</div>

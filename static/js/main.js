@@ -3,3 +3,5 @@ Tether = require('Tether')
 require('bootstrap')
 
 require('./docs')
+
+require('./mixpanel')
