@@ -11,8 +11,8 @@ var github = new GitHubApi({
 });
 github.authenticate({
     type: "basic",
-    username: process.env.ghUsername,
-    password: process.env.ghToken
+    username: process.env.GH_USERNAME,
+    password: process.env.GH_TOKEN
 });
 
 exports.getRepo = function() {

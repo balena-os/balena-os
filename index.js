@@ -7,9 +7,7 @@ var navTree = require('./nav.json')
 var Doxx = require('@resin.io/doxx')
 var doxxConfig = require('./config/doxx')
 var app = module.exports.app = exports.app = express();
-var staticDir = path.join(__dirname, 'static/dist')
 
-app.use(express.static(staticDir))
 //you won't need 'connect-livereload' if you have livereload plugin for your browser
 if (process.env.ENVIROMENT === 'STAGING') {
   app.use(require('connect-livereload')())
@@ -20,6 +18,9 @@ doxx.configureExpress(app)
 doxx.loadLunrIndex()
 
 var contentsDir = path.join(__dirname, doxxConfig.destDir)
+var staticDir = path.join(__dirname, 'static/dist')
+app.use(express.static(staticDir))
+app.use(express.static(contentsDir))
 
 var getLocals = function (extra) {
   return doxx.getLocals({ nav: navTree }, extra)

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Doxx Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Montserrat:400,600">
+    <!-- your generated css -->
+    <link rel="stylesheet" href="/main.min.css">
+  </head>
+  <body data-spy="scroll" data-target=".in-page-nav">
+    <nav class="navbar navbar-light bg-faded navbar-fixed-top">
+  <div class="container">
+    <div class="row">
+      <a class="navbar-brand" href="/">etcher</a>
+      <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#nav-items" aria-controls="nav-items" aria-expanded="false" aria-label="Toggle navigation">
+        &#9776;
+      </button>
+      <div class="collapse navbar-toggleable-xs pull-xs-left pull-sm-right" id="nav-items">
+        <ul class="nav navbar-nav">
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://resin.io">
+                Resin.io
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/docs">
+                Documentation
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/resin-io-projects/doxx">
+                Doxx GitHub
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <section class="page-content">
+      
+<div class="col-md-3">
+  <div class="sidebar" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+    <div class="search-wrapper">
+      <form action="/search-results">
+  <input name="searchTerm" type="text" class="form-control" placeholder="Search Docs..." value="">
+</form>
+
+    </div>
+    
+
+
+
+<nav class="docs-navigation">
+  
+  <div class="nav-menu">
+    
+      <h5 class="">
+        <a href="/docs/page1">
+          page1
+        </a>
+      </h5>
+      
+  
+
+    
+      <h5 class="">
+        <a href="/docs/page2">
+          page2
+        </a>
+      </h5>
+      
+  
+
+    
+      <h5 class="">
+        <a href="linux/nodejs/dynamic">
+          Dynamic page
+        </a>
+      </h5>
+      
+  
+
+    
+  </div>
+
+</nav>
+
+  </div>
+</div>
+
+<article class="col-md-9">
+  <div class="header-wrapper">
+    <ol class="breadcrumb">
+  
+  
+    <li class="active">
+      Dynamic page about Windows &amp; Ruby
+    </li>
+  
+</ol>
+
+  </div>
+  
+    <div class="dynamic-switch well">
+      
+
+
+
+<div class="form-inline js-dynamic-switch"
+  data-url-template="/docs/$os/$language/dynamic">
+  <div class="form-group">
+    
+      
+        
+  <span>Getting Started with</span>
+
+      
+    
+      
+        
+  <select name="$os" class="form-control dynamic-switch__select">
+    
+      <option
+        value="linux"
+        >
+        Linux
+      </option>
+    
+      <option
+        value="windows"
+        selected>
+        Windows
+      </option>
+    
+      <option
+        value="osx"
+        >
+        OS X
+      </option>
+    
+  </select>
+
+      
+    
+      
+        
+  <span>and</span>
+
+      
+    
+      
+        
+  <select name="$language" class="form-control dynamic-switch__select">
+    
+      <option
+        value="nodejs"
+        >
+        Node.js
+      </option>
+    
+      <option
+        value="python"
+        >
+        Python
+      </option>
+    
+      <option
+        value="ruby"
+        selected>
+        Ruby
+      </option>
+    
+  </select>
+
+      
+    
+  </div>
+</div>
+
+    </div>
+  
+  <section class="page-content">
+    
+      <h1 id="dynamic-page-about-windows-ruby">Dynamic page about Windows &amp; Ruby</h1>
+<p>Hey, this is the page about <strong>Windows</strong> and <strong>Ruby</strong>.</p>
+<h2 id="smart-import">Smart import</h2>
+<p><em>This content is default for all dynamic pages</em></p>
+<h2 id="helpers-example">Helpers Example</h2>
+<p>  <strong>This page <em>is NOT about</em> OSX</strong>.
+  This paragraph is rendered using the Handlebars helper.</p>
+
+    
+  </section>
+</article>
+</div>
+
+    </section>
+    <!-- your browserified scripts -->
+    <script src="/bundle.js"></script>
+    <!-- These are client scripts the need to be conditionally loaded at buildtime -->
+
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+
+  </body>
+</html>
