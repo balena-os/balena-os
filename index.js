@@ -11,7 +11,9 @@ var staticDir = path.join(__dirname, 'static/dist')
 
 app.use(express.static(staticDir))
 //you won't need 'connect-livereload' if you have livereload plugin for your browser
-app.use(require('connect-livereload')())
+if (process.env.ENVIROMENT === 'STAGING') {
+  app.use(require('connect-livereload')())
+}
 
 var doxx = Doxx(doxxConfig)
 doxx.configureExpress(app)
