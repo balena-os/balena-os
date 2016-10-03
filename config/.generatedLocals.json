@@ -1,0 +1,60 @@
+{
+  "repo": {
+    "name": "etcher",
+    "description": "An image burner with support for Windows, OS X and GNU/Linux.",
+    "url": "https://api.github.com/repos/resin-io/etcher"
+  },
+  "tweet": "shiiit",
+  "menuLinks": [
+    {
+      "title": "Resin.io",
+      "link": "https://resin.io"
+    },
+    {
+      "title": "Documentation",
+      "link": "/docs"
+    },
+    {
+      "title": "Doxx GitHub",
+      "link": "https://github.com/resin-io-projects/doxx"
+    }
+  ],
+  "features": [
+    {
+      "title": "Buzzy buzz word",
+      "description": "Features I got features!",
+      "link": "#",
+      "image": "icon"
+    },
+    {
+      "title": "Buzzy buzz word",
+      "description": "Features I got features!",
+      "link": "#",
+      "image": "icon"
+    },
+    {
+      "title": "Buzzy buzz word",
+      "description": "Features I got features!",
+      "link": "#",
+      "image": "icon"
+    },
+    {
+      "title": "Buzzy buzz word",
+      "description": "Features I got features!",
+      "link": "#",
+      "image": "icon"
+    },
+    {
+      "title": "Buzzy buzz word",
+      "description": "Features I got features!",
+      "link": "#",
+      "image": "icon"
+    },
+    {
+      "title": "Buzzy buzz word",
+      "description": "Features I got features!",
+      "link": "#",
+      "image": "icon"
+    }
+  ]
+}

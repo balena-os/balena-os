@@ -1,11 +1,10 @@
 {% extends "default.html" %}
 {% block "contents" %}
-  {% if jumbotron %}
+  {% if repo %}
     {% include "components/_jumbotron.html" %}
   {% endif %}
   {% if features %}
     {% include "components/_features.html" %}
-    {% include "components/_social.html" %}
   {% endif %}
   {{ contents|safe }}
 {% endblock %}

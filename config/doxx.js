@@ -1,5 +1,6 @@
 var _ = require('lodash')
 var path = require('path')
+var locals = require('./.generatedLocals.json')
 
 module.exports = {
   rootDir: path.resolve(__dirname, '..'),
@@ -11,25 +12,9 @@ module.exports = {
   mixpanel: {
     token: '9d6bc43e4d64eb3bd64922c969e2955f'
   },
-  layoutLocals: {
-    tweet: 'OMG this boilerplate so dope!',
-    repo: 'https://github.com/resin-io/etcher',
-    menuLinks: [
-      { title: 'Resin.io', link: 'https://resin.io' },
-      { title: 'Documentation', link: '/docs' },
-      { title: 'Doxx GitHub', link: 'https://github.com/resin-io-projects/doxx' }
-    ],
-    jumbotron: {
-      title: 'My new Project',
-      lead: "It'll solve all your problems"
-    },
-    features: [
-      {
-        title: "Buzzy buzz word",
-        description: "Features I got features!",
-        link: "#",
-        image: "icon"
-      }
-    ]
-  }
+  github: {
+    user: 'resin-io',
+    repo: 'etcher'
+  },
+  layoutLocals: locals
 }

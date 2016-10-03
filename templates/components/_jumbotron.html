@@ -1,6 +1,7 @@
 <section class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-3">{{ jumbotron.title }}</h1>
-    <p class="lead">{{ jumbotron.subTitle }}</p>
+    <h1 class="display-3">{{ repo.name }}</h1>
+    <p class="lead">{{ repo.description }}</p>
+    {% include "_social.html" %}
   </div>
 </section>
