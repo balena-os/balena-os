@@ -1,9 +1,12 @@
-# Noise - a boilerplate any software projects static website.
+# Noise - a boilerplate for static websites
 
 TODO:
 * OG: tags
 * Analytics - google, mixpanel, gosquared
-* Social - github, twitter, facebook
+* Social - github, twitter
+* geny (data generator)
+  - GH: repo, Milestones, FAQs, Story
+  - S3: download items
 * components
   - Features
   - Jumbotron
@@ -17,4 +20,8 @@ TODO:
 * pages
   - Download page ?
 * Docs
-  - mostly done
+  - fix relative links
+
+* deployment
+  - deploy on meta-resin merge
+  - allow manual rebuilds via trigger
