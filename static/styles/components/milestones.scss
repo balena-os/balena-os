@@ -1,0 +1,5 @@
+.milestones__container {
+  border: 1px solid $color-border;
+  padding: 5%;
+  @include border-top-radius(5px);
+}

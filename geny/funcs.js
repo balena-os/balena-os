@@ -4,6 +4,12 @@ const config = require('../config/doxx')
 var ghConfig = config.github
 var exports = module.exports = {};
 var _ = require('lodash')
+var moment = require('moment')
+var $ = require('jquery')
+
+var https = require('https');
+var fs = require('fs');
+
 var github = new GitHubApi({
     // optional
     // debug: true,
@@ -37,16 +43,36 @@ exports.getFAQs = function() {
     repo: ghConfig.repo,
     user: ghConfig.user,
     path: "README.md"
-  }).then(function(data) {
+    }).then(function(data) {
     return github.misc.renderMarkdown({
     "text": new Buffer(data.content.toString(), 'base64').toString('ascii')
     })
   });
 };
 
+exports.getDocs = function() {
+  function downloadSave(content) {
+    var file = fs.createWriteStream('./pages/docs/' + content.name);
+    var request = https.get(content.download_url, function(response) {
+      response.pipe(file);
+    }).on('error', function(err) { // Handle errors
+      fs.unlink('./pages/docs/' + file.name); // Delete the file async. (But we don't check the result)
+      throw err
+    });
+  }
+  return github.repos.getContent({
+    repo: ghConfig.repo,
+    user: ghConfig.user,
+    path: "docs"
+    }).then(function(data) {
+      _.map(data, downloadSave)
+  });
+};
+
 exports.getMileStones = function() {
   var totalIssues = function (milestone) {
     milestone.total_issues = milestone.closed_issues + milestone.open_issues
+    milestone.updated_at = moment(milestone.updated_at).fromNow();
     return milestone
   }
   return github.issues.getMilestones({

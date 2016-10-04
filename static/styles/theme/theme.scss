@@ -1,3 +1,5 @@
+@import 'variables';
+
 body {
   padding-top: 54px;
   padding-bottom: 30px;
@@ -10,6 +12,10 @@ body {
   .navbar-toggleable-xs {
     clear: both;
   }
+}
+
+.section__category {
+  text-align: center;
 }
 
 .section__title {
