@@ -42,12 +42,16 @@ exports.getFAQs = function() {
   return github.repos.getContent({
     repo: ghConfig.repo,
     user: ghConfig.user,
-    path: "README.md"
-    }).then(function(data) {
+    path: "SUPPORT.md"
+  }).then(function(data) {
     return github.misc.renderMarkdown({
-    "text": new Buffer(data.content.toString(), 'base64').toString('ascii')
+      "text": new Buffer(data.content.toString(), 'base64').toString('ascii')
     })
-  });
+  }).then(function(data) {
+    return {
+      FAQs: data.data
+    }
+  })
 };
 
 exports.getDocs = function() {
@@ -60,12 +64,17 @@ exports.getDocs = function() {
       throw err
     });
   }
+
   return github.repos.getContent({
     repo: ghConfig.repo,
     user: ghConfig.user,
     path: "docs"
     }).then(function(data) {
-      _.map(data, downloadSave)
+      // only repull docs if var is set
+      if (process.env.DOCS) {
+        _.map(data, downloadSave)
+      }
+      return
   });
 };
 

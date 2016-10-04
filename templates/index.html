@@ -9,5 +9,8 @@
   {% if milestones %}
     {% include "components/_milestones.html" %}
   {% endif %}
+  {% if FAQs %}
+    {% include "components/_FAQs.html" %}
+  {% endif %}
   {{ contents|safe }}
 {% endblock %}
