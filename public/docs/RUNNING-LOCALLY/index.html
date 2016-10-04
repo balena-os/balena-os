@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Doxx Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Montserrat:400,600">
+    <!-- your generated css -->
+    <link rel="stylesheet" href="/main.min.css">
+  </head>
+  <body data-spy="scroll" data-target=".in-page-nav">
+    <nav class="navbar navbar-light bg-faded navbar-fixed-top">
+  <div class="container">
+    <div class="row">
+      <a class="navbar-brand" href="/">etcher</a>
+      <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#nav-items" aria-controls="nav-items" aria-expanded="false" aria-label="Toggle navigation">
+        &#9776;
+      </button>
+      <div class="collapse navbar-toggleable-xs pull-xs-left pull-sm-right" id="nav-items">
+        <ul class="nav navbar-nav">
+          
+            <li class="nav-item">
+              <a class="nav-link" href="https://resin.io">
+                Resin.io
+              </a>
+            </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/docs">
+                Documentation
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <section class="page-content">
+      
+<div class="col-md-3">
+  <div class="sidebar" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+    <div class="search-wrapper">
+      <form action="/search-results">
+  <input name="searchTerm" type="text" class="form-control" placeholder="Search Docs..." value="">
+</form>
+
+    </div>
+    
+
+
+
+<nav class="docs-navigation">
+  
+  <div class="nav-menu">
+    
+      <h5 class="">
+        <a href="/docs/page1">
+          page1
+        </a>
+      </h5>
+      
+  
+
+    
+      <h5 class="">
+        <a href="/docs/page2">
+          page2
+        </a>
+      </h5>
+      
+  
+
+    
+      <h5 class="">
+        <a href="/linux/nodejs/dynamic">
+          Dynamic page
+        </a>
+      </h5>
+      
+  
+
+    
+  </div>
+
+</nav>
+
+  </div>
+</div>
+
+<article class="col-md-9">
+  <div class="header-wrapper">
+    <ol class="breadcrumb">
+  
+  
+    <li class="active">
+      Common
+    </li>
+  
+</ol>
+
+  </div>
+  
+  <section class="page-content">
+    
+      <h1 id="running-locally">Running locally</h1>
+<p>This document aims to serve as a guide to get Etcher running locally on your
+development machine.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="common">Common</h3>
+<ul>
+<li><a href="https://nodejs.org">NodeJS</a> (at least v6)</li>
+<li><a href="http://bower.io">Bower</a></li>
+<li><a href="http://upx.sourceforge.net">UPX</a></li>
+<li><a href="https://www.python.org">Python</a></li>
+<li><a href="https://github.com/brigade/scss-lint/">SCSS Lint</a></li>
+</ul>
+<h3 id="windows">Windows</h3>
+<ul>
+<li><a href="https://github.com/isaacs/rimraf">Rimraf</a></li>
+<li><a href="https://github.com/electron/asar">Asar</a></li>
+<li><a href="http://nsis.sourceforge.net/Main_Page">NSIS v2.51</a> (v3.x won&#39;t work)</li>
+<li><a href="https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx">Visual Studio Community 2013</a></li>
+</ul>
+<h3 id="os-x">OS X</h3>
+<ul>
+<li><a href="https://developer.apple.com/xcode/">XCode</a></li>
+<li><a href="https://brkirch.wordpress.com/afsctool/">afsctool</a></li>
+</ul>
+<h2 id="cloning-the-project">Cloning the project</h2>
+<pre><code class="lang-sh">git clone https://github.com/resin-io/etcher
+cd etcher
+</code></pre>
+<h2 id="installing-npm-dependencies">Installing npm dependencies</h2>
+<p><strong>Make sure you have all the pre-requisites listed above installed in your
+system before running the <code>install</code> script.</strong></p>
+<p>Please make use of the following scripts to install npm dependencies rather
+than simply running <code>npm install</code> given that we need to do extra configuration
+to make sure native dependencies are correctly compiled for Electron, otherwise
+the application might not run successfully.</p>
+<h3 id="os-x">OS X</h3>
+<pre><code class="lang-sh">./scripts/build/darwin.sh install
+</code></pre>
+<h3 id="gnu-linux">GNU/Linux</h3>
+<pre><code class="lang-sh">./scripts/build/linux.sh install &lt;x64|x86&gt;
+</code></pre>
+<h3 id="windows">Windows</h3>
+<p><strong>Run the following command from the <em>Developer Command Prompt for VS2013</em></strong>,
+to ensure all Visual Studio command utilities are available in the <code>%PATH%</code>:</p>
+<pre><code class="lang-sh">.\scripts\build\windows.bat install &lt;x64|x86&gt;
+</code></pre>
+<h2 id="running-the-application">Running the application</h2>
+<h3 id="gui">GUI</h3>
+<pre><code class="lang-sh">npm start
+</code></pre>
+<h3 id="cli">CLI</h3>
+<pre><code class="lang-sh">node bin/etcher
+</code></pre>
+
+    
+  </section>
+</article>
+</div>
+
+    </section>
+    <!-- your browserified scripts -->
+    <script src="/bundle.js"></script>
+    <!-- These are client scripts the need to be conditionally loaded at buildtime -->
+
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+
+
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+
+
+
+
+<!-- start Mixpanel --><script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+mixpanel.init('9d6bc43e4d64eb3bd64922c969e2955f');</script><!-- end Mixpanel -->
+
+
+
+
+  </body>
+</html>
