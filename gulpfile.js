@@ -22,7 +22,6 @@ var defualtSettings
 // data generator
 var geny = require('./geny')
 var destDir = './public'
-var doxxConfig
 
 // cleans build destination folder
 gulp.task('clean', function (cb) {
@@ -61,29 +60,21 @@ return b.bundle()
 // runs custom metalsmith build
 gulp.task('doxx', function(done) {
   var doxxConfig = require('./config/doxx')
-  var doxx = Doxx(doxxConfig)
-  doxx.build(function(err) {
-    if(err) throw err;
-    delete require.cache[require.resolve('./config/doxx')]
-    done()
-  })
-});
-
-// pulls data
-gulp.task('data', function(done) {
-  // pulls in new data and settings incase they have changed
-  var defualtSettings = require('./config/locals')
-  geny.run(defualtSettings).then(function(newSettings) {
-    // writes updates to config/locals.json
-    done()
+  geny.run(doxxConfig).then(function(newSettings) {
+    console.log('newSettings', newSettings.layoutLocals)
+    var doxx = Doxx(newSettings)
+    doxx.build(function(err) {
+      if(err) throw err;
+      delete require.cache[require.resolve('./config/doxx')]
+      done()
+    })
   })
 });
 
 // run server
 gulp.task('serve', function (done) {
   server.run(['index.js']);
-  gulp.watch(['./templates/**', './shared/**', './pages/**'], gulp.series('doxx', 'reload'));
-  // gulp.watch(['./config/**'], gulp.series('data', 'doxx', 'reload'));
+  gulp.watch(['./templates/**', './config/**', './shared/**', './pages/**'], gulp.series('doxx', 'reload'));
   gulp.watch('./static/styles/**', gulp.series('css', 'reload'));
   gulp.watch('./static/js/**', gulp.series('js', 'reload'));
   done()
@@ -101,6 +92,6 @@ gulp.task('build', gulp.series('clean', 'doxx', 'js', 'css'), function(done) {
 })
 
 // pull data build + serve
-gulp.task('dev', gulp.series('data', 'build', 'serve', 'reload'), function(done) {
+gulp.task('dev', gulp.series('build', 'serve', 'reload'), function(done) {
   done()
 })

@@ -6,5 +6,8 @@
   {% if features %}
     {% include "components/_features.html" %}
   {% endif %}
+  {% if milestones %}
+    {% include "components/_milestones.html" %}
+  {% endif %}
   {{ contents|safe }}
 {% endblock %}

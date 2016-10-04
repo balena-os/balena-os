@@ -1,0 +1,23 @@
+<section class="section milestones">
+  <div class="container">
+    <h1 class="display-3 section__title">Milestones</h1>
+    <p class="lead section__lead">Watch our progress!</p>
+    {% for milestone in milestones %}
+      <div class="milestone">
+        <a target="_blank" href="{{ milestone.html_url }}">
+          <h2 class="milestone__title">{{ milestone.title }}</h2>
+        </a>
+        <p class="milestones__description">
+          {{ milestone.description }}
+        </p>
+        <p class="milestone__meta">
+          {% if milestone.due_on %} {{ milestone.due_on }} {% else %}No Due Date{% endif %}
+          {% if milestone.updated_at %} {{ milestone.updated_at }}{% else %}No update{% endif %}
+        </p>
+
+        <div class="text-xs-center"></div>
+        <progress class="progress" value="{{ milestone.closed_issues }}" max="{{ milestone.total_issues }}" aria-describedby="example-caption-5"></progress>
+      </div>
+    {% endfor %}
+  </div>
+</section>

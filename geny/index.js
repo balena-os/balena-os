@@ -1,7 +1,9 @@
+// This module generates data from custom requests (see funcs.js)
+// and merges results with doxxConfig.layout
+
 const funcs = require('./funcs')
 const _ = require('lodash')
 const Promise = require('bluebird')
-const userSettings = require('../config/locals.json')
 const fs = require('fs')
 
 var promises = []
@@ -14,14 +16,14 @@ var flatten = function(objArray) {
   return flatObj
 }
 
-var merge = function(generatedSettings, userSettings) {
+// merges pulled data and doxx.config.layoutLocals
+var merge = function(doxxConfig, generatedSettings) {
   return new Promise(function(resolve, reject) {
-    resolve(_.merge({}, flatten(generatedSettings), userSettings));
+    resolve(_.merge({}, flatten(generatedSettings), doxxConfig));
   })
 }
 
-module.exports.run = function(userSettings) {
-  console.log("Generating Data")
+module.exports.run = function(doxxConfig) {
   // run all funcs
   _.forOwn(funcs, function(value, key) {
     promises.push(funcs[key]())
@@ -30,15 +32,9 @@ module.exports.run = function(userSettings) {
   // catch all returns
   return Promise.all(promises).then(function(generatedSettings) {
     // give userSettings precedence
-    return merge(generatedSettings, userSettings).then(function(mergedConfig) {
-      fs.writeFile('config/.generatedLocals.json', JSON.stringify(mergedConfig, null, 2), function(err) {
-        if(err) {
-            throw console.log(err)
-        }
-        console.log("The config file was saved!")
-
-      })
-      return mergedConfig
+    return merge(doxxConfig.layoutLocals, generatedSettings).then(function(mergedConfig) {
+      doxxConfig.layoutLocals = mergedConfig
+      return doxxConfig
     })
   }).catch(err => {
     console.log(err)

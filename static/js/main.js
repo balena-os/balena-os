@@ -1,7 +1,7 @@
 jQuery = $ = require('jquery')
 Tether = require('Tether')
 require('bootstrap')
-
-// Analytics
-require('./mixpanel')
 require('./docs')
+var doxxConfig = require('../../config/doxx')
+// Analytics
+doxxConfig.layoutLocals.analytics.mixpanelToken ? require('./mixpanel') : console.log("No mixpanel");
