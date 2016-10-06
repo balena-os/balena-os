@@ -1,3 +1,22 @@
 .FAQ {
+  border-bottom: 1px solid $gray-light;
+  padding: 20px;
+  &:first-child {
+    // border-top: 1px solid $gray-light;
+  }
+}
 
+.FAQ__content {
+  @include opacity(.7);
+  padding: 20px 0;
+  color: $gray;
+}
+
+.FAQ__header {
+  font-weight: bold;
+  color: $gray-dark;
+  text-decoration: none;
+  h2 {
+    margin-bottom: 0;
+  }
 }

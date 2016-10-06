@@ -80,7 +80,7 @@ exports.getDocs = function() {
 
 exports.getMileStones = function() {
   var totalIssues = function (milestone) {
-    milestone.total_issues = milestone.closed_issues + milestone.open_issues
+    milestone.complete = Math.floor((milestone.closed_issues/(milestone.closed_issues + milestone.open_issues))*100)
     milestone.updated_at = moment(milestone.updated_at).fromNow();
     return milestone
   }

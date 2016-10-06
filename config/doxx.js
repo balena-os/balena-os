@@ -21,7 +21,9 @@ module.exports = {
     },
     menuLinks: [
       { title: 'Resin.io', link: 'https://resin.io' },
-      { title: 'Documentation', link: '/docs' },
+      { title: 'Features', link: '/#features' },
+      { title: 'Downloads', link: '/#downloads' },
+      { title: 'Get Involved', link: '/#milestones' },
     ],
     tweet: 'Look at this thing I made',
     features: [
