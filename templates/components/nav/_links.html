@@ -1,7 +1,12 @@
 {% for menuItem in menuLinks %}
-  <li class="nav-item">
-    <a class="nav-link" href="{{ menuItem.link }}">
-      {{ menuItem.title }}
-    </a>
-  </li>
+<li class="nav-item">
+  <a class="nav-link" href="{{ menuItem.link }}">
+    {{ menuItem.title }}
+  </a>
+</li>
 {% endfor %}
+<li class="nav-item">
+  <a class="nav-link" href="{{ repo.link }}">
+    <i class="fa fa-github-alt fa-2"></i>
+  </a>
+</li>

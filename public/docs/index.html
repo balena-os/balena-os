@@ -5,7 +5,7 @@
     <title>Doxx Example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
-
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Montserrat:400,600">
     <!-- your generated css -->
     <link rel="stylesheet" href="/main.min.css">
@@ -13,31 +13,43 @@
 <script src="https://use.typekit.net/eic0uah.js"></script>
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
+<script src="https://use.fontawesome.com/2718a8b9d2.js"></script>
 
   </head>
   <body data-spy="scroll" data-target=".in-page-nav">
-    <nav class="navbar navbar-light bg-faded navbar-fixed-top">
+    <nav class="navbar bg-dark bg-inverse navbar-fixed-top">
   <div class="container">
+    <div class="nav__claim row">
+      <div class="pull-md-right">
+        <span class="nav__claim__items">an open source project by</span>
+        <img class="nav__claim__items" alt="resin.io" src="/images/logos/company.png" srcset="/images/logos/company@2x.png 2x">
+      </div>
+    </div>
     <div class="row">
-      <a class="navbar-brand" href="/">etcher</a>
+      <a class="navbar-brand" href="/"><img class="footer__brand__items" alt="{ repo.name }" src="/images/logos/project.png" srcset="/images/logos/project@2x.png 2x"></a>
       <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#nav-items" aria-controls="nav-items" aria-expanded="false" aria-label="Toggle navigation">
         &#9776;
       </button>
       <div class="collapse navbar-toggleable-xs pull-xs-left pull-sm-right" id="nav-items">
         <ul class="nav navbar-nav">
           
-  <li class="nav-item">
-    <a class="nav-link" href="https://resin.io">
-      Resin.io
-    </a>
-  </li>
+<li class="nav-item">
+  <a class="nav-link" href="https://resin.io">
+    Resin.io
+  </a>
+</li>
 
-  <li class="nav-item">
-    <a class="nav-link" href="/docs">
-      Documentation
-    </a>
-  </li>
+<li class="nav-item">
+  <a class="nav-link" href="/docs">
+    Documentation
+  </a>
+</li>
 
+<li class="nav-item">
+  <a class="nav-link" href="">
+    <i class="fa fa-github-alt fa-2"></i>
+  </a>
+</li>
 
         </ul>
       </div>
@@ -122,29 +134,36 @@
 </div>
 
     </section>
-    <section class="section section__inv footer">
+    <section class="section section--inv footer">
   <div class="container">
     <div class="row">
       <ul class="footer__links">
         
-  <li class="nav-item">
-    <a class="nav-link" href="https://resin.io">
-      Resin.io
-    </a>
-  </li>
+<li class="nav-item">
+  <a class="nav-link" href="https://resin.io">
+    Resin.io
+  </a>
+</li>
 
-  <li class="nav-item">
-    <a class="nav-link" href="/docs">
-      Documentation
-    </a>
-  </li>
+<li class="nav-item">
+  <a class="nav-link" href="/docs">
+    Documentation
+  </a>
+</li>
 
+<li class="nav-item">
+  <a class="nav-link" href="">
+    <i class="fa fa-github-alt fa-2"></i>
+  </a>
+</li>
 
       </ul>
     </div>
     <hr class="section__hr">
-    <div class="footer__brand">
-      resinOS by resin.io
+    <div class="footer__claim">
+      <img class="footer__claim__items" alt="{ repo.name }" src="/images/logos/project.png" srcset="/images/logos/project@2x.png 2x">
+      <span class="footer__claim__items">an open source project by</span>
+      <img class="footer__claim__items" alt="resin.io" src="/images/logos/company.png" srcset="/images/logos/company@2x.png 2x">
     </div>
   </div>
 </section>

@@ -1,3 +1,21 @@
 .footer {
   margin-bottom: 0;
 }
+
+.footer__claim {
+  margin: 50px;
+  text-align: center;
+}
+
+.footer__claim__items {
+  margin: 0 10px;
+}
+
+.footer__links {
+  text-align: center;
+  list-style: none;
+  .nav-item {
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
