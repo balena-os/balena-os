@@ -1,4 +1,9 @@
 .feature {
   text-align: center;
   margin-bottom: 50px;
+  min-height: 200px;
+}
+
+.feature__description {
+  min-height: 50px;
 }

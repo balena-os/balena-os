@@ -5,9 +5,50 @@
 }
 
 .milestones__container__title {
+  margin-bottom: 50px;
+  text-align: center;
+  color: $gray;
+  text-transform: uppercase;
   i {
     margin-right: 5px;
   }
-  text-align: center;
-  color: $gray;
+}
+
+.milestone {
+  margin-bottom: 30px;
+}
+.milestone__title {
+  color: $gray-dark;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.milestone__arrow {
+  color: $gray-light;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.milestone__meta {
+  color: $gray-light;
+}
+
+.milestone__link {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.milestone__progress {
+  padding-top: .6rem;
+  color: $gray-dark;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.milestone__progress__item {
+  margin-right: 10px;
 }

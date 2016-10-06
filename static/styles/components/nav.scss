@@ -30,10 +30,9 @@
 
 .nav__claim {
   will-change: transform;
-  transition: transform 200ms linear;
-  text-align: center;
   max-height: 0;
   overflow: hidden;
+  @include transition('max-height 2s ease-in-out')
 }
 
 span.nav__claim__items {

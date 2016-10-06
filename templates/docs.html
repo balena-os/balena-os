@@ -1,8 +1,8 @@
 {% extends "default.html" %}
 {% block "contents" %}
 <div class="docs">
-  <div class="col-md-3">
-    <div class="sidebar" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+  <div class="docs__sidebar col-md-3">
+    <div data-spy="affix" data-offset-top="60" data-offset-bottom="200">
       <div class="search-wrapper">
         {% include "components/_search-form.html" %}
       </div>
@@ -11,7 +11,7 @@
   </div>
 
   <article class="col-md-9">
-    <div class="header-wrapper">
+    <div class="docs__header-wrapper">
       {% include "components/_breadcrumbs.html" %}
     </div>
     {% if dynamic and $switch_text %}

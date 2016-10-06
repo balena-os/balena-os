@@ -1,22 +1,36 @@
 .FAQ {
-  border-bottom: 1px solid $gray-light;
+  border-bottom: 1px solid $gray-lighter;
   padding: 20px;
   &:first-child {
-    // border-top: 1px solid $gray-light;
+    // border-top: 1px solid $gray-lighter;
   }
 }
 
 .FAQ__content {
-  @include opacity(.7);
-  padding: 20px 0;
-  color: $gray;
+  color: lighten( $gray, 20% );
+  margin: 20px 0;
 }
 
 .FAQ__header {
   font-weight: bold;
   color: $gray-dark;
-  text-decoration: none;
+  &, &:hover, &:active, &:focus {
+    text-decoration: none;
+  }
   h2 {
     margin-bottom: 0;
+  }
+}
+
+.FAQ__expander {
+  .fa-circle {
+    color: $gray-dark;
+    font-size: 1rem;
+    top: -10px;
+  }
+  .fa-plus-circle, .fa-minus-circle {
+    top: 10px;
+    font-size: 1.5rem;
+    color: $gray-lighter;
   }
 }

@@ -1,22 +1,38 @@
 .docs {
-  margin-top: 10px;
+  margin-top: 115px;
 }
-.docs-navigation h5 {
+.docs__navigation h5 {
   text-transform: uppercase;
   font-weight: bold;
 }
 
-.docs-navigation h5.active > a {
+.docs__navigation h5.active > a {
   color: #333;
 }
 
-.docs-navigation ul {
+.docs__navigation ul {
   list-style: none;
   margin-left: 20px;
   padding: 0;
 }
 
-.docs-navigation li.active > a {
+.docs__navigation li.active > a {
   color: #333;
   font-weight: bold;
+}
+
+.docs__header-wrapper {
+  margin-right: -15px;
+  margin-left: -15px;
+  border-radius: 0;
+}
+
+.breadcrumb {
+  @include border-radius(0)
+}
+
+.docs__sidebar {
+  padding: 10px;
+  min-height: 100vh;
+  background: $gray-light;
 }

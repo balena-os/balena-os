@@ -19,8 +19,9 @@ module.exports = {
       mixpanelToken: '9d6bc43e4d64eb3bd64922c969e2955f',
       gosquaredToken: null
     },
+    company: { title: 'Resin.io', link: 'https://resin.io' },
     menuLinks: [
-      { title: 'Resin.io', link: 'https://resin.io' },
+      { title: 'Documentation', link: '/docs' },
       { title: 'Features', link: '/#features' },
       { title: 'Downloads', link: '/#downloads' },
       { title: 'Get Involved', link: '/#milestones' },
@@ -28,22 +29,28 @@ module.exports = {
     tweet: 'Look at this thing I made',
     features: [
       {
-        title: "Buzzy buzz word",
-        description: "Something you'd tell your moms",
-        link: "#",
-        image: "icon"
+        title: "containers",
+        description: "Brings standard Docker containers to embedded devices"
       },
       {
-        title: "Buzzy buzz word",
-        description: "My oh my",
-        link: "#",
-        image: "icon"
+        title: "adaptable",
+        description: "Works on diverse device types and architectures"
       },
       {
-        title: "Buzzy buzz word",
-        description: "Features I got features!",
-        link: "#",
-        image: "icon"
+        title: "minimal",
+        description: "Thin and minimally sized, with just the essentials"
+      },
+      {
+        title: "robust",
+        description: "Robust and battle-tested in production"
+      },
+      {
+        title: "simple",
+        description: "Simple and easy to use"
+      },
+      {
+        title: "open",
+        description: "Open Source and free"
       }
     ],
     deviceFamilys: [

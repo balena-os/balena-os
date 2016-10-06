@@ -8,24 +8,29 @@
       {% for milestone in milestones %}
         <div class="milestone row">
           <div class="col-md-6">
-            <a target="_blank" href="{{ milestone.html_url }}">
-              <h2 class="milestone__title">{{ milestone.title }}</h2>
-              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            <a class="milestone__link" target="_blank" href="{{ milestone.html_url }}">
+              <h3 class="milestone__title">{{ milestone.title }}</h3>
+              <i class="milestone__arrow fa fa-arrow-right" aria-hidden="true"></i>
             </a>
-            <p class="milestones__description">
+            <!-- <p class="milestones__description">
               {{ milestone.description }}
-            </p>
+            </p> -->
             <p class="milestone__meta">
-              {% if milestone.due_on %} {{ milestone.due_on }} {% else %}No Due Date{% endif %}
-              {% if milestone.updated_at %} {{ milestone.updated_at }}{% else %}No update{% endif %}
+              <span class="milestone__meta__item">
+                {% if milestone.due_on %} {{ milestone.due_on }} {% else %}No Due Date{% endif %}
+              </span>
+              <span class="milestone__meta__item">|</span>
+              <span class="milestone__meta__item">
+                {% if milestone.updated_at %} {{ milestone.updated_at }}{% else %}No update{% endif %}
+              </span>
             </p>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 milestone__progress">
             <progress class="progress progress-success" value="{{ milestone.complete }}" max="100" aria-describedby="progress"></progress>
             <div class="text-xs-left">
-              <span>{{ milestone.complete }}% Complete Closed</span>
-              <span>{{ milestone.closed_issues }} Closed</span>
-              <span>{{ milestone.open_issues }} Open</span>
+              <span class="milestone__progress__item">{{ milestone.complete }}% Complete</span>
+              <span class="milestone__progress__item">{{ milestone.closed_issues }} Closed</span>
+              <span class="milestone__progress__item">{{ milestone.open_issues }} Open</span>
             </div>
           </div>
         </div>

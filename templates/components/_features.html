@@ -4,10 +4,10 @@
     <p class="lead section__lead">oh boi!</p>
     <div class="row">
       {% for feature in features %}
-        <div class="feature col-md-4">
-          <h5>{{ feature.title }}</h5>
-          <p>{{ feature.description }}</p>
-          <img src="/images/icons/{{ feature.image }}.png" srcset="/images/icons/{{ feature.image }}@2x.png 2x">
+        <div class="feature col-sm-6 col-md-4">
+          <h5>{{ feature.title|capitalize }}</h5>
+          <p class="feature__description">{{ feature.description }}</p>
+          <img src="/images/icons/{{ feature.title }}.png" srcset="/images/icons/{{ feature.title }}@2x.png 2x">
         </div>
       {% endfor %}
     </div>
