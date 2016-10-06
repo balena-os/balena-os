@@ -9,15 +9,17 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Montserrat:400,600">
     <!-- your generated css -->
     <link rel="stylesheet" href="/main.min.css">
+    {% include "_head-scripts.html" %}
   </head>
   <body data-spy="scroll" data-target=".in-page-nav">
-    {% include "components/_site-nav.html" %}
-    <section class="page-content">
+    {% include "components/nav/_site-nav.html" %}
+    <section class="section page-content">
       {% block "contents" %}
       {% endblock %}
     </section>
+    {% include "components/nav/_footer.html" %}
     <!-- your browserified scripts -->
     <script src="/bundle.js"></script>
-    {% include "_scripts.html" %}
+    {% include "_footer-scripts.html" %}
   </body>
 </html>

@@ -18,9 +18,10 @@
           </p>
 
           <div class="text-xs-center"></div>
-          <progress class="progress" value="{{ milestone.closed_issues }}" max="{{ milestone.total_issues }}" aria-describedby="example-caption-5"></progress>
+          <progress class="progress progress-success" value="{{ milestone.closed_issues }}" max="{{ milestone.total_issues }}" aria-describedby="example-caption-5"></progress>
         </div>
       {% endfor %}
     </div>
+    <hr class="section__hr">
   </div>
 </section>

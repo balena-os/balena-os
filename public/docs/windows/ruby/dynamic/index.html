@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Montserrat:400,600">
     <!-- your generated css -->
     <link rel="stylesheet" href="/main.min.css">
+    
+<script src="https://use.typekit.net/eic0uah.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+
   </head>
   <body data-spy="scroll" data-target=".in-page-nav">
     <nav class="navbar navbar-light bg-faded navbar-fixed-top">
@@ -21,35 +26,37 @@
       <div class="collapse navbar-toggleable-xs pull-xs-left pull-sm-right" id="nav-items">
         <ul class="nav navbar-nav">
           
-            <li class="nav-item">
-              <a class="nav-link" href="https://resin.io">
-                Resin.io
-              </a>
-            </li>
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/docs">
-                Documentation
-              </a>
-            </li>
-          
+  <li class="nav-item">
+    <a class="nav-link" href="https://resin.io">
+      Resin.io
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="/docs">
+      Documentation
+    </a>
+  </li>
+
+
         </ul>
       </div>
     </div>
   </div>
 </nav>
 
-    <section class="page-content">
+    <section class="section page-content">
       
-<div class="col-md-3">
-  <div class="sidebar" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
-    <div class="search-wrapper">
-      <form action="/search-results">
+<div class="docs">
+  <div class="col-md-3">
+    <div class="sidebar" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+      <div class="search-wrapper">
+        <form action="/search-results">
   <input name="searchTerm" type="text" class="form-control" placeholder="Search Docs..." value="">
 </form>
 
-    </div>
-    
+      </div>
+      
 
 
 
@@ -88,12 +95,12 @@
 
 </nav>
 
+    </div>
   </div>
-</div>
 
-<article class="col-md-9">
-  <div class="header-wrapper">
-    <ol class="breadcrumb">
+  <article class="col-md-9">
+    <div class="header-wrapper">
+      <ol class="breadcrumb">
   
   
     <li class="active">
@@ -102,10 +109,10 @@
   
 </ol>
 
-  </div>
-  
-    <div class="dynamic-switch well">
-      
+    </div>
+    
+      <div class="dynamic-switch well">
+        
 
 
 
@@ -180,11 +187,11 @@
   </div>
 </div>
 
-    </div>
-  
-  <section class="page-content">
+      </div>
     
-      <h1 id="dynamic-page-about-windows-ruby">Dynamic page about Windows &amp; Ruby</h1>
+    <section class="page-content">
+      
+        <h1 id="dynamic-page-about-windows-ruby">Dynamic page about Windows &amp; Ruby</h1>
 <p>Hey, this is the page about <strong>Windows</strong> and <strong>Ruby</strong>.</p>
 <h2 id="smart-import">Smart import</h2>
 <p><em>This content is default for all dynamic pages</em></p>
@@ -192,12 +199,39 @@
 <p>  <strong>This page <em>is NOT about</em> OSX</strong>.
   This paragraph is rendered using the Handlebars helper.</p>
 
-    
-  </section>
-</article>
+      
+    </section>
+  </article>
 </div>
 
     </section>
+    <section class="section section__inv footer">
+  <div class="container">
+    <div class="row">
+      <ul class="footer__links">
+        
+  <li class="nav-item">
+    <a class="nav-link" href="https://resin.io">
+      Resin.io
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="/docs">
+      Documentation
+    </a>
+  </li>
+
+
+      </ul>
+    </div>
+    <hr class="section__hr">
+    <div class="footer__brand">
+      resinOS by resin.io
+    </div>
+  </div>
+</section>
+
     <!-- your browserified scripts -->
     <script src="/bundle.js"></script>
     <!-- These are client scripts the need to be conditionally loaded at buildtime -->

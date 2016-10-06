@@ -1,5 +1,5 @@
 .milestones__container {
-  border: 1px solid $color-border;
+  border: 1px solid $gray-lighter;
   padding: 5%;
-  @include border-top-radius(5px);
+  @include border-radius(5px);
 }

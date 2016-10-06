@@ -7,13 +7,7 @@
       </button>
       <div class="collapse navbar-toggleable-xs pull-xs-left pull-sm-right" id="nav-items">
         <ul class="nav navbar-nav">
-          {% for menuItem in menuLinks %}
-            <li class="nav-item">
-              <a class="nav-link" href="{{ menuItem.link }}">
-                {{ menuItem.title }}
-              </a>
-            </li>
-          {% endfor %}
+          {% include "_links.html" %}
         </ul>
       </div>
     </div>

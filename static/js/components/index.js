@@ -1,1 +1,2 @@
-require('./FAQs');
+require('./FAQs')
+require('./nav')

@@ -13,6 +13,7 @@ module.exports = {
     repo: 'etcher'
   },
   layoutLocals: {
+    typekitID: 'eic0uah',
     analytics: {
       googleAnalyticsTrackingID: null,
       mixpanelToken: '9d6bc43e4d64eb3bd64922c969e2955f',
@@ -42,6 +43,32 @@ module.exports = {
         link: "#",
         image: "icon"
       }
+    ],
+    deviceFamilys: [
+      {
+        title: "Raspberrypi",
+        description: "My oh my",
+        link: "#",
+        image: "icon"
+      },
+      {
+        title: "beaglebone",
+        description: "My oh my",
+        link: "#",
+        image: "icon"
+      },
+      {
+        title: "intel",
+        description: "Features I got features!",
+        link: "#",
+        image: "icon"
+      },
+      {
+        title: "artik",
+        description: "Features I got features!",
+        link: "#",
+        image: "icon"
+      },
     ]
   }
 }

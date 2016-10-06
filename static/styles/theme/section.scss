@@ -1,0 +1,37 @@
+.section {
+  padding: 50px 0;
+  clear: both;
+}
+
+.section--border-btm {
+  border-bottom: 1px solid $gray-lighter
+}
+
+.section__inv {
+  hr {
+    border-color: $white;
+  }
+  a {
+    color: $white;
+  }
+  color: $white;
+  background-color: $gray-dark;
+}
+
+.section__category {
+  text-align: center;
+}
+
+.section__title {
+  text-align: center;
+}
+
+.section__icon {
+  margin: 20px auto;
+  display: block;
+}
+
+
+.section__lead {
+  text-align: center;
+}

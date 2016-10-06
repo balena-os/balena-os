@@ -1,27 +1,9 @@
 @import 'variables';
-
-body {
-  padding-top: 54px;
-  padding-bottom: 30px;
-}
-
-// bootstrap settings
+@import 'section';
 
 // fixes wierd nav.toggleable floats
 @include media-breakpoint-down(xs) {
   .navbar-toggleable-xs {
     clear: both;
   }
-}
-
-.section__category {
-  text-align: center;
-}
-
-.section__title {
-  text-align: center;
-}
-
-.section__lead {
-  text-align: center;
 }

@@ -1,28 +1,29 @@
 {% extends "default.html" %}
 {% block "contents" %}
-<div class="col-md-3">
-  <div class="sidebar" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
-    <div class="search-wrapper">
-      {% include "components/_search-form.html" %}
+<div class="docs">
+  <div class="col-md-3">
+    <div class="sidebar" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+      <div class="search-wrapper">
+        {% include "components/_search-form.html" %}
+      </div>
+      {% include "components/_docs-nav.html" %}
     </div>
-    {% include "components/_docs-nav.html" %}
   </div>
-</div>
 
-<article class="col-md-9">
-  <div class="header-wrapper">
-    {% include "components/_breadcrumbs.html" %}
-  </div>
-  {% if dynamic and $switch_text %}
-    <div class="dynamic-switch well">
-      {% include "components/_dynamic-switch.html" %}
+  <article class="col-md-9">
+    <div class="header-wrapper">
+      {% include "components/_breadcrumbs.html" %}
     </div>
-  {% endif %}
-  <section class="page-content">
-    {% block "docsContent" %}
-      {{ contents|safe }}
-    {% endblock %}
-  </section>
-</article>
+    {% if dynamic and $switch_text %}
+      <div class="dynamic-switch well">
+        {% include "components/_dynamic-switch.html" %}
+      </div>
+    {% endif %}
+    <section class="page-content">
+      {% block "docsContent" %}
+        {{ contents|safe }}
+      {% endblock %}
+    </section>
+  </article>
 </div>
 {% endblock %}

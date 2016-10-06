@@ -5,14 +5,14 @@
     <div class="row">
       {% for feature in features %}
         <div class="feature col-md-4">
-          <a class="nav-link" href="{{ feature.link }}">
-          <h5>{{ feature.title }}</h5>
-          <p>{{ feature.description }}</p>
-          <img src="/images/icons/{{ feature.image }}.png" srcset="/images/icons/{{ feature.image }}@2x.png 2x">
-        </a>
+          <a href="{{ feature.link }}">
+            <h5>{{ feature.title }}</h5>
+            <p>{{ feature.description }}</p>
+            <img src="/images/icons/{{ feature.image }}.png" srcset="/images/icons/{{ feature.image }}@2x.png 2x">
           </a>
         </div>
       {% endfor %}
     </div>
+    <hr class="section__hr">
   </div>
 </section>

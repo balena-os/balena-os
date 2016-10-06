@@ -1,0 +1,7 @@
+{% for menuItem in menuLinks %}
+  <li class="nav-item">
+    <a class="nav-link" href="{{ menuItem.link }}">
+      {{ menuItem.title }}
+    </a>
+  </li>
+{% endfor %}
