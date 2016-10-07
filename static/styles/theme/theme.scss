@@ -2,13 +2,6 @@
 @import 'section';
 @import 'search';
 
-// fixes wierd nav.toggleable floats
-@include media-breakpoint-down(xs) {
-  .navbar-toggleable-xs {
-    clear: both;
-  }
-}
-
 // content
 .page-content {
   padding-top: 0;

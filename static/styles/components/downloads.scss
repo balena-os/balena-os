@@ -33,6 +33,12 @@ $border-width: 1px;
   position: relative;
 }
 
+@include media-breakpoint-down(xs) {
+  .downloads__well {
+    @include rem(margin, 20px 0 0);
+  }
+}
+
 .downloads__well__table {
   border: none;
   thead th {

@@ -1,3 +1,10 @@
+// fixes wierd nav.toggleable floats
+@include media-breakpoint-down(xs) {
+  .navbar-toggleable-xs {
+    clear: both;
+  }
+}
+
 .headroom {
   will-change: transform;
   transition: transform 200ms linear;
@@ -23,9 +30,13 @@
     color: $white;
   }
 }
+.navbar-toggler {
+  @include rem(margin-top, 15px)
+  color: $white;
+}
 
 .navbar-nav {
-  margin-top: 10px;
+  @include rem(margin-top, 10px)
 }
 
 .nav-link {
