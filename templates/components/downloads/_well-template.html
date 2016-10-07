@@ -1,33 +1,28 @@
 <script id="downloads__wellTmpl" type="text/template">
  <!-- using lodash templates here not swig -->
   <div class="downloads__well">
-    <div class="container">
-      <div class="col-md-6">
-        <div class="downloads__well__profile">
-          <img class="downloads__well__profile__icon" src="/images/icons/downloads/<%- cat %>.png" srcset="/images/icons/downloads/<%- cat %>@2x.png 2x">
-          <h4 class="downloads__well__profile__title"><%- cat %></h4>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Model</th>
-              <th>Release</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% jq.each(downloads, function(index, download) { %>
-              <tr>
-                <td><a href="<%- download.link %>"><%- download.title %></a></td>
-                <td></td>
-                <td><a href="<%- download.link %>"><i class="fa fa-download" aria-hidden="true"></i></a></td>
-              </tr>
-            <% }); %>
-          </tbody>
-        </table>
-      </div>
+    <i class="downloads__well__caret fa fa-caret-up fa-lg" aria-hidden="true"></i>
+    <div class="downloads__well__profile">
+      <img class="downloads__well__profile__icon" src="/images/icons/downloads/<%- cat %>.png" srcset="/images/icons/downloads/<%- cat %>@2x.png 2x">
+      <h4 class="downloads__well__profile__title"><%- cat %></h4>
     </div>
+    <table class="table downloads__well__table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Release</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% jq.each(downloads, function(index, download) { %>
+          <tr>
+            <td><a href="<%- download.link %>"><%- download.title %></a></td>
+            <td><a href="<%- download.link %>">resinOS {{ downloads.version }} <i class="fa fa-download" aria-hidden="true"></i></a></td>
+            <td><a href="/archive">Previous releases</a></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
   </div>
 </script>

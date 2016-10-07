@@ -1,17 +1,19 @@
 <section id="downloads" class="section">
-  {% include "_well-template.html" %}
-  <div class="section__header">
-    <h2 class="section__title">Downloads</h2>
-    <p class="lead section__lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend magna vitae diam feugiat, eu eleifend est luctus.</p>
-    <a class="section__link" href="/archive">All versions</a>
+  <div class="container">
+    {% include "_well-template.html" %}
+    <div class="section__header">
+      <h2 class="section__title">Downloads</h2>
+      <p class="lead section__lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend magna vitae diam feugiat, eu eleifend est luctus.</p>
+      <a class="section__link" href="/archive">All versions</a>
+    </div>
+    <div class="row downloads__row">
+      {% for cat in downloads.categories %}
+        <div class="col-md-3">
+          <a class="downloads__category" href="#downloads-{{ loop.key }}" data-cat="{{ loop.key }}" data-downloads="{{ cat|json }}">
+            <img class="downloads__category__image" src="/images/icons/downloads/{{ loop.key }}.png" srcset="/images/icons/downloads/{{ loop.key }}@2x.png 2x">
+          </a>
+        </div>
+        {% if loop.index % 4 == 0 %} </div><div class="row downloads__row"> {% endif %}
+      {% endfor %}
   </div>
-  <div class="row container downloads__row">
-    {% for cat in downloads.categories %}
-      <div class="col-md-3">
-        <a class="downloads__category" href="#downloads-{{ loop.key }}" data-cat="{{ loop.key }}" data-downloads="{{ cat|json }}">
-          <img class="downloads__category__image" src="/images/icons/downloads/{{ loop.key }}.png" srcset="/images/icons/downloads/{{ loop.key }}@2x.png 2x">
-        </a>
-      </div>
-      {% if loop.index % 4 == 0 %} </div><div class="row container downloads__row"> {% endif %}
-    {% endfor %}
 </section>

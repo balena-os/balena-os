@@ -160,103 +160,100 @@
   
   
     <section id="downloads" class="section">
-  <script id="downloads__wellTmpl" type="text/template">
+  <div class="container">
+    <script id="downloads__wellTmpl" type="text/template">
  <!-- using lodash templates here not swig -->
   <div class="downloads__well">
-    <div class="container">
-      <div class="col-md-6">
-        <div class="downloads__well__profile">
-          <img class="downloads__well__profile__icon" src="/images/icons/downloads/<%- cat %>.png" srcset="/images/icons/downloads/<%- cat %>@2x.png 2x">
-          <h4 class="downloads__well__profile__title"><%- cat %></h4>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Model</th>
-              <th>Release</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% jq.each(downloads, function(index, download) { %>
-              <tr>
-                <td><a href="<%- download.link %>"><%- download.title %></a></td>
-                <td></td>
-                <td><a href="<%- download.link %>"><i class="fa fa-download" aria-hidden="true"></i></a></td>
-              </tr>
-            <% }); %>
-          </tbody>
-        </table>
-      </div>
+    <i class="downloads__well__caret fa fa-caret-up fa-lg" aria-hidden="true"></i>
+    <div class="downloads__well__profile">
+      <img class="downloads__well__profile__icon" src="/images/icons/downloads/<%- cat %>.png" srcset="/images/icons/downloads/<%- cat %>@2x.png 2x">
+      <h4 class="downloads__well__profile__title"><%- cat %></h4>
     </div>
+    <table class="table downloads__well__table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Release</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% jq.each(downloads, function(index, download) { %>
+          <tr>
+            <td><a href="<%- download.link %>"><%- download.title %></a></td>
+            <td><a href="<%- download.link %>">resinOS 0.0.1 <i class="fa fa-download" aria-hidden="true"></i></a></td>
+            <td><a href="/archive">Previous releases</a></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
   </div>
 </script>
 
-  <div class="section__header">
-    <h2 class="section__title">Downloads</h2>
-    <p class="lead section__lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend magna vitae diam feugiat, eu eleifend est luctus.</p>
-    <a class="section__link" href="/archive">All versions</a>
+    <div class="section__header">
+      <h2 class="section__title">Downloads</h2>
+      <p class="lead section__lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend magna vitae diam feugiat, eu eleifend est luctus.</p>
+      <a class="section__link" href="/archive">All versions</a>
+    </div>
+    <div class="row downloads__row">
+      
+        <div class="col-md-3">
+          <a class="downloads__category" href="#downloads-rpi" data-cat="rpi" data-downloads="[{&quot;title&quot;:&quot;Raspberrypi-image&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;Raspberrypi2-image&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;Raspberrypi3-image&quot;,&quot;link&quot;:&quot;#&quot;}]">
+            <img class="downloads__category__image" src="/images/icons/downloads/rpi.png" srcset="/images/icons/downloads/rpi@2x.png 2x">
+          </a>
+        </div>
+        
+      
+        <div class="col-md-3">
+          <a class="downloads__category" href="#downloads-beaglebone" data-cat="beaglebone" data-downloads="[{&quot;title&quot;:&quot;Raspberrypi3-image&quot;,&quot;link&quot;:&quot;#&quot;}]">
+            <img class="downloads__category__image" src="/images/icons/downloads/beaglebone.png" srcset="/images/icons/downloads/beaglebone@2x.png 2x">
+          </a>
+        </div>
+        
+      
+        <div class="col-md-3">
+          <a class="downloads__category" href="#downloads-intel" data-cat="intel" data-downloads="[{&quot;title&quot;:&quot;edison-image&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;nuc-image&quot;,&quot;link&quot;:&quot;#&quot;}]">
+            <img class="downloads__category__image" src="/images/icons/downloads/intel.png" srcset="/images/icons/downloads/intel@2x.png 2x">
+          </a>
+        </div>
+        
+      
+        <div class="col-md-3">
+          <a class="downloads__category" href="#downloads-artik" data-cat="artik" data-downloads="[{&quot;title&quot;:&quot;artik-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;artik-10&quot;,&quot;link&quot;:&quot;#&quot;}]">
+            <img class="downloads__category__image" src="/images/icons/downloads/artik.png" srcset="/images/icons/downloads/artik@2x.png 2x">
+          </a>
+        </div>
+         </div><div class="row downloads__row"> 
+      
+        <div class="col-md-3">
+          <a class="downloads__category" href="#downloads-odroid" data-cat="odroid" data-downloads="[{&quot;title&quot;:&quot;odroid-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;odroid-10&quot;,&quot;link&quot;:&quot;#&quot;}]">
+            <img class="downloads__category__image" src="/images/icons/downloads/odroid.png" srcset="/images/icons/downloads/odroid@2x.png 2x">
+          </a>
+        </div>
+        
+      
+        <div class="col-md-3">
+          <a class="downloads__category" href="#downloads-via" data-cat="via" data-downloads="[{&quot;title&quot;:&quot;odroid-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;odroid-10&quot;,&quot;link&quot;:&quot;#&quot;}]">
+            <img class="downloads__category__image" src="/images/icons/downloads/via.png" srcset="/images/icons/downloads/via@2x.png 2x">
+          </a>
+        </div>
+        
+      
+        <div class="col-md-3">
+          <a class="downloads__category" href="#downloads-zynq" data-cat="zynq" data-downloads="[{&quot;title&quot;:&quot;odroid-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;odroid-10&quot;,&quot;link&quot;:&quot;#&quot;}]">
+            <img class="downloads__category__image" src="/images/icons/downloads/zynq.png" srcset="/images/icons/downloads/zynq@2x.png 2x">
+          </a>
+        </div>
+        
+      
+        <div class="col-md-3">
+          <a class="downloads__category" href="#downloads-parallella" data-cat="parallella" data-downloads="[{&quot;title&quot;:&quot;odroid-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;odroid-10&quot;,&quot;link&quot;:&quot;#&quot;}]">
+            <img class="downloads__category__image" src="/images/icons/downloads/parallella.png" srcset="/images/icons/downloads/parallella@2x.png 2x">
+          </a>
+        </div>
+         </div><div class="row downloads__row"> 
+      
   </div>
-  <div class="row container downloads__row">
-    
-      <div class="col-md-3">
-        <a class="downloads__category" href="#downloads-rpi" data-cat="rpi" data-downloads="[{&quot;title&quot;:&quot;Raspberrypi-image&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;Raspberrypi2-image&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;Raspberrypi3-image&quot;,&quot;link&quot;:&quot;#&quot;}]">
-          <img class="downloads__category__image" src="/images/icons/downloads/rpi.png" srcset="/images/icons/downloads/rpi@2x.png 2x">
-        </a>
-      </div>
-      
-    
-      <div class="col-md-3">
-        <a class="downloads__category" href="#downloads-beaglebone" data-cat="beaglebone" data-downloads="[{&quot;title&quot;:&quot;Raspberrypi3-image&quot;,&quot;link&quot;:&quot;#&quot;}]">
-          <img class="downloads__category__image" src="/images/icons/downloads/beaglebone.png" srcset="/images/icons/downloads/beaglebone@2x.png 2x">
-        </a>
-      </div>
-      
-    
-      <div class="col-md-3">
-        <a class="downloads__category" href="#downloads-intel" data-cat="intel" data-downloads="[{&quot;title&quot;:&quot;edison-image&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;nuc-image&quot;,&quot;link&quot;:&quot;#&quot;}]">
-          <img class="downloads__category__image" src="/images/icons/downloads/intel.png" srcset="/images/icons/downloads/intel@2x.png 2x">
-        </a>
-      </div>
-      
-    
-      <div class="col-md-3">
-        <a class="downloads__category" href="#downloads-artik" data-cat="artik" data-downloads="[{&quot;title&quot;:&quot;artik-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;artik-10&quot;,&quot;link&quot;:&quot;#&quot;}]">
-          <img class="downloads__category__image" src="/images/icons/downloads/artik.png" srcset="/images/icons/downloads/artik@2x.png 2x">
-        </a>
-      </div>
-       </div><div class="row container downloads__row"> 
-    
-      <div class="col-md-3">
-        <a class="downloads__category" href="#downloads-odroid" data-cat="odroid" data-downloads="[{&quot;title&quot;:&quot;odroid-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;odroid-10&quot;,&quot;link&quot;:&quot;#&quot;}]">
-          <img class="downloads__category__image" src="/images/icons/downloads/odroid.png" srcset="/images/icons/downloads/odroid@2x.png 2x">
-        </a>
-      </div>
-      
-    
-      <div class="col-md-3">
-        <a class="downloads__category" href="#downloads-via" data-cat="via" data-downloads="[{&quot;title&quot;:&quot;odroid-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;odroid-10&quot;,&quot;link&quot;:&quot;#&quot;}]">
-          <img class="downloads__category__image" src="/images/icons/downloads/via.png" srcset="/images/icons/downloads/via@2x.png 2x">
-        </a>
-      </div>
-      
-    
-      <div class="col-md-3">
-        <a class="downloads__category" href="#downloads-zynq" data-cat="zynq" data-downloads="[{&quot;title&quot;:&quot;odroid-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;odroid-10&quot;,&quot;link&quot;:&quot;#&quot;}]">
-          <img class="downloads__category__image" src="/images/icons/downloads/zynq.png" srcset="/images/icons/downloads/zynq@2x.png 2x">
-        </a>
-      </div>
-      
-    
-      <div class="col-md-3">
-        <a class="downloads__category" href="#downloads-parallella" data-cat="parallella" data-downloads="[{&quot;title&quot;:&quot;odroid-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;odroid-10&quot;,&quot;link&quot;:&quot;#&quot;}]">
-          <img class="downloads__category__image" src="/images/icons/downloads/parallella.png" srcset="/images/icons/downloads/parallella@2x.png 2x">
-        </a>
-      </div>
-       </div><div class="row container downloads__row"> 
-    
 </section>
 
   
@@ -318,7 +315,7 @@
               </span>
               <span class="milestone__meta__item">|</span>
               <span class="milestone__meta__item">
-                 a month ago
+                 2 months ago
               </span>
             </p>
           </div>
