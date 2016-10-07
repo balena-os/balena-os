@@ -13,6 +13,10 @@ module.exports = {
     repo: 'etcher'
   },
   layoutLocals: {
+    repo: {
+      name: 'resinOS',
+      description: 'resinOS is a minimal, production-ready operating system tailored for containers running on embedded devices.'
+    },
     typekitID: 'eic0uah',
     analytics: {
       googleAnalyticsTrackingID: null,

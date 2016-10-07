@@ -10,6 +10,8 @@
 
 .jumbotron__lead {
   @include rem(font-size, 24px);
+  max-width: 80%;
+  margin:auto;
 }
 
 .jumbotron__meta {
