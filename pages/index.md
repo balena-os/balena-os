@@ -1,6 +1,6 @@
 ---
 layout: index.html
-title: The title
+title: home
 ---
 
 # Hello this is the homepage!

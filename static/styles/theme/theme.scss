@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'section';
+@import 'search';
 
 // fixes wierd nav.toggleable floats
 @include media-breakpoint-down(xs) {
@@ -27,6 +28,10 @@
   padding: 5px 6px;
 }
 
-.page {
-  @include rem(padding-top, 150px);
+.page-content {
+  @include rem(padding-top, 115px);
+}
+
+.page-content--home {
+  @include rem(padding-top, 0);
 }

@@ -4,11 +4,12 @@
     <p class="lead section__lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend magna vitae diam feugiat, eu eleifend est luctus.</p>
     <div class="row">
       {% for cat in downloads.categories %}
-        <div class="col-md-3 col-sm-6">
-          <a class="downloads__category" href="/downloads#{{ loop.key }}">
+        <div class="col-md-3">
+          <a class="downloads__category" href="/downloads#{{ loop.key }} data-downloads={{ cat.downloads }}">
             <img class="downloads__category__image" src="/images/icons/downloads/{{ loop.key }}.png" srcset="/images/icons/downloads/{{ loop.key }}@2x.png 2x">
           </a>
         </div>
+        {% if loop.index % 4 == 0 %} </div><div class="row"> {% endif %}
       {% endfor %}
   </div>
 </section>

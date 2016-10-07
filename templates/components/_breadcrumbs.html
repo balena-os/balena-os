@@ -3,6 +3,7 @@
   {% for item in breadcrumbs %}
     <li {% if loop.last %}class="active"{% endif %}>
       {{ item }}
+      {% if not loop.last %} / {% endif %}
     </li>
   {% endfor %}
 </ol>

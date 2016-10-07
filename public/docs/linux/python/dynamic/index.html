@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Doxx Example</title>
+    <title>Etcher - Dynamic page about Linux &amp; Python</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -69,24 +69,25 @@
   </div>
 </nav>
 
-    <section class="section page-content">
+    <section class="section page-content page-content--Dynamic page about Linux &amp; Python">
       
 <div class="docs">
-  <div class="docs__sidebar col-md-3">
-    <div data-spy="affix" data-offset-top="60" data-offset-bottom="200">
-      <div class="search-wrapper">
-        <form action="/search-results">
-  <input name="searchTerm" type="text" class="form-control" placeholder="Search Docs..." value="">
+  <div class="container docs__container">
+    <div class="docs__sidebar col-md-3">
+      <div data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+        <div class="search-wrapper">
+          <form action="/search-results">
+  <input name="searchTerm" type="text" class="form-control search__input" placeholder="Search Docs..." value="">
 </form>
 
-      </div>
-      
+        </div>
+        
 
 
 
 <nav class="docs__navigation">
   
-  <div class="nav-menu">
+  <div class="docs__nav-menu">
     
       <h5 class="">
         <a href="/docs/page1">
@@ -106,12 +107,39 @@
   
 
     
-      <h5 class="">
-        <a href="/linux/nodejs/dynamic">
+      <h5 class="active">
+        <a href="/docs/linux/nodejs/dynamic">
           Dynamic page
         </a>
       </h5>
       
+  
+    <ul class="docs__nav-menu__nav">
+      
+        
+          
+        
+        <li class="active">
+          <a href="/docs/linux/python/dynamic">
+            Dynamic page for Linux &amp; Python
+          </a>
+        </li>
+        
+          <div class="in-page-nav">
+            <ul class="expand nav">
+              
+                <li><a href="#smart-import">Smart import</a></li>
+              
+                <li><a href="#helpers-example">Helpers Example</a></li>
+              
+            </ul>
+          </div>
+        
+        
+  
+
+      
+    </ul>
   
 
     
@@ -119,24 +147,30 @@
 
 </nav>
 
+      </div>
     </div>
-  </div>
 
-  <article class="col-md-9">
-    <div class="docs__header-wrapper">
-      <ol class="breadcrumb">
+    <article class="col-md-9">
+      <div class="docs__header-wrapper">
+        <ol class="breadcrumb">
   
+  
+    <li >
+      Dynamic page
+       / 
+    </li>
   
     <li class="active">
-      Dynamic page about Linux &amp; Python
+      Dynamic page for Linux &amp; Python
+      
     </li>
   
 </ol>
 
-    </div>
-    
-      <div class="dynamic-switch well">
-        
+      </div>
+      
+        <div class="dynamic-switch well">
+          
 
 
 
@@ -211,11 +245,11 @@
   </div>
 </div>
 
-      </div>
-    
-    <section class="page-content">
+        </div>
       
-        <h1 id="dynamic-page-about-linux-python">Dynamic page about Linux &amp; Python</h1>
+      <section class="docs__content">
+        
+          <h1 id="dynamic-page-about-linux-python">Dynamic page about Linux &amp; Python</h1>
 <p>Hey, this is the page about <strong>Linux</strong> and <strong>Python</strong>.</p>
 <h2 id="smart-import">Smart import</h2>
 <p><em>This content is default for every <strong>Python</strong> page</em></p>
@@ -224,9 +258,10 @@
 <p>  <strong>This page <em>is NOT about</em> OSX</strong>.
   This paragraph is rendered using the Handlebars helper.</p>
 
-      
-    </section>
-  </article>
+        
+      </section>
+    </article>
+  </div>
 </div>
 
     </section>

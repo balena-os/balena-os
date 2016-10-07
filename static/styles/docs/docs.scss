@@ -1,13 +1,19 @@
-.docs {
-  margin-top: 115px;
+.docs__navigation {
+  @include rem(padding, 10px);
 }
-.docs__navigation h5 {
-  text-transform: uppercase;
-  font-weight: bold;
+.docs__navigation {
+  h5 {
+    @include rem(padding, 10px);
+    border-bottom: 1px solid $gray-lighter;
+    a {
+      color: $gray-light;
+    }
+  }
 }
 
 .docs__navigation h5.active > a {
-  color: #333;
+  color: $gray-dark;
+  font-weight: bold;
 }
 
 .docs__navigation ul {
@@ -16,8 +22,19 @@
   padding: 0;
 }
 
+.docs__navigation, .in-page-nav {
+  li {
+    .active {
+      color: $gray-dark;
+    }
+    > a {
+      color: $gray-light;
+    }
+  }
+}
+
 .docs__navigation li.active > a {
-  color: #333;
+  color: $gray-dark;
   font-weight: bold;
 }
 
@@ -28,12 +45,35 @@
 }
 
 .breadcrumb {
+  // TODO break this into seperate component sheet
   @include border-radius(0)
+  @include rem(padding, 10px);
+  background: $white;
+  color: $gray-lighter;
+  border-bottom: 1px solid $gray-lighter;
+  li {
+    display: inline-block;
+  }
+  .active {
+    color: $gray-dark;
+  }
 }
 
 .docs__sidebar {
-  padding: 10px;
   // hack do this with js
+  padding: 0;
   min-height: 150vh;
-  background: $gray-light;
+  background: $white;
+  border-right: 1px solid $gray-lighter;
+}
+
+.docs__container {
+  border-left: 1px solid $gray-lighter;
+  border-right: 1px solid $gray-lighter;
+  background: $white;
+  padding: 0;
+}
+
+.docs {
+  background: $gray-lightest;
 }

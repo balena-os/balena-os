@@ -1,6 +1,6 @@
 {% macro navNode(subtree) %}
   {% if subtree.children and subtree|navIsCurrentTree($nav) %}
-    <ul class="nav">
+    <ul class="docs__nav-menu__nav">
       {% for child in subtree.children %}
         {% if child|navIsCurrentPage($nav) %}
           {% set isCurrentLink = true %}
@@ -28,7 +28,7 @@
 {% endmacro %}
 
 {% macro navRoot(subtrees) %}
-  <div class="nav-menu">
+  <div class="docs__nav-menu">
     {% for subtree in subtrees %}
       <h5 class="{% if subtree|navIsCurrentTree($nav) %}active{% endif %}">
         <a href="{{ subtree|navGetLink($nav) }}">
