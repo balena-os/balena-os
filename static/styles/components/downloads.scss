@@ -1,0 +1,49 @@
+$border-width: 1px;
+.downloads__category {
+  border: 1px solid $gray-lighter;
+  @include border-radius(10px);
+  display: block;
+  @include rem(margin-bottom, 50px);
+  text-align: center;
+  max-width: 100%;
+  height: 195px;
+  &:hover {
+    @extend .border-garnish;
+    .downloads__category__image {
+      // top: -1%;
+      width: 82%;
+    }
+  }
+}
+
+.downloads__category__image {
+  position: relative;
+  width: 80%;
+  @include css3-prefix('transition',  "all 0.2s ease-in-out 0s");
+
+}
+
+.border-garnish {
+  // TODO clean up
+  border:none;
+  border-top: $border-width solid $gradient-from;
+  border-bottom: $border-width solid $gradient-to;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($gradient-from), to($gradient-to));
+   background-image: -webkit-linear-gradient($gradient-from, $gradient-to);
+   background-image:
+       -moz-linear-gradient($gradient-from, $gradient-to),
+       -moz-linear-gradient($gradient-from, $gradient-to)
+   ;
+   background-image:
+       -o-linear-gradient($gradient-from, $gradient-to),
+       -o-linear-gradient($gradient-from, $gradient-to)
+   ;
+   background-image:
+       linear-gradient($gradient-from, $gradient-to),
+       linear-gradient($gradient-from, $gradient-to)
+   ;
+   -moz-background-size:$border-width 100%;
+   background-size:1px 100%;
+   background-position:0 0, 100% 0;
+   background-repeat:no-repeat;
+}
