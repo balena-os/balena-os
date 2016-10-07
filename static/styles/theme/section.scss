@@ -27,7 +27,6 @@
 }
 
 .section__title {
-  text-align: center;
   font-weight: 300;
 }
 
@@ -37,9 +36,12 @@
 }
 
 .section__lead {
-  text-align: center;
   width: 80%;
   margin: auto;
+}
+
+.section__header {
+  text-align: center;
   @include rem(margin-bottom, 67px);
 }
 

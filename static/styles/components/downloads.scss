@@ -3,23 +3,40 @@ $border-width: 1px;
   border: 1px solid $gray-lighter;
   @include border-radius(10px);
   display: block;
-  @include rem(margin-bottom, 50px);
+  @include rem(margin-top, 50px);
   text-align: center;
   max-width: 100%;
   &:hover {
     @extend .border-garnish;
     .downloads__category__image {
       // top: -1%;
-      width: 82%;
+      // width: 82%;
     }
   }
+}
+
+.downloads__row {
+  margin: auto;
 }
 
 .downloads__category__image {
   position: relative;
   width: 80%;
   @include css3-prefix('transition',  "all 0.2s ease-in-out 0s");
+}
 
+.downloads__well {
+  background: $gray-dark;
+  color: $white;
+  @include rem(padding, 50px);
+}
+
+.downloads__well__profile {
+  text-align: center;
+}
+
+.downloads__well__profile__image {
+  width: 60%;
 }
 
 .border-garnish {

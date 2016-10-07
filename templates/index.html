@@ -6,14 +6,14 @@
   {% if features %}
     {% include "components/_features.html" %}
   {% endif %}
+  {% if downloads %}
+    {% include "components/downloads/_categories.html" %}
+  {% endif %}
   {% if milestones %}
     {% include "components/_milestones.html" %}
   {% endif %}
   {% if FAQs %}
     {% include "components/_FAQs.html" %}
   {% endif %}
-  {% if downloads %}
-    {% include "components/downloads/_categories.html" %}
-  {% endif %}
-  {{ contents|safe }}
+  <!-- {{ contents|safe }} -->
 {% endblock %}

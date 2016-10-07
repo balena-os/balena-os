@@ -28,6 +28,10 @@
   margin-top: 10px;
 }
 
+.nav-link {
+  @extend .link-decorator;
+}
+
 .nav__claim {
   will-change: transform;
   max-height: 0;
