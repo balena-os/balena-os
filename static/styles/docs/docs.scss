@@ -33,6 +33,7 @@
 
 .docs__sidebar {
   padding: 10px;
-  min-height: 100vh;
+  // hack do this with js
+  min-height: 150vh;
   background: $gray-light;
 }

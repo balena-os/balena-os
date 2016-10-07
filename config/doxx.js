@@ -53,31 +53,90 @@ module.exports = {
         description: "Open Source and free"
       }
     ],
-    deviceFamilys: [
-      {
-        title: "Raspberrypi",
-        description: "My oh my",
-        link: "#",
-        image: "icon"
-      },
-      {
-        title: "beaglebone",
-        description: "My oh my",
-        link: "#",
-        image: "icon"
-      },
-      {
-        title: "intel",
-        description: "Features I got features!",
-        link: "#",
-        image: "icon"
-      },
-      {
-        title: "artik",
-        description: "Features I got features!",
-        link: "#",
-        image: "icon"
-      },
-    ]
+    downloads: {
+      version: '0.0.1',
+      fams: {
+        raspberrypi: [
+          {
+            title: "Raspberrypi-image",
+            link: "#"
+          },
+          {
+            title: "Raspberrypi2-image",
+            link: "#"
+          },
+          {
+            title: "Raspberrypi3-image",
+            link: "#"
+          }
+        ],
+        beaglebone: [
+          {
+            title: "Raspberrypi3-image",
+            link: "#"
+          }
+        ],
+        intel: [
+          {
+            title: "edison-image",
+            link: "#"
+          },
+          {
+            title: "nuc-image",
+            link: "#"
+          }
+        ],
+        artik: [
+          {
+            title: "artik-5",
+            link: "#"
+          },
+          {
+            title: "artik-10",
+            link: "#"
+          }
+        ],
+        odroid: [
+          {
+            title: "odroid-5",
+            link: "#"
+          },
+          {
+            title: "odroid-10",
+            link: "#"
+          }
+        ],
+        via: [
+          {
+            title: "odroid-5",
+            link: "#"
+          },
+          {
+            title: "odroid-10",
+            link: "#"
+          }
+        ],
+        zynq: [
+          {
+            title: "odroid-5",
+            link: "#"
+          },
+          {
+            title: "odroid-10",
+            link: "#"
+          }
+        ],
+        parallella: [
+          {
+            title: "odroid-5",
+            link: "#"
+          },
+          {
+            title: "odroid-10",
+            link: "#"
+          }
+        ]
+      }
+    }
   }
 }

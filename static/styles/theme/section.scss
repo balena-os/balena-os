@@ -8,7 +8,7 @@
 }
 
 .section--inv {
-  hr {
+  .section__hr {
     border-color: $white;
   }
   a {
@@ -20,17 +20,32 @@
 
 .section__category {
   text-align: center;
+  text-transform: uppercase;
+  color: $gray-light;
+  @include rem(font-size, 14px);
+  @include rem(letter-spacing, 3px);
 }
 
 .section__title {
   text-align: center;
+  font-weight: 300;
 }
 
 .section__icon {
-  margin: 20px auto;
+  margin: 1.25rem auto;
   display: block;
 }
 
 .section__lead {
   text-align: center;
+  width: 80%;
+  margin: auto;
+  @include rem(margin-bottom, 67px);
+}
+
+.section__hr {
+  // border: 1px solid lighten($gray-lighter, 15%);
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(151,151,151, 0), rgba(151,151,151, 0.75), rgba(151,151,151, 0));
 }

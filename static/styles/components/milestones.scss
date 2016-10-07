@@ -2,16 +2,15 @@
   border: 1px solid $gray-lighter;
   padding: 5%;
   @include border-radius(5px);
+  @include rem(margin-bottom, 100px);
 }
 
 .milestones__container__title {
-  margin-bottom: 50px;
-  text-align: center;
-  color: $gray;
-  text-transform: uppercase;
+  @extend .section__category;
   i {
-    margin-right: 5px;
+    letter-spacing: 0;
   }
+  margin-bottom: 50px;
 }
 
 .milestone {

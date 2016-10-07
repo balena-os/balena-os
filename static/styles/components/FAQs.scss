@@ -18,6 +18,7 @@
     text-decoration: none;
   }
   h2 {
+    @include rem(font-size, 22px);
     margin-bottom: 0;
   }
 }
@@ -29,8 +30,7 @@
     top: -10px;
   }
   .fa-plus-circle, .fa-minus-circle {
-    top: 10px;
-    font-size: 1.5rem;
-    color: $gray-lighter;
+    font-size: 1.6rem;
+    color: lighten($gray-lighter, 10%);
   }
 }
