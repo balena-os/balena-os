@@ -12,8 +12,8 @@
   {% if FAQs %}
     {% include "components/_FAQs.html" %}
   {% endif %}
-  {% if deviceFamilys %}
-    {% include "components/downloads/_downloads.html" %}
+  {% if downloads %}
+    {% include "components/downloads/_categories.html" %}
   {% endif %}
   {{ contents|safe }}
 {% endblock %}

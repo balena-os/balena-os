@@ -1,17 +1,21 @@
 {% extends "default.html" %}
 
 {% block "contents" %}
-  <h1>Search results:</h1>
+  <div class="page">
+    <div class="container">
+      <h1>Search results:</h1>
 
-  {% if searchResults and !searchResults.length %}
-    <div class="alert alert-info">No results found</div>
-  {% else %}
-    <ul>
-      {% for result in searchResults %}
-        <li>
-          <a href="{{ result.link }}">{{ result.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+      {% if searchResults and !searchResults.length %}
+        <div class="alert alert-info">No results found</div>
+      {% else %}
+        <ul>
+          {% for result in searchResults %}
+            <li>
+              <a href="{{ result.link }}">{{ result.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
 {% endblock %}

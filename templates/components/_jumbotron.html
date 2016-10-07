@@ -4,6 +4,8 @@
     <p class="lead jumbotron__lead">{{ repo.description }}</p>
     {% include "_social.html" %}
     <a href="#" class="btn btn-success">Try {{ repo.name }}</a>
-    <p class="lead jumbotron__meta">metadata goes here</p>
+    <p class="lead jumbotron__meta">
+      Latest version {{ downloads.version }} | metadata goes here
+    </p>
   </div>
 </section>

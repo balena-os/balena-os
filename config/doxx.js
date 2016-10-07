@@ -55,8 +55,8 @@ module.exports = {
     ],
     downloads: {
       version: '0.0.1',
-      fams: {
-        raspberrypi: [
+      categories: {
+        rpi: [
           {
             title: "Raspberrypi-image",
             link: "#"
