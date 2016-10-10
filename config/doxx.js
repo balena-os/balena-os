@@ -21,7 +21,7 @@ module.exports = {
     analytics: {
       googleAnalyticsTrackingID: null,
       mixpanelToken: '9d6bc43e4d64eb3bd64922c969e2955f',
-      gosquaredToken: null
+      gosquaredToken: 'GSN-588929-F'
     },
     company: { title: 'Resin.io', link: 'https://resin.io' },
     menuLinks: [
