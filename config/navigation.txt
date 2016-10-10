@@ -1,5 +1,6 @@
 Getting Started
   Getting Started ~ Getting Started on {{ $device.name }}[/docs/$device/gettingstarted]
+Architecture[/docs/architecture]
 page1[/docs/page1]
   [/docs/page1.1]
 page2[/docs/page2]

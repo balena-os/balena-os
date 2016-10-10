@@ -124,6 +124,8 @@
               
                 <li><a href="#going-further">Going Further</a></li>
               
+                <li><a href="#creating-a-project-from-scratch">Creating a Project from Scratch</a></li>
+              
             </ul>
           </div>
         
@@ -132,6 +134,15 @@
 
       
     </ul>
+  
+
+    
+      <h5 class="">
+        <a href="/docs/architecture">
+          Architecture
+        </a>
+      </h5>
+      
   
 
     
@@ -210,7 +221,7 @@
       <option
         value="raspberrypi"
         >
-        Raspberry Pi 1 or ZERO
+        Raspberry Pi 1
       </option>
     
       <option
@@ -259,20 +270,20 @@
 <h2 id="download-an-image">Download an Image</h2>
 <p>To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to resinos.io/downloads and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the <a href="#/docs/supported-boards">Supported Boards</a> section for more details.</p>
 <p>Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!</p>
-<pre><code>$ wget files.resin.io/images/raspberrypi3/2.0.0/resinos-dev.img -O ~/Downloads/resinos-dev.img
+<pre><code>$ wget files.resin.io/images/raspberrypi3/2.0.0/resinos-dev.img
 </code></pre><h2 id="install-rdt">Install rdt</h2>
 <p><code>rdt</code> or Resin Device Toolbox, is a collection of utilities which helps us to develop resinOS based application containers. It’s not strictly necessary, but makes life so so much sweeter, but if you like doing things the hard way, skip over to the next section.</p>
 <p>Currently <code>rdt</code> is a node.js based command line tool which requires that our system has the following dependencies installed and in our path:</p>
 <ul>
-<li><a href="">node.js 6.x</a></li>
-<li><a href="">npm package manager</a></li>
-<li><a href="">rsync</a></li>
-<li><a href="">ssh</a></li>
+<li><a href="https://nodejs.org/en/">node.js 6.x</a></li>
+<li><a href="https://www.npmjs.com/">npm package manager</a></li>
+<li><a href="https://download.samba.org/pub/rsync/rsync.html">rsync</a></li>
+<li><a href="http://www.openssh.com/">ssh</a></li>
 </ul>
 <p>Once we have those setup we can install <code>rdt</code> using npm:</p>
 <pre><code>$ npm install -g resin-device-tool
 </code></pre><h2 id="configure-the-image">Configure the Image</h2>
-<p>To allow resinOS images to be easily configurable before boot, some key config files are added to boot partition. In this step we will use <code>rdt</code> to configure the network, set our hostname to <code>resin</code> and disable persistent logging, because we don’t want to kill our poor SD card with excessive writes.</p>
+<p>To allow resinOS images to be easily configurable before boot, some key config files are added to boot partition. In this step we will use <code>rdt</code> to configure the network, set our hostname to <code>resin</code> and disable persistent logging, because we don’t want to kill our poor flash storage with excessive writes.</p>
 <pre><code>$ rdt configure ~/Downloads/resinos-dev.img
 ? Network SSID super_wifi
 ? Network Key super secure password
@@ -308,32 +319,31 @@ method=auto
 addr-gen-mode=stable-privacy
 method=auto
 </code></pre><h2 id="get-the-device-up-and-running">Get the Device Up and Running</h2>
-<p>Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step <code>rdt</code> provides a handy flashing utility, you can however flash this image using etcher.io or <code>dd</code> if you must. 
-Flash SD card
-To get flashing, just point the <code>rdt flash</code> command to the image we just downloaded and follow the prompts. If you hate prompts, <code>rdt</code> also allows you to skip them, check the <a href="#rdt-docs"><code>rdt</code> docs</a> on how to do this.</p>
+<p>Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step <code>rdt</code> provides a handy flashing utility, you can however flash this image using etcher.io or <code>dd</code> if you must. </p>
+<h3 id="flash-sd-card">Flash SD card</h3>
+<p>To get flashing, just point the <code>rdt flash</code> command to the image we just downloaded and follow the prompts. If you hate prompts, <code>rdt</code> also allows you to skip them, check the <a href="#rdt-docs"><code>rdt</code> docs</a> on how to do this.</p>
 <p><strong>NOTE:</strong> <code>rdt flash</code> requires administrative privileges because it needs to access the SD card.</p>
 <pre><code>$ sudo rdt flash ~/Downloads/resinos-dev.img
 Password:
 x No available drives were detected, plug one in!
-</code></pre><p>Once you plug in your SD card or USB drive, <code>rdt</code> should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as <code>rdt</code> will complete write over the entire drive.</p>
+</code></pre><p>Once you plug in your SD card, <code>rdt</code> should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as <code>rdt</code> will complete write over the entire drive.</p>
 <pre><code>$ sudo rdt flash ~/Downloads/resinos-dev.img 
 Password:
 ? Select drive (Use arrow keys)
 ❯ /dev/disk3 (7.9 GB) - STORAGE DEVICE
-</code></pre><p>Once you are happy you have selected the correct drive, hit enter and wait while your new OS is written to the drive. It should only take about 3 minutes, depending on the quality of your drive, so this is a great time to go grab a caffeinated beverage.</p>
+</code></pre><p>Once you are happy you have selected the correct drive, hit enter and wait while your new OS is written to the drive. 
+It should only take about 3 minutes, depending on the quality of your drive, so this is a great time to go grab a caffeinated beverage.</p>
 <pre><code>$ sudo rdt flash ~/Downloads/resinos-dev.img
 ? Select drive /dev/disk3 (7.9 GB) - STORAGE DEVICE
 ? This will erase the selected drive. Are you sure? Yes
 Flashing [========================] 100% eta 0s  
-Validating [========================] 100% eta 0s 
-### Boot the device
-Insert the SD card into the Raspberry Pi 3 and connect either the ethernet cable if you want to connect via ethernet, otherwise the device will try connect via wifi. 
-Now power up the Raspberry Pi 3 by inserting the micro USB cable.
-
-![insert SD](/images/docs/gifs/insert-sd.gif)
-
-__Note:__ Class 4 SD cards can take up to 3 times longer so it&#39;s well worth investing in the fastest card you can find.
-</code></pre><p>After about 30 seconds your device should be up and connected to your local network. To check this, let’s try ping the device.</p>
+Validating [========================] 100% eta 0s
+</code></pre><h3 id="boot-the-device">Boot the device</h3>
+<p>Insert the SD card into the Raspberry Pi 3 and connect either the ethernet cable if you want to connect via ethernet, otherwise the device will try connect via wifi. 
+Now power up the Raspberry Pi 3 by inserting the micro USB cable.</p>
+<p><img src="/images/docs/gifs/insert-sd.gif" alt="insert SD"></p>
+<p><strong>Note:</strong> Class 4 SD cards can take up to 3 times longer so it&#39;s well worth investing in the fastest card you can find.</p>
+<p>After about 30 seconds your device should be up and connected to your local network. To check this, let’s try ping the device.</p>
 <pre><code>$ ping resin.local
 PING 192.168.1.111 (192.168.1.111): 56 data bytes
 64 bytes from 192.168.1.111: icmp_seq=0 ttl=64 time=103.674 ms
@@ -390,12 +400,139 @@ root@resin:~# docker exec -it myapp bash
 </code></pre><h2 id="going-further">Going Further</h2>
 <h3 id="advanced-settings">Advanced Settings</h3>
 <p>Either mount the SD card and run:</p>
-<pre><code>$ rdt configure /path/to/SD-card
+<pre><code>$ rdt configure /path/to/drive
 </code></pre><p>And select <code>y</code> when asked if you want to add advanced settings.</p>
-<p>Alternatevely you can add <code>“persistentLogging”: true</code> to <code>config.json</code> in your boot partition of the SD card </p>
+<p>Alternatevely you can add <code>“persistentLogging”: true</code> to <code>config.json</code> in your boot partition of the SD card. </p>
 <p>To Enable persistent logs in a running device, add <code>“persistentLogging”: true</code> to <code>/mnt/boot/config.json</code> and reboot.</p>
 <p>The journal can be found at  <code>/var/log/journal/</code> which is bind mounted to <code>root-overlay/var/log/journal</code> in the <code>resin-conf</code> partition. 
 When logging is not persistent, the logs can be found at <code>/run/log/journal/</code> and this log is volatile so you will loose all logs when you power the device down.</p>
+<h2 id="creating-a-project-from-scratch">Creating a Project from Scratch</h2>
+<p>Alright! So we have an awesome container machine up and running on our network. So let’s start pushing some application containers onto it. In this section we will do a quick walk through of setting up a dockerfile and make a simple little node.js webserver.</p>
+<p>To get started, let’s create a new project directory called “myapp” and create a new file called <code>Dockerfile</code>. </p>
+<pre><code>$ mkdir -p myapp &amp;&amp; touch Dockerfile
+</code></pre><p>Now we will create a minimal node.js container based on the slim <a href="link-to-alpine">Alpine Linux distro</a>. We do this by adding the following lines to our Dockerfile.</p>
+<pre><code class="lang-Dockerfile">FROM resin/raspberrypi3-alpine-node:slim
+CMD [“cat”, “/etc/os-release”]
+</code></pre>
+<p>The <code>FROM</code> tells docker what our container will be based on. In this case an Alpine Linux userspace with just the bare essentials needed for the node.js runtime. The <code>CMD</code> just defines what our container runs on startup. In this case, it’s not very exciting yet.</p>
+<p>Now to get our application running on our device we can use the <code>rdt push</code> functionality.</p>
+<pre><code class="lang-bash">$ rdt push --source .
+* Building..
+- Stopping and Removing any previous &#39;myapp&#39; container
+- Removing any existing container images for &#39;myapp&#39;
+- Building new &#39;myapp&#39; image
+Step 1 : FROM resin/raspberrypi3-alpine-node:slim
+Pulling from resin/raspberrypi3-alpine-node
+Pulling fs layer
+Verifying Checksum=============================================&gt;]     32 B/32 B7 MB
+Download complete
+Verifying Checksum=============================================&gt;] 1.987 MB/1.987 MB
+Pull complete=================================================&gt;]    12 MB/12 MB
+Pull complete
+Digest: sha256:410a5add3aa281d97afea1ae4fcdbec203c69ea34faea8d84349456c211f33a3
+Status: Downloaded newer image for resin/raspberrypi3-alpine-node:slim
+ ---&gt; bf37b6350e63
+Step 2 : CMD [“cat”, “/etc/os-release”]
+ ---&gt; Running in a376f4a781d5
+ ---&gt; a3c2c42b1212
+Removing intermediate container a376f4a781d5
+Successfully built a3c2c42b1212
+- Creating &#39;myapp&#39; container
+- Starting &#39;myapp&#39; container
+
+resin push completed successfully!
+</code></pre>
+<p>This command will discover your resinOS-dev device on the network and start a build of whatever you have in the <code>--source</code> directory. In the example above, we have just told it to build from the root of the directory we are in, in this case <code>myapp</code>.</p>
+<p>A number of things have happened in this step, so let’s pause here and dig in a little more. When we first run <code>rdt push</code> we are asked to define a name for our app and after that, it starts a docker build on your device. At the same time, <code>rdt</code> has added a file to our project called <code>.resin-sync.yml</code> which stores all the default for <code>rdt</code>. Let’s have a quick look at that:</p>
+<pre><code>local_resinos:
+  app-name: myapp
+  build-triggers:
+    - Dockerfile: 6275495dc9620c3c74aa5a25ef29bbb109fbcb4e46de941b14235aeea02cc184
+</code></pre><p>We can see that for our local resinOS device we have an app called “myapp” which will map over to a docker image and container on our device. The next interesting section is build-triggers. This is a list of files and their hashes, which will result in a docker build. In our case it’s just the <code>Dockerfile</code>, so when we change things here, <code>rdt</code> will rebuild our app. This will be important a bit later.</p>
+<p>So now that we are building, let’s start adding some actual code! We will just add <code>main.js</code> file in the root of our <code>myapp</code> directory.</p>
+<pre><code class="lang-javacript">//main.js
+console.log(&quot;Hey… I’m a node.js app running in a container!!&quot;);
+</code></pre>
+<p>We then make sure our Dockerfile copies this source file into our container context by replacing our current <code>CMD [“cat”,”/etc/os-release”]</code> in our Dockerfile with the following.</p>
+<pre><code class="lang-Dockerfile">FROM resin/raspberrypi3-alpine-node:slim
+WORKDIR /usr/src/app
+COPY . .
+CMD [&quot;node&quot;, &quot;main.js&quot;]
+</code></pre>
+<p>This puts all the contents of our <code>myapp</code> directory into <code>/usr/src/app</code> in our running container and says we should start main.js when the container starts.</p>
+<p>Alright, so we have a simple javascript container, but that’s pretty boring, let’s add some dependencies and complexity.  To add dependencies in node.js we need a package.json, the easiest way to whip up one is to just run <code>npm init</code> in the root of our <code>myapp</code> directory. After a nice little interactive dialog we have the following <code>package.json</code> in directory.</p>
+<pre><code class="lang-json">{
+  &quot;name&quot;: &quot;myapp&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;a simple hello world webserver&quot;,
+  &quot;main&quot;: &quot;main.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;no tests yet\&quot;&quot;
+  },
+  &quot;repository&quot;: {
+    &quot;type&quot;: &quot;git&quot;,
+    &quot;url&quot;: &quot;none&quot;
+  },
+  &quot;author&quot;: &quot;Shaun Mulligan &lt;shaun@resin.io&gt;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;
+}
+</code></pre>
+<p>Now it’s time to add some dependencies. For our little webserver, we will use the popular expressjs module. We can add it to the <code>package.json</code> after the <code>&quot;license&quot;: &quot;ISC&quot;</code>, so it now looks like this:</p>
+<pre><code class="lang-json">{
+  &quot;name&quot;: &quot;myapp&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;a simple hello world webserver&quot;,
+  &quot;main&quot;: &quot;main.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \&quot;no tests yet\&quot;&quot;
+  },
+  &quot;repository&quot;: {
+    &quot;type&quot;: &quot;git&quot;,
+    &quot;url&quot;: &quot;none&quot;
+  },
+  &quot;author&quot;: &quot;Shaun Mulligan &lt;shaun@resin.io&gt;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;express&quot;: &quot;^4.14.0&quot;
+  }
+}
+</code></pre>
+<p>Now all we need to do is add a few more lines of javacript to our main.js and we are off to the races.</p>
+<pre><code class="lang-javacript">//main.js
+
+var express = require(&#39;express&#39;);
+var app = express();
+
+// reply to request with &quot;Hello World!&quot;
+app.get(&#39;/&#39;, function (req, res) {
+  res.send(&quot;Hello World, I&#39;m a container running on resinOS!&quot;);
+});
+
+//start a server on port 80 and log its start to our console
+var server = app.listen(80, function () {
+
+  var port = server.address().port;
+  console.log(&quot;Hey… I’m a node.js server running in a container and listening on port: &quot;, port);
+});
+</code></pre>
+<p>Great, so now we are almost ready to go, but we want to make sure anytime we add a dependency to our <code>package.json</code> that we rebuild the container and install those dependencies. So to do this we need two things.</p>
+<p>1.) We need to add <code>package.json</code> to our build triggers list, with an empty hash, like this:</p>
+<pre><code>local_resinos:
+  app-name: myapp
+  build-triggers:
+    - Dockerfile: 1327b0f9875d5c4bf7f2f36fad384c8481a00396830acd33c0af0e575648fe91
+    - package.json:
+</code></pre><p>And 2.) We then need to run a <code>npm install</code> in our build, so we add a few lines to our Dockerfile.</p>
+<pre><code>FROM resin/raspberrypi3-alpine-node:slim
+WORKDIR /usr/src/app
+COPY package.json package.json
+RUN npm install
+COPY . .
+CMD [&quot;node&quot;, &quot;main.js&quot;]
+</code></pre><p>We can now deploy our new webserver container again with <code>rdt</code>:</p>
+<pre><code class="lang-bash">$ rdt push --source .
+</code></pre>
+<p>You should now be able to point your web browser on your laptop to the IP address of your device and see the &quot;Hello, World!&quot; message.</p>
 
         
       </section>
