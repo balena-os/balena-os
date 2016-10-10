@@ -9,8 +9,8 @@
     <div class="row downloads__row">
       {% for cat in downloads.categories %}
         <div class="col-md-3">
-          <a class="downloads__category" href="#downloads-{{ loop.key }}" data-cat="{{ loop.key }}" data-downloads="{{ cat|json }}">
-            <img class="downloads__category__image" src="/images/icons/downloads/{{ loop.key }}.png" srcset="/images/icons/downloads/{{ loop.key }}@2x.png 2x">
+          <a class="downloads__category" href="#downloads-{{ cat.title|replace(' ', '', 'g')|lower }}" data-cat="{{ cat|json }}">
+            <img class="downloads__category__image" src="/images/icons/downloads/{{ cat.title|replace(' ', '', 'g')|lower }}.png" srcset="/images/icons/downloads/{{ cat.title|replace(' ', '', 'g')|lower  }}@2x.png 2x">
           </a>
         </div>
         {% if loop.index % 4 == 0 %} </div><div class="row downloads__row"> {% endif %}

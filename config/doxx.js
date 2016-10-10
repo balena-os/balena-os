@@ -59,88 +59,112 @@ module.exports = {
     ],
     downloads: {
       version: '0.0.1',
-      categories: {
-        rpi: [
-          {
-            title: "Raspberrypi-image",
-            link: "#"
-          },
-          {
-            title: "Raspberrypi2-image",
-            link: "#"
-          },
-          {
-            title: "Raspberrypi3-image",
-            link: "#"
-          }
-        ],
-        beaglebone: [
-          {
-            title: "Raspberrypi3-image",
-            link: "#"
-          }
-        ],
-        intel: [
-          {
-            title: "edison-image",
-            link: "#"
-          },
-          {
-            title: "nuc-image",
-            link: "#"
-          }
-        ],
-        artik: [
-          {
-            title: "artik-5",
-            link: "#"
-          },
-          {
-            title: "artik-10",
-            link: "#"
-          }
-        ],
-        odroid: [
-          {
-            title: "odroid-5",
-            link: "#"
-          },
-          {
-            title: "odroid-10",
-            link: "#"
-          }
-        ],
-        via: [
-          {
-            title: "odroid-5",
-            link: "#"
-          },
-          {
-            title: "odroid-10",
-            link: "#"
-          }
-        ],
-        zynq: [
-          {
-            title: "odroid-5",
-            link: "#"
-          },
-          {
-            title: "odroid-10",
-            link: "#"
-          }
-        ],
-        parallella: [
-          {
-            title: "odroid-5",
-            link: "#"
-          },
-          {
-            title: "odroid-10",
-            link: "#"
-          }
-        ]
-      }
+      categories: [
+        {
+          title: "Raspberry Pi",
+          links:[
+            {
+              title: "Raspberrypi-image",
+              link: "#"
+            },
+            {
+              title: "Raspberrypi2-image",
+              link: "#"
+            },
+            {
+              title: "Raspberrypi3-image",
+              link: "#"
+            }
+          ],
+        },
+        {
+          title: "Beagle Bone",
+          links:[
+            {
+              title: "Raspberrypi3-image",
+              link: "#"
+            }
+          ],
+        },
+        {
+          title: "Intel",
+          links: [
+            {
+              title: "edison-image",
+              link: "#"
+            },
+            {
+              title: "nuc-image",
+              link: "#"
+            }
+          ],
+        },
+        {
+          title: "Artik",
+          links: [
+            {
+              title: "artik-5",
+              link: "#"
+            },
+            {
+              title: "artik-10",
+              link: "#"
+            }
+          ],
+        },
+        {
+          title: "Odroid",
+          links: [
+            {
+              title: "odroid-5",
+              link: "#"
+            },
+            {
+              title: "ordoid-10",
+              link: "#"
+            }
+          ],
+        },
+        {
+          title: "Via",
+          links: [
+            {
+              title: "via-5",
+              link: "#"
+            },
+            {
+              title: "via-10",
+              link: "#"
+            }
+          ],
+        },
+        {
+          title: "Zynq",
+          links: [
+            {
+              title: "zync-5",
+              link: "#"
+            },
+            {
+              title: "zync-10",
+              link: "#"
+            }
+          ],
+        },
+        {
+          title: "parallella",
+          links: [
+            {
+              title: "parallella-5",
+              link: "#"
+            },
+            {
+              title: "parallella-10",
+              link: "#"
+            }
+          ],
+        }
+      ]
     }
   }
 }

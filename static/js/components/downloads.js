@@ -6,8 +6,9 @@ var caretOffsetRef = null
 
 if ($('#downloads').length) {
   $(".downloads__category").click(function(){
-    var downloads = $(this).data('downloads')
     var cat = $(this).data('cat')
+    var catId = cat.title.replace(/ /g, '').toLowerCase()
+    console.log(cat )
     if ($('.downloads__well')) {
       $('.downloads__well').remove()
       $('.downloads__category--active').removeClass('downloads__category--active')
@@ -20,11 +21,11 @@ if ($('#downloads').length) {
       var container = $(this).closest('.downloads__row')
     }
 
-    if (cat != catRef) {
+    if (catId != catRef) {
       $(this).addClass('downloads__category--active')
-      $(compiled({ 'cat': cat, 'downloads': downloads })).insertAfter( container )
+      $(compiled({ 'catId': catId,'catTitle': cat.title, 'downloads': cat.links })).insertAfter( container )
       // keep a ref so we can toggle if already open
-      catRef = cat
+      catRef = catId
     } else {
       // reset if it was a close event
       $(this).removeClass('downloads__category--active')
