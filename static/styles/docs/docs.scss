@@ -77,3 +77,112 @@
 .docs {
   background: $gray-lightest;
 }
+
+.page-content code {
+  color:#f04949;
+  background: #ffefef;
+}
+
+.page-content pre {
+  background: #343434;
+  color: white;
+  border: none;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+.page-content pre code {
+  color: inherit;
+  background: transparent;
+}
+
+.alert {
+  border-radius: 3px;
+  font-size: 15px;
+  padding: 20px 30px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.078);
+  margin-bottom: 50px;
+}
+
+.alert p {
+  margin: 0;
+  padding: 0;
+}
+
+.alert-note {
+  background: #F6F6F8;
+  /*/background-image: url('/img/note-bg.png');*/
+  background-repeat: repeat-x;
+  background-position: top left;
+  color: #a6a9ae;
+  border-color: #D4D7DA;
+}
+
+.alert-warning {
+  color: #E4B400;
+  /*background-image: url('/img/warning-bg.png');*/
+  background-repeat: no-repeat;
+  background-position: 104% 19%;
+  background-color: #FFFCDE;
+  border-color: #F8C400;
+}
+
+.colorbox-img-wrappper {
+  outline: none!important;
+}
+
+.hash {
+  display: none;
+}
+
+h2:hover .hash, h3:hover .hash, h4:hover .hash, h5:hover .hash, h6:hover .hash {
+  display: inline-block;
+}
+
+.headroom {
+  top: 0;
+  transition: all .3s ease-in-out;
+}
+
+/* dynamic-switch */
+.dynamic-switch {
+  // background: #545252;
+  // color: white;
+}
+
+.dynamic-switch a {
+  color: #429ece;
+}
+
+.dynamic-switch .dynamic-switch__append {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.dynamic-switch__form {
+  font-weight: bold;
+}
+
+.dynamic-switch__select,
+.form-group .bootstrap-select.dynamic-switch__select,
+.form-horizontal .bootstrap-select.dynamic-switch__select,
+.form-inline .bootstrap-select.dynamic-switch__select {
+  width: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media (max-width: 767px) {
+  .dynamic-switch__select,
+  .form-group .bootstrap-select.dynamic-switch__select,
+  .form-horizontal .bootstrap-select.dynamic-switch__select,
+  .form-inline .bootstrap-select.dynamic-switch__select {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.dynamic-switch__select__icon {
+  display: inline-block;
+  height: 20px;
+}
