@@ -32,51 +32,51 @@ exports.getRepo = function() {
       repo: {
         name: data.name,
         description: data.description,
-        url: data.url
+        link: data.html_url
       }
     })
   });
 };
 
-exports.getFAQs = function() {
-  return github.repos.getContent({
-    repo: ghConfig.repo,
-    user: ghConfig.user,
-    path: "SUPPORT.md"
-  }).then(function(data) {
-    return github.misc.renderMarkdown({
-      "text": new Buffer(data.content.toString(), 'base64').toString('ascii')
-    })
-  }).then(function(data) {
-    return {
-      FAQs: data.data
-    }
-  })
-};
+// exports.getFAQs = function() {
+//   return github.repos.getContent({
+//     repo: ghConfig.repo,
+//     user: ghConfig.user,
+//     path: "SUPPORT.md"
+//   }).then(function(data) {
+//     return github.misc.renderMarkdown({
+//       "text": new Buffer(data.content.toString(), 'base64').toString('ascii')
+//     })
+//   }).then(function(data) {
+//     return {
+//       FAQs: data.data
+//     }
+//   })
+// };
 
-exports.getDocs = function() {
-  function downloadSave(content) {
-    var file = fs.createWriteStream('./pages/docs/' + content.name);
-    var request = https.get(content.download_url, function(response) {
-      response.pipe(file);
-    }).on('error', function(err) { // Handle errors
-      fs.unlink('./pages/docs/' + file.name); // Delete the file async. (But we don't check the result)
-      throw err
-    });
-  }
-
-  return github.repos.getContent({
-    repo: ghConfig.repo,
-    user: ghConfig.user,
-    path: "docs"
-    }).then(function(data) {
-      // only repull docs if var is set
-      if (process.env.DOCS) {
-        _.map(data, downloadSave)
-      }
-      return
-  });
-};
+// exports.getDocs = function() {
+//   function downloadSave(content) {
+//     var file = fs.createWriteStream('./pages/docs/' + content.name);
+//     var request = https.get(content.download_url, function(response) {
+//       response.pipe(file);
+//     }).on('error', function(err) { // Handle errors
+//       fs.unlink('./pages/docs/' + file.name); // Delete the file async. (But we don't check the result)
+//       throw err
+//     });
+//   }
+//
+//   return github.repos.getContent({
+//     repo: ghConfig.repo,
+//     user: ghConfig.user,
+//     path: "docs"
+//     }).then(function(data) {
+//       // only repull docs if var is set
+//       if (process.env.DOCS) {
+//         _.map(data, downloadSave)
+//       }
+//       return
+//   });
+// };
 
 exports.getMileStones = function() {
   var totalIssues = function (milestone) {
@@ -86,8 +86,8 @@ exports.getMileStones = function() {
     return milestone
   }
   return github.issues.getMilestones({
-    repo: 'meta-resin',
-    user: 'resin-os'
+    repo: ghConfig.repo,
+    user: ghConfig.user
   }).then(function(data) {
     return { milestones: _.map(data, totalIssues) }
   })

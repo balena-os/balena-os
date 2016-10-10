@@ -9,8 +9,8 @@ module.exports = {
   serializeNav: true,
   defaultTemplate: 'docs.html',
   github: {
-    user: 'resin-io',
-    repo: 'etcher'
+    user: 'resin-os',
+    repo: 'meta-resin'
   },
   layoutLocals: {
     repo: {
