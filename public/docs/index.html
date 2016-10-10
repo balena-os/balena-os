@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Resinos - The title</title>
+    <title>Resinos - Introduction</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -69,7 +69,7 @@
   </div>
 </nav>
 
-    <section class="section page-content page-content--The title">
+    <section class="section page-content page-content--Introduction">
       
 <div class="docs">
   <div class="container docs__container">
@@ -88,6 +88,15 @@
 <nav class="docs__navigation">
   
   <div class="docs__nav-menu">
+    
+      <h5 class="">
+        <a href="/docs/raspberrypi/gettingstarted">
+          Getting Started
+        </a>
+      </h5>
+      
+  
+
     
       <h5 class="">
         <a href="/docs/page1">
@@ -129,7 +138,7 @@
   
   
     <li class="active">
-      The title
+      Introduction
       
     </li>
   
@@ -139,8 +148,11 @@
       
       <section class="docs__content">
         
-          <h2 id="hello-this-is-the-docs-">Hello this is the Docs!</h2>
-<p><strong>Hello from partial!</strong></p>
+          <h2 id="what-is-resinos-">What is resinOS?</h2>
+<p>ResinOS has been designed to include the minimal set of required components to reliably support operation of the Docker engine in embedded scenarios. It uses the Yocto framework as a foundation, systemd as the init system. </p>
+<p>The networking stack consists of Network Manager, DNSmasq and Modem Manager. We have found these components to be a robust stack for dealing with the diversity of hardware and unpredictability of configuration of networks in which a device may be booted.</p>
+<p>In addition, we include Avahi, Dropbear, and OpenVPN, which add support for mDNS, SSH, and VPN connections respectively. </p>
+<p>This foundation is uniquely suited to running arbitrary containers on a wide range of embedded devices which resinOS supports. Resin.io has also made available a wide selection of base images for containers which are optimised for the same scenario and allow developers to create applications based on the Debian, Alpine, or Fedora distributions. That is not to say, of course, that any other container base image may not be used, but that the images by resin.io have been verified to work well with resinOS, implementing patterns which are particularly suitable for embedded devices, like resinOS itself.</p>
 
         
       </section>
