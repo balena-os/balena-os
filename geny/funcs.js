@@ -82,11 +82,12 @@ exports.getMileStones = function() {
   var totalIssues = function (milestone) {
     milestone.complete = Math.floor((milestone.closed_issues/(milestone.closed_issues + milestone.open_issues))*100)
     milestone.updated_at = moment(milestone.updated_at).fromNow();
+    milestone.due_on = moment(milestone.due_on).calendar();
     return milestone
   }
   return github.issues.getMilestones({
-    repo: ghConfig.repo,
-    user: ghConfig.user
+    repo: 'meta-resin',
+    user: 'resin-os'
   }).then(function(data) {
     return { milestones: _.map(data, totalIssues) }
   })

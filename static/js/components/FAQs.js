@@ -9,7 +9,12 @@ if ($('.FAQs').length) {
 
     $('<div class="pull-xs-right"><div class="FAQ__expander fa-stack fa"><i class="fa fa-circle fa-stack-1x"></i><i class="fa fa-plus-circle fa-stack-2x FAQ-js-target" aria-hidden="true"></i></div></div>').appendTo( header )
 
-    header.wrap('<a class="FAQ__header" data-toggle="collapse" href="#faq-' + index + '"/>')
+    // mixpanel tracking meta
+    var trackMeta = {
+      "title": header.text()
+    }
+
+    header.wrap('<a class="FAQ__header" data-toggle="collapse" data-track="FAQ view" data-track-meta=' + JSON.stringify(trackMeta) + ' href="#faq-' + index + '"/>')
 
     q.children('*').not('.FAQ__header').wrapAll('<div id="faq-' + index +  '" class="FAQ__content panel-collapse collapse" aria-expanded="true"/>')
 

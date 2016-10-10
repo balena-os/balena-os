@@ -5,7 +5,6 @@ var catRef = null
 var caretOffsetRef = null
 
 function openWell(that) {
-  console.log(that)
   var cat = $(that).data('cat')
   var catId = cat.title.replace(/ /g, '').toLowerCase()
   if ($('.downloads__well')) {

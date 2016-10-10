@@ -1,12 +1,12 @@
 {% for menuItem in menuLinks %}
 <li class="nav-item">
-  <a class="nav-link" href="{{ menuItem.link }}">
+  <a class="nav-link" data-track="link click" data-track-meta='{ "title": "{{ menuItem.title }}", "href": "{{ menuItem.link }}", "position": "nav" }' href="{{ menuItem.link }}">
     {{ menuItem.title }}
   </a>
 </li>
 {% endfor %}
 <li class="nav-item">
-  <a class="nav-link" href="{{ repo.link }}">
+  <a data-track="link click" data-track-attr='{ "title": "github", "href": "{{ repo.link }}", "position": "nav" }' class="nav-link" href="{{ repo.link }}">
     <i class="fa fa-github-alt fa--border fa-2"></i>
   </a>
 </li>

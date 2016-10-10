@@ -11,15 +11,15 @@
         {% for cat in downloads.categories %}
           <ul class="list-group">
             <li class="list-group-item active">
-              {{ loop.key }}
+              {{ cat.title }}
               <span class="tag tag-default pull-xs-right">{{ downloads.version }}</span>
             </li>
-            {% for download in cat %}
+            {% for download in cat.links %}
             <li class="list-group-item">
               <span class=" tag-pill pull-xs-right">
                 <a href="{{ download.link }}"><i class="fa fa-download" aria-hidden="true"></i></a>
               </span>
-              <a href="{{ download.link }}">
+              <a <a data-track="download" data-track-meta='{ "image": "{{ download.title|capitalize }}", "href": "{{ download.link }}", "deviceType": "{{ cat.title }}", "position": "archive" }' href="{{ download.link }}">
                 {{ download.title|capitalize }}
               </a>
             </li>

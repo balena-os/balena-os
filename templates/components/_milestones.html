@@ -13,7 +13,7 @@
       {% for milestone in milestones %}
         <div class="milestone row">
           <div class="col-md-6">
-            <a class="milestone__link" target="_blank" href="{{ milestone.html_url }}">
+            <a data-track="link click" data-track-meta='{ "title": "{{ milestone.title }}", "href": "{{ milestone.html_url }}", "position": "milestones" }' class="milestone__link" target="_blank" href="{{ milestone.html_url }}">
               <h3 class="milestone__title">{{ milestone.title }}</h3>
               <i class="milestone__arrow fa fa-arrow-right" aria-hidden="true"></i>
             </a>

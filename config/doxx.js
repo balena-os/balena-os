@@ -19,8 +19,8 @@ module.exports = {
     },
     typekitID: 'eic0uah',
     analytics: {
-      googleAnalyticsTrackingID: null,
-      mixpanelToken: '9d6bc43e4d64eb3bd64922c969e2955f',
+      googleAnalyticsTrackingID: 'UA-45671959-3',
+      mixpanelToken: '4d14434a0fbe8653eb9fac3e751a0766',
       gosquaredToken: 'GSN-588929-F'
     },
     company: { title: 'Resin.io', link: 'https://resin.io' },

@@ -7,9 +7,11 @@
     </div>
     <hr class="section__hr">
     <div class="footer__claim">
-      <img class="footer__claim__items" alt="{ repo.name }" src="/images/logos/project.png" srcset="/images/logos/project@2x.png 2x">
+      <a data-track="link click" data-track-meta='{ "title": "logo", "href": "/"}' href="/">
+        <img class="footer__claim__items" alt="{ repo.name }" src="/images/logos/project.png" srcset="/images/logos/project@2x.png 2x">
+      </a>
       <span class="footer__claim__items">an open source project by</span>
-      <a target="_blank" href="{{company.link}}"><img class="nav__claim__items" alt="resin.io" src="/images/logos/company.png" srcset="/images/logos/company@2x.png 2x"></a>
+      <a data-track="link click" data-track-meta='{ "title": "{{ company.title }}", "href": "{{company.link}}"}' target="_blank" href="{{company.link}}"><img class="nav__claim__items" alt="{{ company.title }}" src="/images/logos/company.png" srcset="/images/logos/company@2x.png 2x"></a>
     </div>
   </div>
 </section>
