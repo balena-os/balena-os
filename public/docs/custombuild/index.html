@@ -209,8 +209,9 @@ git submodule update --init --recursive
 <p>We can then use the helpful <code>BARYS</code> (Build Another Resin Yocto System) tool to setup up and start our build. To see all the functionality <code>BARYS</code> provides run <code>./resin-yocto-scripts/build/barys -h</code>
 from with in the repo.</p>
 <p>Now to actually build a development version of resinOS for the Raspberry Pi 3, we can run the following:</p>
-<pre><code>./resin-yocto-scripts/build/barys -r --shared-downloads $(pwd)/shared-downloads/ --shared-sstate $(pwd)/shared-sstate/ -m raspberrypi3
-</code></pre><p>Now sit tight and maybe go and make several cups of tea, this is gonna take a little while.</p>
+<pre><code class="lang-bash">./resin-yocto-scripts/build/barys -r --shared-downloads $(pwd)/shared-downloads/ --shared-sstate $(pwd)/shared-sstate/ -m raspberrypi3
+</code></pre>
+<p>Now sit tight and maybe go and make several cups of tea, this is gonna take a little while.</p>
 <h2 id="supporting-your-own-board">Supporting your Own Board</h2>
 <p>Pre-requisites: a <a href="https://www.yoctoproject.org">Yocto</a> Board Support Package (BSP) layer for your particular board. It should be compatible to the Yocto releases resinOS supports.</p>
 <p>Repositories used to build resinOS host Operating System (OS) are typically named resin-<code>&lt;board-family&gt;</code>. For example, consider <a href="https://github.com/resin-os/resin-raspberrypi">resin-raspberrypi</a> which is used for building the OS for <a href="https://raspberrypi.org">Raspberryi Pi</a>, or [resin-intel][resin-intel repo] repository which can be used to build a resin.io image for the Intel NUC boards.</p>
@@ -237,7 +238,7 @@ from with in the repo.</p>
 <li><code>VERSION</code></li>
 </ul>
 <p>and one or more files named <code>&lt;yocto-machine-name&gt;.coffee</code>, one for each of the boards that the repository will add support for (eg. <a href="https://github.com/resin-os/resin-raspberrypi/blob/master/raspberrypi3.coffee"><code>raspberry-pi3.coffee</code></a> for Raspberry Pi 3 in <code>resin-raspberrypi</code>). This file contains information on the Yocto build for the specific board, in <a href="http://coffeescript.org/">CoffeeScript</a> format. A minimal version of this file, using Raspberry Pi 3 as the example, would be:</p>
-<pre><code>module.exports =
+<pre><code class="lang-coffeescript">module.exports =
   yocto:
     machine: &#39;raspberrypi3&#39;
     image: &#39;resin-image&#39;
@@ -245,7 +246,8 @@ from with in the repo.</p>
     version: &#39;yocto-jethro&#39;
     deployArtifact: &#39;resin-image-raspberrypi3.resin-sdcard&#39;
     compressed: true
-</code></pre><p>The <code>layers</code> directory contains the git submodules of the yocto layers used in the build process. This normally means the following components are present:</p>
+</code></pre>
+<p>The <code>layers</code> directory contains the git submodules of the yocto layers used in the build process. This normally means the following components are present:</p>
 <ul>
 <li>[poky][poky]  at the version/revision required by the board BSP</li>
 <li>[meta-openembedded][meta-openembedded] at the revision poky uses</li>
@@ -309,7 +311,7 @@ from external storage (these boards do not have internal storage to install resi
 <li><p><code>RESIN_BOOT_PARTITION_FILES_&lt;yocto-machine-name&gt;</code>: this allows adding files from the build&#39;s deploy directory into the vfat formatted resin-boot partition (can be used to add bootloader config files, first stage bootloader, initramfs or anything else needed for the booting process to take place for your particular board). If the board uses different bootloader configuration files when booting from either external media (USB thumb drive, SD card etc.) or from internal media (mSATA, eMMC etc) then you would want make use of this variable to make sure the different bootloader configuration files get copied over and further manipulated as needed (see <code>INTERNAL_DEVICE_BOOTLOADER_CONFIG_&lt;yocto-machine-name&gt;</code> and <code>INTERNAL_DEVICE_BOOTLOADER_CONFIG_PATH_&lt;yocto-machine-name&gt;</code> below). Please note that you only reference these files here, it is the responsibility of a <code>.bb</code> or <code>.bbappend</code> to provide and deploy them (for bootloader config files this is done with an append typically in <code>recipes-bsp/&lt;your board&#39;s bootloader&gt;/&lt;your board&#39;s bootloader&gt;.bbappend</code>, see [resin-intel grub bbappend][resin-intel grub append] for an example)</p>
 <p>It is a space separated list of items with the following format: <em>FilenameRelativeToDeployDir:FilenameOnTheTarget</em>. If <em>FilenameOnTheTarget</em> is omitted then the <em>FilenameRelativeToDeployDir</em> will be used.</p>
 <p>For example to have the Intel NUC <code>bzImage-intel-corei7-64.bin</code> copied from deploy directory over to the boot partition, renamed to <code>vmlinuz</code>:</p>
-<pre><code class="lang-sh">RESIN_BOOT_PARTITION_FILES_nuc =  &quot;bzImage-intel-corei7-64.bin:vmlinuz&quot;
+<pre><code class="lang-sh">RESIN_BOOT_PARTITION_FILES_nuc = &quot;bzImage-intel-corei7-64.bin:vmlinuz&quot;
 </code></pre>
 </li>
 </ul>
@@ -329,7 +331,6 @@ from external storage (these boards do not have internal storage to install resi
 <li><p><code>INTERNAL_DEVICE_BOOTLOADER_CONFIG_PATH_&lt;yocto-machine-name&gt;</code>: this variable is used to specify the relative path (including filename) to the resin-boot partition where <code>INTERNAL_DEVICE_BOOTLOADER_CONFIG_&lt;yocto-machine-name&gt;</code> will be copied to.</p>
 <p>For example, setting</p>
 <pre><code class="lang-sh">INTERNAL_DEVICE_BOOTLOADER_CONFIG_intel-corei7-64 = &quot;grub.cfg_internal&quot;
-`
 </code></pre>
 <p>and</p>
 <pre><code class="lang-sh">INTERNAL_DEVICE_BOOTLOADER_CONFIG_PATH_intel-corei7-64 = &quot;/EFI/BOOT/grub.cfg&quot;

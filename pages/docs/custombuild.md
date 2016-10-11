@@ -16,7 +16,7 @@ We can then use the helpful `BARYS` (Build Another Resin Yocto System) tool to s
 from with in the repo.
 
 Now to actually build a development version of resinOS for the Raspberry Pi 3, we can run the following:
-```
+``` bash
 ./resin-yocto-scripts/build/barys -r --shared-downloads $(pwd)/shared-downloads/ --shared-sstate $(pwd)/shared-sstate/ -m raspberrypi3
 ```
 Now sit tight and maybe go and make several cups of tea, this is gonna take a little while.
@@ -55,7 +55,7 @@ The root directory generally also includes the following files:
 
 and one or more files named `<yocto-machine-name>.coffee`, one for each of the boards that the repository will add support for (eg. [`raspberry-pi3.coffee`](https://github.com/resin-os/resin-raspberrypi/blob/master/raspberrypi3.coffee) for Raspberry Pi 3 in `resin-raspberrypi`). This file contains information on the Yocto build for the specific board, in [CoffeeScript](http://coffeescript.org/) format. A minimal version of this file, using Raspberry Pi 3 as the example, would be:
 
-```
+``` coffeescript
 module.exports =
   yocto:
     machine: 'raspberrypi3'
@@ -135,7 +135,7 @@ from external storage (these boards do not have internal storage to install resi
     For example to have the Intel NUC `bzImage-intel-corei7-64.bin` copied from deploy directory over to the boot partition, renamed to `vmlinuz`:
 
     ```sh
-    RESIN_BOOT_PARTITION_FILES_nuc =  "bzImage-intel-corei7-64.bin:vmlinuz"
+    RESIN_BOOT_PARTITION_FILES_nuc = "bzImage-intel-corei7-64.bin:vmlinuz"
     ```
 
   The `resin-image-flasher.bbappend` file shall define the following variables:
@@ -156,7 +156,7 @@ from external storage (these boards do not have internal storage to install resi
 
     ```sh
     INTERNAL_DEVICE_BOOTLOADER_CONFIG_intel-corei7-64 = "grub.cfg_internal"
-    ````
+    ```
     and
     ```sh
     INTERNAL_DEVICE_BOOTLOADER_CONFIG_PATH_intel-corei7-64 = "/EFI/BOOT/grub.cfg"

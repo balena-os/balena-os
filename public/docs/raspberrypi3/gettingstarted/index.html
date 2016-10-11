@@ -324,12 +324,13 @@
       <section class="docs__content">
         
           <h1 id="getting-started-on-the-raspberry-pi-3">Getting Started on the Raspberry Pi 3</h1>
-<p>In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use a tool called <code>rdt</code> (A.K.A Resin Device Tool) to make things super easy. However, for those that like to do things the hard way, we got you covered as well. </p>
+<p>In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use a tool called <code>rdt</code> (A.K.A Resin Device Tool) to make things super easy. However, for those that like to do things the hard way, we got you covered as well.</p>
 <h2 id="download-an-image">Download an Image</h2>
 <p>To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to resinos.io/downloads and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the <a href="/docs/supportedboards/">Supported Boards</a> section for more details.</p>
 <p>Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!</p>
-<pre><code>$ wget https://files.resin.io/images/raspberrypi3/2.0.0-beta.1/resin-dev.zip
-</code></pre><h2 id="install-resin-device-toolbox">Install Resin Device Toolbox</h2>
+<pre><code class="lang-bash">$ wget https://files.resin.io/images/raspberrypi3/2.0.0-beta.1/resin-dev.zip
+</code></pre>
+<h2 id="install-resin-device-toolbox">Install Resin Device Toolbox</h2>
 <p><code>rdt</code> or Resin Device Toolbox, is a collection of utilities which helps us to develop resinOS based application containers. It’s not strictly necessary, but makes life so so much sweeter, but if you like doing things the hard way, skip over to the next section.</p>
 <p>Currently <code>rdt</code> is a node.js based command line tool which requires that our system has the following dependencies installed and in our path:</p>
 <ul>
@@ -339,17 +340,19 @@
 <li><a href="http://www.openssh.com/">ssh</a></li>
 </ul>
 <p>Once we have those setup we can install <code>rdt</code> using npm:</p>
-<pre><code>$ npm install -g resin-device-tool
-</code></pre><h2 id="configure-the-image">Configure the Image</h2>
+<pre><code class="lang-bash">$ npm install -g resin-device-tool
+</code></pre>
+<h2 id="configure-the-image">Configure the Image</h2>
 <p>To allow resinOS images to be easily configurable before boot, some key config files are added to boot partition. In this step we will use <code>rdt</code> to configure the network, set our hostname to <code>resin</code> and disable persistent logging, because we don’t want to kill our poor flash storage with excessive writes.</p>
-<pre><code>$ rdt configure ~/Downloads/resinos-dev.img
+<pre><code class="lang-bash">$ rdt configure ~/Downloads/resinos-dev.img
 ? Network SSID super_wifi
 ? Network Key super secure password
 ? Do you want to set advanced settings? Yes
 ? Device Hostname resin
 ? Do you want to enable persistent logging? no
 Done!
-</code></pre><p>If you are not using <code>rdt</code>, you will need to mount the boot partition of the image and edit the configuration manually.</p>
+</code></pre>
+<p>If you are not using <code>rdt</code>, you will need to mount the boot partition of the image and edit the configuration manually.</p>
 <p>Edit <code>/boot/config.json</code> so it looks like this:</p>
 <pre><code class="lang-json">{
   &quot;persistentLogging&quot;: false,
@@ -377,32 +380,35 @@ method=auto
 addr-gen-mode=stable-privacy
 method=auto
 </code></pre><h2 id="get-the-device-up-and-running">Get the Device Up and Running</h2>
-<p>Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step <code>rdt</code> provides a handy flashing utility, you can however flash this image using etcher.io or <code>dd</code> if you must. </p>
+<p>Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step <code>rdt</code> provides a handy flashing utility, you can however flash this image using etcher.io or <code>dd</code> if you must.</p>
 <h3 id="flash-sd-card">Flash SD card</h3>
 <p>To get flashing, just point the <code>rdt flash</code> command to the image we just downloaded and follow the prompts. If you hate prompts, <code>rdt</code> also allows you to skip them, check the <a href="#rdt-docs"><code>rdt</code> docs</a> on how to do this.</p>
 <p><strong>NOTE:</strong> <code>rdt flash</code> requires administrative privileges because it needs to access the SD card.</p>
-<pre><code>$ sudo rdt flash ~/Downloads/resinos-dev.img
+<pre><code class="lang-bash">$ sudo rdt flash ~/Downloads/resinos-dev.img
 Password:
 x No available drives were detected, plug one in!
-</code></pre><p>Once you plug in your SD card, <code>rdt</code> should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as <code>rdt</code> will complete write over the entire drive.</p>
-<pre><code>$ sudo rdt flash ~/Downloads/resinos-dev.img 
+</code></pre>
+<p>Once you plug in your SD card, <code>rdt</code> should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as <code>rdt</code> will complete write over the entire drive.</p>
+<pre><code class="lang-bash">$ sudo rdt flash ~/Downloads/resinos-dev.img
 Password:
 ? Select drive (Use arrow keys)
 ❯ /dev/disk3 (7.9 GB) - STORAGE DEVICE
-</code></pre><p>Once you are happy you have selected the correct drive, hit enter and wait while your new OS is written to the drive. 
+</code></pre>
+<p>Once you are happy you have selected the correct drive, hit enter and wait while your new OS is written to the drive.
 It should only take about 3 minutes, depending on the quality of your drive, so this is a great time to go grab a caffeinated beverage.</p>
-<pre><code>$ sudo rdt flash ~/Downloads/resinos-dev.img
+<pre><code class="lang-bash">$ sudo rdt flash ~/Downloads/resinos-dev.img
 ? Select drive /dev/disk3 (7.9 GB) - STORAGE DEVICE
 ? This will erase the selected drive. Are you sure? Yes
 Flashing [========================] 100% eta 0s  
 Validating [========================] 100% eta 0s
-</code></pre><h3 id="boot-the-device">Boot the device</h3>
+</code></pre>
+<h3 id="boot-the-device">Boot the device</h3>
 <p>Insert the SD card into the Raspberry Pi 3 and connect either the ethernet cable if you want to connect via ethernet, otherwise the device will try connect via wifi. 
 Now power up the Raspberry Pi 3 by inserting the micro USB cable.</p>
 <p><img src="/images/docs/gifs/insert-sd.gif" alt="insert SD"></p>
 <p><strong>Note:</strong> Class 4 SD cards can take up to 3 times longer so it&#39;s well worth investing in the fastest card you can find.</p>
 <p>After about 30 seconds or so your device should be up and connected to your local network, you should see it broadcasting itself as <code>resin.local</code>. To check this, let’s try ping the device.</p>
-<pre><code>$ ping resin.local
+<pre><code class="lang-bash">$ ping resin.local
 PING 192.168.1.111 (192.168.1.111): 56 data bytes
 64 bytes from 192.168.1.111: icmp_seq=0 ttl=64 time=103.674 ms
 64 bytes from 192.168.1.111: icmp_seq=1 ttl=64 time=9.723 ms
@@ -410,8 +416,9 @@ PING 192.168.1.111 (192.168.1.111): 56 data bytes
 --- 192.168.1.111 ping statistics ---
 6 packets transmitted, 6 packets received, 0.0% packet loss
 round-trip min/avg/max/stddev = 7.378/24.032/103.674/35.626 ms
-</code></pre><p>Now if we want to poke around a bit inside resinOS we can just ssh in with:</p>
-<pre><code>$ ssh root@resin.local -p22222
+</code></pre>
+<p>Now if we want to poke around a bit inside resinOS we can just ssh in with:</p>
+<pre><code class="lang-bash">$ ssh root@resin.local -p22222
 root@resin:~# uname -a
 Linux resin 4.1.21 #1 SMP Fri Oct 7 23:37:01 CEST 2016 armv7l GNU/Linux
 root@resin:~# docker info
@@ -428,7 +435,7 @@ Storage Driver: aufs
  Dirperm1 Supported: true
 Execution Driver: native-0.2
 Logging Driver: journald
-Plugins: 
+Plugins:
  Volume: local
  Network: null host bridge
 Kernel Version: 4.1.21
@@ -439,36 +446,45 @@ CPUs: 4
 Total Memory: 972.5 MiB
 Name: resin
 ID: FOZ2:5KHG:RTSS:UQ7S:F2J6:QYLL:MERX:5ZVU:4WVL:3G2G:T2YA:LX3D
-</code></pre><h2 id="running-your-first-container">Running your first Container</h2>
+</code></pre>
+<h2 id="running-your-first-container">Running your first Container</h2>
 <h3 id="clone-a-demo-project">Clone a demo Project</h3>
-<pre><code>  $ git clone https://github.com/resin-io-playground/resinos-sample
-</code></pre><h3 id="get-a-container-running">Get a Container Running</h3>
-<pre><code>$ rdt push resin -s .
-</code></pre><h2 id="poking-around-resinos">Poking Around resinOS</h2>
+<pre><code class="lang-bash">  $ git clone https://github.com/resin-io-playground/resinos-sample
+</code></pre>
+<h3 id="get-a-container-running">Get a Container Running</h3>
+<pre><code class="lang-bash">$ rdt push resin -s .
+</code></pre>
+<h2 id="poking-around-resinos">Poking Around resinOS</h2>
 <p>To help explore resinOS devices and application containers more easily, <code>rdt</code> has an ssh command which will help you connect either to the HostOS or a running container on the device.</p>
 <h4 id="to-ssh-into-the-host-">To ssh into the host:</h4>
-<pre><code>$ rdt ssh --host
-</code></pre><p><strong>OR</strong></p>
-<pre><code>$ ssh root@resin.local -p22222
-</code></pre><h4 id="to-ssh-into-a-particular-container-">To ssh into a particular container:</h4>
-<pre><code>$ rdt ssh resin.local
-</code></pre><p><strong>OR</strong></p>
-<pre><code>$ ssh root@resin.local -p22222
+<pre><code class="lang-bash">$ rdt ssh --host
+</code></pre>
+<p><strong>OR</strong></p>
+<pre><code class="lang-bash">$ ssh root@resin.local -p22222
+</code></pre>
+<h4 id="to-ssh-into-a-particular-container-">To ssh into a particular container:</h4>
+<pre><code class="lang-bash">$ rdt ssh resin.local
+</code></pre>
+<p><strong>OR</strong></p>
+<pre><code class="lang-bash">$ ssh root@resin.local -p22222
 root@resin:~# docker exec -it myapp bash
-</code></pre><h2 id="going-further">Going Further</h2>
+</code></pre>
+<h2 id="going-further">Going Further</h2>
 <h3 id="advanced-settings">Advanced Settings</h3>
 <p>Either mount the SD card and run:</p>
-<pre><code>$ rdt configure /path/to/drive
-</code></pre><p>And select <code>y</code> when asked if you want to add advanced settings.</p>
-<p>Alternatevely you can add <code>“persistentLogging”: true</code> to <code>config.json</code> in your boot partition of the SD card. </p>
+<pre><code class="lang-bash">$ rdt configure /path/to/drive
+</code></pre>
+<p>And select <code>y</code> when asked if you want to add advanced settings.</p>
+<p>Alternatevely you can add <code>“persistentLogging”: true</code> to <code>config.json</code> in your boot partition of the SD card.</p>
 <p>To Enable persistent logs in a running device, add <code>“persistentLogging”: true</code> to <code>/mnt/boot/config.json</code> and reboot.</p>
-<p>The journal can be found at  <code>/var/log/journal/</code> which is bind mounted to <code>root-overlay/var/log/journal</code> in the <code>resin-conf</code> partition. 
+<p>The journal can be found at  <code>/var/log/journal/</code> which is bind mounted to <code>root-overlay/var/log/journal</code> in the <code>resin-conf</code> partition.
 When logging is not persistent, the logs can be found at <code>/run/log/journal/</code> and this log is volatile so you will loose all logs when you power the device down.</p>
 <h2 id="creating-a-project-from-scratch">Creating a Project from Scratch</h2>
 <p>Alright! So we have an awesome container machine up and running on our network. So let’s start pushing some application containers onto it. In this section we will do a quick walk through of setting up a dockerfile and make a simple little node.js webserver.</p>
-<p>To get started, let’s create a new project directory called “myapp” and create a new file called <code>Dockerfile</code>. </p>
-<pre><code>$ mkdir -p myapp &amp;&amp; touch Dockerfile
-</code></pre><p>Now we will create a minimal node.js container based on the slim <a href="link-to-alpine">Alpine Linux distro</a>. We do this by adding the following lines to our Dockerfile.</p>
+<p>To get started, let’s create a new project directory called “myapp” and create a new file called <code>Dockerfile</code>.</p>
+<pre><code class="lang-bash">$ mkdir -p myapp &amp;&amp; touch Dockerfile
+</code></pre>
+<p>Now we will create a minimal node.js container based on the slim <a href="link-to-alpine">Alpine Linux distro</a>. We do this by adding the following lines to our Dockerfile.</p>
 <pre><code class="lang-Dockerfile">FROM resin/raspberrypi3-alpine-node:slim
 CMD [“cat”, “/etc/os-release”]
 </code></pre>
@@ -502,11 +518,12 @@ resin push completed successfully!
 </code></pre>
 <p>This command will discover your resinOS-dev device on the network and start a build of whatever you have in the <code>--source</code> directory. In the example above, we have just told it to build from the root of the directory we are in, in this case <code>myapp</code>.</p>
 <p>A number of things have happened in this step, so let’s pause here and dig in a little more. When we first run <code>rdt push</code> we are asked to define a name for our app and after that, it starts a docker build on your device. At the same time, <code>rdt</code> has added a file to our project called <code>.resin-sync.yml</code> which stores all the default for <code>rdt</code>. Let’s have a quick look at that:</p>
-<pre><code>local_resinos:
+<pre><code class="lang-yml">local_resinos:
   app-name: myapp
   build-triggers:
     - Dockerfile: 6275495dc9620c3c74aa5a25ef29bbb109fbcb4e46de941b14235aeea02cc184
-</code></pre><p>We can see that for our local resinOS device we have an app called “myapp” which will map over to a docker image and container on our device. The next interesting section is build-triggers. This is a list of files and their hashes, which will result in a docker build. In our case it’s just the <code>Dockerfile</code>, so when we change things here, <code>rdt</code> will rebuild our app. This will be important a bit later.</p>
+</code></pre>
+<p>We can see that for our local resinOS device we have an app called “myapp” which will map over to a docker image and container on our device. The next interesting section is build-triggers. This is a list of files and their hashes, which will result in a docker build. In our case it’s just the <code>Dockerfile</code>, so when we change things here, <code>rdt</code> will rebuild our app. This will be important a bit later.</p>
 <p>So now that we are building, let’s start adding some actual code! We will just add <code>main.js</code> file in the root of our <code>myapp</code> directory.</p>
 <pre><code class="lang-javacript">//main.js
 console.log(&quot;Hey… I’m a node.js app running in a container!!&quot;);
@@ -581,13 +598,14 @@ var server = app.listen(80, function () {
     - Dockerfile: 1327b0f9875d5c4bf7f2f36fad384c8481a00396830acd33c0af0e575648fe91
     - package.json:
 </code></pre><p>And 2.) We then need to run a <code>npm install</code> in our build, so we add a few lines to our Dockerfile.</p>
-<pre><code>FROM resin/raspberrypi3-alpine-node:slim
+<pre><code class="lang-Dockerfile">FROM resin/raspberrypi3-alpine-node:slim
 WORKDIR /usr/src/app
 COPY package.json package.json
 RUN npm install
 COPY . .
 CMD [&quot;node&quot;, &quot;main.js&quot;]
-</code></pre><p>We can now deploy our new webserver container again with <code>rdt</code>:</p>
+</code></pre>
+<p>We can now deploy our new webserver container again with <code>rdt</code>:</p>
 <pre><code class="lang-bash">$ rdt push --source .
 </code></pre>
 <p>You should now be able to point your web browser on your laptop to the IP address of your device and see the &quot;Hello, World!&quot; message.</p>
