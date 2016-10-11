@@ -1,9 +1,9 @@
 if ($('.FAQs').length) {
   const container = $('.FAQs-js')
   const html = container.data('html');
-  var delimitedHtml = html.replace(/<h2>/gi, "<$delimiter><h2>");
+  var delimitedHtml = html.replace(/<h2>/gi, "!$delimiter!<h2>");
 
-  $(delimitedHtml.split('<$delimiter>')).each(function(index){
+  $(delimitedHtml.split('!$delimiter!')).each(function(index){
     var q = $('<div class="FAQ">'+ this +'</div>')
     header = q.find('h2')
 

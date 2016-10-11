@@ -46,7 +46,7 @@ exports.getFAQs = function() {
     path: "/pages/docs/faqs.md"
   }).then(function(data) {
     return github.misc.renderMarkdown({
-      "text": new Buffer(data.content.toString(), 'base64').toString('ascii')
+      "text": new Buffer(data.content.toString(), 'base64').toString()
     })
   }).then(function(data) {
     return {
