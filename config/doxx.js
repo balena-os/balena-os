@@ -84,7 +84,7 @@ module.exports = {
             },
             {
               title: "Raspberry Pi 3",
-              link: "https://files.resin.io/images/raspberry-pi3/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/images/raspberrypi3/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
