@@ -12,8 +12,8 @@ module.exports = {
     user: 'resin-os',
     repo: 'meta-resin'
   },
-  gitter: 'https://gitter.im/resin-os/chat',
   layoutLocals: {
+    gitter: 'https://gitter.im/resin-os/chat',
     repo: {
       name: 'resinOS',
       tagLine: 'Run Docker containers on embedded devices',
