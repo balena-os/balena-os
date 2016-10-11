@@ -1,6 +1,6 @@
 // fixes wierd nav.toggleable floats
-@include media-breakpoint-down(xs) {
-  .navbar-toggleable-xs {
+@include media-breakpoint-down(sm) {
+  .navbar-toggleable-sm {
     clear: both;
   }
 }
