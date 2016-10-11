@@ -145,6 +145,15 @@
 
     
       <h5 class="">
+        <a href="/docs/custombuild">
+          Build Your Own
+        </a>
+      </h5>
+      
+  
+
+    
+      <h5 class="">
         <a href="/docs/supportedboards">
           Supported Board
         </a>
@@ -404,6 +413,10 @@ The dev images enable a number of useful features while developing, namely:</p>
 buffer in order to avoid wear on the flash storage used by most of the supported boards. However, persistent logging can be enabled by setting 
 the <code>”persistentLogging”: true</code> key in the <code>config.json</code> file in the boot partition of the device.</p>
 <h2 id="os-tools">OS Tools</h2>
+<h3 id="base-images">Base Images</h3>
+<p>To help getting started with containers on embedded systems, resinOS comes with a full complement of over 500 Docker base images. We currently have base images for
+Debian, Fedora and Alpine Linux distributions, as well as Nodejs, Python, Go and Java language base image. For a more indepth look into all the available base image head over
+to the <a href="http://docs.resin.io/runtime/resin-base-images/">resin.io base images wiki</a> or the <a href="https://hub.docker.com/u/resin/">resin dockerhub repository</a>. </p>
 <h3 id="resin-device-toolbox">Resin Device Toolbox</h3>
 <p>The Resin Device Toolbox or <code>rdt</code> for short, is a set of useful tools that help with setting up and developing containers with a resinOS device. The goal of <code>rdt</code> is to provide
 a simple and intuitive developer experience. Currently, <code>rdt</code> is evolving fast and is considered <code>alpha</code>, so as always, we love it when you report bugs, 
@@ -574,11 +587,7 @@ Options:
 
     --follow, -f                        follow log                         
     --app-name, -a &lt;name&gt;               name of container to get logs from
-</code></pre><h3 id="base-images">Base Images</h3>
-<p>More than 500 images for each supported device type
-Debian, Fedora, Alpine
-Nodejs, python, golang, Java</p>
-
+</code></pre>
         
       </section>
     </article>

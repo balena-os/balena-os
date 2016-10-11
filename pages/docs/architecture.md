@@ -121,6 +121,13 @@ buffer in order to avoid wear on the flash storage used by most of the supported
 the `”persistentLogging”: true` key in the `config.json` file in the boot partition of the device.
 
 ## OS Tools
+
+### Base Images
+
+To help getting started with containers on embedded systems, resinOS comes with a full complement of over 500 Docker base images. We currently have base images for
+Debian, Fedora and Alpine Linux distributions, as well as Nodejs, Python, Go and Java language base image. For a more indepth look into all the available base image head over
+to the [resin.io base images wiki](http://docs.resin.io/runtime/resin-base-images/) or the [resin dockerhub repository](https://hub.docker.com/u/resin/). 
+
 ### Resin Device Toolbox 
 
 The Resin Device Toolbox or `rdt` for short, is a set of useful tools that help with setting up and developing containers with a resinOS device. The goal of `rdt` is to provide
@@ -321,8 +328,5 @@ Options:
     --app-name, -a <name>               name of container to get logs from 
 ```
 
-### Base Images
-More than 500 images for each supported device type
-Debian, Fedora, Alpine
-Nodejs, python, golang, Java
+
 

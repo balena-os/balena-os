@@ -2,6 +2,8 @@ Getting Started
   Getting Started ~ Getting Started on {{ $device.name }}[/docs/$device/gettingstarted]
 Architecture[/docs/architecture]
   Overview[/docs/architecture]
+Build Your Own
+  [/docs/custombuild]
 Supported Board
   [/docs/supportedboards]
 Contributing
