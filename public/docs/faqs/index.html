@@ -2,14 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Resinos - Page1.1</title>
+    <title>Resinos - FAQs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,600|Montserrat:400,600">
     <!-- your generated css -->
     <link rel="stylesheet" href="/main.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     
 <script src="https://use.typekit.net/eic0uah.js"></script>
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -71,7 +70,7 @@
   </div>
 </nav>
 
-    <section class="section page-content page-content--Page1.1">
+    <section class="section page-content page-content--FAQs">
       
 <div class="docs">
   <div class="container docs__container">
@@ -136,6 +135,15 @@
   
 
     
+      <h5 class="active">
+        <a href="/docs/faqs">
+          FAQs
+        </a>
+      </h5>
+      
+  
+
+    
   </div>
 
 </nav>
@@ -149,7 +157,7 @@
   
   
     <li class="active">
-      Page1.1
+      FAQs
       
     </li>
   
@@ -159,16 +167,22 @@
       
       <section class="docs__content">
         
-          <h1 id="page1-1">Page1.1</h1>
-<blockquote>
-<p>This is page 1.1, hello there!</p>
-</blockquote>
-<h2 id="subheading-1">Subheading 1</h2>
-<p>Paragraph 1</p>
-<h2 id="subheading-2">Subheading 2</h2>
-<p>Paragraph 2</p>
-<h2 id="subheading-3">Subheading 3</h2>
-<p>Paragraph 3</p>
+          <h2 id="why-docker-containers-on-embedded-devices-">Why Docker containers on embedded devices?</h2>
+<p>We think that containers are essential to bringing modern development and deployment capabilities to connected devices. Linux containers, particularly Docker, offer, for the first time, a practical path to using virtualization on embedded devices. Virtual machines and hypervisors have lead to huge leaps in productivity and automation for cloud deployments, but their abstraction of hardware as well as their resource overhead and lack of hardware support means that they are out of the question for embedded scenarios. With OS-level virtualization as implemented for Linux Containers, both those objections are lifted for heterogeneous embedded Linux devices in the “Internet of Things.”</p>
+<h2 id="why-yocto-">Why Yocto?</h2>
+<p>Yocto Linux is an incredible toolkit for generating Linux distributions, with a focus on portability. Yocto’s minimal size and low footprint also make it ideal for running on devices. ResinOS is built using Yocto at its core, and the resinOS team maintains numerous BSPs for Yocto, among them the Raspberry Pi, Artik, and CHIP layers. Yocto acts as the foundation for many other embedded operating systems including Ostro, Wind River Linux, and Tizen, therefore acting as a mechanism for sharing best practices and code, benefitting all the resulting operating systems, resinOS included.</p>
+<h2 id="how-is-this-different-from-cloud-operating-systems-for-containers-">How is this different from cloud operating systems for containers?</h2>
+<p>ResinOS shares a lot with cloud operating systems for containers. We share the focus on minimalism, getting out of the user’s way and letting their container do the heavy lifting, and using Docker, which is the standard way of running containers, and well understood by a large developer community. ResinOS applies the same principles to a different domain, that of embedded Linux devices, sometimes called “connected devices”, “Internet of Things” or “Industrial Internet”, depending on the use case. While some of the cloud operating systems have been made to run on particular embedded devices, their architecture is geared towards the cloud, where they shine.</p>
+<p>By applying the container paradigm to the embedded world, the ResinOS team has faced and solve a unique set of challenges that are not common in the cloud and datacentre world, such as:</p>
+<ul>
+<li>The extreme heterogeneity of device types found in the wild;</li>
+<li>Severely restricted resource envelopes in terms of storage, CPU, and networking;</li>
+<li>Devices that are difficult to reach or re-provision upon failure, where power is unstable and may be turned off at any time, or with custom hardware attached.</li>
+</ul>
+<p>ResinOS is built for this world from scratch, and our deepest architectural and feature choices have been made exclusively with embedded devices in mind. ResinOS is built for embedded devices, and this focus continues to drive our architectural objectives.</p>
+<h2 id="how-is-this-different-from-other-embedded-operating-systems-">How is this different from other embedded operating systems?</h2>
+<p>ResinOS uniquely combines the virtues of mature embedded operating systems with the developer-focused sensibilities of cloud operating systems. Where the cloud operating systems don’t address the realities of the embedded world, embedded and IoT-focused Linux distributions don’t focus on containers. When they do, they often choose to reinvent the wheel rather than use Docker, which is the de-facto standard among developers. ResinOS aims to be a competent embedded operating system and shares architectural principles with many existing systems, but also aims to unify the approach to containers with Docker.</p>
+<p>While others have done a fantastic job evangelising the use of containers on embedded devices, ResinOS has the added benefit of focusing on portability, with 20 device types already supported, and production-readiness, with thousands of devices already deployed for business purposes. With ResinOS 2.0 we aim to make our OS friendly to all developers, and grow our device support to any and all device types we can access.res</p>
 
         
       </section>

@@ -1,5 +1,16 @@
-var $pageContent = $('.page-content')
+var $pageContent = $('.docs__content')
 
+$.fn.addAnchor = function() {
+  this.each(function () {
+    var $el = $(this)
+    $el.append(' <a class="hash" href="#' + $el.attr('id') + '">#</a>')
+  })
+  return this
+}
+
+$pageContent
+  .find('h2,h3,h4,h5,h6')
+  .addAnchor()
 $pageContent
   .find('table')
   .addClass('table table-bordered')

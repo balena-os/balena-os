@@ -8,3 +8,4 @@ Supported Board
   [/docs/supportedboards]
 Contributing
   [/docs/contrib]
+FAQs[/docs/faqs]
