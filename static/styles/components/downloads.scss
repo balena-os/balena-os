@@ -24,21 +24,20 @@ $border-width: 1px;
   width: 80%;
 }
 
-// .downloads__category--custom__container {
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   left:0;
-//   right:0;
-//   margin: auto;
-// }
+@include media-breakpoint-down(xs) {
+  .downloads__category--custom {
+    padding: 30%;
+    .downloads__category__image {
+      max-width: 60px;
+    }
+  }
+}
 
 .downloads__category--custom {
-  // position: relative;
-  border: none;
+  padding: 15%;
   .downloads__category__image {
     max-width: 40px;
-    margin: 20px 0;
+    margin-bottom: 20px;
   }
   h4 {
     color: $gray-dark;
@@ -47,7 +46,7 @@ $border-width: 1px;
     &:hover {
       text-decoration: none;
     }
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
   }
 }
 

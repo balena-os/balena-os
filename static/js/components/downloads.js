@@ -41,7 +41,15 @@ function alignCaret(that) {
   caretOffsetRef = offset
 }
 
+// used to correct height of custom (add your own board) block in grid
+function resizeBlock() {
+  var blockHeight = $('.downloads__category').height()
+  $('.downloads__category--custom').css('min-height', blockHeight)
+}
+
 if ($('#downloads').length) {
+  resizeBlock()
+  
   $(".downloads__category").click(function(){
     openWell(this)
   })
@@ -53,13 +61,15 @@ if ($('#downloads').length) {
 
   $( window ).resize(function() {
     // recalc position when browser changed
-    if ($('.downloads__category--active').length > 0) {
+    if ($('.downloads__category--active').length) {
       alignCaret('.downloads__well')
     }
+    resizeBlock()
   });
 
   if(window.location.hash.indexOf('downloads-') !== -1) {
     catId = window.location.hash.split('-')[1]
     openWell('#downloads-' + catId)
   }
+
 }
