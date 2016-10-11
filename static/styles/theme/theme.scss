@@ -55,6 +55,10 @@
   padding: 5px 6px;
 }
 
+img {
+  max-width: 100%;
+}
+
 .page-content {
   @include rem(padding-top, 5rem);
 }
