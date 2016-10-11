@@ -268,9 +268,9 @@
           <h1 id="getting-started-on-the-raspberry-pi-3">Getting Started on the Raspberry Pi 3</h1>
 <p>In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use a tool called <code>rdt</code> (A.K.A Resin Device Tool) to make things super easy. However, for those that like to do things the hard way, we got you covered as well. </p>
 <h2 id="download-an-image">Download an Image</h2>
-<p>To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to resinos.io/downloads and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the <a href="#/docs/supported-boards">Supported Boards</a> section for more details.</p>
+<p>To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to resinos.io/downloads and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the <a href="/docs/supportedboards/">Supported Boards</a> section for more details.</p>
 <p>Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!</p>
-<pre><code>$ wget files.resin.io/images/raspberrypi3/2.0.0/resinos-dev.img
+<pre><code>$ wget https://files.resin.io/images/raspberrypi3/2.0.0-beta.1/resin-dev.zip
 </code></pre><h2 id="install-resin-device-toolbox">Install Resin Device Toolbox</h2>
 <p><code>rdt</code> or Resin Device Toolbox, is a collection of utilities which helps us to develop resinOS based application containers. It’s not strictly necessary, but makes life so so much sweeter, but if you like doing things the hard way, skip over to the next section.</p>
 <p>Currently <code>rdt</code> is a node.js based command line tool which requires that our system has the following dependencies installed and in our path:</p>
@@ -343,7 +343,7 @@ Validating [========================] 100% eta 0s
 Now power up the Raspberry Pi 3 by inserting the micro USB cable.</p>
 <p><img src="/images/docs/gifs/insert-sd.gif" alt="insert SD"></p>
 <p><strong>Note:</strong> Class 4 SD cards can take up to 3 times longer so it&#39;s well worth investing in the fastest card you can find.</p>
-<p>After about 30 seconds your device should be up and connected to your local network. To check this, let’s try ping the device.</p>
+<p>After about 30 seconds or so your device should be up and connected to your local network, you should see it broadcasting itself as <code>resin.local</code>. To check this, let’s try ping the device.</p>
 <pre><code>$ ping resin.local
 PING 192.168.1.111 (192.168.1.111): 56 data bytes
 64 bytes from 192.168.1.111: icmp_seq=0 ttl=64 time=103.674 ms
@@ -383,7 +383,7 @@ Name: resin
 ID: FOZ2:5KHG:RTSS:UQ7S:F2J6:QYLL:MERX:5ZVU:4WVL:3G2G:T2YA:LX3D
 </code></pre><h2 id="running-your-first-container">Running your first Container</h2>
 <h3 id="clone-a-demo-project">Clone a demo Project</h3>
-<pre><code>$ git clone ...
+<pre><code>$ git clone https://github.com/resin-io-playground/resinos-sample
 </code></pre><h3 id="get-a-container-running">Get a Container Running</h3>
 <pre><code>$ rdt push resin -s .
 </code></pre><h2 id="poking-around-resinos">Poking Around resinOS</h2>

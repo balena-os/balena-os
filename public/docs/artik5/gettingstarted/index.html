@@ -268,9 +268,9 @@
           <h1 id="getting-started-on-the-samsung-artik-5">Getting Started on the Samsung ARTIK 5</h1>
 <p>In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use a tool called <code>rdt</code> (A.K.A Resin Device Tool) to make things super easy. However, for those that like to do things the hard way, we got you covered as well. </p>
 <h2 id="download-an-image">Download an Image</h2>
-<p>To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to resinos.io/downloads and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the <a href="#/docs/supported-boards">Supported Boards</a> section for more details.</p>
+<p>To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to resinos.io/downloads and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the <a href="/docs/supportedboards/">Supported Boards</a> section for more details.</p>
 <p>Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!</p>
-<pre><code>$ wget files.resin.io/images/artik5/2.0.0/resinos-dev.img
+<pre><code>$ wget https://files.resin.io/images/artik5/2.0.0-beta.1/resin-dev.zip
 </code></pre><h2 id="install-resin-device-toolbox">Install Resin Device Toolbox</h2>
 <p><code>rdt</code> or Resin Device Toolbox, is a collection of utilities which helps us to develop resinOS based application containers. It’s not strictly necessary, but makes life so so much sweeter, but if you like doing things the hard way, skip over to the next section.</p>
 <p>Currently <code>rdt</code> is a node.js based command line tool which requires that our system has the following dependencies installed and in our path:</p>
@@ -352,7 +352,7 @@ Validating [========================] 100% eta 0s
 <li>set the  <code>SW2</code> dip switches to <code>1:off</code> and <code>2:off</code>.</li>
 </ol>
 <p>After all of that we flip the <code>PWR SW</code> back <code>on</code> and once again hold down the <code>SW3 POWER</code> button for a second or so. If all goes according to plan we should now have a freshly provisioned Samsung ARTIK 5 sitting in an <code>IDLE</code> state on our dashboard, ready and waiting to receive some code. <strong>So lets deploy some code!!!</strong></p>
-<p>After about 30 seconds your device should be up and connected to your local network. To check this, let’s try ping the device.</p>
+<p>After about 30 seconds or so your device should be up and connected to your local network, you should see it broadcasting itself as <code>resin.local</code>. To check this, let’s try ping the device.</p>
 <pre><code>$ ping resin.local
 PING 192.168.1.111 (192.168.1.111): 56 data bytes
 64 bytes from 192.168.1.111: icmp_seq=0 ttl=64 time=103.674 ms
@@ -392,7 +392,7 @@ Name: resin
 ID: FOZ2:5KHG:RTSS:UQ7S:F2J6:QYLL:MERX:5ZVU:4WVL:3G2G:T2YA:LX3D
 </code></pre><h2 id="running-your-first-container">Running your first Container</h2>
 <h3 id="clone-a-demo-project">Clone a demo Project</h3>
-<pre><code>$ git clone ...
+<pre><code>$ git clone https://github.com/resin-io-playground/resinos-sample
 </code></pre><h3 id="get-a-container-running">Get a Container Running</h3>
 <pre><code>$ rdt push resin -s .
 </code></pre><h2 id="poking-around-resinos">Poking Around resinOS</h2>
@@ -420,7 +420,7 @@ When logging is not persistent, the logs can be found at <code>/run/log/journal/
 <p>To get started, let’s create a new project directory called “myapp” and create a new file called <code>Dockerfile</code>. </p>
 <pre><code>$ mkdir -p myapp &amp;&amp; touch Dockerfile
 </code></pre><p>Now we will create a minimal node.js container based on the slim <a href="link-to-alpine">Alpine Linux distro</a>. We do this by adding the following lines to our Dockerfile.</p>
-<pre><code class="lang-Dockerfile">FROM resin/raspberrypi3-alpine-node:slim
+<pre><code class="lang-Dockerfile">FROM resin/artik5-alpine-node:slim
 CMD [“cat”, “/etc/os-release”]
 </code></pre>
 <p>The <code>FROM</code> tells docker what our container will be based on. In this case an Alpine Linux userspace with just the bare essentials needed for the node.js runtime. The <code>CMD</code> just defines what our container runs on startup. In this case, it’s not very exciting yet.</p>
@@ -430,8 +430,8 @@ CMD [“cat”, “/etc/os-release”]
 - Stopping and Removing any previous &#39;myapp&#39; container
 - Removing any existing container images for &#39;myapp&#39;
 - Building new &#39;myapp&#39; image
-Step 1 : FROM resin/raspberrypi3-alpine-node:slim
-Pulling from resin/raspberrypi3-alpine-node
+Step 1 : FROM resin/artik5-alpine-node:slim
+Pulling from resin/artik5-alpine-node
 Pulling fs layer
 Verifying Checksum=============================================&gt;]     32 B/32 B7 MB
 Download complete
@@ -439,7 +439,7 @@ Verifying Checksum=============================================&gt;] 1.987 MB/1.
 Pull complete=================================================&gt;]    12 MB/12 MB
 Pull complete
 Digest: sha256:410a5add3aa281d97afea1ae4fcdbec203c69ea34faea8d84349456c211f33a3
-Status: Downloaded newer image for resin/raspberrypi3-alpine-node:slim
+Status: Downloaded newer image for resin/artik5-alpine-node:slim
  ---&gt; bf37b6350e63
 Step 2 : CMD [“cat”, “/etc/os-release”]
  ---&gt; Running in a376f4a781d5
@@ -463,7 +463,7 @@ resin push completed successfully!
 console.log(&quot;Hey… I’m a node.js app running in a container!!&quot;);
 </code></pre>
 <p>We then make sure our Dockerfile copies this source file into our container context by replacing our current <code>CMD [“cat”,”/etc/os-release”]</code> in our Dockerfile with the following.</p>
-<pre><code class="lang-Dockerfile">FROM resin/raspberrypi3-alpine-node:slim
+<pre><code class="lang-Dockerfile">FROM resin/artik5-alpine-node:slim
 WORKDIR /usr/src/app
 COPY . .
 CMD [&quot;node&quot;, &quot;main.js&quot;]
@@ -532,7 +532,7 @@ var server = app.listen(80, function () {
     - Dockerfile: 1327b0f9875d5c4bf7f2f36fad384c8481a00396830acd33c0af0e575648fe91
     - package.json:
 </code></pre><p>And 2.) We then need to run a <code>npm install</code> in our build, so we add a few lines to our Dockerfile.</p>
-<pre><code>FROM resin/raspberrypi3-alpine-node:slim
+<pre><code>FROM resin/artik5-alpine-node:slim
 WORKDIR /usr/src/app
 COPY package.json package.json
 RUN npm install

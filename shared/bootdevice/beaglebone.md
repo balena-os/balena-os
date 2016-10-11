@@ -4,13 +4,9 @@ You should only need to hold the button down for about 5 seconds until the blue 
 
 __Warning:__ This will completely overwrite any data on your devices' internal eMMC, so make sure to make a backup of any important data.
 
-<img src="/img/beaglebone/sd_card_BBB.jpg" width="40%">
-
+<img src="/images/docs/devices/beaglebone/sd_card_BBB.jpg" width="40%">
 
 After the internal media has been flashed, your device will shut itself down and all its LEDs should switch off. Before booting the device again, make sure to **remove the SD card**. 
 You may then simply press the power button situated nearest to the ethernet port or pull out and replug the power cable.
 
-<img src="/img/beaglebone/beaglebone_device_dash_post_provisioning.png" width="80%">
-
-Your device should now start booting from internal eMMC and in a minute or so you should have a happy Beaglebone device
-
+Your device should now automatically start booting from internal eMMC.

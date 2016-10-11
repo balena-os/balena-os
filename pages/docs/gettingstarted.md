@@ -10,11 +10,11 @@ dynamic:
 In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use a tool called `rdt` (A.K.A Resin Device Tool) to make things super easy. However, for those that like to do things the hard way, we got you covered as well. 
 
 ## Download an Image
-To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to resinos.io/downloads and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the [Supported Boards](#/docs/supported-boards) section for more details.
+To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to resinos.io/downloads and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the [Supported Boards](/docs/supportedboards/) section for more details.
 
 Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!
 ```
-$ wget files.resin.io/images/{{ $device.id }}/2.0.0/resinos-dev.img
+$ wget https://files.resin.io/images/{{ $device.id }}/2.0.0-beta.1/resin-dev.zip
 ```
 
 ## Install Resin Device Toolbox
@@ -115,7 +115,7 @@ Validating [========================] 100% eta 0s
 
 {{ import "bootdevice" }}
 
-After about 30 seconds your device should be up and connected to your local network. To check this, let’s try ping the device.
+After about 30 seconds or so your device should be up and connected to your local network, you should see it broadcasting itself as `resin.local`. To check this, let’s try ping the device.
 
 ```
 $ ping resin.local
@@ -163,7 +163,7 @@ ID: FOZ2:5KHG:RTSS:UQ7S:F2J6:QYLL:MERX:5ZVU:4WVL:3G2G:T2YA:LX3D
 ## Running your first Container
 ### Clone a demo Project 
 ```
-$ git clone ...
+$ git clone https://github.com/resin-io-playground/resinos-sample
 ```
 
 ### Get a Container Running
@@ -221,7 +221,7 @@ $ mkdir -p myapp && touch Dockerfile
 Now we will create a minimal node.js container based on the slim [Alpine Linux distro](link-to-alpine). We do this by adding the following lines to our Dockerfile.
 
 ```Dockerfile
-FROM resin/raspberrypi3-alpine-node:slim
+FROM resin/{{ $device.id }}-alpine-node:slim
 CMD [“cat”, “/etc/os-release”]
 ```
 
@@ -234,8 +234,8 @@ $ rdt push --source .
 - Stopping and Removing any previous 'myapp' container
 - Removing any existing container images for 'myapp'
 - Building new 'myapp' image
-Step 1 : FROM resin/raspberrypi3-alpine-node:slim
-Pulling from resin/raspberrypi3-alpine-node
+Step 1 : FROM resin/{{ $device.id }}-alpine-node:slim
+Pulling from resin/{{ $device.id }}-alpine-node
 Pulling fs layer
 Verifying Checksum=============================================>]     32 B/32 B7 MB
 Download complete
@@ -243,7 +243,7 @@ Verifying Checksum=============================================>] 1.987 MB/1.987
 Pull complete=================================================>]    12 MB/12 MB
 Pull complete
 Digest: sha256:410a5add3aa281d97afea1ae4fcdbec203c69ea34faea8d84349456c211f33a3
-Status: Downloaded newer image for resin/raspberrypi3-alpine-node:slim
+Status: Downloaded newer image for resin/{{ $device.id }}-alpine-node:slim
  ---> bf37b6350e63
 Step 2 : CMD [“cat”, “/etc/os-release”]
  ---> Running in a376f4a781d5
@@ -279,7 +279,7 @@ console.log("Hey… I’m a node.js app running in a container!!");
 We then make sure our Dockerfile copies this source file into our container context by replacing our current `CMD [“cat”,”/etc/os-release”]` in our Dockerfile with the following.
 
 ```Dockerfile
-FROM resin/raspberrypi3-alpine-node:slim
+FROM resin/{{ $device.id }}-alpine-node:slim
 WORKDIR /usr/src/app
 COPY . .
 CMD ["node", "main.js"]
@@ -366,7 +366,7 @@ local_resinos:
 And 2.) We then need to run a `npm install` in our build, so we add a few lines to our Dockerfile.
 
 ```
-FROM resin/raspberrypi3-alpine-node:slim
+FROM resin/{{ $device.id }}-alpine-node:slim
 WORKDIR /usr/src/app
 COPY package.json package.json
 RUN npm install
