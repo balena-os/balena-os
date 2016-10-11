@@ -254,6 +254,24 @@
         Beaglebone
       </option>
     
+      <option
+        value="beaglebone-green"
+        >
+        Beaglebone Green
+      </option>
+    
+      <option
+        value="beaglebone-green-wifi"
+        >
+        Beaglebone Green Wireless
+      </option>
+    
+      <option
+        value="nuc"
+        >
+        Intel NUC
+      </option>
+    
   </select>
 
       
@@ -341,17 +359,19 @@ Validating [========================] 100% eta 0s
 </code></pre><h3 id="boot-the-device">Boot the device</h3>
 <p>In order to get the resinOS up and running on our Samsung ARTIK 5 we need to first set it up to boot from our SD card rather than its internal <a href="http://www.datalight.com/solutions/technologies/emmc/what-is-emmc">eMMC memory</a>. To do this we need to set the tiny <code>SW2</code> dip switch to position <code>1:on</code> and <code>2:on</code>, as shown below.</p>
 <p><strong>Note:</strong> This resinOS will completely write over the existing eMMC.</p>
-<p><img src="/img/artik5/artik5-dev-kit.png" width="80%"></p>
-<p>We can now insert the 5VDC power cable and flip the power, switch labelled <code>PWR SW</code>, to the <code>on</code> position. We should now have some glowing LEDs indicating a sign of life. Next we need to press and hold the <code>SW3 POWER</code> push button for 1 or 2 seconds, this starts the boot from the SD card.</p>
-<p>After a few seconds you should see your Samsung ARTIK 5 appear on the resin.io dashboard. If it still hasn&#39;t appeared after 1 or 2 minutes, double check your ethernet connection or that you entered the right wifi credentials at download time. If you still can&#39;t get it online, contact us on support.</p>
+<p><img src="/images/docs/devices/artik5/artik5-dev-kit.png" width="80%"></p>
+<p>We can now insert the 5VDC power cable and flip the power, switch labelled <code>PWR SW</code>, to the <code>on</code> position. We should now have some glowing LEDs indicating 
+a sign of life. Next we need to press and hold the <code>SW3 POWER</code> push button for 1 or 2 seconds, this starts the boot from the SD card.</p>
 <p><strong>Note:</strong> In order for the wifi to work correctly, you need to set jumpers <code>J20</code> and <code>J33</code> towards the edge of the board.</p>
-<p>Your Samsung ARTIK 5 will now flash resinOS onto the internal eMMC so that you can remove the SD card. This will take 2 or 3 minutes, so time for more tea!! Once it has finished it will shut itself down and you will see the device on the dashboard in a <code>Post-Provisioning</code> state. At this point you need to:</p>
+<p>Your Samsung ARTIK 5 will now flash resinOS onto the internal eMMC so that you can remove the SD card. This will take a minute or two, so time for more tea!! 
+Once it has finished it will shut itself down and all the activity LEDs will switch off. At this point you need to:</p>
 <ol>
 <li>Flip <code>PWR SW</code> back to <code>off</code> position.</li>
 <li>Remove the SD card.</li>
 <li>set the  <code>SW2</code> dip switches to <code>1:off</code> and <code>2:off</code>.</li>
 </ol>
-<p>After all of that we flip the <code>PWR SW</code> back <code>on</code> and once again hold down the <code>SW3 POWER</code> button for a second or so. If all goes according to plan we should now have a freshly provisioned Samsung ARTIK 5 sitting in an <code>IDLE</code> state on our dashboard, ready and waiting to receive some code. <strong>So lets deploy some code!!!</strong></p>
+<p>After all of that we flip the <code>PWR SW</code> back <code>on</code> and once again hold down the <code>SW3 POWER</code> button for a second or so. If all goes according to plan we should now have a 
+freshly provisioned Samsung ARTIK 5 sitting in an <code>IDLE</code> state on our dashboard, ready and waiting to receive some code. <strong>So lets deploy some code!!!</strong></p>
 <p>After about 30 seconds or so your device should be up and connected to your local network, you should see it broadcasting itself as <code>resin.local</code>. To check this, let’s try ping the device.</p>
 <pre><code>$ ping resin.local
 PING 192.168.1.111 (192.168.1.111): 56 data bytes
@@ -392,7 +412,7 @@ Name: resin
 ID: FOZ2:5KHG:RTSS:UQ7S:F2J6:QYLL:MERX:5ZVU:4WVL:3G2G:T2YA:LX3D
 </code></pre><h2 id="running-your-first-container">Running your first Container</h2>
 <h3 id="clone-a-demo-project">Clone a demo Project</h3>
-<pre><code>$ git clone https://github.com/resin-io-playground/resinos-sample
+<pre><code>  $ git clone https://github.com/resin-io-playground/resinos-sample
 </code></pre><h3 id="get-a-container-running">Get a Container Running</h3>
 <pre><code>$ rdt push resin -s .
 </code></pre><h2 id="poking-around-resinos">Poking Around resinOS</h2>

@@ -2,7 +2,7 @@ In order to get the resinOS up and running on our {{ $device.name }} we need to 
 
 __Note:__ This resinOS will completely write over the existing eMMC.
 
-<img src="/img/artik5/artik5-dev-kit.png" width="80%">
+<img src="/images/docs/devices/artik5/artik5-dev-kit.png" width="80%">
 
 We can now insert the 5VDC power cable and flip the power, switch labelled `PWR SW`, to the `on` position. We should now have some glowing LEDs indicating 
 a sign of life. Next we need to press and hold the `SW3 POWER` push button for 1 or 2 seconds, this starts the boot from the {{ $device.bootMedia }}.

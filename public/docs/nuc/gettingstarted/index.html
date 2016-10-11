@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Resinos - Getting Started on the Raspberry Pi 3</title>
+    <title>Resinos - Getting Started on the Intel NUC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -69,7 +69,7 @@
   </div>
 </nav>
 
-    <section class="section page-content page-content--Getting Started on the Raspberry Pi 3">
+    <section class="section page-content page-content--Getting Started on the Intel NUC">
       
 <div class="docs">
   <div class="container docs__container">
@@ -102,8 +102,8 @@
           
         
         <li class="active">
-          <a href="/docs/raspberrypi3/gettingstarted">
-            Getting Started on Raspberry Pi 3
+          <a href="/docs/nuc/gettingstarted">
+            Getting Started on Intel NUC
           </a>
         </li>
         
@@ -191,7 +191,7 @@
     </li>
   
     <li class="active">
-      Getting Started on Raspberry Pi 3
+      Getting Started on Intel NUC
       
     </li>
   
@@ -232,7 +232,7 @@
     
       <option
         value="raspberrypi3"
-        selected>
+        >
         Raspberry Pi 3
       </option>
     
@@ -268,7 +268,7 @@
     
       <option
         value="nuc"
-        >
+        selected>
         Intel NUC
       </option>
     
@@ -283,12 +283,12 @@
       
       <section class="docs__content">
         
-          <h1 id="getting-started-on-the-raspberry-pi-3">Getting Started on the Raspberry Pi 3</h1>
+          <h1 id="getting-started-on-the-intel-nuc">Getting Started on the Intel NUC</h1>
 <p>In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use a tool called <code>rdt</code> (A.K.A Resin Device Tool) to make things super easy. However, for those that like to do things the hard way, we got you covered as well. </p>
 <h2 id="download-an-image">Download an Image</h2>
 <p>To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to resinos.io/downloads and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the <a href="/docs/supportedboards/">Supported Boards</a> section for more details.</p>
 <p>Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!</p>
-<pre><code>$ wget https://files.resin.io/images/raspberrypi3/2.0.0-beta.1/resin-dev.zip
+<pre><code>$ wget https://files.resin.io/images/nuc/2.0.0-beta.1/resin-dev.zip
 </code></pre><h2 id="install-resin-device-toolbox">Install Resin Device Toolbox</h2>
 <p><code>rdt</code> or Resin Device Toolbox, is a collection of utilities which helps us to develop resinOS based application containers. It’s not strictly necessary, but makes life so so much sweeter, but if you like doing things the hard way, skip over to the next section.</p>
 <p>Currently <code>rdt</code> is a node.js based command line tool which requires that our system has the following dependencies installed and in our path:</p>
@@ -338,13 +338,13 @@ addr-gen-mode=stable-privacy
 method=auto
 </code></pre><h2 id="get-the-device-up-and-running">Get the Device Up and Running</h2>
 <p>Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step <code>rdt</code> provides a handy flashing utility, you can however flash this image using etcher.io or <code>dd</code> if you must. </p>
-<h3 id="flash-sd-card">Flash SD card</h3>
+<h3 id="flash-usb-drive">Flash USB drive</h3>
 <p>To get flashing, just point the <code>rdt flash</code> command to the image we just downloaded and follow the prompts. If you hate prompts, <code>rdt</code> also allows you to skip them, check the <a href="#rdt-docs"><code>rdt</code> docs</a> on how to do this.</p>
-<p><strong>NOTE:</strong> <code>rdt flash</code> requires administrative privileges because it needs to access the SD card.</p>
+<p><strong>NOTE:</strong> <code>rdt flash</code> requires administrative privileges because it needs to access the USB drive.</p>
 <pre><code>$ sudo rdt flash ~/Downloads/resinos-dev.img
 Password:
 x No available drives were detected, plug one in!
-</code></pre><p>Once you plug in your SD card, <code>rdt</code> should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as <code>rdt</code> will complete write over the entire drive.</p>
+</code></pre><p>Once you plug in your USB drive, <code>rdt</code> should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as <code>rdt</code> will complete write over the entire drive.</p>
 <pre><code>$ sudo rdt flash ~/Downloads/resinos-dev.img 
 Password:
 ? Select drive (Use arrow keys)
@@ -357,10 +357,14 @@ It should only take about 3 minutes, depending on the quality of your drive, so 
 Flashing [========================] 100% eta 0s  
 Validating [========================] 100% eta 0s
 </code></pre><h3 id="boot-the-device">Boot the device</h3>
-<p>Insert the SD card into the Raspberry Pi 3 and connect either the ethernet cable if you want to connect via ethernet, otherwise the device will try connect via wifi. 
-Now power up the Raspberry Pi 3 by inserting the micro USB cable.</p>
-<p><img src="/images/docs/gifs/insert-sd.gif" alt="insert SD"></p>
-<p><strong>Note:</strong> Class 4 SD cards can take up to 3 times longer so it&#39;s well worth investing in the fastest card you can find.</p>
+<p>Put the USB drive into your device and connect either the ethernet cable or WiFi adapter. Ensure that you also have an HDMI screen and keyboard are connected up.</p>
+<p>Now connect up the power supply and turn the device on by pushing the power button.</p>
+<p>Press the F10 key while the <strong>BIOS</strong> is loading in order to enter the boot menu. Next, select the <code>UEFI : USB</code> option from the boot menu so that the device will boot from your USB drive.</p>
+<p>Once the device boots, you should see console output on the screen. At this time the device is flashing the resinOS system image onto the devices&#39; internal media.</p>
+<p><strong>Warning:</strong> The resinOS will completely overwrite the internal media of your NUC, so if you have important data on the device, we recommend that you make a backup before installing resinOS on your device.</p>
+<p>After a few minutes, the OS will be fully flashed to the internal media and the device will shut itself down. At this point, you will see all the LEDs have turned off. You can now remove the USB drive and press the power button once again.</p>
+<p>Your NUC should now automatically boot into the resinOS.</p>
+<p><strong>Note:</strong> If for some reason your device does not boot into resinOS, you may need to go back into the <strong>BIOS</strong> and make sure the boot order correctly selects to boot from the internal SATA drive and not from USB.</p>
 <p>After about 30 seconds or so your device should be up and connected to your local network, you should see it broadcasting itself as <code>resin.local</code>. To check this, let’s try ping the device.</p>
 <pre><code>$ ping resin.local
 PING 192.168.1.111 (192.168.1.111): 56 data bytes
@@ -401,7 +405,7 @@ Name: resin
 ID: FOZ2:5KHG:RTSS:UQ7S:F2J6:QYLL:MERX:5ZVU:4WVL:3G2G:T2YA:LX3D
 </code></pre><h2 id="running-your-first-container">Running your first Container</h2>
 <h3 id="clone-a-demo-project">Clone a demo Project</h3>
-<pre><code>  $ git clone https://github.com/resin-io-playground/resinos-sample
+<pre><code>  $ git clone https://github.com/resin-io-playground/resinos-sample-x86
 </code></pre><h3 id="get-a-container-running">Get a Container Running</h3>
 <pre><code>$ rdt push resin -s .
 </code></pre><h2 id="poking-around-resinos">Poking Around resinOS</h2>
@@ -417,10 +421,10 @@ ID: FOZ2:5KHG:RTSS:UQ7S:F2J6:QYLL:MERX:5ZVU:4WVL:3G2G:T2YA:LX3D
 root@resin:~# docker exec -it myapp bash
 </code></pre><h2 id="going-further">Going Further</h2>
 <h3 id="advanced-settings">Advanced Settings</h3>
-<p>Either mount the SD card and run:</p>
+<p>Either mount the USB drive and run:</p>
 <pre><code>$ rdt configure /path/to/drive
 </code></pre><p>And select <code>y</code> when asked if you want to add advanced settings.</p>
-<p>Alternatevely you can add <code>“persistentLogging”: true</code> to <code>config.json</code> in your boot partition of the SD card. </p>
+<p>Alternatevely you can add <code>“persistentLogging”: true</code> to <code>config.json</code> in your boot partition of the USB drive. </p>
 <p>To Enable persistent logs in a running device, add <code>“persistentLogging”: true</code> to <code>/mnt/boot/config.json</code> and reboot.</p>
 <p>The journal can be found at  <code>/var/log/journal/</code> which is bind mounted to <code>root-overlay/var/log/journal</code> in the <code>resin-conf</code> partition. 
 When logging is not persistent, the logs can be found at <code>/run/log/journal/</code> and this log is volatile so you will loose all logs when you power the device down.</p>
@@ -429,7 +433,7 @@ When logging is not persistent, the logs can be found at <code>/run/log/journal/
 <p>To get started, let’s create a new project directory called “myapp” and create a new file called <code>Dockerfile</code>. </p>
 <pre><code>$ mkdir -p myapp &amp;&amp; touch Dockerfile
 </code></pre><p>Now we will create a minimal node.js container based on the slim <a href="link-to-alpine">Alpine Linux distro</a>. We do this by adding the following lines to our Dockerfile.</p>
-<pre><code class="lang-Dockerfile">FROM resin/raspberrypi3-alpine-node:slim
+<pre><code class="lang-Dockerfile">FROM resin/nuc-alpine-node:slim
 CMD [“cat”, “/etc/os-release”]
 </code></pre>
 <p>The <code>FROM</code> tells docker what our container will be based on. In this case an Alpine Linux userspace with just the bare essentials needed for the node.js runtime. The <code>CMD</code> just defines what our container runs on startup. In this case, it’s not very exciting yet.</p>
@@ -439,8 +443,8 @@ CMD [“cat”, “/etc/os-release”]
 - Stopping and Removing any previous &#39;myapp&#39; container
 - Removing any existing container images for &#39;myapp&#39;
 - Building new &#39;myapp&#39; image
-Step 1 : FROM resin/raspberrypi3-alpine-node:slim
-Pulling from resin/raspberrypi3-alpine-node
+Step 1 : FROM resin/nuc-alpine-node:slim
+Pulling from resin/nuc-alpine-node
 Pulling fs layer
 Verifying Checksum=============================================&gt;]     32 B/32 B7 MB
 Download complete
@@ -448,7 +452,7 @@ Verifying Checksum=============================================&gt;] 1.987 MB/1.
 Pull complete=================================================&gt;]    12 MB/12 MB
 Pull complete
 Digest: sha256:410a5add3aa281d97afea1ae4fcdbec203c69ea34faea8d84349456c211f33a3
-Status: Downloaded newer image for resin/raspberrypi3-alpine-node:slim
+Status: Downloaded newer image for resin/nuc-alpine-node:slim
  ---&gt; bf37b6350e63
 Step 2 : CMD [“cat”, “/etc/os-release”]
  ---&gt; Running in a376f4a781d5
@@ -472,7 +476,7 @@ resin push completed successfully!
 console.log(&quot;Hey… I’m a node.js app running in a container!!&quot;);
 </code></pre>
 <p>We then make sure our Dockerfile copies this source file into our container context by replacing our current <code>CMD [“cat”,”/etc/os-release”]</code> in our Dockerfile with the following.</p>
-<pre><code class="lang-Dockerfile">FROM resin/raspberrypi3-alpine-node:slim
+<pre><code class="lang-Dockerfile">FROM resin/nuc-alpine-node:slim
 WORKDIR /usr/src/app
 COPY . .
 CMD [&quot;node&quot;, &quot;main.js&quot;]
@@ -541,7 +545,7 @@ var server = app.listen(80, function () {
     - Dockerfile: 1327b0f9875d5c4bf7f2f36fad384c8481a00396830acd33c0af0e575648fe91
     - package.json:
 </code></pre><p>And 2.) We then need to run a <code>npm install</code> in our build, so we add a few lines to our Dockerfile.</p>
-<pre><code>FROM resin/raspberrypi3-alpine-node:slim
+<pre><code>FROM resin/nuc-alpine-node:slim
 WORKDIR /usr/src/app
 COPY package.json package.json
 RUN npm install

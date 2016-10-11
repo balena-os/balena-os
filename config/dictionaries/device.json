@@ -3,54 +3,54 @@
     "id": "raspberrypi",
     "name": "Raspberry Pi 1",
 		"bootMedia": "SD card",
-    "rustTriple": "arm-unknown-linux-gnueabihf",
-    "rustLinker": "arm-linux-gnueabihf-gcc",
-    "cppTriple": "armv6-rpi-linux-gnueabi",
     "icon": "/img/device/raspberry-pi.svg"
   },
 	{
     "id": "raspberrypi2",
     "name": "Raspberry Pi 2",
 		"bootMedia": "SD card",
-    "rustTriple": "armv7-unknown-linux-gnueabihf",
-    "rustLinker": "arm-linux-gnueabihf-gcc",
-    "cppTriple": "armv7-rpi2-linux-gnueabihf",
     "icon": "/img/device/raspberry-pi2.svg"
   },
 	{
     "id": "raspberrypi3",
     "name": "Raspberry Pi 3",
 		"bootMedia": "SD card",
-    "rustTriple": "armv7-unknown-linux-gnueabihf",
-    "rustLinker": "arm-linux-gnueabihf-gcc",
-    "cppTriple": "armv7-rpi2-linux-gnueabihf",
     "icon": "/img/device/raspberry-pi3.svg"
   },
   {
     "id": "artik5",
     "name": "Samsung ARTIK 5",
 		"bootMedia": "SD card",
-    "rustTriple": "armv7-unknown-linux-gnueabihf",
-    "rustLinker": "arm-linux-gnueabihf-gcc",
-    "cppTriple": "arm-unknown-linux-gnueabi",
     "icon": "/img/device/artik5.svg"
   },
   {
     "id": "artik10",
     "name": "Samsung ARTIK 10",
 		"bootMedia": "SD card",
-    "rustTriple": "armv7-unknown-linux-gnueabihf",
-    "rustLinker": "arm-linux-gnueabihf-gcc",
-    "cppTriple": "arm-unknown-linux-gnueabi",
     "icon": "/img/device/artik10.svg"
   },
   {
     "id": "beaglebone",
     "name": "Beaglebone",
 		"bootMedia": "SD card",
-    "rustTriple": "armv7-unknown-linux-gnueabihf",
-    "rustLinker": "arm-linux-gnueabihf-gcc",
-    "cppTriple": "arm-unknown-linux-gnueabi",
+    "icon": "/img/device/beaglebone-black.svg"
+  },
+  {
+    "id": "beaglebone-green",
+    "name": "Beaglebone Green",
+		"bootMedia": "SD card",
+    "icon": "/img/device/beaglebone-black.svg"
+  },
+  {
+    "id": "beaglebone-green-wifi",
+    "name": "Beaglebone Green Wireless",
+		"bootMedia": "SD card",
+    "icon": "/img/device/beaglebone-black.svg"
+  },
+  {
+    "id": "nuc",
+    "name": "Intel NUC",
+		"bootMedia": "USB drive",
     "icon": "/img/device/beaglebone-black.svg"
   }
 ]

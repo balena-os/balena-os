@@ -254,6 +254,24 @@
         Beaglebone
       </option>
     
+      <option
+        value="beaglebone-green"
+        >
+        Beaglebone Green
+      </option>
+    
+      <option
+        value="beaglebone-green-wifi"
+        >
+        Beaglebone Green Wireless
+      </option>
+    
+      <option
+        value="nuc"
+        >
+        Intel NUC
+      </option>
+    
   </select>
 
       
@@ -341,7 +359,7 @@ Validating [========================] 100% eta 0s
 </code></pre><h3 id="boot-the-device">Boot the device</h3>
 <p>In order to get the resinOS up and running on our Samsung ARTIK 10 we need to first set it up to boot from our SD card rather than its internal <a href="http://www.datalight.com/solutions/technologies/emmc/what-is-emmc">eMMC memory</a>. To do this we need to set the tiny <code>SW2</code> dip switch to position <code>1:on</code> and <code>2:on</code>, as shown below.</p>
 <p><strong>Note:</strong> This resinOS will completely write over the existing eMMC.</p>
-<p><img src="/img/artik10/artik10-dev-kit.png" width="80%"></p>
+<p><img src="/images/docs/devices/artik10/artik10-dev-kit.png" width="80%"></p>
 <p>We can now insert the 5VDC power cable and flip the power, switch labelled <code>PSW1</code>, to the <code>on</code> position. We should now have some glowing LEDs indicating a sign of life. Next we need to press and hold the <code>SW3 POWER</code> push button for 1 or 2 seconds, this starts the boot from the SD card.</p>
 <p>After a few seconds you should see your Samsung ARTIK 10 appear on the resin.io dashboard. If it still hasn&#39;t appeared after 1 or 2 minutes, double check your ethernet connection or that you entered the right wifi credentials at download time. If you still can&#39;t get it online, contact us on support.</p>
 <p><strong>Note:</strong> In order for the wifi to work correctly, you need to set jumpers <code>J20</code> and <code>J36</code> towards the edge of the board.</p>
@@ -392,7 +410,7 @@ Name: resin
 ID: FOZ2:5KHG:RTSS:UQ7S:F2J6:QYLL:MERX:5ZVU:4WVL:3G2G:T2YA:LX3D
 </code></pre><h2 id="running-your-first-container">Running your first Container</h2>
 <h3 id="clone-a-demo-project">Clone a demo Project</h3>
-<pre><code>$ git clone https://github.com/resin-io-playground/resinos-sample
+<pre><code>  $ git clone https://github.com/resin-io-playground/resinos-sample
 </code></pre><h3 id="get-a-container-running">Get a Container Running</h3>
 <pre><code>$ rdt push resin -s .
 </code></pre><h2 id="poking-around-resinos">Poking Around resinOS</h2>
