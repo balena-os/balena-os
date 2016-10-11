@@ -18,6 +18,13 @@
   @include rem(margin-bottom, 40px)
 }
 
+.nav-item {
+  iframe {
+    display: inline-block;
+    vertical-align: -webkit-baseline-middle;
+  }
+}
+
 .link-decorator  {
   position: relative;
   color: $white;
