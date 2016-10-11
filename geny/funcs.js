@@ -39,21 +39,21 @@ exports.getRepo = function() {
   });
 };
 
-// exports.getFAQs = function() {
-//   return github.repos.getContent({
-//     repo: ghConfig.repo,
-//     user: ghConfig.user,
-//     path: "SUPPORT.md"
-//   }).then(function(data) {
-//     return github.misc.renderMarkdown({
-//       "text": new Buffer(data.content.toString(), 'base64').toString('ascii')
-//     })
-//   }).then(function(data) {
-//     return {
-//       FAQs: data.data
-//     }
-//   })
-// };
+exports.getFAQs = function() {
+  return github.repos.getContent({
+    repo: 'resinos',
+    user: 'resin-os',
+    path: "/pages/docs/faqs.md"
+  }).then(function(data) {
+    return github.misc.renderMarkdown({
+      "text": new Buffer(data.content.toString(), 'base64').toString('ascii')
+    })
+  }).then(function(data) {
+    return {
+      FAQs: data.data
+    }
+  })
+};
 
 // exports.getDocs = function() {
 //   function downloadSave(content) {

@@ -20,6 +20,15 @@ if (doxxConfig.layoutLocals.analytics.mixpanelToken && window.location.host.spli
     }
     mixpanel.track(eventName, eventMeta);
   });
+
+  // track searches
+  if (window.location.search) {
+    searchTerm = window.location.search.substring(window.location.search.indexOf("=") + 1)
+    mixpanel.track('search', {
+      'searchTerm' : searchTerm
+    });
+  }
+
 } else {
   console.log('mixpanel tracking disable or in dev mode')
 }

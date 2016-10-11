@@ -70,7 +70,7 @@
   </div>
 </nav>
 
-    <section class="section page-content page-content--home">
+    <section class="page-content page-content--home">
       
   
     <section class="jumbotron jumbotron-fluid section section--inv">
@@ -87,9 +87,9 @@
   
 </div>
 
-    <a href="#" class="btn btn-success" data-track="link click" data-track-meta='{ "title": "Try resinOS", "href": "#", "position": "jumbotron"}'>Try resinOS</a>
+    <a href="/docs/raspberrypi2/gettingstarted/" class="btn btn-success" data-track="link click" data-track-meta='{ "title": "Try resinOS", "href": "/docs/raspberrypi2/gettingstarted/", "position": "jumbotron"}'>Try resinOS</a>
     <p class="lead jumbotron__meta">
-      Latest version 0.0.1 | Affogato 
+      Latest version 0.0.1 | Affogato
     </p>
   </div>
 </section>
@@ -289,7 +289,7 @@
         
       
       <div class="col-md-3">
-        <a class="downloads__category downloads__category--custom" href="#add-your-own">
+        <a data-track="link click" data-track-attr='{ "title": "Build your own", "href": "/docs/custombuild", "position": "downloads" }' class="downloads__category downloads__category--custom" href="/docs/custombuild">
           <div class="downloads__category--custom__container">
             <img class="downloads__category__image downloads__category__image--custom" src="/images/icons/add.png" srcset="/images/icons/add@2x.png 2x">
             <h4>Add your </br>own board</h4>
@@ -350,6 +350,53 @@
 
   
   
+    <section class="section FAQs">
+  <div class="container">
+    <div class="section__header">
+      <img class="section__icon" src="/images/icons/faq.png" srcset="/images/icons/faq@2x.png 2x">
+      <h2 class="section__title">Frequently Asked Questions</h2>
+      <p class="lead section__lead col-md-10 offset-md-1"></p>
+    </div>
+    <div class="row">
+      <div class="col-md-8 offset-md-2 FAQs-js" data-html='&lt;h2&gt;
+&lt;a id=&quot;user-content-why-docker-containers-on-embedded-devices&quot; class=&quot;anchor&quot; href=&quot;#why-docker-containers-on-embedded-devices&quot; aria-hidden=&quot;true&quot;&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;octicon octicon-link&quot;&gt;&lt;/span&gt;&lt;/a&gt;Why Docker containers on embedded devices?&lt;/h2&gt;
+
+&lt;p&gt;We think that containers are essential to bringing modern development and deployment capabilities to connected devices. Linux containers, particularly Docker, offer, for the first time, a practical path to using virtualization on embedded devices. Virtual machines and hypervisors have lead to huge leaps in productivity and automation for cloud deployments, but their abstraction of hardware as well as their resource overhead and lack of hardware support means that they are out of the question for embedded scenarios. With OS-level virtualization as implemented for Linux Containers, both those objections are lifted for heterogeneous embedded Linux devices in the b Internet of Things.b &lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a id=&quot;user-content-why-yocto&quot; class=&quot;anchor&quot; href=&quot;#why-yocto&quot; aria-hidden=&quot;true&quot;&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;octicon octicon-link&quot;&gt;&lt;/span&gt;&lt;/a&gt;Why Yocto?&lt;/h2&gt;
+
+&lt;p&gt;Yocto Linux is an incredible toolkit for generating Linux distributions, with a focus on portability. Yoctob s minimal size and low footprint also make it ideal for running on devices. ResinOS is built using Yocto at its core, and the resinOS team maintains numerous BSPs for Yocto, among them the Raspberry Pi, Artik, and CHIP layers. Yocto acts as the foundation for many other embedded operating systems including Ostro, Wind River Linux, and Tizen, therefore acting as a mechanism for sharing best practices and code, benefitting all the resulting operating systems, resinOS included.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a id=&quot;user-content-how-is-this-different-from-cloud-operating-systems-for-containers&quot; class=&quot;anchor&quot; href=&quot;#how-is-this-different-from-cloud-operating-systems-for-containers&quot; aria-hidden=&quot;true&quot;&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;octicon octicon-link&quot;&gt;&lt;/span&gt;&lt;/a&gt;How is this different from cloud operating systems for containers?&lt;/h2&gt;
+
+&lt;p&gt;ResinOS shares a lot with cloud operating systems for containers. We share the focus on minimalism, getting out of the userb s way and letting their container do the heavy lifting, and using Docker, which is the standard way of running containers, and well understood by a large developer community. ResinOS applies the same principles to a different domain, that of embedded Linux devices, sometimes called b connected devicesb , b Internet of Thingsb  or b Industrial Internetb , depending on the use case. While some of the cloud operating systems have been made to run on particular embedded devices, their architecture is geared towards the cloud, where they shine.&lt;/p&gt;
+
+&lt;p&gt;By applying the container paradigm to the embedded world, the ResinOS team has faced and solve a unique set of challenges that are not common in the cloud and datacentre world, such as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The extreme heterogeneity of device types found in the wild;&lt;/li&gt;
+&lt;li&gt;Severely restricted resource envelopes in terms of storage, CPU, and networking;&lt;/li&gt;
+&lt;li&gt;Devices that are difficult to reach or re-provision upon failure, where power is unstable and may be turned off at any time, or with custom hardware attached.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ResinOS is built for this world from scratch, and our deepest architectural and feature choices have been made exclusively with embedded devices in mind. ResinOS is built for embedded devices, and this focus continues to drive our architectural objectives.&lt;/p&gt;
+
+&lt;h2&gt;
+&lt;a id=&quot;user-content-how-is-this-different-from-other-embedded-operating-systems&quot; class=&quot;anchor&quot; href=&quot;#how-is-this-different-from-other-embedded-operating-systems&quot; aria-hidden=&quot;true&quot;&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;octicon octicon-link&quot;&gt;&lt;/span&gt;&lt;/a&gt;How is this different from other embedded operating systems?&lt;/h2&gt;
+
+&lt;p&gt;ResinOS uniquely combines the virtues of mature embedded operating systems with the developer-focused sensibilities of cloud operating systems. Where the cloud operating systems donb t address the realities of the embedded world, embedded and IoT-focused Linux distributions donb t focus on containers. When they do, they often choose to reinvent the wheel rather than use Docker, which is the de-facto standard among developers. ResinOS aims to be a competent embedded operating system and shares architectural principles with many existing systems, but also aims to unify the approach to containers with Docker.&lt;/p&gt;
+
+&lt;p&gt;While others have done a fantastic job evangelising the use of containers on embedded devices, ResinOS has the added benefit of focusing on portability, with 20 device types already supported, and production-readiness, with thousands of devices already deployed for business purposes. With ResinOS 2.0 we aim to make our OS friendly to all developers, and grow our device support to any and all device types we can access.res&lt;/p&gt;
+'>
+        <!-- populated via jquery -->
+      </div>
+    </div>
+  </div>
+</section>
+
+  
   <!-- <h1 id="hello-this-is-the-homepage-">Hello this is the homepage!</h1>
 <p><strong>Hello from partial!</strong></p>
 <div>
@@ -395,7 +442,7 @@
 
       </ul>
     </div>
-    <hr class="section__hr">
+    <hr class="section__hr section__hr--slim">
     <div class="footer__claim">
       <a data-track="link click" data-track-meta='{ "title": "logo", "href": "/"}' href="/">
         <img class="footer__claim__items" alt="{ repo.name }" src="/images/logos/project.png" srcset="/images/logos/project@2x.png 2x">

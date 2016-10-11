@@ -8,6 +8,8 @@ $.fn.addAnchor = function() {
   return this
 }
 
+
+$('.docs__sidebar').height($(document).height())
 $pageContent
   .find('h2,h3,h4,h5,h6')
   .addAnchor()

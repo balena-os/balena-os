@@ -1,8 +1,3 @@
----
-title: FAQs
-layout: docs.html
----
-
 ## Why Docker containers on embedded devices?
 
 We think that containers are essential to bringing modern development and deployment capabilities to connected devices. Linux containers, particularly Docker, offer, for the first time, a practical path to using virtualization on embedded devices. Virtual machines and hypervisors have lead to huge leaps in productivity and automation for cloud deployments, but their abstraction of hardware as well as their resource overhead and lack of hardware support means that they are out of the question for embedded scenarios. With OS-level virtualization as implemented for Linux Containers, both those objections are lifted for heterogeneous embedded Linux devices in the “Internet of Things.”
