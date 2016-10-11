@@ -4,6 +4,15 @@ Headroom = require('headroom.js')
 // grab an element
 var myElement = document.querySelector(".navbar");
 // construct an instance of Headroom, passing the element
-var headroom  = new Headroom(myElement);
+
 // initialise
+var UNPIN_OFFSET = 400
+
+var headroom  = new Headroom(myElement, {
+  offset: UNPIN_OFFSET,
+  tolerance : {
+    up : 30,
+    down : 0
+  }
+});
 headroom.init();
