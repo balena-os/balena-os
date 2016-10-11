@@ -61,7 +61,8 @@ Below is a representative example from the Raspberry Pi family, which helps expl
 
 ## Userspace Components
 The resinOS userspace tries to package only the bare essentials for running containers while still offering a lot of flexibility. The philosophy is that software and services always default to being in a container, unless they are generically useful to all containers or they absolutely can’t live in a container.  The userspace consists of many open source components, but in this section we will just highlight some of the important ones.
- 
+
+<img src="/images/docs/arch/userspace-components.png" width="90%">
 
 ### Systemd
 We use systemd as the init system for resinOS and it is responsible for launching and managing all the other services. We leverage a many of the great features of systemd, such as adjusting OOM scores for critical services and running services in separate mount namespaces. Systemd also allows us to easily manage service dependencies.
@@ -84,20 +85,9 @@ In order to improve the development experience of resinOS, there is an Avahi dae
 
 ResinOS will provide the user with an OpenVPN server that he might use. It is worth noting that this server will be disabled by default and manual interaction from the user is needed to activate and configure this server to his needs.
 
-## Stateless and Read-Only rootFS
-
-ResinOS comes with a read-only root filesystem, so we can ensure our hostOS is stateless, but we still need some data to be persistent over system reboots. We achieve this with a very simple mechanism, i.e. bind mounts. 
-ResinOS contains a partition named resin-conf that is meant to hold all this persistent data, inside we populate a Linux filesystem hierarchy standard with the rootfs paths that we require to be persistent. After this partition is populate we are ready to bind mount the respective rootfs paths to this read-write location, thus allowing different components (e.g. journald) to be able to write data to disk. A mechanism to purge this partition is provided, thus allowing users to rollback to an unconfigured ResinOS image.
-
-A diagram of our read-only rootfs can be seen below:
-
 ## Image Partition Layout
-Resin-boot: Fat32
-Resin-root:  Ext4
-Resin-update:
-Resin-conf:  Ext4
-Resin-Data: Ext4/AUFS
 
+<img src="/images/docs/arch/partition-layout.png" width="90%">
 
 The first partition, resin-boot, is meant to hold boot important bits according to each board (e.g. kernel image, bootloader image). It also holds a very important file that the reader will find mentions to inside this document (i.e. config.json). The config.json file is the central point of configuring ResinOS and defining its behaviour, for example you can set your hostname inside, allow persistent logging etc.
 Resin-root is the partition that holds our read-only root filesystem it holds almost everything that ResinOS is.
@@ -105,24 +95,232 @@ Resin-update is an empty partition that is only used when the rootfs is to be up
 Resin-conf this partition holds persistent data as explained in the [link_to: Stateless and Read-only rootfs].
 Resin-data is the partition that homes downloaded docker images. Generally any container data will be found here.
 
+## Stateless and Read-Only rootFS
+
+ResinOS comes with a read-only root filesystem, so we can ensure our hostOS is stateless, but we still need some data to be persistent over system reboots. We achieve this with a very simple mechanism, i.e. bind mounts. 
+ResinOS contains a partition named resin-conf that is meant to hold all this persistent data, inside we populate a Linux filesystem hierarchy standard with the rootfs paths that we require to be persistent. After this partition is populate we are ready to bind mount the respective rootfs paths to this read-write location, thus allowing different components (e.g. journald) to be able to write data to disk. A mechanism to purge this partition is provided, thus allowing users to rollback to an unconfigured ResinOS image.
+
+A diagram of our read-only rootfs can be seen below:
+
+<img src="/images/docs/arch/read-only-rootfs.png" width="90%">
+
 ## Dev vs. Prod images
-ResinOS comes in two flavours, namely Development (dev) and Production (prod). The Development images are recommended while getting started with resinOS and building a system. The dev images enable a number of useful features while developing, namely:
+ResinOS comes in two flavours, namely Development (dev) and Production (prod). 
+The Development images are recommended while getting started with resinOS and building a system. 
+The dev images enable a number of useful features while developing, namely:
 
+* Passwordless SSH to resinOS
+* The device broadcasts as resin.local or <hostname> on the network for easy access.
+* Docker socket exposed on via port 2377
+* Getty console attached to tty1 and serial
 
-Passwordless SSH to resinOS
-The device broadcasts as resin.local or <hostname> on the network for easy access.
-Docker socket exposed on via port 2377
-Getty console attached to tty1 and serial
-Note: on RPI devices don’t have Getty attached to the serial.
-The production images have all  of the above functionality disabled by default. In both forms of the OS we write logs to an 8 MB journald RAM buffer in order to avoid wear on the flash storage used by most of the supported boards. However, persistent logging can be enabled by setting the `”persistentLogging”: true` key in the `config.json` file in the boot partition of the device.
+__Note:__ on RPI devices don’t have Getty attached to the serial.
+
+The production images have all of the above functionality disabled by default. In both forms of the OS we write logs to an 8 MB journald RAM 
+buffer in order to avoid wear on the flash storage used by most of the supported boards. However, persistent logging can be enabled by setting 
+the `”persistentLogging”: true` key in the `config.json` file in the boot partition of the device.
 
 ## OS Tools
-Resin Device Toolkit
-### Configure
-### Flash
-### Push
-### SSH
-### Logs
+### Resin Device Toolbox 
+
+The Resin Device Toolbox or `rdt` for short, is a set of useful tools that help with setting up and developing containers with a resinOS device. The goal of `rdt` is to provide
+a simple and intuitive developer experience. Currently, `rdt` is evolving fast and is considered `alpha`, so as always, we love it when you report bugs, 
+you can report them here: [github.com/resin-os/resin-device-toolbox](https://github.com/resin-os/resin-device-toolbox/issues)
+
+#### Installation
+Currently `rdt` is a node.js based command line tool which requires that our system has the following dependencies installed and in our path:
+
+* [node.js 6.x](https://nodejs.org/en/)
+* [npm package manager](https://www.npmjs.com/)
+* [rsync](https://download.samba.org/pub/rsync/rsync.html)
+* [ssh](http://www.openssh.com/)
+
+Once we have those setup we can install `rdt` using npm:
+```
+$ npm install -g resin-device-tool
+```
+#### Usage
+##### Configure
+`rdt configure` allows you configure or reconfigure a resinOS system image or SD card. Currently, this allows for configuration of wifi settings, hostname and enablement of
+persistent journald logs.
+
+```
+$ rdt help configure
+Usage: configure <target>
+
+Use this command to configure or reconfigure a ResinOS drive or image.
+
+Examples:
+
+	$ resin configure /dev/sdc
+	$ resin configure path/to/image.img
+```
+
+##### Flash
+`rdt flash` command helps to easily and safely flash the resinOS system image on an SD card or USB drive.
+
+__Note:__ Currently, `rdt flash` doesn't work with the Intel Edison board.
+
+```
+$ rdt help flash
+Usage: flash <image>
+
+Use this command to flash a ResinOS image to a drive.
+
+Examples:
+
+	$ resin flash path/to/resinos.img
+	$ resin flash path/to/resinos.img --drive /dev/disk2
+	$ resin flash path/to/resinos.img --drive /dev/disk2 --yes
+
+Options:
+
+    --yes, -y                           confirm non-interactively          
+    --drive, -d <drive>                 drive      
+```
+
+##### Push
+The `rdt push` command enables you to quickly build and deploy a docker container to a target device. It also allows you to easily sync code between your laptop 
+directory and your running container on the target. Once you have resinOS host device running and advertising on the network,
+`rdt push` will allow you to iterate code on a container service. `push` has a number of advanced functionality, which all gets encoded in to the `.resin-sync.yml` file in your
+project directory. To better understand the `.yml` file, let's look at an example:
+
+```
+  app-name: myapp
+  build-triggers:
+    - Dockerfile: 9396730559c4107a0d82f95373c45d8e0634556342fb4ee276a7bc1c84c51570
+    - package.json: 1e40740d7cf5018cf887124ee75917eb139d49473c51464580feda247b3a4641
+destination: /usr/src/app
+ignore:
+  - .git
+  - node_modules/
+```
+
+Let's look a bit into some of these settings keys.
+
+* `app-name:` represents the name of the docker image and corresponding running container on the target device.
+* `build-triggers:` is a list of file names and their content hashes. Any changes in the files contained in this list will result in a `docker build .` on the
+target device.
+* `destination:` this sets the destination sync directory in the container running on the device. This allows you synchronise a `--source` directory on your laptop to a running
+container on the device. This is very useful when developing with intepretted languages like Python or Node.js as you can sync just your source code across, without rebuilding the 
+entire contianer.
+* `ignore:` is a list of files or directories that you would like to be ignored during the directory sync. This is useful in case where you have `node_modules` in your source 
+directory that is compiled to run on your x86 laptop, but you are pushing your code over to an ARM based embedded device. 
+
+The push has quiet a bit of functionality and a few useful flags. Checkout the `rdt help push`:
+
+```
+$ rdt help push
+Usage: push [deviceIp]
+
+WARNING: If you're running Windows, this command only supports `cmd.exe`.
+
+Use this command to push your local changes to a container on a LAN-accessible resinOS device on the fly.
+
+If `Dockerfile` or any file in the 'build-triggers' list is changed, a new container will be built and run on your device.
+If not, changes will simply be synced with `rsync` into the application container.
+
+After every 'resin push' the updated settings will be saved in
+'<source>/.resin-sync.yml' and will be used in later invocations. You can
+also change any option by editing '.resin-sync.yml' directly.
+
+Here is an example '.resin-sync.yml' :
+
+	$ cat $PWD/.resin-sync.yml
+	destination: '/usr/src/app'
+	before: 'echo Hello'
+	after: 'echo Done'
+	ignore:
+		- .git
+		- node_modules/
+
+Command line options have precedence over the ones saved in '.resin-sync.yml'.
+
+If '.gitignore' is found in the source directory then all explicitly listed files will be
+excluded when using rsync to update the container. You can choose to change this default behavior with the
+'--skip-gitignore' option.
+
+Examples:
+
+	$ rtb push
+	$ rtb push --app-name test_server --build-triggers package.json,requirements.txt
+	$ rtb push --force-build
+	$ rtb push --ignore lib/
+	$ rtb push --verbose false
+	$ rtb push 192.168.2.10 --source . --destination /usr/src/app
+	$ rtb push 192.168.2.10 -s /home/user/myResinProject -d /usr/src/app --before 'echo Hello' --after 'echo Done'
+
+Options:
+
+    --source, -s <path>                 root of project directory to push                                                            
+    --destination, -d <path>            destination path on device container                                                         
+    --ignore, -i <paths>                comma delimited paths to ignore when syncing with 'rsync'                                    
+    --skip-gitignore                    do not parse excluded/included files from .gitignore                                         
+    --before, -b <command>              execute a command before pushing                                                             
+    --after, -a <command>               execute a command after pushing                                                              
+    --progress, -p                      show progress                                                                                
+    --verbose, -v                       increase verbosity                                                                           
+    --app-name, -n <name>               name of application container - should be unique among other containers running on the device
+    --build-triggers, -r <files>        comma delimited file list that will trigger a container rebuild if changed                   
+    --force-build, -f                   force a container build and run                
+```
+
+##### SSH
+`rdt ssh` discovers resinOS devices on the local network and allows you to drop a SSH session into any of the containers running on the device. It also enables to you to
+drop in to the underlying host OS by doing `rdt ssh --host`, however you can of course always just do `ssh root@resin.local -p22222`.
+
+```
+$ rdt help ssh
+Usage: ssh [deviceIp]
+
+If you're running Windows, this command only supports `cmd.exe`.
+
+Use this command to get a shell into the running application container of
+your device.
+
+The '--host' option will get you a shell into the Host OS of the ResinOS device.
+No option will return a list of containers to enter or you can explicitly select
+one by passing its name to the --container option
+
+Examples:
+
+	$ resin ssh
+	$ resin ssh --host
+	$ resin ssh --container chaotic_water
+	$ resin ssh --container chaotic_water --port 22222
+	$ resin ssh --verbose
+
+Options:
+
+    --verbose, -v                       increase verbosity                 
+    --host, -s                          get a shell into the host OS       
+    --container, -c <container>         name of container to access        
+    --port, -p <port>                   ssh port number (default: 22222)   
+
+```
+
+##### Logs
+`rdt logs` allows the fetching of logs from any of the running containers on the device.
+
+```
+$ ./bin/resin-toolbox help logs
+Usage: logs [deviceIp]
+
+
+Examples:
+
+	$ rtb logs
+	$ rtb logs -f
+	$ rtb logs 192.168.1.10
+	$ rtb logs 192.168.1.10 -f
+	$ rtb logs 192.168.1.10 -f --app-name myapp
+
+Options:
+
+    --follow, -f                        follow log                         
+    --app-name, -a <name>               name of container to get logs from 
+```
+
 ### Base Images
 More than 500 images for each supported device type
 Debian, Fedora, Alpine
