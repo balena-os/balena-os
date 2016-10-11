@@ -12,7 +12,7 @@ Developers some times avoid Yocto due to its extremely minimal userspace and lac
 
 ResinOS shares a lot with cloud operating systems for containers. We share the focus on minimalism, getting out of the user’s way and letting their container do the heavy lifting, and using Docker, which is the standard way of running containers, and well understood by a large developer community. ResinOS applies the same principles to a different domain, that of embedded Linux devices, sometimes called “connected devices”, “Internet of Things” or “Industrial Internet”, depending on the use case. While some of the cloud operating systems have been made to run on particular embedded devices, their architecture is geared towards the cloud, where they shine.
 
-By applying the container paradigm to the embedded world, the ResinOS team has faced and solve a unique set of challenges that are not common in the cloud and datacentre world, such as:
+By applying the container paradigm to the embedded world, the ResinOS team has faced and solved a unique set of challenges that are not common in the cloud and datacentre world, such as:
 
 * The extreme heterogeneity of device types found in the wild;
 * Severely restricted resource envelopes in terms of storage, CPU, and networking;
