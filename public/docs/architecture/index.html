@@ -105,11 +105,48 @@
       </h5>
       
   
+    <ul class="docs__nav-menu__nav">
+      
+        
+          
+        
+        <li class="active">
+          <a href="/docs/architecture">
+            Overview
+          </a>
+        </li>
+        
+          <div class="in-page-nav">
+            <ul class="expand nav">
+              
+                <li><a href="#introduction">Introduction</a></li>
+              
+                <li><a href="#os-composition">OS composition</a></li>
+              
+                <li><a href="#userspace-components">Userspace Components</a></li>
+              
+                <li><a href="#stateless-and-read-only-rootfs">Stateless and Read-Only rootFS</a></li>
+              
+                <li><a href="#image-partition-layout">Image Partition Layout</a></li>
+              
+                <li><a href="#dev-vs-prod-images">Dev vs. Prod images</a></li>
+              
+                <li><a href="#os-tools">OS Tools</a></li>
+              
+            </ul>
+          </div>
+        
+        
+  
+
+      
+    </ul>
+  
 
     
       <h5 class="">
-        <a href="/docs/page1">
-          page1
+        <a href="/docs/supportedboards">
+          Supported Board
         </a>
       </h5>
       
@@ -117,17 +154,8 @@
 
     
       <h5 class="">
-        <a href="/docs/page2">
-          page2
-        </a>
-      </h5>
-      
-  
-
-    
-      <h5 class="">
-        <a href="/docs/linux/nodejs/dynamic">
-          Dynamic page
+        <a href="/docs/contrib">
+          Contributing
         </a>
       </h5>
       
@@ -146,8 +174,13 @@
         <ol class="breadcrumb">
   
   
-    <li class="active">
+    <li >
       Architecture
+       / 
+    </li>
+  
+    <li class="active">
+      Overview
       
     </li>
   
@@ -167,22 +200,172 @@
 <h2 id="os-composition">OS composition</h2>
 <p>The OS is composed of multiple yocto layers. The <a href="https://www.yoctoproject.org/">Yocto Project</a> build system uses these layers to compile resinOS for the various <a href="">supported platforms</a>.
 This document will not go into detailed explanation about how the <a href="https://www.yoctoproject.org/">Yocto Project</a> works, but will require from the reader a basic understanding of its internals and release versioning/codename.</p>
-<p>[[TABLE_1]]</p>
-<p>We will start looking into ResinOS’s composition from the core of the <a href="https://www.yoctoproject.org/">Yocto Project</a>, i.e. poky. Poky has released a whole bunch of versions and supporting all of them is not in the scope of our OS, but we do try to support its latest versions. This might sound ironic as we do not currently support poky’s last version (i.e. 2.1/Krogoth), but this is only because we did not need this version yet. We tend to support versions of poky based on what our supported boards require and also do an yearly update to the latest poky version for all the boards that can run that version. Currently we support three poky versions: 2.0/Jethro, 1.8/Fido and 1.6/Daisy. 
-On top of poky we add the collection of packages from meta-openembedded.
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Codename</th>
+<th style="text-align:center">Yocto Project Version</th>
+<th style="text-align:center">Release Date</th>
+<th style="text-align:center">Current Version</th>
+<th style="text-align:center">Support Level</th>
+<th style="text-align:center">Poky Version</th>
+<th style="text-align:center">BitBake branch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Pyro</td>
+<td style="text-align:center">2.3</td>
+<td style="text-align:center">Apr. 2017</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Development</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Morty</td>
+<td style="text-align:center">2.2</td>
+<td style="text-align:center">Oct. 2016</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">Development</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">Krogoth</td>
+<td style="text-align:center">2.1</td>
+<td style="text-align:center">Apr 2016</td>
+<td style="text-align:center">2.1</td>
+<td style="text-align:center">Stable</td>
+<td style="text-align:center">15.0</td>
+<td style="text-align:center">1.30</td>
+</tr>
+<tr>
+<td style="text-align:center">Jethro</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">Nov 2015</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">Stable</td>
+<td style="text-align:center">14.0</td>
+<td style="text-align:center">1.28</td>
+</tr>
+<tr>
+<td style="text-align:center">Fido</td>
+<td style="text-align:center">1.8</td>
+<td style="text-align:center">Apr 2015</td>
+<td style="text-align:center">1.8.1</td>
+<td style="text-align:center">Community</td>
+<td style="text-align:center">13.0</td>
+<td style="text-align:center">1.26</td>
+</tr>
+<tr>
+<td style="text-align:center">Dizzy</td>
+<td style="text-align:center">1.7</td>
+<td style="text-align:center">Oct 2014</td>
+<td style="text-align:center">1.7.3</td>
+<td style="text-align:center">Community</td>
+<td style="text-align:center">12.0</td>
+<td style="text-align:center">1.24</td>
+</tr>
+<tr>
+<td style="text-align:center">Daisy</td>
+<td style="text-align:center">1.6</td>
+<td style="text-align:center">Apr 2014</td>
+<td style="text-align:center">1.6.3</td>
+<td style="text-align:center">Community</td>
+<td style="text-align:center">11.0</td>
+<td style="text-align:center">1.22</td>
+</tr>
+<tr>
+<td style="text-align:center">Dora</td>
+<td style="text-align:center">1.5</td>
+<td style="text-align:center">Oct 2013</td>
+<td style="text-align:center">1.5.4</td>
+<td style="text-align:center">Community</td>
+<td style="text-align:center">10.0</td>
+<td style="text-align:center">1.20</td>
+</tr>
+</tbody>
+</table>
+<p>We will start looking into ResinOS’s composition from the core of the <a href="https://www.yoctoproject.org/">Yocto Project</a>, i.e. poky. Poky has released a whole bunch of versions and supporting all of them is not in the scope of our OS, but we do try to support its latest versions. This might sound ironic as we do not currently support poky’s last version (i.e. 2.1/Krogoth), but this is only because we did not need this version yet. We tend to support versions of poky based on what our supported boards require and also do an yearly update to the latest poky version for all the boards that can run that version. Currently we support three poky versions: 2.0/Jethro, 1.8/Fido and 1.6/Daisy. </p>
+<p>On top of poky we add the collection of packages from meta-openembedded.
 Now that we are done with setting up the the build system let’s add Board Support Packages (BSP), these layers are here to provide board specific configuration and packages (e.g. bootloader, kernel), thus enabling building physical hardware (not emulators). This type of layers are the ones one should be looking for if one wants to add support for a board, if you already have this layer your job should be fairly straightforward, if you do not have it you might be looking into a very cumbersome job. 
 At this point we have all the bits and pieces in place to build an OS.
 The core code of ResinOS resides in meta-resin. This layer handles a lot of functionality but the main thing that one should remember now is that here one will find the resin-image.bb recipe. This layer also needs a poky version specific layer to combine with (e.g. meta-resin-jethro), these two layers will give you the necessary framework for the abstract ResinOS generation. 
 Now for the final piece of the puzzle, the board specific meta-resin configuration layer. This layer goes hand in hand with a BSP layer, for example for the Raspberry Pi family (i.e. rpi0, rpi1, rpi2, rpi3) that is supported by the meta-raspberrypi BSP we provide a meta-resin-raspberrypi layer that configures meta-resin to the raspberrypi needs. </p>
-<p>Below is a representative example from the Raspberry Pi family.</p>
-<p>[[TABLE_2]]</p>
-<p><a href="https://github.com/resin-os/resin-raspberrypi/blob/master/layers/meta-resin-raspberrypi/conf/samples/bblayers.conf.sample">https://github.com/resin-os/resin-raspberrypi/blob/master/layers/meta-resin-raspberrypi/conf/samples/bblayers.conf.sample</a></p>
+<p>Below is a representative example from the Raspberry Pi family, which helps explain <a href="https://github.com/resin-os/resin-raspberrypi/blob/master/layers/meta-resin-raspberrypi/conf/samples/bblayers.conf.sample">meta-resin-raspberrypi/conf/samples/bblayers.conf.sample</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Layer Name</th>
+<th>Reposity</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>meta-resin</td>
+<td><a href="https://github.com/resin-os/meta-resin">https://github.com/resin-os/meta-resin</a></td>
+<td>This repository enables building resin.io for various devices</td>
+</tr>
+<tr>
+<td>meta-resin-jethro</td>
+<td><a href="https://github.com/resin-os/meta-resin">https://github.com/resin-os/meta-resin</a></td>
+<td>This layer enables building resin.io for jethro supported BSPs</td>
+</tr>
+<tr>
+<td>meta-resin-raspberrypi</td>
+<td><a href="https://github.com/resin-os/resin-raspberrypi">https://github.com/resin-os/resin-raspberrypi</a></td>
+<td>Enables building resinOS for chosen meta-raspberrypi machines.</td>
+</tr>
+<tr>
+<td>meta-raspberrypi</td>
+<td><a href="https://github.com/agherzan/meta-raspberrypi">https://github.com/agherzan/meta-raspberrypi</a></td>
+<td>This is the general hardware specific BSP overlay for the Raspberry Pi device family.</td>
+</tr>
+<tr>
+<td>meta-openembedded</td>
+<td><a href="http://git.openembedded.org/meta-openembedded">http://git.openembedded.org/meta-openembedded</a></td>
+<td>Collection of OpenEmbedded layers</td>
+</tr>
+<tr>
+<td>meta-openembedded/meta-oe</td>
+<td><a href="https://github.com/openembedded/meta-openembedded/tree/master/meta-oe">https://github.com/openembedded/meta-openembedded/tree/master/meta-oe</a></td>
+<td></td>
+</tr>
+<tr>
+<td>meta-openembedded/meta-python</td>
+<td><a href="https://github.com/openembedded/meta-openembedded/tree/master/meta-python">https://github.com/openembedded/meta-openembedded/tree/master/meta-python</a></td>
+<td>The home of python modules for OpenEmbedded.</td>
+</tr>
+<tr>
+<td>meta-openembedded/meta-networking</td>
+<td><a href="https://github.com/openembedded/meta-openembedded/tree/master/meta-networking">https://github.com/openembedded/meta-openembedded/tree/master/meta-networking</a></td>
+<td>Central point for networking-relatedpackages and configuration.</td>
+</tr>
+<tr>
+<td>oe-meta-go</td>
+<td><a href="https://github.com/mem/oe-meta-go">https://github.com/mem/oe-meta-go</a></td>
+<td>OpenEmbedded layer for the Go programming language</td>
+</tr>
+<tr>
+<td>poky/meta-yocto</td>
+<td><a href="https://git.yoctoproject.org/git/meta-yocto">https://git.yoctoproject.org/git/meta-yocto</a></td>
+<td></td>
+</tr>
+<tr>
+<td>poky/meta</td>
+<td><a href="https://git.yoctoproject.org/git/poky">https://git.yoctoproject.org/git/poky</a></td>
+<td>Core functionality and configuration of Yocto Project</td>
+</tr>
+</tbody>
+</table>
 <h2 id="userspace-components">Userspace Components</h2>
 <p>The resinOS userspace tries to package only the bare essentials for running containers while still offering a lot of flexibility. The philosophy is that software and services always default to being in a container, unless they are generically useful to all containers or they absolutely can’t live in a container.  The userspace consists of many open source components, but in this section we will just highlight some of the important ones.</p>
 <h3 id="systemd">Systemd</h3>
-<p>We use systemd as the init system for resinOS and it is responsible for launching and managing all the other services. We leverage a many of the great features of systemd, such as adjusting OOM scores for critical services and running services in separate mount namespaces. Systemd also allows us to easily manage service dependencies.
-Docker
-The docker engine is a lightweight container runtime that allows us to build and run linux containers on resinOS. ResinOS has been optimized to run docker containers and has been set up to use the journald log driver and DNSmasq for container DNS resolution.
+<p>We use systemd as the init system for resinOS and it is responsible for launching and managing all the other services. We leverage a many of the great features of systemd, such as adjusting OOM scores for critical services and running services in separate mount namespaces. Systemd also allows us to easily manage service dependencies.</p>
+<h3 id="docker">Docker</h3>
+<p>The docker engine is a lightweight container runtime that allows us to build and run linux containers on resinOS. ResinOS has been optimized to run docker containers and has been set up to use the journald log driver and DNSmasq for container DNS resolution.
 We use AUFS as the underlying storage driver since it is arguably the most production tested storage driver in the docker ecosystem. It also allows us to more easily support devices with older kernel versions and additionally gives us the ability to run on devices with Unmanaged NAND flash.
 NetworkManager and ModemManager
 ResinOS uses NetworkManager accompanied by ModemManager, to deliver a stable and reliable connection to the internet, be it via ethenet, wifi or cellular modem. Additionally to make headless configuration of the device’s network easy, we have added a <code>system-connections</code> folder in the boot partition which is copied into <code>/etc/NetworkManager/system-connections</code>. So any valid NetworkManager connection file can just be dropped into the boot partition before device commissioning. </p>

@@ -17,7 +17,7 @@ Once the download is finished, make sure to decompress it and keep it somewhere 
 $ wget files.resin.io/images/{{ $device.id }}/2.0.0/resinos-dev.img
 ```
 
-## Install rdt
+## Install Resin Device Toolbox
 `rdt` or Resin Device Toolbox, is a collection of utilities which helps us to develop resinOS based application containers. It’s not strictly necessary, but makes life so so much sweeter, but if you like doing things the hard way, skip over to the next section.
 
 Currently `rdt` is a node.js based command line tool which requires that our system has the following dependencies installed and in our path:

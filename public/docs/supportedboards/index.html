@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Resinos - Dynamic page about OS X &amp; Ruby</title>
+    <title>Resinos - Supported Architectures</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -69,7 +69,7 @@
   </div>
 </nav>
 
-    <section class="section page-content page-content--Dynamic page about OS X &amp; Ruby">
+    <section class="section page-content page-content--Supported Architectures">
       
 <div class="docs">
   <div class="container docs__container">
@@ -107,12 +107,45 @@
   
 
     
-      <h5 class="">
+      <h5 class="active">
         <a href="/docs/supportedboards">
           Supported Board
         </a>
       </h5>
       
+  
+    <ul class="docs__nav-menu__nav">
+      
+        
+          
+        
+        <li class="active">
+          <a href="/docs/supportedboards">
+            Supported Architectures
+          </a>
+        </li>
+        
+          <div class="in-page-nav">
+            <ul class="expand nav">
+              
+                <li><a href="#armv7">ARMv7</a></li>
+              
+                <li><a href="#armv6">ARMv6</a></li>
+              
+                <li><a href="#armv5">ARMv5</a></li>
+              
+                <li><a href="#intel-x86_32">Intel x86_32</a></li>
+              
+                <li><a href="#intel-x86_64">Intel x86_64</a></li>
+              
+            </ul>
+          </div>
+        
+        
+  
+
+      
+    </ul>
   
 
     
@@ -137,8 +170,13 @@
         <ol class="breadcrumb">
   
   
+    <li >
+      Supported Board
+       / 
+    </li>
+  
     <li class="active">
-      Dynamic page about OS X &amp; Ruby
+      Supported Architectures
       
     </li>
   
@@ -146,93 +184,159 @@
 
       </div>
       
-        <div class="dynamic-switch well">
-          
-
-
-
-<div class="form-inline js-dynamic-switch"
-  data-url-template="/docs/$os/$language/dynamic">
-  <div class="form-group">
-    
-      
-        
-  <span>Getting Started with</span>
-
-      
-    
-      
-        
-  <select name="$os" class="form-control dynamic-switch__select">
-    
-      <option
-        value="linux"
-        >
-        Linux
-      </option>
-    
-      <option
-        value="windows"
-        >
-        Windows
-      </option>
-    
-      <option
-        value="osx"
-        selected>
-        OS X
-      </option>
-    
-  </select>
-
-      
-    
-      
-        
-  <span>and</span>
-
-      
-    
-      
-        
-  <select name="$language" class="form-control dynamic-switch__select">
-    
-      <option
-        value="nodejs"
-        >
-        Node.js
-      </option>
-    
-      <option
-        value="python"
-        >
-        Python
-      </option>
-    
-      <option
-        value="ruby"
-        selected>
-        Ruby
-      </option>
-    
-  </select>
-
-      
-    
-  </div>
-</div>
-
-        </div>
-      
       <section class="docs__content">
         
-          <h1 id="dynamic-page-about-os-x-ruby">Dynamic page about OS X &amp; Ruby</h1>
-<p>Hey, this is the page about <strong>OS X</strong> and <strong>Ruby</strong>.</p>
-<h2 id="smart-import">Smart import</h2>
-<p><em>This content is specific for the <strong>OS X</strong> &amp; <strong>Ruby</strong> page</em></p>
-<h2 id="helpers-example">Helpers Example</h2>
-<p>  <strong>This page <em>is about</em> OSX</strong>.
-  This paragraph is rendered using the Handlebars helper.</p>
+          <h1 id="supported-boards">Supported Boards</h1>
+<h2 id="armv7">ARMv7</h2>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Link</th>
+<th>ResinOS Repo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raspberry Pi 3 Model B</td>
+<td><a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/">https://www.raspberrypi.org/products/raspberry-pi-3-model-b/</a></td>
+<td><a href="https://github.com/resin-os/resin-raspberrypi">https://github.com/resin-os/resin-raspberrypi</a></td>
+</tr>
+<tr>
+<td>Raspberry Pi 2 Model B</td>
+<td><a href="https://www.raspberrypi.org/products/raspberry-pi-2-model-b/">https://www.raspberrypi.org/products/raspberry-pi-2-model-b/</a></td>
+<td><a href="https://github.com/resin-os/resin-raspberrypi$12">https://github.com/resin-os/resin-raspberrypi$12</a></td>
+</tr>
+<tr>
+<td>Beaglebone Black</td>
+<td><a href="http://beagleboard.org/black">http://beagleboard.org/black</a></td>
+<td><a href="https://github.com/resin-os/resin-beaglebone">https://github.com/resin-os/resin-beaglebone</a></td>
+</tr>
+<tr>
+<td>Beaglebone Green</td>
+<td><a href="http://beagleboard.org/green">http://beagleboard.org/green</a></td>
+<td><a href="https://github.com/resin-os/resin-beaglebone">https://github.com/resin-os/resin-beaglebone</a></td>
+</tr>
+<tr>
+<td>Beaglebone Green Wireless</td>
+<td><a href="http://beagleboard.org/green-wireless">http://beagleboard.org/green-wireless</a></td>
+<td><a href="https://github.com/resin-os/resin-beaglebone">https://github.com/resin-os/resin-beaglebone</a></td>
+</tr>
+<tr>
+<td>Samsung Artik 5</td>
+<td><a href="https://www.artik.io/modules/overview/artik-5/">https://www.artik.io/modules/overview/artik-5/</a></td>
+<td><a href="https://github.com/resin-os/resin-artik">https://github.com/resin-os/resin-artik</a></td>
+</tr>
+<tr>
+<td>Samsung Artik 10</td>
+<td><a href="https://www.artik.io/modules/overview/artik-10/">https://www.artik.io/modules/overview/artik-10/</a></td>
+<td><a href="https://github.com/resin-os/resin-artik">https://github.com/resin-os/resin-artik</a></td>
+</tr>
+<tr>
+<td>Odroid C1/C1+</td>
+<td><a href="http://www.hardkernel.com/main/products/prdt_info.php?g_code=G141578608433">http://www.hardkernel.com/main/products/prdt_info.php?g_code=G141578608433</a></td>
+<td><a href="https://github.com/resin-os/resin-odroid">https://github.com/resin-os/resin-odroid</a></td>
+</tr>
+<tr>
+<td>Odroid XU4</td>
+<td><a href="http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825">http://www.hardkernel.com/main/products/prdt_info.php?g_code=G143452239825</a></td>
+<td><a href="https://github.com/resin-os/resin-odroid">https://github.com/resin-os/resin-odroid</a></td>
+</tr>
+<tr>
+<td>SolidRun HummingBoard-base</td>
+<td><a href="https://www.solid-run.com/product/hummingboard-carrier-base/">https://www.solid-run.com/product/hummingboard-carrier-base/</a></td>
+<td><a href="https://github.com/resin-os/resin-fsl-arm">https://github.com/resin-os/resin-fsl-arm</a></td>
+</tr>
+<tr>
+<td>Boundary Devices Nitrogen6X</td>
+<td><a href="https://boundarydevices.com/product/nitrogen6x-board-imx6-arm-cortex-a9-sbc/">https://boundarydevices.com/product/nitrogen6x-board-imx6-arm-cortex-a9-sbc/</a></td>
+<td><a href="https://github.com/resin-os/resin-fsl-arm">https://github.com/resin-os/resin-fsl-arm</a></td>
+</tr>
+<tr>
+<td>Parallella Board</td>
+<td><a href="https://www.parallella.org/board/">https://www.parallella.org/board/</a></td>
+<td><a href="https://github.com/resin-os/resin-parallella">https://github.com/resin-os/resin-parallella</a></td>
+</tr>
+<tr>
+<td>VIA vab820</td>
+<td><a href="http://www.viatech.com/en/boards/pico-itx/vab-820/">http://www.viatech.com/en/boards/pico-itx/vab-820/</a></td>
+<td><a href="https://github.com/resin-os/resin-fsl-arm">https://github.com/resin-os/resin-fsl-arm</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="armv6">ARMv6</h2>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Link</th>
+<th>ResinOS Repo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raspberry Pi 1 Model A+</td>
+<td><a href="https://www.raspberrypi.org/products/model-a-plus/">https://www.raspberrypi.org/products/model-a-plus/</a></td>
+<td><a href="https://github.com/resin-os/resin-raspberrypi">https://github.com/resin-os/resin-raspberrypi</a></td>
+</tr>
+<tr>
+<td>Raspberry Pi ZERO</td>
+<td><a href="https://www.raspberrypi.org/products/pi-zero/">https://www.raspberrypi.org/products/pi-zero/</a></td>
+<td><a href="https://github.com/resin-os/resin-raspberrypi">https://github.com/resin-os/resin-raspberrypi</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="armv5">ARMv5</h2>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Link</th>
+<th>ResinOS Repo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Technologic Systems TS-7700</td>
+<td><a href="http://wiki.embeddedarm.com/wiki/TS-7700">http://wiki.embeddedarm.com/wiki/TS-7700</a></td>
+<td><a href="https://github.com/resin-os/resin-ts">https://github.com/resin-os/resin-ts</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="intel-x86_32">Intel x86_32</h2>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Link</th>
+<th>ResinOS Repo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intel Edison</td>
+<td><a href="http://www.intel.com/content/www/us/en/do-it-yourself/edison.html">http://www.intel.com/content/www/us/en/do-it-yourself/edison.html</a></td>
+<td><a href="https://github.com/resin-os/resin-edison">https://github.com/resin-os/resin-edison</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="intel-x86_64">Intel x86_64</h2>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Link</th>
+<th>ResinOS Repo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intel NUC</td>
+<td><a href="http://www.intel.co.uk/content/www/uk/en/nuc/overview.html">http://www.intel.co.uk/content/www/uk/en/nuc/overview.html</a></td>
+<td><a href="https://github.com/resin-os/resin-intel">https://github.com/resin-os/resin-intel</a></td>
+</tr>
+</tbody>
+</table>
 
         
       </section>

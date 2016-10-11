@@ -1,5 +1,6 @@
 ---
 title: Architecture
+layout: docs.html
 ---
 
 # Architecture Overview
@@ -21,20 +22,41 @@ We look forward to working with the community to grow and mature ResinOS into an
 The OS is composed of multiple yocto layers. The [Yocto Project](https://www.yoctoproject.org/) build system uses these layers to compile resinOS for the various [supported platforms]().
 This document will not go into detailed explanation about how the [Yocto Project](https://www.yoctoproject.org/) works, but will require from the reader a basic understanding of its internals and release versioning/codename.
 
-[[TABLE_1]]
+| Codename | Yocto Project Version | Release Date | Current Version | Support Level | Poky Version | BitBake branch |
+|:--------:|:---------------------:|:------------:|:---------------:|:-------------:|:------------:|:--------------:|
+|   Pyro   |          2.3          |   Apr. 2017  |                 |  Development  |              |                |
+|   Morty  |          2.2          |   Oct. 2016  |                 |  Development  |              |                |
+|  Krogoth |          2.1          |   Apr 2016   |       2.1       |     Stable    |     15.0     |      1.30      |
+|  Jethro  |          2.0          |   Nov 2015   |       2.0       |     Stable    |     14.0     |      1.28      |
+|   Fido   |          1.8          |   Apr 2015   |      1.8.1      |   Community   |     13.0     |      1.26      |
+|   Dizzy  |          1.7          |   Oct 2014   |      1.7.3      |   Community   |     12.0     |      1.24      |
+|   Daisy  |          1.6          |   Apr 2014   |      1.6.3      |   Community   |     11.0     |      1.22      |
+|   Dora   |          1.5          |   Oct 2013   |      1.5.4      |   Community   |     10.0     |      1.20      |
 
 We will start looking into ResinOS’s composition from the core of the [Yocto Project](https://www.yoctoproject.org/), i.e. poky. Poky has released a whole bunch of versions and supporting all of them is not in the scope of our OS, but we do try to support its latest versions. This might sound ironic as we do not currently support poky’s last version (i.e. 2.1/Krogoth), but this is only because we did not need this version yet. We tend to support versions of poky based on what our supported boards require and also do an yearly update to the latest poky version for all the boards that can run that version. Currently we support three poky versions: 2.0/Jethro, 1.8/Fido and 1.6/Daisy. 
+
 On top of poky we add the collection of packages from meta-openembedded.
 Now that we are done with setting up the the build system let’s add Board Support Packages (BSP), these layers are here to provide board specific configuration and packages (e.g. bootloader, kernel), thus enabling building physical hardware (not emulators). This type of layers are the ones one should be looking for if one wants to add support for a board, if you already have this layer your job should be fairly straightforward, if you do not have it you might be looking into a very cumbersome job. 
 At this point we have all the bits and pieces in place to build an OS.
 The core code of ResinOS resides in meta-resin. This layer handles a lot of functionality but the main thing that one should remember now is that here one will find the resin-image.bb recipe. This layer also needs a poky version specific layer to combine with (e.g. meta-resin-jethro), these two layers will give you the necessary framework for the abstract ResinOS generation. 
 Now for the final piece of the puzzle, the board specific meta-resin configuration layer. This layer goes hand in hand with a BSP layer, for example for the Raspberry Pi family (i.e. rpi0, rpi1, rpi2, rpi3) that is supported by the meta-raspberrypi BSP we provide a meta-resin-raspberrypi layer that configures meta-resin to the raspberrypi needs. 
 
-Below is a representative example from the Raspberry Pi family.
+Below is a representative example from the Raspberry Pi family, which helps explain [meta-resin-raspberrypi/conf/samples/bblayers.conf.sample](https://github.com/resin-os/resin-raspberrypi/blob/master/layers/meta-resin-raspberrypi/conf/samples/bblayers.conf.sample).
 
-[[TABLE_2]]
+| Layer Name                        | Reposity                                                                      | Description                                                                           |
+|-----------------------------------|-------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| meta-resin                        | https://github.com/resin-os/meta-resin                                        | This repository enables building resin.io for various devices                         |
+| meta-resin-jethro                 | https://github.com/resin-os/meta-resin                                        | This layer enables building resin.io for jethro supported BSPs                        |
+| meta-resin-raspberrypi            | https://github.com/resin-os/resin-raspberrypi                                 | Enables building resinOS for chosen meta-raspberrypi machines.                        |
+| meta-raspberrypi                  | https://github.com/agherzan/meta-raspberrypi                                  | This is the general hardware specific BSP overlay for the Raspberry Pi device family. |
+| meta-openembedded                 | http://git.openembedded.org/meta-openembedded                                 | Collection of OpenEmbedded layers                                                     |
+| meta-openembedded/meta-oe         | https://github.com/openembedded/meta-openembedded/tree/master/meta-oe         |                                                                                       |
+| meta-openembedded/meta-python     | https://github.com/openembedded/meta-openembedded/tree/master/meta-python     | The home of python modules for OpenEmbedded.                                          |
+| meta-openembedded/meta-networking | https://github.com/openembedded/meta-openembedded/tree/master/meta-networking | Central point for networking-relatedpackages and configuration.                       |
+| oe-meta-go                        | https://github.com/mem/oe-meta-go                                             | OpenEmbedded layer for the Go programming language                                    |
+| poky/meta-yocto                   | https://git.yoctoproject.org/git/meta-yocto                                   |                                                                                       |
+| poky/meta                         | https://git.yoctoproject.org/git/poky                                         | Core functionality and configuration of Yocto Project                                 |
 
-https://github.com/resin-os/resin-raspberrypi/blob/master/layers/meta-resin-raspberrypi/conf/samples/bblayers.conf.sample
 
 
 ## Userspace Components
@@ -43,7 +65,8 @@ The resinOS userspace tries to package only the bare essentials for running cont
 
 ### Systemd
 We use systemd as the init system for resinOS and it is responsible for launching and managing all the other services. We leverage a many of the great features of systemd, such as adjusting OOM scores for critical services and running services in separate mount namespaces. Systemd also allows us to easily manage service dependencies.
-Docker
+
+### Docker
 The docker engine is a lightweight container runtime that allows us to build and run linux containers on resinOS. ResinOS has been optimized to run docker containers and has been set up to use the journald log driver and DNSmasq for container DNS resolution.
 We use AUFS as the underlying storage driver since it is arguably the most production tested storage driver in the docker ecosystem. It also allows us to more easily support devices with older kernel versions and additionally gives us the ability to run on devices with Unmanaged NAND flash.
 NetworkManager and ModemManager
