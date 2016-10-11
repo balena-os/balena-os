@@ -12,11 +12,13 @@ module.exports = {
     user: 'resin-os',
     repo: 'meta-resin'
   },
+  gitter: 'https://gitter.im/resin-os/chat',
   layoutLocals: {
     repo: {
       name: 'resinOS',
       tagLine: 'Run Docker containers on embedded devices',
-      description: 'A host OS tailored for containers, designed for reliability, proven in production'
+      description: 'A host OS tailored for containers, designed for reliability, proven in production',
+
     },
     typekitID: 'eic0uah',
     analytics: {

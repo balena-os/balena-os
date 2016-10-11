@@ -34,6 +34,7 @@ $border-width: 1px;
 }
 
 .downloads__category--custom {
+  border-style: dashed;
   @include rem(padding, 30px);
   .downloads__category__image {
     max-width: 40px;
