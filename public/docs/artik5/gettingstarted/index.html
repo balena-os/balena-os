@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Resinos - Getting Started on the Samsung ARTIK 5</title>
+    <title>Resinos - Getting Started on the ARTIK 5</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -69,7 +69,7 @@
   </div>
 </nav>
 
-    <section class="section page-content page-content--Getting Started on the Samsung ARTIK 5">
+    <section class="section page-content page-content--Getting Started on the ARTIK 5">
       
 <div class="docs">
   <div class="container docs__container">
@@ -90,7 +90,7 @@
   <div class="docs__nav-menu">
     
       <h5 class="active">
-        <a href="/docs/raspberrypi/gettingstarted">
+        <a href="/docs/artik5/gettingstarted">
           Getting Started
         </a>
       </h5>
@@ -103,7 +103,7 @@
         
         <li class="active">
           <a href="/docs/artik5/gettingstarted">
-            Getting Started on Samsung ARTIK 5
+            Getting Started on ARTIK 5
           </a>
         </li>
         
@@ -191,7 +191,7 @@
     </li>
   
     <li class="active">
-      Getting Started on Samsung ARTIK 5
+      Getting Started on ARTIK 5
       
     </li>
   
@@ -219,33 +219,15 @@
   <select name="$device" class="form-control dynamic-switch__select">
     
       <option
-        value="raspberrypi"
-        >
-        Raspberry Pi 1
-      </option>
-    
-      <option
-        value="raspberrypi2"
-        >
-        Raspberry Pi 2
-      </option>
-    
-      <option
-        value="raspberrypi3"
-        >
-        Raspberry Pi 3
-      </option>
-    
-      <option
         value="artik5"
         selected>
-        Samsung ARTIK 5
+        ARTIK 5
       </option>
     
       <option
         value="artik10"
         >
-        Samsung ARTIK 10
+        ARTIK 10
       </option>
     
       <option
@@ -267,6 +249,12 @@
       </option>
     
       <option
+        value="cubox-i"
+        >
+        HummingBoard i2
+      </option>
+    
+      <option
         value="nuc"
         >
         Intel NUC
@@ -284,6 +272,36 @@
         Odroid XU4
       </option>
     
+      <option
+        value="raspberrypi"
+        >
+        Raspberry Pi 1
+      </option>
+    
+      <option
+        value="raspberrypi2"
+        >
+        Raspberry Pi 2
+      </option>
+    
+      <option
+        value="raspberrypi3"
+        >
+        Raspberry Pi 3
+      </option>
+    
+      <option
+        value="via-vab820-quad"
+        >
+        VIA vab820
+      </option>
+    
+      <option
+        value="zynq-xz702"
+        >
+        Zynq Board XZ702
+      </option>
+    
   </select>
 
       
@@ -295,7 +313,7 @@
       
       <section class="docs__content">
         
-          <h1 id="getting-started-on-the-samsung-artik-5">Getting Started on the Samsung ARTIK 5</h1>
+          <h1 id="getting-started-on-the-artik-5">Getting Started on the ARTIK 5</h1>
 <p>In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use a tool called <code>rdt</code> (A.K.A Resin Device Tool) to make things super easy. However, for those that like to do things the hard way, we got you covered as well. </p>
 <h2 id="download-an-image">Download an Image</h2>
 <p>To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to resinos.io/downloads and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the <a href="/docs/supportedboards/">Supported Boards</a> section for more details.</p>
@@ -369,13 +387,13 @@ It should only take about 3 minutes, depending on the quality of your drive, so 
 Flashing [========================] 100% eta 0s  
 Validating [========================] 100% eta 0s
 </code></pre><h3 id="boot-the-device">Boot the device</h3>
-<p>In order to get the resinOS up and running on our Samsung ARTIK 5 we need to first set it up to boot from our SD card rather than its internal <a href="http://www.datalight.com/solutions/technologies/emmc/what-is-emmc">eMMC memory</a>. To do this we need to set the tiny <code>SW2</code> dip switch to position <code>1:on</code> and <code>2:on</code>, as shown below.</p>
+<p>In order to get the resinOS up and running on our ARTIK 5 we need to first set it up to boot from our SD card rather than its internal <a href="http://www.datalight.com/solutions/technologies/emmc/what-is-emmc">eMMC memory</a>. To do this we need to set the tiny <code>SW2</code> dip switch to position <code>1:on</code> and <code>2:on</code>, as shown below.</p>
 <p><strong>Note:</strong> This resinOS will completely write over the existing eMMC.</p>
 <p><img src="/images/docs/devices/artik5/artik5-dev-kit.png" width="80%"></p>
 <p>We can now insert the 5VDC power cable and flip the power, switch labelled <code>PWR SW</code>, to the <code>on</code> position. We should now have some glowing LEDs indicating 
 a sign of life. Next we need to press and hold the <code>SW3 POWER</code> push button for 1 or 2 seconds, this starts the boot from the SD card.</p>
 <p><strong>Note:</strong> In order for the wifi to work correctly, you need to set jumpers <code>J20</code> and <code>J33</code> towards the edge of the board.</p>
-<p>Your Samsung ARTIK 5 will now flash resinOS onto the internal eMMC so that you can remove the SD card. This will take a minute or two, so time for more tea!! 
+<p>Your ARTIK 5 will now flash resinOS onto the internal eMMC so that you can remove the SD card. This will take a minute or two, so time for more tea!! 
 Once it has finished it will shut itself down and all the activity LEDs will switch off. At this point you need to:</p>
 <ol>
 <li>Flip <code>PWR SW</code> back to <code>off</code> position.</li>
@@ -383,7 +401,7 @@ Once it has finished it will shut itself down and all the activity LEDs will swi
 <li>set the  <code>SW2</code> dip switches to <code>1:off</code> and <code>2:off</code>.</li>
 </ol>
 <p>After all of that we flip the <code>PWR SW</code> back <code>on</code> and once again hold down the <code>SW3 POWER</code> button for a second or so. If all goes according to plan we should now have a 
-freshly provisioned Samsung ARTIK 5 sitting in an <code>IDLE</code> state on our dashboard, ready and waiting to receive some code. <strong>So lets deploy some code!!!</strong></p>
+freshly provisioned ARTIK 5 sitting in an <code>IDLE</code> state on our dashboard, ready and waiting to receive some code. <strong>So lets deploy some code!!!</strong></p>
 <p>After about 30 seconds or so your device should be up and connected to your local network, you should see it broadcasting itself as <code>resin.local</code>. To check this, let’s try ping the device.</p>
 <pre><code>$ ping resin.local
 PING 192.168.1.111 (192.168.1.111): 56 data bytes

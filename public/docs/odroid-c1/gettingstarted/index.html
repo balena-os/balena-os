@@ -90,7 +90,7 @@
   <div class="docs__nav-menu">
     
       <h5 class="active">
-        <a href="/docs/raspberrypi/gettingstarted">
+        <a href="/docs/artik5/gettingstarted">
           Getting Started
         </a>
       </h5>
@@ -219,33 +219,15 @@
   <select name="$device" class="form-control dynamic-switch__select">
     
       <option
-        value="raspberrypi"
-        >
-        Raspberry Pi 1
-      </option>
-    
-      <option
-        value="raspberrypi2"
-        >
-        Raspberry Pi 2
-      </option>
-    
-      <option
-        value="raspberrypi3"
-        >
-        Raspberry Pi 3
-      </option>
-    
-      <option
         value="artik5"
         >
-        Samsung ARTIK 5
+        ARTIK 5
       </option>
     
       <option
         value="artik10"
         >
-        Samsung ARTIK 10
+        ARTIK 10
       </option>
     
       <option
@@ -267,6 +249,12 @@
       </option>
     
       <option
+        value="cubox-i"
+        >
+        HummingBoard i2
+      </option>
+    
+      <option
         value="nuc"
         >
         Intel NUC
@@ -282,6 +270,36 @@
         value="odroid-ux3"
         >
         Odroid XU4
+      </option>
+    
+      <option
+        value="raspberrypi"
+        >
+        Raspberry Pi 1
+      </option>
+    
+      <option
+        value="raspberrypi2"
+        >
+        Raspberry Pi 2
+      </option>
+    
+      <option
+        value="raspberrypi3"
+        >
+        Raspberry Pi 3
+      </option>
+    
+      <option
+        value="via-vab820-quad"
+        >
+        VIA vab820
+      </option>
+    
+      <option
+        value="zynq-xz702"
+        >
+        Zynq Board XZ702
       </option>
     
   </select>
@@ -350,13 +368,13 @@ addr-gen-mode=stable-privacy
 method=auto
 </code></pre><h2 id="get-the-device-up-and-running">Get the Device Up and Running</h2>
 <p>Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step <code>rdt</code> provides a handy flashing utility, you can however flash this image using etcher.io or <code>dd</code> if you must. </p>
-<h3 id="flash-usb-drive">Flash USB drive</h3>
+<h3 id="flash-sd-card">Flash SD card</h3>
 <p>To get flashing, just point the <code>rdt flash</code> command to the image we just downloaded and follow the prompts. If you hate prompts, <code>rdt</code> also allows you to skip them, check the <a href="#rdt-docs"><code>rdt</code> docs</a> on how to do this.</p>
-<p><strong>NOTE:</strong> <code>rdt flash</code> requires administrative privileges because it needs to access the USB drive.</p>
+<p><strong>NOTE:</strong> <code>rdt flash</code> requires administrative privileges because it needs to access the SD card.</p>
 <pre><code>$ sudo rdt flash ~/Downloads/resinos-dev.img
 Password:
 x No available drives were detected, plug one in!
-</code></pre><p>Once you plug in your USB drive, <code>rdt</code> should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as <code>rdt</code> will complete write over the entire drive.</p>
+</code></pre><p>Once you plug in your SD card, <code>rdt</code> should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as <code>rdt</code> will complete write over the entire drive.</p>
 <pre><code>$ sudo rdt flash ~/Downloads/resinos-dev.img 
 Password:
 ? Select drive (Use arrow keys)
@@ -428,10 +446,10 @@ ID: FOZ2:5KHG:RTSS:UQ7S:F2J6:QYLL:MERX:5ZVU:4WVL:3G2G:T2YA:LX3D
 root@resin:~# docker exec -it myapp bash
 </code></pre><h2 id="going-further">Going Further</h2>
 <h3 id="advanced-settings">Advanced Settings</h3>
-<p>Either mount the USB drive and run:</p>
+<p>Either mount the SD card and run:</p>
 <pre><code>$ rdt configure /path/to/drive
 </code></pre><p>And select <code>y</code> when asked if you want to add advanced settings.</p>
-<p>Alternatevely you can add <code>“persistentLogging”: true</code> to <code>config.json</code> in your boot partition of the USB drive. </p>
+<p>Alternatevely you can add <code>“persistentLogging”: true</code> to <code>config.json</code> in your boot partition of the SD card. </p>
 <p>To Enable persistent logs in a running device, add <code>“persistentLogging”: true</code> to <code>/mnt/boot/config.json</code> and reboot.</p>
 <p>The journal can be found at  <code>/var/log/journal/</code> which is bind mounted to <code>root-overlay/var/log/journal</code> in the <code>resin-conf</code> partition. 
 When logging is not persistent, the logs can be found at <code>/run/log/journal/</code> and this log is volatile so you will loose all logs when you power the device down.</p>

@@ -1,31 +1,13 @@
 [
   {
-    "id": "raspberrypi",
-    "name": "Raspberry Pi 1",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/raspberry-pi.svg"
-  },
-	{
-    "id": "raspberrypi2",
-    "name": "Raspberry Pi 2",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/raspberry-pi2.svg"
-  },
-	{
-    "id": "raspberrypi3",
-    "name": "Raspberry Pi 3",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/raspberry-pi3.svg"
-  },
-  {
     "id": "artik5",
-    "name": "Samsung ARTIK 5",
+    "name": "ARTIK 520",
 		"bootMedia": "SD card",
     "icon": "/images/docs/icons/artik5.svg"
   },
   {
     "id": "artik10",
-    "name": "Samsung ARTIK 10",
+    "name": "ARTIK 1020",
 		"bootMedia": "SD card",
     "icon": "/images/docs/icons/artik10.svg"
   },
@@ -48,6 +30,12 @@
     "icon": "/images/docs/icons/beaglebone-black.svg"
   },
   {
+    "id": "cubox-i",
+    "name": "HummingBoard i2",
+		"bootMedia": "SD card",
+    "icon": "/images/docs/icons/odroid.svg"
+  },
+  {
     "id": "nuc",
     "name": "Intel NUC",
 		"bootMedia": "USB drive",
@@ -56,13 +44,43 @@
   {
     "id": "odroid-c1",
     "name": "Odroid C1/C1+",
-		"bootMedia": "USB drive",
+		"bootMedia": "SD card",
     "icon": "/images/docs/icons/odroid.svg"
   },
   {
     "id": "odroid-ux3",
     "name": "Odroid XU4",
-		"bootMedia": "USB drive",
+		"bootMedia": "SD card",
+    "icon": "/images/docs/icons/odroid.svg"
+  },
+  {
+    "id": "raspberrypi",
+    "name": "Raspberry Pi 1",
+		"bootMedia": "SD card",
+    "icon": "/images/docs/icons/raspberry-pi.svg"
+  },
+	{
+    "id": "raspberrypi2",
+    "name": "Raspberry Pi 2",
+		"bootMedia": "SD card",
+    "icon": "/images/docs/icons/raspberry-pi2.svg"
+  },
+	{
+    "id": "raspberrypi3",
+    "name": "Raspberry Pi 3",
+		"bootMedia": "SD card",
+    "icon": "/images/docs/icons/raspberry-pi3.svg"
+  },
+  {
+    "id": "via-vab820-quad",
+    "name": "VIA vab820",
+		"bootMedia": "SD card",
+    "icon": "/images/docs/icons/odroid.svg"
+  },
+  {
+    "id": "zynq-xz702",
+    "name": "Zynq Board XZ702",
+		"bootMedia": "SD card",
     "icon": "/images/docs/icons/odroid.svg"
   }
 ]
