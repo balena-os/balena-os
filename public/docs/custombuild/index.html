@@ -203,9 +203,10 @@
 <h2 id="bake-your-own-image">Bake your own Image</h2>
 <p>In order to build your very own version of resinOS for one of our supported boards, you will first need to make sure you have a working <a href="http://www.yoctoproject.org/docs/current/yocto-project-qs/yocto-project-qs.html">Yocto environment setup</a>.
 Then pick the device type you wanna build, in this example we will use the raspberry pi 3. So first we need to grab the <a href="https://github.com/resin-os/resin-raspberrypi"><code>resin-raspberrypi</code></a> and initialise all its submodules.</p>
-<pre><code>git clone https://github.com/resin-os/resin-raspberrypi
+<pre><code class="lang-bash">git clone https://github.com/resin-os/resin-raspberrypi
 git submodule update --init --recursive
-</code></pre><p>We can then use the helpful <code>BARYS</code> (Build Another Resin Yocto System) tool to setup up and start our build. To see all the functionality <code>BARYS</code> provides run <code>./resin-yocto-scripts/build/barys -h</code> 
+</code></pre>
+<p>We can then use the helpful <code>BARYS</code> (Build Another Resin Yocto System) tool to setup up and start our build. To see all the functionality <code>BARYS</code> provides run <code>./resin-yocto-scripts/build/barys -h</code>
 from with in the repo.</p>
 <p>Now to actually build a development version of resinOS for the Raspberry Pi 3, we can run the following:</p>
 <pre><code>./resin-yocto-scripts/build/barys -r --shared-downloads $(pwd)/shared-downloads/ --shared-sstate $(pwd)/shared-sstate/ -m raspberrypi3
