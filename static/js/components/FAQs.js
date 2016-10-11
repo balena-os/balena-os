@@ -11,10 +11,10 @@ if ($('.FAQs').length) {
 
     // mixpanel tracking meta
     var trackMeta = {
-      "title": header.text()
+      "title": header.text().toString()
     }
 
-    header.wrap('<a class="FAQ__header" data-toggle="collapse" data-track="FAQ view" data-track-meta=' + JSON.stringify(trackMeta) + ' href="#faq-' + index + '"/>')
+    header.wrap('<a class="FAQ__header" data-toggle="collapse" data-track="FAQ view" data-track-meta=' + trackMeta + ' href="#faq-' + JSON.stringify(index) + '"/>')
 
     q.children('*').not('.FAQ__header').wrapAll('<div id="faq-' + index +  '" class="FAQ__content panel-collapse collapse" aria-expanded="true"/>')
 
