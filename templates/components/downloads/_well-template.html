@@ -6,23 +6,25 @@
       <img class="downloads__well__profile__icon" src="/images/icons/downloads/<%- catId %>.png" srcset="/images/icons/downloads/<%- catId %>@2x.png 2x">
       <h4 class="downloads__well__profile__title"><%- catTitle %></h4>
     </div>
-    <table class="table downloads__well__table">
-      <thead>
-        <tr>
-          <th>Model</th>
-          <th>Release</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% jq.each(downloads, function(index, download) { %>
+    <div class="table-responsive">
+      <table class="table downloads__well__table">
+        <thead>
           <tr>
-            <td><%- download.title %></td>
-            <td><a data-track="download" data-track-meta='{ "image": "<%- download.title %>", "href": "<%- download.link %>", "deviceType": "<%- catTitle %>", "position": "downloads" }' href="<%- download.link %>">resinOS {{ downloads.version.number }} <i class="fa fa-download" aria-hidden="true"></i></a></td>
-            <td><a href="/archive">Previous releases</a></td>
+            <th>Model</th>
+            <th>Release</th>
+            <th></th>
           </tr>
-        <% }); %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% jq.each(downloads, function(index, download) { %>
+            <tr>
+              <td><%- download.title %></td>
+              <td><a data-track="download" data-track-meta='{ "image": "<%- download.title %>", "href": "<%- download.link %>", "deviceType": "<%- catTitle %>", "position": "downloads" }' href="<%- download.link %>">resinOS {{ downloads.version.number }} <i class="fa fa-download" aria-hidden="true"></i></a></td>
+              <td><a href="/archive">Previous releases</a></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </script>

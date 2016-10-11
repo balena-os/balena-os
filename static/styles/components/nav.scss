@@ -7,8 +7,8 @@
 
 .navbar {
   background-image: url('/images/jumbotron/hero.png');
-  @include image-2x('/images/jumbotron/hero.png');
-  background: cover;
+  @include image-2x('/images/jumbotron/hero@2x.png');
+  background-size: cover;
 }
 
 .headroom {

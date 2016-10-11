@@ -183,24 +183,26 @@
       <img class="downloads__well__profile__icon" src="/images/icons/downloads/<%- catId %>.png" srcset="/images/icons/downloads/<%- catId %>@2x.png 2x">
       <h4 class="downloads__well__profile__title"><%- catTitle %></h4>
     </div>
-    <table class="table downloads__well__table">
-      <thead>
-        <tr>
-          <th>Model</th>
-          <th>Release</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% jq.each(downloads, function(index, download) { %>
+    <div class="table-responsive">
+      <table class="table downloads__well__table">
+        <thead>
           <tr>
-            <td><%- download.title %></td>
-            <td><a data-track="download" data-track-meta='{ "image": "<%- download.title %>", "href": "<%- download.link %>", "deviceType": "<%- catTitle %>", "position": "downloads" }' href="<%- download.link %>">resinOS 0.0.1 <i class="fa fa-download" aria-hidden="true"></i></a></td>
-            <td><a href="/archive">Previous releases</a></td>
+            <th>Model</th>
+            <th>Release</th>
+            <th></th>
           </tr>
-        <% }); %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% jq.each(downloads, function(index, download) { %>
+            <tr>
+              <td><%- download.title %></td>
+              <td><a data-track="download" data-track-meta='{ "image": "<%- download.title %>", "href": "<%- download.link %>", "deviceType": "<%- catTitle %>", "position": "downloads" }' href="<%- download.link %>">resinOS 0.0.1 <i class="fa fa-download" aria-hidden="true"></i></a></td>
+              <td><a href="/archive">Previous releases</a></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </script>
 
@@ -212,77 +214,77 @@
     <div class="row downloads__row">
       
         <div class="col-md-3">
-          <a id="downloads-raspberrypi" class="downloads__category" href="#downloads-raspberrypi" data-cat="{&quot;title&quot;:&quot;Raspberry Pi&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Raspberrypi-image&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;Raspberrypi2-image&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;Raspberrypi3-image&quot;,&quot;link&quot;:&quot;#&quot;}]}">
+          <a id="downloads-raspberrypi" class="downloads__category" href="#downloads-raspberrypi" data-cat="{&quot;title&quot;:&quot;Raspberry Pi&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Raspberry Pi 1&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/raspberry-pi/2.0.0-beta.1/resin-dev.zip&quot;},{&quot;title&quot;:&quot;Raspberry Pi 2&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/raspberry-pi2/2.0.0-beta.1/resin-dev.zip&quot;},{&quot;title&quot;:&quot;Raspberry Pi 3&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/raspberry-pi3/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/raspberrypi.png" srcset="/images/icons/downloads/raspberrypi@2x.png 2x">
           </a>
         </div>
         
       
         <div class="col-md-3">
-          <a id="downloads-beaglebone" class="downloads__category" href="#downloads-beaglebone" data-cat="{&quot;title&quot;:&quot;Beagle Bone&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Beagle-image&quot;,&quot;link&quot;:&quot;#&quot;}]}">
+          <a id="downloads-beaglebone" class="downloads__category" href="#downloads-beaglebone" data-cat="{&quot;title&quot;:&quot;Beagle Bone&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Beaglebone Black&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/beaglebone-black/2.0.0-beta.1/resin-dev.zip&quot;},{&quot;title&quot;:&quot;Beaglebone Green&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/beaglebone-green/2.0.0-beta.1/resin-dev.zip&quot;},{&quot;title&quot;:&quot;Beaglebone Green Wifi&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/beaglebone-green-wifi/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/beaglebone.png" srcset="/images/icons/downloads/beaglebone@2x.png 2x">
           </a>
         </div>
         
       
         <div class="col-md-3">
-          <a id="downloads-intel" class="downloads__category" href="#downloads-intel" data-cat="{&quot;title&quot;:&quot;Intel&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;edison-image&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;nuc-image&quot;,&quot;link&quot;:&quot;#&quot;}]}">
+          <a id="downloads-intel" class="downloads__category" href="#downloads-intel" data-cat="{&quot;title&quot;:&quot;Intel&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Intel Edison&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip&quot;},{&quot;title&quot;:&quot;Intel Nuc&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/intel-nuc/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/intel.png" srcset="/images/icons/downloads/intel@2x.png 2x">
           </a>
         </div>
         
       
         <div class="col-md-3">
-          <a id="downloads-artik" class="downloads__category" href="#downloads-artik" data-cat="{&quot;title&quot;:&quot;Artik&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;artik-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;artik-10&quot;,&quot;link&quot;:&quot;#&quot;}]}">
+          <a id="downloads-artik" class="downloads__category" href="#downloads-artik" data-cat="{&quot;title&quot;:&quot;Artik&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;artik-5&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip&quot;},{&quot;title&quot;:&quot;artik-10&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/artik.png" srcset="/images/icons/downloads/artik@2x.png 2x">
           </a>
         </div>
          </div><div class="row downloads__row"> 
       
         <div class="col-md-3">
-          <a id="downloads-odroid" class="downloads__category" href="#downloads-odroid" data-cat="{&quot;title&quot;:&quot;Odroid&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;odroid-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;ordoid-10&quot;,&quot;link&quot;:&quot;#&quot;}]}">
+          <a id="downloads-odroid" class="downloads__category" href="#downloads-odroid" data-cat="{&quot;title&quot;:&quot;Odroid&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;odroid-5&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip&quot;},{&quot;title&quot;:&quot;ordoid-10&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/odroid.png" srcset="/images/icons/downloads/odroid@2x.png 2x">
           </a>
         </div>
         
       
         <div class="col-md-3">
-          <a id="downloads-via" class="downloads__category" href="#downloads-via" data-cat="{&quot;title&quot;:&quot;Via&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;via-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;via-10&quot;,&quot;link&quot;:&quot;#&quot;}]}">
+          <a id="downloads-via" class="downloads__category" href="#downloads-via" data-cat="{&quot;title&quot;:&quot;Via&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;via-5&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip&quot;},{&quot;title&quot;:&quot;via-10&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/via.png" srcset="/images/icons/downloads/via@2x.png 2x">
           </a>
         </div>
         
       
         <div class="col-md-3">
-          <a id="downloads-zynq" class="downloads__category" href="#downloads-zynq" data-cat="{&quot;title&quot;:&quot;Zynq&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;zync-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;zync-10&quot;,&quot;link&quot;:&quot;#&quot;}]}">
+          <a id="downloads-zynq" class="downloads__category" href="#downloads-zynq" data-cat="{&quot;title&quot;:&quot;Zynq&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;zync-5&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip&quot;},{&quot;title&quot;:&quot;zync-10&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/zynq.png" srcset="/images/icons/downloads/zynq@2x.png 2x">
           </a>
         </div>
         
       
         <div class="col-md-3">
-          <a id="downloads-parallella" class="downloads__category" href="#downloads-parallella" data-cat="{&quot;title&quot;:&quot;Parallella&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;parallella-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;parallella-10&quot;,&quot;link&quot;:&quot;#&quot;}]}">
+          <a id="downloads-parallella" class="downloads__category" href="#downloads-parallella" data-cat="{&quot;title&quot;:&quot;Parallella&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;parallella-5&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip&quot;},{&quot;title&quot;:&quot;parallella-10&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/parallella.png" srcset="/images/icons/downloads/parallella@2x.png 2x">
           </a>
         </div>
          </div><div class="row downloads__row"> 
       
         <div class="col-md-3">
-          <a id="downloads-technologicsystems" class="downloads__category" href="#downloads-technologicsystems" data-cat="{&quot;title&quot;:&quot;Technologic Systems&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Technologic-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;Technologic-10&quot;,&quot;link&quot;:&quot;#&quot;}]}">
+          <a id="downloads-technologicsystems" class="downloads__category" href="#downloads-technologicsystems" data-cat="{&quot;title&quot;:&quot;Technologic Systems&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Technologic-5&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip&quot;},{&quot;title&quot;:&quot;Technologic-10&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/technologicsystems.png" srcset="/images/icons/downloads/technologicsystems@2x.png 2x">
           </a>
         </div>
         
       
         <div class="col-md-3">
-          <a id="downloads-solidrun" class="downloads__category" href="#downloads-solidrun" data-cat="{&quot;title&quot;:&quot;Solid Run&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;solidrun-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;solidrun-10&quot;,&quot;link&quot;:&quot;#&quot;}]}">
+          <a id="downloads-solidrun" class="downloads__category" href="#downloads-solidrun" data-cat="{&quot;title&quot;:&quot;Solid Run&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Hummingboard&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/hummingboard/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/solidrun.png" srcset="/images/icons/downloads/solidrun@2x.png 2x">
           </a>
         </div>
         
       
         <div class="col-md-3">
-          <a id="downloads-boundary" class="downloads__category" href="#downloads-boundary" data-cat="{&quot;title&quot;:&quot;Boundary&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;boundary-5&quot;,&quot;link&quot;:&quot;#&quot;},{&quot;title&quot;:&quot;boundary-10&quot;,&quot;link&quot;:&quot;#&quot;}]}">
+          <a id="downloads-boundary" class="downloads__category" href="#downloads-boundary" data-cat="{&quot;title&quot;:&quot;Boundary&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Nitrogen6x&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/nitrogen6x/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/boundary.png" srcset="/images/icons/downloads/boundary@2x.png 2x">
           </a>
         </div>

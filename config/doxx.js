@@ -73,16 +73,16 @@ module.exports = {
           title: "Raspberry Pi",
           links:[
             {
-              title: "Raspberrypi-image",
-              link: "#"
+              title: "Raspberry Pi 1",
+              link: "https://files.resin.io/images/raspberry-pi/2.0.0-beta.1/resin-dev.zip"
             },
             {
-              title: "Raspberrypi2-image",
-              link: "#"
+              title: "Raspberry Pi 2",
+              link: "https://files.resin.io/images/raspberry-pi2/2.0.0-beta.1/resin-dev.zip"
             },
             {
-              title: "Raspberrypi3-image",
-              link: "#"
+              title: "Raspberry Pi 3",
+              link: "https://files.resin.io/images/raspberry-pi3/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -90,8 +90,16 @@ module.exports = {
           title: "Beagle Bone",
           links:[
             {
-              title: "Beagle-image",
-              link: "#"
+              title: "Beaglebone Black",
+              link: "https://files.resin.io/images/beaglebone-black/2.0.0-beta.1/resin-dev.zip"
+            },
+            {
+              title: "Beaglebone Green",
+              link: "https://files.resin.io/images/beaglebone-green/2.0.0-beta.1/resin-dev.zip"
+            },
+            {
+              title: "Beaglebone Green Wifi",
+              link: "https://files.resin.io/images/beaglebone-green-wifi/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -99,12 +107,12 @@ module.exports = {
           title: "Intel",
           links: [
             {
-              title: "edison-image",
-              link: "#"
+              title: "Intel Edison",
+              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             },
             {
-              title: "nuc-image",
-              link: "#"
+              title: "Intel Nuc",
+              link: "https://files.resin.io/images/intel-nuc/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -113,11 +121,11 @@ module.exports = {
           links: [
             {
               title: "artik-5",
-              link: "#"
+              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             },
             {
               title: "artik-10",
-              link: "#"
+              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -126,11 +134,11 @@ module.exports = {
           links: [
             {
               title: "odroid-5",
-              link: "#"
+              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             },
             {
               title: "ordoid-10",
-              link: "#"
+              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -139,11 +147,11 @@ module.exports = {
           links: [
             {
               title: "via-5",
-              link: "#"
+              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             },
             {
               title: "via-10",
-              link: "#"
+              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -152,11 +160,11 @@ module.exports = {
           links: [
             {
               title: "zync-5",
-              link: "#"
+              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             },
             {
               title: "zync-10",
-              link: "#"
+              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -165,11 +173,11 @@ module.exports = {
           links: [
             {
               title: "parallella-5",
-              link: "#"
+              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             },
             {
               title: "parallella-10",
-              link: "#"
+              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -178,11 +186,11 @@ module.exports = {
           links: [
             {
               title: "Technologic-5",
-              link: "#"
+              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             },
             {
               title: "Technologic-10",
-              link: "#"
+              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -190,12 +198,8 @@ module.exports = {
           title: "Solid Run",
           links: [
             {
-              title: "solidrun-5",
-              link: "#"
-            },
-            {
-              title: "solidrun-10",
-              link: "#"
+              title: "Hummingboard",
+              link: "https://files.resin.io/images/hummingboard/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -203,12 +207,8 @@ module.exports = {
           title: "Boundary",
           links: [
             {
-              title: "boundary-5",
-              link: "#"
-            },
-            {
-              title: "boundary-10",
-              link: "#"
+              title: "Nitrogen6x",
+              link: "https://files.resin.io/images/nitrogen6x/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         }
