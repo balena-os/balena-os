@@ -15,7 +15,8 @@ module.exports = {
   layoutLocals: {
     repo: {
       name: 'resinOS',
-      description: 'resinOS is a minimal, production-ready operating system tailored for containers running on embedded devices.'
+      tagLine: 'Run Docker containers on embedded devices',
+      description: 'A host OS tailored for containers, designed for reliability, proven in production'
     },
     typekitID: 'eic0uah',
     analytics: {
@@ -30,35 +31,43 @@ module.exports = {
       { title: 'Downloads', link: '/#downloads' },
       { title: 'Get Involved', link: '/#milestones' },
     ],
-    tweet: 'Look at this thing I made',
     features: [
       {
-        title: "containers",
-        description: "Brings standard Docker containers to embedded devices"
+        title: "Tailored for containers",
+        description: "Containers will revolutionize connected devices, and resinOS is the best way to run them",
+        icon: 'containers'
       },
       {
-        title: "adaptable",
-        description: "Works on diverse device types and architectures"
+        title: "Built to last anywhere",
+        description: "Made to survive harsh networking conditions and unexpected shutdowns",
+        icon: 'robust'
       },
       {
-        title: "minimal",
-        description: "Thin and minimally sized, with just the essentials"
+        title: "Just the essentials",
+        description: "A minimal Linux with the services needed to run Docker reliably on an embedded device - nothing else",
+        icon: 'minimal'
       },
       {
-        title: "robust",
-        description: "Robust and battle-tested in production"
+        title: "Easy to port",
+        description: "Based on Yocto Linux for easy porting to most capable device types across varied CPU architectures",
+        icon: 'adaptable'
       },
       {
-        title: "simple",
-        description: "Simple and easy to use"
+        title: "Fast, modern workflow",
+        description: "Who said embedded software has to be slow and painful to develop?",
+        icon: 'simple'
       },
       {
-        title: "open",
-        description: "Open Source and free"
+        title: "Open and friendly",
+        description: "Actively developed in the open; community participation warmly welcomed",
+        icon: 'open'
       }
     ],
     downloads: {
-      version: '0.0.1',
+      version: {
+        number: '0.0.1',
+        name: 'Affogato'
+      },
       categories: [
         {
           title: "Raspberry Pi",
@@ -81,7 +90,7 @@ module.exports = {
           title: "Beagle Bone",
           links:[
             {
-              title: "Raspberrypi3-image",
+              title: "Beagle-image",
               link: "#"
             }
           ],
@@ -152,7 +161,7 @@ module.exports = {
           ],
         },
         {
-          title: "parallella",
+          title: "Parallella",
           links: [
             {
               title: "parallella-5",
@@ -160,6 +169,45 @@ module.exports = {
             },
             {
               title: "parallella-10",
+              link: "#"
+            }
+          ],
+        },
+        {
+          title: "Technologic Systems",
+          links: [
+            {
+              title: "Technologic-5",
+              link: "#"
+            },
+            {
+              title: "Technologic-10",
+              link: "#"
+            }
+          ],
+        },
+        {
+          title: "Solid Run",
+          links: [
+            {
+              title: "solidrun-5",
+              link: "#"
+            },
+            {
+              title: "solidrun-10",
+              link: "#"
+            }
+          ],
+        },
+        {
+          title: "Boundary",
+          links: [
+            {
+              title: "boundary-5",
+              link: "#"
+            },
+            {
+              title: "boundary-10",
               link: "#"
             }
           ],

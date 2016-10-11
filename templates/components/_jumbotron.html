@@ -1,11 +1,12 @@
 <section class="jumbotron jumbotron-fluid section section--inv">
   <div class="container">
-    <h1 class="display-3 jumbotron__title">{{ repo.name }}</h1>
+    <h1 class="display-3 jumbotron__title">{{ repo.tagLine }}</h1>
+    <!-- <h3 class="jumbotron__tagline"></h3> -->
     <p class="lead jumbotron__lead">{{ repo.description }}</p>
     {% include "_social.html" %}
     <a href="#" class="btn btn-success" data-track="link click" data-track-meta='{ "title": "Try {{ repo.name }}", "href": "#", "position": "jumbotron"}'>Try {{ repo.name }}</a>
     <p class="lead jumbotron__meta">
-      Latest version {{ downloads.version }} | metadata goes here
+      Latest version {{ downloads.version.number }} | {{ downloads.version.name }} 
     </p>
   </div>
 </section>

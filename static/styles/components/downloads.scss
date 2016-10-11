@@ -24,6 +24,32 @@ $border-width: 1px;
   width: 80%;
 }
 
+@include media-breakpoint-down(xs) {
+  .downloads__category--custom {
+    padding: 30%;
+    .downloads__category__image {
+      max-width: 60px;
+    }
+  }
+}
+
+.downloads__category--custom {
+  padding: 15%;
+  .downloads__category__image {
+    max-width: 40px;
+    margin-bottom: 20px;
+  }
+  h4 {
+    color: $gray-dark;
+    @include rem(font-size, 16px);
+    font-weight: bold;
+    &:hover {
+      text-decoration: none;
+    }
+    // margin-bottom: 20px;
+  }
+}
+
 .downloads__well {
   background: $gray;
   color: $white;

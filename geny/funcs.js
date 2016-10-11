@@ -31,6 +31,7 @@ exports.getRepo = function() {
     return ({
       repo: {
         name: data.name,
+        full_name: data.full_name,
         description: data.description,
         link: data.html_url
       }
@@ -90,11 +91,5 @@ exports.getMileStones = function() {
     user: ghConfig.user
   }).then(function(data) {
     return { milestones: _.map(data, totalIssues) }
-  })
-};
-
-exports.getX = function() {
-  return new Promise((resolve) => {
-    resolve({ tweet: 'shiiit' })
   })
 };

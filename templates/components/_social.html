@@ -10,6 +10,6 @@
   </a>
   {% endif %}
   {% if repo %}
-  <a class="github-button" href="https://github.com/resin-io/etcher" data-style="mega" data-count-href="/resin-io/etcher/stargazers" data-count-api="/repos/resin-io/etcher#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star resin-io/etcher on GitHub">Star</a>
+  <a class="github-button" href="{{ repo.link }}" data-style="mega" data-count-href="/{{ repo.full_name }}/stargazers" data-count-api="/repos/{{ repo.full_name }}#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star {{ repo.full_name }} on GitHub">Star</a>
   {% endif %}
 </div>

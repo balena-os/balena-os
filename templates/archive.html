@@ -12,14 +12,14 @@
           <ul class="list-group">
             <li class="list-group-item active">
               {{ cat.title }}
-              <span class="tag tag-default pull-xs-right">{{ downloads.version }}</span>
+              <span class="tag tag-default pull-xs-right">{{ downloads.version.number }}</span>
             </li>
             {% for download in cat.links %}
             <li class="list-group-item">
               <span class=" tag-pill pull-xs-right">
                 <a href="{{ download.link }}"><i class="fa fa-download" aria-hidden="true"></i></a>
               </span>
-              <a <a data-track="download" data-track-meta='{ "image": "{{ download.title|capitalize }}", "href": "{{ download.link }}", "deviceType": "{{ cat.title }}", "position": "archive" }' href="{{ download.link }}">
+              <a data-track="download" data-track-meta='{ "image": "{{ download.title|capitalize }}", "href": "{{ download.link }}", "deviceType": "{{ cat.title }}", "position": "archive" }' href="{{ download.link }}">
                 {{ download.title|capitalize }}
               </a>
             </li>
