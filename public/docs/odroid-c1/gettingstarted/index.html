@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Resinos - Getting Started on the Beaglebone Green</title>
+    <title>Resinos - Getting Started on the Odroid C1/C1+</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png" />
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -69,7 +69,7 @@
   </div>
 </nav>
 
-    <section class="section page-content page-content--Getting Started on the Beaglebone Green">
+    <section class="section page-content page-content--Getting Started on the Odroid C1/C1+">
       
 <div class="docs">
   <div class="container docs__container">
@@ -102,8 +102,8 @@
           
         
         <li class="active">
-          <a href="/docs/beaglebone-green/gettingstarted">
-            Getting Started on Beaglebone Green
+          <a href="/docs/odroid-c1/gettingstarted">
+            Getting Started on Odroid C1/C1+
           </a>
         </li>
         
@@ -191,7 +191,7 @@
     </li>
   
     <li class="active">
-      Getting Started on Beaglebone Green
+      Getting Started on Odroid C1/C1+
       
     </li>
   
@@ -256,7 +256,7 @@
     
       <option
         value="beaglebone-green"
-        selected>
+        >
         Beaglebone Green
       </option>
     
@@ -274,7 +274,7 @@
     
       <option
         value="odroid-c1"
-        >
+        selected>
         Odroid C1/C1+
       </option>
     
@@ -295,12 +295,12 @@
       
       <section class="docs__content">
         
-          <h1 id="getting-started-on-the-beaglebone-green">Getting Started on the Beaglebone Green</h1>
+          <h1 id="getting-started-on-the-odroid-c1-c1-">Getting Started on the Odroid C1/C1+</h1>
 <p>In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use a tool called <code>rdt</code> (A.K.A Resin Device Tool) to make things super easy. However, for those that like to do things the hard way, we got you covered as well. </p>
 <h2 id="download-an-image">Download an Image</h2>
 <p>To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to resinos.io/downloads and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the <a href="/docs/supportedboards/">Supported Boards</a> section for more details.</p>
 <p>Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!</p>
-<pre><code>$ wget https://files.resin.io/images/beaglebone-green/2.0.0-beta.1/resin-dev.zip
+<pre><code>$ wget https://files.resin.io/images/odroid-c1/2.0.0-beta.1/resin-dev.zip
 </code></pre><h2 id="install-resin-device-toolbox">Install Resin Device Toolbox</h2>
 <p><code>rdt</code> or Resin Device Toolbox, is a collection of utilities which helps us to develop resinOS based application containers. It’s not strictly necessary, but makes life so so much sweeter, but if you like doing things the hard way, skip over to the next section.</p>
 <p>Currently <code>rdt</code> is a node.js based command line tool which requires that our system has the following dependencies installed and in our path:</p>
@@ -350,13 +350,13 @@ addr-gen-mode=stable-privacy
 method=auto
 </code></pre><h2 id="get-the-device-up-and-running">Get the Device Up and Running</h2>
 <p>Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step <code>rdt</code> provides a handy flashing utility, you can however flash this image using etcher.io or <code>dd</code> if you must. </p>
-<h3 id="flash-sd-card">Flash SD card</h3>
+<h3 id="flash-usb-drive">Flash USB drive</h3>
 <p>To get flashing, just point the <code>rdt flash</code> command to the image we just downloaded and follow the prompts. If you hate prompts, <code>rdt</code> also allows you to skip them, check the <a href="#rdt-docs"><code>rdt</code> docs</a> on how to do this.</p>
-<p><strong>NOTE:</strong> <code>rdt flash</code> requires administrative privileges because it needs to access the SD card.</p>
+<p><strong>NOTE:</strong> <code>rdt flash</code> requires administrative privileges because it needs to access the USB drive.</p>
 <pre><code>$ sudo rdt flash ~/Downloads/resinos-dev.img
 Password:
 x No available drives were detected, plug one in!
-</code></pre><p>Once you plug in your SD card, <code>rdt</code> should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as <code>rdt</code> will complete write over the entire drive.</p>
+</code></pre><p>Once you plug in your USB drive, <code>rdt</code> should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as <code>rdt</code> will complete write over the entire drive.</p>
 <pre><code>$ sudo rdt flash ~/Downloads/resinos-dev.img 
 Password:
 ? Select drive (Use arrow keys)
@@ -369,13 +369,9 @@ It should only take about 3 minutes, depending on the quality of your drive, so 
 Flashing [========================] 100% eta 0s  
 Validating [========================] 100% eta 0s
 </code></pre><h3 id="boot-the-device">Boot the device</h3>
-<p>Put the SD card into your device, and connect either the ethernet cable or WiFi adapter. Now hold down the small black button marked <code>s2</code> (located near the SD card slot) and power up the device by inserting the power or USB cable.</p>
-<p>You should only need to hold the button down for about 5 seconds until the blue LEDs start flashing like crazy. Basically, by holding down the button, we are telling the Beaglebone that we want to boot from the SD card instead of the onboard flash. From there, the OS which is on the SD card is flashed onto the internal eMMC memory.</p>
-<p><strong>Warning:</strong> This will completely overwrite any data on your devices&#39; internal eMMC, so make sure to make a backup of any important data.</p>
-<p><img src="/images/docs/devices/beaglebone/sd_card_BBB.jpg" width="40%"></p>
-<p>After the internal media has been flashed, your device will shut itself down and all its LEDs should switch off. Before booting the device again, make sure to <strong>remove the SD card</strong>. 
-You may then simply press the power button situated nearest to the ethernet port or pull out and replug the power cable.</p>
-<p>Your device should now automatically start booting from internal eMMC.</p>
+<p>In order to get your resinOS device up and online, you will first need to ensure that the resinOS system image is flashed onto the devices primary boot medium.</p>
+<p>You will also need to ensure that the device can connect to the network, either via ethernet or wifi. Once these two requirements are satisfied, power on the device, making sure it boots from the primary boot media on which the resinOS system image was flashed.</p>
+<p>In about 45 seconds you should be able to connect to your device via ssh using <code>ssh root@resin.local -p22222</code>.</p>
 <p>After about 30 seconds or so your device should be up and connected to your local network, you should see it broadcasting itself as <code>resin.local</code>. To check this, let’s try ping the device.</p>
 <pre><code>$ ping resin.local
 PING 192.168.1.111 (192.168.1.111): 56 data bytes
@@ -432,10 +428,10 @@ ID: FOZ2:5KHG:RTSS:UQ7S:F2J6:QYLL:MERX:5ZVU:4WVL:3G2G:T2YA:LX3D
 root@resin:~# docker exec -it myapp bash
 </code></pre><h2 id="going-further">Going Further</h2>
 <h3 id="advanced-settings">Advanced Settings</h3>
-<p>Either mount the SD card and run:</p>
+<p>Either mount the USB drive and run:</p>
 <pre><code>$ rdt configure /path/to/drive
 </code></pre><p>And select <code>y</code> when asked if you want to add advanced settings.</p>
-<p>Alternatevely you can add <code>“persistentLogging”: true</code> to <code>config.json</code> in your boot partition of the SD card. </p>
+<p>Alternatevely you can add <code>“persistentLogging”: true</code> to <code>config.json</code> in your boot partition of the USB drive. </p>
 <p>To Enable persistent logs in a running device, add <code>“persistentLogging”: true</code> to <code>/mnt/boot/config.json</code> and reboot.</p>
 <p>The journal can be found at  <code>/var/log/journal/</code> which is bind mounted to <code>root-overlay/var/log/journal</code> in the <code>resin-conf</code> partition. 
 When logging is not persistent, the logs can be found at <code>/run/log/journal/</code> and this log is volatile so you will loose all logs when you power the device down.</p>
@@ -444,7 +440,7 @@ When logging is not persistent, the logs can be found at <code>/run/log/journal/
 <p>To get started, let’s create a new project directory called “myapp” and create a new file called <code>Dockerfile</code>. </p>
 <pre><code>$ mkdir -p myapp &amp;&amp; touch Dockerfile
 </code></pre><p>Now we will create a minimal node.js container based on the slim <a href="link-to-alpine">Alpine Linux distro</a>. We do this by adding the following lines to our Dockerfile.</p>
-<pre><code class="lang-Dockerfile">FROM resin/beaglebone-green-alpine-node:slim
+<pre><code class="lang-Dockerfile">FROM resin/odroid-c1-alpine-node:slim
 CMD [“cat”, “/etc/os-release”]
 </code></pre>
 <p>The <code>FROM</code> tells docker what our container will be based on. In this case an Alpine Linux userspace with just the bare essentials needed for the node.js runtime. The <code>CMD</code> just defines what our container runs on startup. In this case, it’s not very exciting yet.</p>
@@ -454,8 +450,8 @@ CMD [“cat”, “/etc/os-release”]
 - Stopping and Removing any previous &#39;myapp&#39; container
 - Removing any existing container images for &#39;myapp&#39;
 - Building new &#39;myapp&#39; image
-Step 1 : FROM resin/beaglebone-green-alpine-node:slim
-Pulling from resin/beaglebone-green-alpine-node
+Step 1 : FROM resin/odroid-c1-alpine-node:slim
+Pulling from resin/odroid-c1-alpine-node
 Pulling fs layer
 Verifying Checksum=============================================&gt;]     32 B/32 B7 MB
 Download complete
@@ -463,7 +459,7 @@ Verifying Checksum=============================================&gt;] 1.987 MB/1.
 Pull complete=================================================&gt;]    12 MB/12 MB
 Pull complete
 Digest: sha256:410a5add3aa281d97afea1ae4fcdbec203c69ea34faea8d84349456c211f33a3
-Status: Downloaded newer image for resin/beaglebone-green-alpine-node:slim
+Status: Downloaded newer image for resin/odroid-c1-alpine-node:slim
  ---&gt; bf37b6350e63
 Step 2 : CMD [“cat”, “/etc/os-release”]
  ---&gt; Running in a376f4a781d5
@@ -487,7 +483,7 @@ resin push completed successfully!
 console.log(&quot;Hey… I’m a node.js app running in a container!!&quot;);
 </code></pre>
 <p>We then make sure our Dockerfile copies this source file into our container context by replacing our current <code>CMD [“cat”,”/etc/os-release”]</code> in our Dockerfile with the following.</p>
-<pre><code class="lang-Dockerfile">FROM resin/beaglebone-green-alpine-node:slim
+<pre><code class="lang-Dockerfile">FROM resin/odroid-c1-alpine-node:slim
 WORKDIR /usr/src/app
 COPY . .
 CMD [&quot;node&quot;, &quot;main.js&quot;]
@@ -556,7 +552,7 @@ var server = app.listen(80, function () {
     - Dockerfile: 1327b0f9875d5c4bf7f2f36fad384c8481a00396830acd33c0af0e575648fe91
     - package.json:
 </code></pre><p>And 2.) We then need to run a <code>npm install</code> in our build, so we add a few lines to our Dockerfile.</p>
-<pre><code>FROM resin/beaglebone-green-alpine-node:slim
+<pre><code>FROM resin/odroid-c1-alpine-node:slim
 WORKDIR /usr/src/app
 COPY package.json package.json
 RUN npm install
