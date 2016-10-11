@@ -53,7 +53,7 @@ if ($('#downloads').length) {
 
   $( window ).resize(function() {
     // recalc position when browser changed
-    if ($('.downloads__well')) {
+    if ($('.downloads__category--active').length > 0) {
       alignCaret('.downloads__well')
     }
   });

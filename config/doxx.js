@@ -87,7 +87,7 @@ module.exports = {
           title: "Beagle Bone",
           links:[
             {
-              title: "Raspberrypi3-image",
+              title: "Beagle-image",
               link: "#"
             }
           ],
@@ -158,7 +158,7 @@ module.exports = {
           ],
         },
         {
-          title: "parallella",
+          title: "Parallella",
           links: [
             {
               title: "parallella-5",
@@ -166,6 +166,45 @@ module.exports = {
             },
             {
               title: "parallella-10",
+              link: "#"
+            }
+          ],
+        },
+        {
+          title: "Technologic Systems",
+          links: [
+            {
+              title: "Technologic-5",
+              link: "#"
+            },
+            {
+              title: "Technologic-10",
+              link: "#"
+            }
+          ],
+        },
+        {
+          title: "Solid Run",
+          links: [
+            {
+              title: "solidrun-5",
+              link: "#"
+            },
+            {
+              title: "solidrun-10",
+              link: "#"
+            }
+          ],
+        },
+        {
+          title: "Boundary",
+          links: [
+            {
+              title: "boundary-5",
+              link: "#"
+            },
+            {
+              title: "boundary-10",
               link: "#"
             }
           ],

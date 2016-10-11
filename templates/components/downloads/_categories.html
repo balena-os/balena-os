@@ -1,9 +1,9 @@
 <section id="downloads" class="section">
-  <div class="container">
+  <div class="container downloads__container">
     {% include "_well-template.html" %}
     <div class="section__header">
       <h2 class="section__title">Downloads</h2>
-      <p class="lead section__lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend magna vitae diam feugiat, eu eleifend est luctus.</p>
+      <!-- <p class="lead section__lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eleifend magna vitae diam feugiat, eu eleifend est luctus.</p> -->
       <a class="section__link" href="/archive">All versions</a>
     </div>
     <div class="row downloads__row">
@@ -15,5 +15,14 @@
         </div>
         {% if loop.index % 4 == 0 %} </div><div class="row downloads__row"> {% endif %}
       {% endfor %}
+      <div class="col-md-3">
+        <a class="downloads__category downloads__category--custom" href="#add-your-own">
+          <div class="downloads__category--custom__container">
+            <img class="downloads__category__image downloads__category__image--custom" src="/images/icons/add.png" srcset="/images/icons/add@2x.png 2x">
+            <h4>Add your </br>own board</h4>
+          </div>
+        </a>
+      </div>
   </div>
+  <hr class="section__hr">
 </section>

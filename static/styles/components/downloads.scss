@@ -24,6 +24,33 @@ $border-width: 1px;
   width: 80%;
 }
 
+// .downloads__category--custom__container {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left:0;
+//   right:0;
+//   margin: auto;
+// }
+
+.downloads__category--custom {
+  // position: relative;
+  border: none;
+  .downloads__category__image {
+    max-width: 40px;
+    margin: 20px 0;
+  }
+  h4 {
+    color: $gray-dark;
+    @include rem(font-size, 16px);
+    font-weight: bold;
+    &:hover {
+      text-decoration: none;
+    }
+    margin-bottom: 20px;
+  }
+}
+
 .downloads__well {
   background: $gray;
   color: $white;
