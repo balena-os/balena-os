@@ -64,7 +64,10 @@ module.exports = {
       }
     ],
     downloads: {
-      version: '0.0.1',
+      version: {
+        number: '0.0.1',
+        name: 'Affogato'
+      },
       categories: [
         {
           title: "Raspberry Pi",

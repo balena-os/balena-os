@@ -1,6 +1,9 @@
 .jumbotron {
   text-align: center;
   @include rem(padding, 180px 0 100px);
+  background-image: url('/images/jumbotron/hero.png');
+  @include image-2x('/images/jumbotron/hero.png');
+  background: cover;
 }
 
 .jumbotron__title {
