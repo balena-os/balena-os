@@ -164,13 +164,13 @@ ID: FOZ2:5KHG:RTSS:UQ7S:F2J6:QYLL:MERX:5ZVU:4WVL:3G2G:T2YA:LX3D
 ## Running your first Container
 ### Clone a demo Project
 {{#eq $device.id "nuc"}}
-  ``` bash
-  $ git clone https://github.com/resin-io-playground/resinos-sample-x86
-  ```
+``` bash
+$ git clone https://github.com/resin-io-playground/resinos-sample-x86
+```
 {{else}}
-  ``` bash
-  $ git clone https://github.com/resin-io-playground/resinos-sample
-  ```
+``` bash
+$ git clone https://github.com/resin-io-playground/resinos-sample
+```
 {{/eq}}
 
 ### Get a Container Running
