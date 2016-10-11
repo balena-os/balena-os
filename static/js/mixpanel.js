@@ -1,8 +1,8 @@
 var doxxConfig = require('../../config/doxx')
 
 if (doxxConfig.layoutLocals.analytics.mixpanelToken && window.location.host.split(':')[0] != 'localhost') {
-  var mixpanel = require('mixpanel-browser');
 
+  var mixpanel = require('mixpanel-browser');
   mixpanel.init(mixpanel.init(doxxConfig.layoutLocals.analytics.mixpanelToken));
 
   mixpanel.track('page viewed', {
@@ -14,6 +14,12 @@ if (doxxConfig.layoutLocals.analytics.mixpanelToken && window.location.host.spli
     var eventName = $(this).data('track');
     try {
       var eventMeta = $(this).data('track-meta');
+      // allow you to pass string too
+      if (typeof eventMeta == 'string') {
+        eventMeta = {
+          data: eventMeta
+        }
+      }
     }
     catch(err) {
       throw err
