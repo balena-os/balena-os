@@ -26,7 +26,7 @@ $border-width: 1px;
 
 @include media-breakpoint-down(xs) {
   .downloads__category--custom {
-    padding: 30%;
+    @include rem(padding, 30px);
     .downloads__category__image {
       max-width: 60px;
     }
@@ -34,7 +34,7 @@ $border-width: 1px;
 }
 
 .downloads__category--custom {
-  padding: 15%;
+  @include rem(padding, 30px);
   .downloads__category__image {
     max-width: 40px;
     margin-bottom: 20px;
@@ -54,7 +54,6 @@ $border-width: 1px;
   background: $gray;
   color: $white;
   @include rem(padding, 50px);
-  // TODO wtf y 27?
   @include rem(margin, 20px 15px 0);
   position: relative;
 }

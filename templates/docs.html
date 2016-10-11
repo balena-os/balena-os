@@ -21,6 +21,9 @@
         </div>
       {% endif %}
       <section class="docs__content">
+        {% block "searchContents" %}
+          {{ searchContents|safe }}
+        {% endblock %}
         {% block "docsContent" %}
           {{ contents|safe }}
         {% endblock %}

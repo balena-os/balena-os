@@ -42,14 +42,14 @@ function alignCaret(that) {
 }
 
 // used to correct height of custom (add your own board) block in grid
-function resizeBlock() {
-  var blockHeight = $('.downloads__category').height()
-  $('.downloads__category--custom').css('min-height', blockHeight)
-}
+// function resizeBlock() {
+//   var blockHeight = $('.downloads__category').height()
+//   $('.downloads__category--custom').css('min-height', blockHeight)
+// }
 
 if ($('#downloads').length) {
-  resizeBlock()
-  
+  // resizeBlock()
+
   $(".downloads__category").click(function(){
     openWell(this)
   })
@@ -64,7 +64,7 @@ if ($('#downloads').length) {
     if ($('.downloads__category--active').length) {
       alignCaret('.downloads__well')
     }
-    resizeBlock()
+    // resizeBlock()
   });
 
   if(window.location.hash.indexOf('downloads-') !== -1) {

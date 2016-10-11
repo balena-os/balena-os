@@ -65,7 +65,7 @@ module.exports = {
     ],
     downloads: {
       version: {
-        number: '0.0.1',
+        number: '2.0.0-beta.1',
         name: 'Affogato'
       },
       categories: [
@@ -107,10 +107,6 @@ module.exports = {
           title: "Intel",
           links: [
             {
-              title: "Intel Edison",
-              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
-            },
-            {
               title: "Intel Nuc",
               link: "https://files.resin.io/images/intel-nuc/2.0.0-beta.1/resin-dev.zip"
             }
@@ -120,11 +116,11 @@ module.exports = {
           title: "Artik",
           links: [
             {
-              title: "artik-5",
-              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
+              title: "Artik 5",
+              link: "https://files.resin.io/images/artik5/2.0.0-beta.1/resin-dev.zip"
             },
             {
-              title: "artik-10",
+              title: "Artik 10",
               link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
             }
           ],
@@ -133,12 +129,12 @@ module.exports = {
           title: "Odroid",
           links: [
             {
-              title: "odroid-5",
-              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
+              title: "odroid-c1",
+              link: "https://files.resin.io/images/odroid-c1/2.0.0-beta.1/resin-dev.zip"
             },
             {
-              title: "ordoid-10",
-              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
+              title: "odroid-xu4",
+              link: "https://files.resin.io/images/odroid-xu4/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -146,12 +142,8 @@ module.exports = {
           title: "Via",
           links: [
             {
-              title: "via-5",
-              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
-            },
-            {
-              title: "via-10",
-              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
+              title: "via-vab820-quad",
+              link: "https://files.resin.io/images/via-vab820-quad/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -159,12 +151,8 @@ module.exports = {
           title: "Zynq",
           links: [
             {
-              title: "zync-5",
-              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
-            },
-            {
-              title: "zync-10",
-              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
+              title: "zynq-xz702",
+              link: "https://files.resin.io/images/zynq-xz702/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -172,12 +160,8 @@ module.exports = {
           title: "Parallella",
           links: [
             {
-              title: "parallella-5",
-              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
-            },
-            {
-              title: "parallella-10",
-              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
+              title: "parallella",
+              link: "https://files.resin.io/images/parallella/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -185,12 +169,12 @@ module.exports = {
           title: "Technologic Systems",
           links: [
             {
-              title: "Technologic-5",
-              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
+              title: "ts4900",
+              link: "https://files.resin.io/images/ts4900/2.0.0-beta.1/resin-dev.zip"
             },
             {
-              title: "Technologic-10",
-              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
+              title: "ts7700",
+              link: "https://files.resin.io/images/ts7700/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -209,6 +193,15 @@ module.exports = {
             {
               title: "Nitrogen6x",
               link: "https://files.resin.io/images/nitrogen6x/2.0.0-beta.1/resin-dev.zip"
+            }
+          ],
+        },
+        {
+          title: "Toradex",
+          links: [
+            {
+              title: "colibri-imx6dl",
+              link: "https://files.resin.io/images/colibri-imx6dl/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         }

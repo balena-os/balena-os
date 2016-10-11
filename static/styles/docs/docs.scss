@@ -18,12 +18,12 @@
 
 .docs__navigation ul {
   list-style: none;
-  margin-left: 20px;
-  padding: 0;
+  @include rem(padding, 10px);
 }
 
 .docs__navigation, .in-page-nav {
   li {
+    @include rem(padding, 0 5px);
     .active {
       color: $gray-dark;
     }
@@ -145,8 +145,10 @@ h2:hover .hash, h3:hover .hash, h4:hover .hash, h5:hover .hash, h6:hover .hash {
 
 /* dynamic-switch */
 .dynamic-switch {
-  // background: #545252;
+  // background: $gray-dark;
   // color: white;
+  @include rem(padding, 10px)
+  // @include rem(margin-bottom, 10px)
 }
 
 .dynamic-switch a {
