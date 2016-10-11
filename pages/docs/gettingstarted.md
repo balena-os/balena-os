@@ -30,7 +30,7 @@ Currently `rdt` is a node.js based command line tool which requires that our sys
 
 Once we have those setup we can install `rdt` using npm:
 ``` bash
-$ npm install -g resin-device-tool
+$ npm install -g resin-device-toolbox
 ```
 
 ## Configure the Image
