@@ -92,7 +92,7 @@ ResinOS will provide the user with an OpenVPN server that he might use. It is wo
 The first partition, resin-boot, is meant to hold boot important bits according to each board (e.g. kernel image, bootloader image). It also holds a very important file that the reader will find mentions to inside this document (i.e. config.json). The config.json file is the central point of configuring ResinOS and defining its behaviour, for example you can set your hostname inside, allow persistent logging etc.
 Resin-root is the partition that holds our read-only root filesystem it holds almost everything that ResinOS is.
 Resin-update is an empty partition that is only used when the rootfs is to be updated. We follow the Blue-Green deployment strategy. Essentially we have one active partition that is the OS’s current rootfs and one dormant one that is empty, we download the new rootfs to the dormant partition and try to switch them, if the switch is successful the dormant partition becomes the new rootfs, if not, we rollback to the old active partition.
-Resin-conf this partition holds persistent data as explained in the [link_to: Stateless and Read-only rootfs].
+Resin-conf this partition holds persistent data as explained in the [Stateless and Read-only rootfs](#stateless-and-read-only-rootfs).
 Resin-data is the partition that homes downloaded docker images. Generally any container data will be found here.
 
 ## Stateless and Read-Only rootFS
