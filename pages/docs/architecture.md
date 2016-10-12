@@ -43,7 +43,7 @@ Now for the final piece of the puzzle, the board specific meta-resin configurati
 
 Below is a representative example from the Raspberry Pi family, which helps explain [meta-resin-raspberrypi/conf/samples/bblayers.conf.sample](https://github.com/resin-os/resin-raspberrypi/blob/master/layers/meta-resin-raspberrypi/conf/samples/bblayers.conf.sample).
 
-| Layer Name                        | Reposity                                                                      | Description                                                                           |
+| Layer Name                        | Repository                                                                      | Description                                                                           |
 |-----------------------------------|-------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | meta-resin                        | https://github.com/resin-os/meta-resin                                        | This repository enables building resin.io for various devices                         |
 | meta-resin-jethro                 | https://github.com/resin-os/meta-resin                                        | This layer enables building resin.io for jethro supported BSPs                        |
