@@ -8,14 +8,14 @@ There are many ways to contribute to ResinOS, based on your skills and interests
 ## Testing and Bug Reports
 Nobody likes buggy software! If you encounter any problems while using ResinOS, you can submit an [issue on github](https://github.com/resin-os/meta-resin/issues). Please include as much information about the problem as possible.
 
-The same applies for the [ResinOS board support](https://github.com/resin-os?utf8=%E2%9C%93&query=resin-) repositories as well, if you are reporting issues specific to a particular hardware.
+The same applies for the [ResinOS board support](https://github.com/resin-os?utf8=%E2%9C%93&query=resin-) repositories as well, if you are reporting issues specific to particular hardware.
 
 ## Submitting Fixes
 If you check out the [issues](https://github.com/resin-os/meta-resin/issues) reported for ResinOS, and you find any that you feel you’d like to fix, you can submit a [Pull Request](https://help.github.com/articles/about-pull-requests/) with your proposed change. Please observe the [Contribution Guidelines](https://github.com/resin-os/meta-resin/blob/master/CONTRIBUTING.md).
 
-The same applies for the [ResinOS board support](https://github.com/resin-os?utf8=%E2%9C%93&query=resin-) repositories as well, if you are fixing issues specific to a particular hardware.
+The same applies for the [ResinOS board support](https://github.com/resin-os?utf8=%E2%9C%93&query=resin-) repositories as well, if you are fixing issues specific to particular hardware.
 
-## Support to Additional Boards
+## Support for Additional Boards
 ResinOS is intended to work with any kind of board that fulfills some basic hardware requirements (see our Supported Boards list for currently supported devices). If you have any other board that you’d like to see on that list, please check our [board support contribution guide](https://github.com/meta-resin/blob/master/contributing-device-support.md) for more details. You’ll need to be familiar with [Yocto](http://www.yoctoproject.org/), and the board you are adding.
 
 ## Documentation
