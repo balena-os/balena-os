@@ -82,7 +82,7 @@ method=auto
 Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step `rdt` provides a handy flashing utility, you can however flash this image using etcher.io or `dd` if you must.
 
 ### Flash {{ $device.bootMedia }}
-To get flashing, just point the `rdt flash` command to the image we just downloaded and follow the prompts. If you hate prompts, `rdt` also allows you to skip them, check the [`rdt` docs](#rdt-docs) on how to do this.
+To get flashing, just point the `rdt flash` command to the image we just downloaded and follow the prompts. If you hate prompts, `rdt` also allows you to skip them, check the [`rdt` docs](https://resinos.io/docs/architecture/#resin-device-toolbox) on how to do this.
 
 __NOTE:__ `rdt flash` requires administrative privileges because it needs to access the {{ $device.bootMedia }}.
 
