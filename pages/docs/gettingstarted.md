@@ -10,7 +10,7 @@ dynamic:
 In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use a tool called `rdt` (A.K.A Resin Device Tool) to make things super easy. However, for those that like to do things the hard way, we got you covered as well.
 
 ## Download an Image
-To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to resinos.io/downloads and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the [Supported Boards](/docs/supportedboards/) section for more details.
+To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to [resinos.io](https://resinos.io/#downloads) and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the [Supported Boards](/docs/supportedboards/) section for more details.
 
 Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!
 ``` bash
