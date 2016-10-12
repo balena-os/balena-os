@@ -92,7 +92,7 @@ Password:
 x No available drives were detected, plug one in!
 ```
 
-Once you plug in your {{ $device.bootMedia }}, `rdt` should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as `rdt` will complete write over the entire drive.
+Once you plug in your {{ $device.bootMedia }}, `rdt` should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as `rdt` will completely write over the entire drive.
 
 ``` bash
 $ sudo rdt flash ~/Downloads/resinos-dev.img
