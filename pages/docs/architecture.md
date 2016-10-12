@@ -211,7 +211,7 @@ Let's look a bit into some of these settings keys.
 target device.
 * `destination:` this sets the destination sync directory in the container running on the device. This allows you to synchronise a `--source` directory on your laptop to a running
 container on the device. This is very useful when developing with interpreted languages like Python or Node.js, as you can sync just your source code across, without rebuilding the
-entire contianer.
+entire container.
 * `ignore:` is a list of files or directories that you would like to be ignored during the directory sync. This is useful in the case where you have `node_modules` in your source
 directory that is compiled to run on your x86 laptop, but you are pushing your code over to an ARM based embedded device.
 
