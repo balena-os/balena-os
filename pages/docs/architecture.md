@@ -76,7 +76,7 @@ ResinOS uses NetworkManager accompanied by ModemManager, to deliver a stable and
 ### DNSmasq
 
 DNSmasq is here to manage the nameservers that NetworkManager provides for resinOS.
-NetworkManager will discover the nameservers that can be used and a binary called resolvocnf will write them to a tmpfs location, from where DNSmasq will take over and manage these nameservers to give the user the fastest most responsive DNS resolution
+NetworkManager will discover the nameservers that can be used and a binary called `resolvconf` will write them to a tmpfs location, from where DNSmasq will take over and manage these nameservers to give the user the fastest most responsive DNS resolution.
 
 ### Avahi
 In order to improve the development experience of resinOS, there is an Avahi daemon that starts advertising the device as `resin.local` or `<hostname>.local` on boot if the images is a development image.
