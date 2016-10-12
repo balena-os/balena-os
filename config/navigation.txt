@@ -4,7 +4,7 @@ Architecture[/docs/architecture]
   Overview[/docs/architecture]
 Build Your Own
   [/docs/custombuild]
-Supported Board
+Supported Boards
   [/docs/supportedboards]
 Contributing
   [/docs/contrib]
