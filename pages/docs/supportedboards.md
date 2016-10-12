@@ -9,7 +9,7 @@ layout: docs.html
 | Device                      | Link                                                                         | ResinOS Repo                                     |
 |-----------------------------|------------------------------------------------------------------------------|--------------------------------------------------|
 | Raspberry Pi 3 Model B      | https://www.raspberrypi.org/products/raspberry-pi-3-model-b/                 | https://github.com/resin-os/resin-raspberrypi    |
-| Raspberry Pi 2 Model B      | https://www.raspberrypi.org/products/raspberry-pi-2-model-b/                 | https://github.com/resin-os/resin-raspberrypi$12 |
+| Raspberry Pi 2 Model B      | https://www.raspberrypi.org/products/raspberry-pi-2-model-b/                 | https://github.com/resin-os/resin-raspberrypi |
 | Beaglebone Black            | http://beagleboard.org/black                                                 | https://github.com/resin-os/resin-beaglebone     |
 | Beaglebone Green            | http://beagleboard.org/green                                                 | https://github.com/resin-os/resin-beaglebone     |
 | Beaglebone Green Wireless   | http://beagleboard.org/green-wireless                                        | https://github.com/resin-os/resin-beaglebone     |
