@@ -165,7 +165,7 @@
     
       <h5 class="">
         <a href="/docs/supportedboards">
-          Supported Board
+          Supported Boards
         </a>
       </h5>
       
@@ -336,7 +336,7 @@
           <h1 id="getting-started-on-the-artik-1020">Getting Started on the ARTIK 1020</h1>
 <p>In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use a tool called <code>rdt</code> (A.K.A Resin Device Tool) to make things super easy. However, for those that like to do things the hard way, we got you covered as well.</p>
 <h2 id="download-an-image">Download an Image</h2>
-<p>To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to resinos.io/downloads and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the <a href="/docs/supportedboards/">Supported Boards</a> section for more details.</p>
+<p>To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to <a href="https://resinos.io/#downloads">resinos.io</a> and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the <a href="/docs/supportedboards/">Supported Boards</a> section for more details.</p>
 <p>Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!</p>
 <pre><code class="lang-bash">$ wget https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip
 </code></pre>
@@ -392,13 +392,13 @@ method=auto
 </code></pre><h2 id="get-the-device-up-and-running">Get the Device Up and Running</h2>
 <p>Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step <code>rdt</code> provides a handy flashing utility, you can however flash this image using etcher.io or <code>dd</code> if you must.</p>
 <h3 id="flash-sd-card">Flash SD card</h3>
-<p>To get flashing, just point the <code>rdt flash</code> command to the image we just downloaded and follow the prompts. If you hate prompts, <code>rdt</code> also allows you to skip them, check the <a href="#rdt-docs"><code>rdt</code> docs</a> on how to do this.</p>
+<p>To get flashing, just point the <code>rdt flash</code> command to the image we just downloaded and follow the prompts. If you hate prompts, <code>rdt</code> also allows you to skip them, check the <a href="https://resinos.io/docs/architecture/#resin-device-toolbox"><code>rdt</code> docs</a> on how to do this.</p>
 <p><strong>NOTE:</strong> <code>rdt flash</code> requires administrative privileges because it needs to access the SD card.</p>
 <pre><code class="lang-bash">$ sudo rdt flash ~/Downloads/resinos-dev.img
 Password:
 x No available drives were detected, plug one in!
 </code></pre>
-<p>Once you plug in your SD card, <code>rdt</code> should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as <code>rdt</code> will complete write over the entire drive.</p>
+<p>Once you plug in your SD card, <code>rdt</code> should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as <code>rdt</code> will completely write over the entire drive.</p>
 <pre><code class="lang-bash">$ sudo rdt flash ~/Downloads/resinos-dev.img
 Password:
 ? Select drive (Use arrow keys)
