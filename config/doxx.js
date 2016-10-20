@@ -18,7 +18,10 @@ module.exports = {
       name: 'resinOS',
       tagLine: 'Run Docker containers on embedded devices',
       description: 'A host OS tailored for containers, designed for reliability, proven in production',
-
+      button: {
+        text: 'Try resinOS',
+        link: '/#downloads'
+      }
     },
     typekitID: 'eic0uah',
     analytics: {
@@ -29,9 +32,10 @@ module.exports = {
     company: { title: 'Resin.io', link: 'https://resin.io' },
     menuLinks: [
       { title: 'Docs', link: '/docs' },
+      { title: 'Getting Started', link: '/docs/raspberrypi2/gettingstarted/'},
       { title: 'Features', link: '/#features' },
       { title: 'Downloads', link: '/#downloads' },
-      { title: 'Get Involved', link: '/#milestones' },
+      { title: 'Get Involved', link: '/#milestones' }
     ],
     features: [
       {

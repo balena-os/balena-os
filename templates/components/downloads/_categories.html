@@ -4,7 +4,6 @@
     <div class="section__header">
       <h2 class="section__title">Downloads</h2>
       <p class="lead section__lead">Select your device type</p>
-      <!-- <a class="section__link" href="/archive">All versions</a> -->
     </div>
     <div class="row downloads__row">
       {% for cat in downloads.categories %}
@@ -16,7 +15,7 @@
         {% if loop.index % 4 == 0 %} </div><div class="row downloads__row"> {% endif %}
       {% endfor %}
       <div class="col-sm-12">
-        <a data-track="link click" data-track-attr='{ "title": "Build your own", "href": "/docs/custombuild", "position": "downloads" }' class="downloads__category downloads__category--custom" href="/docs/custombuild">
+        <a data-track="link click" data-track-attr='{ "title": "Build your own", "href": "/docs/custombuild/#supporting-your-own-board", "position": "downloads" }' class="downloads__category downloads__category--custom" href="/docs/custombuild/#supporting-your-own-board">
           <div class="downloads__category--custom__container">
             <img class="downloads__category__image downloads__category__image--custom" src="/images/icons/add.png" srcset="/images/icons/add@2x.png 2x">
             <h4>Add your </br>own board</h4>
