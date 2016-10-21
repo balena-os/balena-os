@@ -115,10 +115,6 @@ module.exports = {
             {
               title: "Intel Nuc",
               link: "https://files.resin.io/images/intel-nuc/2.0.0-beta.1/resin-dev.zip"
-            },
-            {
-              title: "Intel Edison",
-              link: "https://files.resin.io/images/intel-edison/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
