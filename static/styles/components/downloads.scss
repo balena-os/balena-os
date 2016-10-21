@@ -105,6 +105,17 @@ $border-width: 1px;
   @include rem(margin-right, 15px);
 }
 
+.downloads__well__footer {
+  text-align: center;
+  display: none;
+}
+
+.downloads__well__footer__link {
+  &, &:hover {
+    color: $white;
+  }
+
+}
 .downloads__category--active {
   // TODO clean up
   border: 1px solid transparent;

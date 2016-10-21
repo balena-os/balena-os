@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Resinos - Getting Started on the Raspberry Pi 2</title>
+    <title>Resinos - Getting Started on the ts4900</title>
     <meta property="og:title" content="resinOS"/>
     <meta property="og:image" content="https://resinos.io/images/misc/resin-os.png"/>
     <meta property="og:site_name" content="A host OS tailored for containers, designed for reliability, proven in production"/>
@@ -46,7 +46,7 @@
 </li>
 
 <li class="nav-item">
-  <a class="nav-link" data-track="link click" data-track-meta='{ "title": "Getting Started", "href": "/docs/raspberrypi2/gettingstarted/", "position": "nav" }' href="/docs/raspberrypi2/gettingstarted/">
+  <a class="nav-link" data-track="link click" data-track-meta='{ "title": "Getting Started", "href": "/docs/raspberry-pi2/gettingstarted/", "position": "nav" }' href="/docs/raspberry-pi2/gettingstarted/">
     Getting Started
   </a>
 </li>
@@ -82,7 +82,7 @@
   </div>
 </nav>
 
-    <section class="page-content page-content--Getting Started on the Raspberry Pi 2">
+    <section class="page-content page-content--Getting Started on the ts4900">
       
 <div class="docs">
   <div class="container docs__container">
@@ -115,8 +115,8 @@
           
         
         <li class="active">
-          <a href="/docs/raspberrypi2/gettingstarted">
-            Getting Started on Raspberry Pi 2
+          <a href="/docs/ts4900/gettingstarted">
+            Getting Started on ts4900
           </a>
         </li>
         
@@ -213,7 +213,7 @@
     </li>
   
     <li class="active">
-      Getting Started on Raspberry Pi 2
+      Getting Started on ts4900
       
     </li>
   
@@ -253,7 +253,7 @@
       </option>
     
       <option
-        value="beaglebone"
+        value="beaglebone-black"
         >
         Beaglebone
       </option>
@@ -277,7 +277,7 @@
       </option>
     
       <option
-        value="nuc"
+        value="intel-nuc"
         >
         Intel NUC
       </option>
@@ -289,20 +289,26 @@
       </option>
     
       <option
+        value="odroid-xu4"
+        >
+        Odroid xu4
+      </option>
+    
+      <option
         value="odroid-ux3"
         >
         Odroid XU4
       </option>
     
       <option
-        value="raspberrypi"
+        value="raspberry-pi"
         >
         Raspberry Pi 1
       </option>
     
       <option
-        value="raspberrypi2"
-        selected>
+        value="raspberry-pi2"
+        >
         Raspberry Pi 2
       </option>
     
@@ -324,6 +330,42 @@
         Zynq Board XZ702
       </option>
     
+      <option
+        value="colibri-imx6dl"
+        >
+        Colibri imx6dl
+      </option>
+    
+      <option
+        value="Hummingboard"
+        >
+        hummingboard
+      </option>
+    
+      <option
+        value="ts4900"
+        selected>
+        ts4900
+      </option>
+    
+      <option
+        value="ts7700"
+        >
+        ts7700
+      </option>
+    
+      <option
+        value="nitrogen6x"
+        >
+        Nitrogen 6x
+      </option>
+    
+      <option
+        value="parallella"
+        >
+        Parallella
+      </option>
+    
   </select>
 
       
@@ -338,12 +380,12 @@
           
         
         
-          <h1 id="getting-started-on-the-raspberry-pi-2">Getting Started on the Raspberry Pi 2</h1>
+          <h1 id="getting-started-on-the-ts4900">Getting Started on the ts4900</h1>
 <p>In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use a tool called <code>rdt</code> (A.K.A Resin Device Tool) to make things super easy. However, for those that like to do things the hard way, we got you covered as well.</p>
 <h2 id="download-an-image">Download an Image</h2>
 <p>To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to <a href="https://resinos.io/#downloads">resinos.io</a> and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the <a href="/docs/supportedboards/">Supported Boards</a> section for more details.</p>
 <p>Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!</p>
-<pre><code class="lang-bash">$ wget https://files.resin.io/images/raspberrypi2/2.0.0-beta.1/resin-dev.zip
+<pre><code class="lang-bash">$ wget https://files.resin.io/images/ts4900/2.0.0-beta.1/resin-dev.zip
 </code></pre>
 <h2 id="install-resin-device-toolbox">Install Resin Device Toolbox</h2>
 <p><code>rdt</code> or Resin Device Toolbox, is a collection of utilities which helps us to develop resinOS based application containers. It’s not strictly necessary, but makes life so so much sweeter, but if you like doing things the hard way, skip over to the next section.</p>
@@ -418,9 +460,9 @@ Flashing [========================] 100% eta 0s
 Validating [========================] 100% eta 0s
 </code></pre>
 <h3 id="boot-the-device">Boot the device</h3>
-<p>Insert the SD card into the Raspberry Pi 2 and connect either the ethernet cable or the USB WiFi adapter. Now power up the Raspberry Pi 2 by inserting the micro USB cable.</p>
-<p><img src="/images/docs/gifs/insert-sd.gif" alt="insert SD"></p>
-<p><strong>Note:</strong> Class 4 SD cards can take up to 3 times longer so it&#39;s well worth investing in the fastest card you can find.</p>
+<p>In order to get your resinOS device up and online, you will first need to ensure that the resinOS system image is flashed onto the devices primary boot medium.</p>
+<p>You will also need to ensure that the device can connect to the network, either via ethernet or wifi. Once these two requirements are satisfied, power on the device, making sure it boots from the primary boot media on which the resinOS system image was flashed.</p>
+<p>In about 45 seconds you should be able to connect to your device via ssh using <code>ssh root@resin.local -p22222</code>.</p>
 <p>After about 30 seconds or so your device should be up and connected to your local network, you should see it broadcasting itself as <code>resin.local</code>. To check this, let’s try ping the device.</p>
 <pre><code class="lang-bash">$ ping resin.local
 PING 192.168.1.111 (192.168.1.111): 56 data bytes
@@ -499,7 +541,7 @@ When logging is not persistent, the logs can be found at <code>/run/log/journal/
 <pre><code class="lang-bash">$ mkdir -p myapp &amp;&amp; touch Dockerfile
 </code></pre>
 <p>Now we will create a minimal node.js container based on the slim <a href="link-to-alpine">Alpine Linux distro</a>. We do this by adding the following lines to our Dockerfile.</p>
-<pre><code class="lang-Dockerfile">FROM resin/raspberrypi2-alpine-node:slim
+<pre><code class="lang-Dockerfile">FROM resin/ts4900-alpine-node:slim
 CMD [“cat”, “/etc/os-release”]
 </code></pre>
 <p>The <code>FROM</code> tells docker what our container will be based on. In this case an Alpine Linux userspace with just the bare essentials needed for the node.js runtime. The <code>CMD</code> just defines what our container runs on startup. In this case, it’s not very exciting yet.</p>
@@ -509,8 +551,8 @@ CMD [“cat”, “/etc/os-release”]
 - Stopping and Removing any previous &#39;myapp&#39; container
 - Removing any existing container images for &#39;myapp&#39;
 - Building new &#39;myapp&#39; image
-Step 1 : FROM resin/raspberrypi2-alpine-node:slim
-Pulling from resin/raspberrypi2-alpine-node
+Step 1 : FROM resin/ts4900-alpine-node:slim
+Pulling from resin/ts4900-alpine-node
 Pulling fs layer
 Verifying Checksum=============================================&gt;]     32 B/32 B7 MB
 Download complete
@@ -518,7 +560,7 @@ Verifying Checksum=============================================&gt;] 1.987 MB/1.
 Pull complete=================================================&gt;]    12 MB/12 MB
 Pull complete
 Digest: sha256:410a5add3aa281d97afea1ae4fcdbec203c69ea34faea8d84349456c211f33a3
-Status: Downloaded newer image for resin/raspberrypi2-alpine-node:slim
+Status: Downloaded newer image for resin/ts4900-alpine-node:slim
  ---&gt; bf37b6350e63
 Step 2 : CMD [“cat”, “/etc/os-release”]
  ---&gt; Running in a376f4a781d5
@@ -543,7 +585,7 @@ resin push completed successfully!
 console.log(&quot;Hey… I’m a node.js app running in a container!!&quot;);
 </code></pre>
 <p>We then make sure our Dockerfile copies this source file into our container context by replacing our current <code>CMD [“cat”,”/etc/os-release”]</code> in our Dockerfile with the following.</p>
-<pre><code class="lang-Dockerfile">FROM resin/raspberrypi2-alpine-node:slim
+<pre><code class="lang-Dockerfile">FROM resin/ts4900-alpine-node:slim
 WORKDIR /usr/src/app
 COPY . .
 CMD [&quot;node&quot;, &quot;main.js&quot;]
@@ -612,7 +654,7 @@ var server = app.listen(80, function () {
     - Dockerfile: 1327b0f9875d5c4bf7f2f36fad384c8481a00396830acd33c0af0e575648fe91
     - package.json:
 </code></pre><p>And 2.) We then need to run a <code>npm install</code> in our build, so we add a few lines to our Dockerfile.</p>
-<pre><code class="lang-Dockerfile">FROM resin/raspberrypi2-alpine-node:slim
+<pre><code class="lang-Dockerfile">FROM resin/ts4900-alpine-node:slim
 WORKDIR /usr/src/app
 COPY package.json package.json
 RUN npm install
@@ -643,7 +685,7 @@ CMD [&quot;node&quot;, &quot;main.js&quot;]
 </li>
 
 <li class="nav-item">
-  <a class="nav-link" data-track="link click" data-track-meta='{ "title": "Getting Started", "href": "/docs/raspberrypi2/gettingstarted/", "position": "nav" }' href="/docs/raspberrypi2/gettingstarted/">
+  <a class="nav-link" data-track="link click" data-track-meta='{ "title": "Getting Started", "href": "/docs/raspberry-pi2/gettingstarted/", "position": "nav" }' href="/docs/raspberry-pi2/gettingstarted/">
     Getting Started
   </a>
 </li>

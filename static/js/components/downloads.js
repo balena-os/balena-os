@@ -41,17 +41,15 @@ function alignCaret(that) {
   caretOffsetRef = offset
 }
 
-// used to correct height of custom (add your own board) block in grid
-// function resizeBlock() {
-//   var blockHeight = $('.downloads__category').height()
-//   $('.downloads__category--custom').css('min-height', blockHeight)
-// }
 
 if ($('#downloads').length) {
-  // resizeBlock()
-
   $(".downloads__category").click(function(){
     openWell(this)
+  })
+
+  $("body").on('click', '.js-download-link', function(){
+    console.log("FIRE")
+    displayDocsLink(this)
   })
 
   $('body').on('DOMNodeInserted', '.downloads__well', function () {
@@ -64,12 +62,17 @@ if ($('#downloads').length) {
     if ($('.downloads__category--active').length) {
       alignCaret('.downloads__well')
     }
-    // resizeBlock()
   });
 
   if(window.location.hash.indexOf('downloads-') !== -1) {
     catId = window.location.hash.split('-')[1]
     openWell('#downloads-' + catId)
   }
+}
 
+function displayDocsLink(that) {
+  var slug = $(that).attr('href').split('/')[4];
+  var name = $(that).data('device-name')
+  $('.downloads__well__footer').show();
+  $('.downloads__well__footer__link').attr('href', '/docs/' + slug + '/gettingstarted/').text('Get Started with the ' + name)
 }

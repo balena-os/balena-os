@@ -32,7 +32,7 @@ module.exports = {
     company: { title: 'Resin.io', link: 'https://resin.io' },
     menuLinks: [
       { title: 'Docs', link: '/docs' },
-      { title: 'Getting Started', link: '/docs/raspberrypi2/gettingstarted/'},
+      { title: 'Getting Started', link: '/docs/raspberry-pi2/gettingstarted/'},
       { title: 'Features', link: '/#features' },
       { title: 'Downloads', link: '/#downloads' },
       { title: 'Get Involved', link: '/#milestones' }
@@ -115,6 +115,10 @@ module.exports = {
             {
               title: "Intel Nuc",
               link: "https://files.resin.io/images/intel-nuc/2.0.0-beta.1/resin-dev.zip"
+            },
+            {
+              title: "Intel Edison",
+              link: "https://files.resin.io/images/intel-edison/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -166,7 +170,7 @@ module.exports = {
           title: "Parallella",
           links: [
             {
-              title: "parallella",
+              title: "Parallella",
               link: "https://files.resin.io/images/parallella/2.0.0-beta.1/resin-dev.zip"
             }
           ],
@@ -188,7 +192,7 @@ module.exports = {
           title: "Solid Run",
           links: [
             {
-              title: "Hummingboard",
+              title: "hummingboard",
               link: "https://files.resin.io/images/hummingboard/2.0.0-beta.1/resin-dev.zip"
             }
           ],
@@ -197,7 +201,7 @@ module.exports = {
           title: "Boundary",
           links: [
             {
-              title: "Nitrogen6x",
+              title: "nitrogen6x",
               link: "https://files.resin.io/images/nitrogen6x/2.0.0-beta.1/resin-dev.zip"
             }
           ],

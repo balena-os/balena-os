@@ -46,7 +46,7 @@
 </li>
 
 <li class="nav-item">
-  <a class="nav-link" data-track="link click" data-track-meta='{ "title": "Getting Started", "href": "/docs/raspberrypi2/gettingstarted/", "position": "nav" }' href="/docs/raspberrypi2/gettingstarted/">
+  <a class="nav-link" data-track="link click" data-track-meta='{ "title": "Getting Started", "href": "/docs/raspberry-pi2/gettingstarted/", "position": "nav" }' href="/docs/raspberry-pi2/gettingstarted/">
     Getting Started
   </a>
 </li>
@@ -216,12 +216,15 @@
           <% jq.each(downloads, function(index, download) { %>
             <tr>
               <td><%- download.title %></td>
-              <td><a data-track="download" data-track-meta='{ "image": "<%- download.title %>", "href": "<%- download.link %>", "deviceType": "<%- catTitle %>", "position": "downloads" }' href="<%- download.link %>">resinOS 2.0.0-beta.1 <i class="fa fa-download" aria-hidden="true"></i></a></td>
+              <td><a class="js-download-link" data-device-name="<%- download.title %>" data-track="download" data-track-meta='{ "image": "<%- download.title %>", "href": "<%- download.link %>", "deviceType": "<%- catTitle %>", "position": "downloads" }' href="<%- download.link %>">resinOS 2.0.0-beta.1 <i class="fa fa-download" aria-hidden="true"></i></a></td>
               <td>Coming Soon</td>
             </tr>
           <% }); %>
         </tbody>
       </table>
+    </div>
+    <div class="downloads__well__footer">
+      <a class="downloads__well__footer__link" href="/docs/raspberry-pi2/gettingstarted/">Get Started</a>
     </div>
   </div>
 </script>
@@ -247,7 +250,7 @@
         
       
         <div class="col-md-3">
-          <a id="downloads-intel" class="downloads__category" href="#downloads-intel" data-cat="{&quot;title&quot;:&quot;Intel&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Intel Nuc&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/intel-nuc/2.0.0-beta.1/resin-dev.zip&quot;}]}">
+          <a id="downloads-intel" class="downloads__category" href="#downloads-intel" data-cat="{&quot;title&quot;:&quot;Intel&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Intel Nuc&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/intel-nuc/2.0.0-beta.1/resin-dev.zip&quot;},{&quot;title&quot;:&quot;Intel Edison&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/intel-edison/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/intel.png" srcset="/images/icons/downloads/intel@2x.png 2x">
           </a>
         </div>
@@ -282,7 +285,7 @@
         
       
         <div class="col-md-3">
-          <a id="downloads-parallella" class="downloads__category" href="#downloads-parallella" data-cat="{&quot;title&quot;:&quot;Parallella&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;parallella&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/parallella/2.0.0-beta.1/resin-dev.zip&quot;}]}">
+          <a id="downloads-parallella" class="downloads__category" href="#downloads-parallella" data-cat="{&quot;title&quot;:&quot;Parallella&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Parallella&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/parallella/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/parallella.png" srcset="/images/icons/downloads/parallella@2x.png 2x">
           </a>
         </div>
@@ -296,14 +299,14 @@
         
       
         <div class="col-md-3">
-          <a id="downloads-solidrun" class="downloads__category" href="#downloads-solidrun" data-cat="{&quot;title&quot;:&quot;Solid Run&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Hummingboard&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/hummingboard/2.0.0-beta.1/resin-dev.zip&quot;}]}">
+          <a id="downloads-solidrun" class="downloads__category" href="#downloads-solidrun" data-cat="{&quot;title&quot;:&quot;Solid Run&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;hummingboard&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/hummingboard/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/solidrun.png" srcset="/images/icons/downloads/solidrun@2x.png 2x">
           </a>
         </div>
         
       
         <div class="col-md-3">
-          <a id="downloads-boundary" class="downloads__category" href="#downloads-boundary" data-cat="{&quot;title&quot;:&quot;Boundary&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;Nitrogen6x&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/nitrogen6x/2.0.0-beta.1/resin-dev.zip&quot;}]}">
+          <a id="downloads-boundary" class="downloads__category" href="#downloads-boundary" data-cat="{&quot;title&quot;:&quot;Boundary&quot;,&quot;links&quot;:[{&quot;title&quot;:&quot;nitrogen6x&quot;,&quot;link&quot;:&quot;https://files.resin.io/images/nitrogen6x/2.0.0-beta.1/resin-dev.zip&quot;}]}">
             <img class="downloads__category__image" src="/images/icons/downloads/boundary.png" srcset="/images/icons/downloads/boundary@2x.png 2x">
           </a>
         </div>
@@ -358,7 +361,7 @@
               </span>
               <span class="milestone__meta__item">|</span>
               <span class="milestone__meta__item">
-                 9 days ago
+                 10 days ago
               </span>
             </p>
           </div>
@@ -442,7 +445,7 @@
 </li>
 
 <li class="nav-item">
-  <a class="nav-link" data-track="link click" data-track-meta='{ "title": "Getting Started", "href": "/docs/raspberrypi2/gettingstarted/", "position": "nav" }' href="/docs/raspberrypi2/gettingstarted/">
+  <a class="nav-link" data-track="link click" data-track-meta='{ "title": "Getting Started", "href": "/docs/raspberry-pi2/gettingstarted/", "position": "nav" }' href="/docs/raspberry-pi2/gettingstarted/">
     Getting Started
   </a>
 </li>
