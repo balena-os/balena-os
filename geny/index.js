@@ -1,7 +1,8 @@
-// This module generates data from custom requests (see funcs.js)
+// This module generates data from custom requests (see fetchers.js)
 // and merges results with doxxConfig.layout
 
-const funcs = require('./funcs')
+const fetchers = require('./fetchers')
+const modifiers = require('./modifiers')
 const _ = require('lodash')
 const Promise = require('bluebird')
 const fs = require('fs')
@@ -24,9 +25,9 @@ var merge = function(doxxConfig, generatedSettings) {
 }
 
 module.exports.run = function(doxxConfig) {
-  // run all funcs
-  _.forOwn(funcs, function(value, key) {
-    promises.push(funcs[key]())
+  // run all fetchers
+  _.forOwn(fetchers, function(value, key) {
+    promises.push(fetchers[key]())
   })
 
   // catch all returns

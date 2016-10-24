@@ -8,6 +8,19 @@
     <div class="row">
       <div class="col-md-8 offset-md-2 FAQs-js" data-html='{{ FAQs }}'>
         <!-- populated via jquery -->
+        {% for FAQ in FAQs %}
+        <div class="FAQ">
+          <a class="FAQ__header" data-toggle="collapse" data-track="FAQ view" data-track-meta="{{ loop.index }}" href="#faq-{{ loop.index }}">
+            {{ loop.key|safe }}
+            <div class="pull-xs-right">
+              <i class="fa fa-plus-circle FAQ__header__expander FAQ-js-target" aria-hidden="true"></i>
+            </div>
+          </a>
+          <div id="faq-{{ loop.index }}" class="FAQ__content panel-collapse collapse" aria-expanded="true">
+            {{ FAQ|safe }}
+          </div>
+        </div>
+        {% endfor %}
       </div>
     </div>
   </div>

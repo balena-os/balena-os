@@ -16,25 +16,18 @@
 }
 
 .FAQ__header {
+  width: 100%;
   font-weight: bold;
   color: $gray-dark;
+  @include rem(font-size, 22px);
+  margin-bottom: 0;
   &, &:hover, &:active, &:focus {
     text-decoration: none;
   }
-  h2 {
-    @include rem(font-size, 22px);
-    margin-bottom: 0;
-  }
 }
 
-.FAQ__expander {
-  .fa-circle {
-    color: $gray-dark;
-    font-size: 1rem;
-    top: -10px;
-  }
-  .fa-plus-circle, .fa-minus-circle {
-    font-size: 1.6rem;
-    color: lighten($gray-lighter, 10%);
-  }
+.FAQ__header__expander {
+  font-size: 1.6rem;
+  vertical-align: middle;
+  color: $gray-dark;
 }
