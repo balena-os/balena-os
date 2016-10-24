@@ -2,7 +2,6 @@
 // and merges results with doxxConfig.layout
 
 const fetchers = require('./fetchers')
-const modifiers = require('./modifiers')
 const _ = require('lodash')
 const Promise = require('bluebird')
 const fs = require('fs')
