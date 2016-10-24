@@ -18,41 +18,34 @@ $border-width: 1px;
 .downloads__category__image {
   position: relative;
   width: 80%;
+  max-width: 150px;
 }
 
-@include media-breakpoint-down(xs) {
-  .downloads__category--custom {
-    @include rem(padding, 30px);
-    .downloads__category__image {
-      max-width: 60px;
-    }
+.downloads__category__title {
+  color: $gray-dark;
+  @include rem(font-size, 16px);
+  font-weight: bold;
+  &:hover {
+    text-decoration: none;
   }
 }
 
 .downloads__category--custom {
   border-style: dashed;
   @include rem(padding, 30px);
-  .downloads__category__image {
-    max-width: 40px;
-    margin-bottom: 20px;
-  }
-  h4 {
-    color: $gray-dark;
-    @include rem(font-size, 16px);
-    font-weight: bold;
-    &:hover {
-      text-decoration: none;
-    }
-    // margin-bottom: 20px;
-  }
+}
+
+.downloads__category__image--custom {
+  max-width: 40px;
+  margin-bottom: 20px;
 }
 
 .downloads__well {
+  position: relative;
   background: $gray;
   color: $white;
   @include rem(padding, 50px);
   @include rem(margin, 20px 15px 0);
-  position: relative;
 }
 
 @include media-breakpoint-down(xs) {
@@ -84,24 +77,24 @@ $border-width: 1px;
 
 .downloads__well__caret.fa {
   position: absolute;
-  @include rem(top, -1.5rem);
   color: $gray;
+  @include rem(top, -1.5rem);
   @include rem(font-size, 3rem);
-  will-change: left;
   @include css3-prefix('transition',  "left .2s ease-in-out 0s");
 }
 
 .downloads__well__profile {
   @include rem(margin-bottom, 50px);
 }
+
 .downloads__well__profile__title {
   display: inline-block;
   vertical-align: sub;
 }
 
 .downloads__well__profile__icon {
-  @include rem(width, 50px);
   display: inline-block;
+  @include rem(width, 50px);
   @include rem(margin-right, 15px);
 }
 
@@ -114,29 +107,7 @@ $border-width: 1px;
   &, &:hover {
     color: $white;
   }
-
 }
 .downloads__category--active {
-  // TODO clean up
-  border: 1px solid transparent;
-  border-top: $border-width solid $gradient-from;
-  border-bottom: $border-width solid $gradient-to;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($gradient-from), to($gradient-to));
-   background-image: -webkit-linear-gradient($gradient-from, $gradient-to);
-   background-image:
-       -moz-linear-gradient($gradient-from, $gradient-to),
-       -moz-linear-gradient($gradient-from, $gradient-to)
-   ;
-   background-image:
-       -o-linear-gradient($gradient-from, $gradient-to),
-       -o-linear-gradient($gradient-from, $gradient-to)
-   ;
-   background-image:
-       linear-gradient($gradient-from, $gradient-to),
-       linear-gradient($gradient-from, $gradient-to)
-   ;
-   -moz-background-size:$border-width 100%;
-   background-size:1px 100%;
-   background-position:0 0, 100% 0;
-   background-repeat:no-repeat;
+  border-color: $brand-primary;
 }
