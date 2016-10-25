@@ -60,10 +60,10 @@ return b.bundle()
 gulp.task('doxx', function(done) {
   var doxxConfig = require('./config/doxx')
   geny.run(doxxConfig).then(function(newSettings) {
-    console.log('newSettings', newSettings.layoutLocals)
     var doxx = Doxx(newSettings)
     doxx.build(function(err) {
       if(err) throw err;
+      // delete the require cache so we can get automatic data reloads
       delete require.cache[require.resolve('./config/doxx')]
       done()
     })

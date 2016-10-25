@@ -16,7 +16,7 @@ If you check out the [issues](https://github.com/resin-os/meta-resin/issues) rep
 The same applies for the [ResinOS board support](https://github.com/resin-os?utf8=%E2%9C%93&query=resin-) repositories as well, if you are fixing issues specific to particular hardware.
 
 ## Support for Additional Boards
-ResinOS is intended to work with any kind of board that fulfills some basic hardware requirements (see our Supported Boards list for currently supported devices). If you have any other board that you’d like to see on that list, please check our [board support contribution guide](https://github.com/meta-resin/blob/master/contributing-device-support.md) for more details. You’ll need to be familiar with [Yocto](http://www.yoctoproject.org/), and the board you are adding.
+ResinOS is intended to work with any kind of board that fulfills some basic hardware requirements (see our Supported Boards list for currently supported devices). If you have any other board that you’d like to see on that list, please check our [board support contribution guide](https://github.com/resin-os/meta-resin/blob/master/contributing-device-support.md) for more details. You’ll need to be familiar with [Yocto](http://www.yoctoproject.org/), and the board you are adding.
 
 ## Documentation
 ResinOS is quickly evolving, and having good documentation that keeps up with the changes is crucial. If you find any information that is incomplete or missing, you can submit improvements to our documentation on Github!
