@@ -10,5 +10,5 @@ deploy:
   api_key: $HEROKU_KEY
   skip_cleanup: true
   app:
+    staging: resin-os-staging
     master: resin-os-staging
-    production: resin-os-staging
