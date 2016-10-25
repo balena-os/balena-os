@@ -5,3 +5,10 @@ install:
   - npm install
 script:
   - gulp build
+deploy:
+  provider: heroku
+  api_key: $HEROKU_KEY
+  skip_cleanup: true
+  app:
+    master: resin-os-staging
+    production: resin-os-staging
