@@ -52,7 +52,11 @@
     "moment": "^2.15.1",
     "through2": "^2.0.0",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "cheerio": "^0.18.0",
+    "entities": "^1.1.1",
+    "extend": "^2.0.0",
+    "marked": "^0.3.3"
   },
   "dependencies": {
     "@resin.io/doxx": "^0.9.3",

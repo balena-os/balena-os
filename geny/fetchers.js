@@ -6,7 +6,7 @@ var exports = module.exports = {};
 var _ = require('lodash')
 var moment = require('moment')
 var $ = require('jquery')
-var markdowneyjr = require("./markdowneyjr");
+var markdowny = require("./markdowny");
 
 var https = require('https');
 var fs = require('fs');
@@ -45,7 +45,7 @@ exports.getFAQs = function() {
     path: "/pages/docs/faqs.md"
   }).then(function(data) {
     return {
-      FAQs: markdowneyjr(new Buffer(data.content.toString(), 'base64').toString(), { startLevel: 2})
+      FAQs: markdowny(new Buffer(data.content.toString(), 'base64').toString(), { startLevel: 2})
     }
   })
 };
