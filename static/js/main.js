@@ -1,5 +1,5 @@
 jQuery = $ = require('jquery')
-Tether = require('Tether')
+Tether = require('tether')
 require('bootstrap')
 require('./docs')
 require('./components')
