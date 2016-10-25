@@ -12,7 +12,6 @@ var through = require('through2');
 var gutil = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');gutil
 var del = require('del');
-
 var server = require('gulp-express');
 
 // Import our configured Metalsmith instance
@@ -20,11 +19,10 @@ var Doxx = require('@resin.io/doxx')
 var defualtSettings
 // data generator
 var geny = require('./geny')
-var destDir = './public'
 
 // cleans build destination folder
 gulp.task('clean', function (cb) {
-  return del([ destDir + '/**'], {dot: true}, cb)
+  return del([ './public/**' ], {dot: true}, cb)
 });
 
 // Process Sass
@@ -33,7 +31,7 @@ gulp.task('css', function() {
     .pipe(sass().on('error', sass.logError))
     .pipe(minifycss())
     .pipe(concat('main.min.css'))
-    .pipe(gulp.dest('./static/dist/'));
+    .pipe(gulp.dest('./public/assets/'));
 });
 
 
@@ -53,8 +51,16 @@ return b.bundle()
     .pipe(uglify())
     .on('error', gutil.log)
   .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest('./static/dist/'));
+  .pipe(gulp.dest('./public/assets/'));
 });
+
+// simply copys images to /public folder
+gulp.task('move-images', function(){
+  return gulp.src([
+      './static/images/**/*'
+  ])
+  .pipe(gulp.dest('./public/assets/images'));
+})
 
 // runs custom metalsmith build
 gulp.task('doxx', function(done) {
@@ -86,7 +92,7 @@ gulp.task('reload', function(done) {
 })
 
 // builds all static assets
-gulp.task('build', gulp.series('clean', 'doxx', 'js', 'css'), function(done) {
+gulp.task('build', gulp.series('clean', 'doxx', 'move-images', 'js', 'css'), function(done) {
   done()
 })
 

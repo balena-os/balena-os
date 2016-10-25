@@ -15,11 +15,17 @@ var github = new GitHubApi({
     Promise: require('bluebird'),
     timeout: 5000
 });
-github.authenticate({
-    type: "basic",
-    username: process.env.GH_USERNAME,
-    password: process.env.GH_TOKEN
-});
+
+if (process.env.GH_USERNAME && process.env.GH_TOKEN) {
+  github.authenticate({
+      type: "basic",
+      username: process.env.GH_USERNAME,
+      password: process.env.GH_TOKEN
+  });
+} else {
+  console.log("No github credentials provided")
+}
+
 
 exports.getRepo = function() {
   var ghConfig = config.github
