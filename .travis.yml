@@ -11,4 +11,4 @@ deploy:
   skip_cleanup: true
   app:
     staging: resin-os-staging
-    master: resin-os-staging
+    master: resin-os
