@@ -18,7 +18,7 @@ doxx.configureExpress(app)
 doxx.loadLunrIndex()
 
 var contentsDir = path.join(__dirname, doxxConfig.destDir)
-var staticDir = path.join(__dirname, 'static/dist')
+var staticDir = path.join(__dirname, 'public/assets')
 app.use(express.static(staticDir))
 app.use(express.static(contentsDir))
 

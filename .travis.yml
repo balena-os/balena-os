@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "6"
+install:
+  - npm install
+script:
+  - gulp build
+deploy:
+  provider: heroku
+  api_key: $HEROKU_KEY
+  skip_cleanup: true
+  app:
+    staging: resin-os-staging
+    master: resin-os-staging

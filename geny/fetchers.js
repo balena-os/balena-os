@@ -6,7 +6,7 @@ var exports = module.exports = {};
 var _ = require('lodash')
 var moment = require('moment')
 var $ = require('jquery')
-var markdowneyjr = require("./markdowneyjr");
+var markdowny = require("./markdowny");
 
 var https = require('https');
 var fs = require('fs');
@@ -15,11 +15,17 @@ var github = new GitHubApi({
     Promise: require('bluebird'),
     timeout: 5000
 });
-github.authenticate({
-    type: "basic",
-    username: process.env.GH_USERNAME,
-    password: process.env.GH_TOKEN
-});
+
+if (process.env.GH_USERNAME && process.env.GH_TOKEN) {
+  github.authenticate({
+      type: "basic",
+      username: process.env.GH_USERNAME,
+      password: process.env.GH_TOKEN
+  });
+} else {
+  console.log("No github credentials provided")
+}
+
 
 exports.getRepo = function() {
   var ghConfig = config.github
@@ -45,7 +51,7 @@ exports.getFAQs = function() {
     path: "/pages/docs/faqs.md"
   }).then(function(data) {
     return {
-      FAQs: markdowneyjr(new Buffer(data.content.toString(), 'base64').toString(), { startLevel: 2})
+      FAQs: markdowny(new Buffer(data.content.toString(), 'base64').toString(), { startLevel: 2})
     }
   })
 };
