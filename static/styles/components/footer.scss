@@ -19,3 +19,8 @@
     margin: 0 10px;
   }
 }
+
+a.nav-link--secondary {
+  color: darken($white, 50%);
+  @include rem(font-size, 14px);
+}

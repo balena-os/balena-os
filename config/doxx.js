@@ -37,6 +37,10 @@ module.exports = {
       { title: 'Downloads', link: '/#downloads' },
       { title: 'Get Involved', link: '/#milestones' }
     ],
+    menuSecondaryLinks: [
+      { title: 'Privacy Policy', link: 'https://resin.io/privacy-policy/' },
+      { title: 'About Us', link: 'https://resin.io/team/' }
+    ],
     features: [
       {
         title: "Tailored for containers",

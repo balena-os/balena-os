@@ -79,7 +79,7 @@ gulp.task('doxx', function(done) {
 // run server
 gulp.task('serve', function (done) {
   server.run(['index.js']);
-  gulp.watch(['./templates/**', './config/**', './shared/**', './pages/**'], gulp.series('doxx', 'reload'));
+  gulp.watch(['./templates/**', './config/**', './shared/**', './pages/**'], gulp.series('build', 'reload'));
   gulp.watch('./static/styles/**', gulp.series('css', 'reload'));
   gulp.watch('./static/js/**', gulp.series('js', 'reload'));
   done()
