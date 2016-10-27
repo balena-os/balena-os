@@ -84,15 +84,15 @@ module.exports = {
           links:[
             {
               title: "Raspberry Pi 1",
-              link: "https://files.resin.io/images/raspberry-pi/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/raspberry-pi/2.0.0-beta.1/resin-dev.zip"
             },
             {
               title: "Raspberry Pi 2",
-              link: "https://files.resin.io/images/raspberry-pi2/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/raspberry-pi2/2.0.0-beta.1/resin-dev.zip"
             },
             {
               title: "Raspberry Pi 3",
-              link: "https://files.resin.io/images/raspberrypi3/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/raspberrypi3/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -101,15 +101,15 @@ module.exports = {
           links:[
             {
               title: "Beaglebone Black",
-              link: "https://files.resin.io/images/beaglebone-black/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/beaglebone-black/2.0.0-beta.1/resin-dev.zip"
             },
             {
               title: "Beaglebone Green",
-              link: "https://files.resin.io/images/beaglebone-green/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/beaglebone-green/2.0.0-beta.1/resin-dev.zip"
             },
             {
               title: "Beaglebone Green Wifi",
-              link: "https://files.resin.io/images/beaglebone-green-wifi/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/beaglebone-green-wifi/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -118,7 +118,7 @@ module.exports = {
           links: [
             {
               title: "Intel Nuc",
-              link: "https://files.resin.io/images/intel-nuc/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/intel-nuc/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -127,11 +127,11 @@ module.exports = {
           links: [
             {
               title: "Artik 5",
-              link: "https://files.resin.io/images/artik5/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/artik5/2.0.0-beta.1/resin-dev.zip"
             },
             {
               title: "Artik 10",
-              link: "https://files.resin.io/images/artik10/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/artik10/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -140,11 +140,11 @@ module.exports = {
           links: [
             {
               title: "odroid-c1",
-              link: "https://files.resin.io/images/odroid-c1/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/odroid-c1/2.0.0-beta.1/resin-dev.zip"
             },
             {
               title: "odroid-xu4",
-              link: "https://files.resin.io/images/odroid-xu4/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/odroid-xu4/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -153,7 +153,7 @@ module.exports = {
           links: [
             {
               title: "via-vab820-quad",
-              link: "https://files.resin.io/images/via-vab820-quad/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/via-vab820-quad/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -162,7 +162,7 @@ module.exports = {
           links: [
             {
               title: "zynq-xz702",
-              link: "https://files.resin.io/images/zynq-xz702/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/zynq-xz702/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -171,7 +171,7 @@ module.exports = {
           links: [
             {
               title: "Parallella",
-              link: "https://files.resin.io/images/parallella/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/parallella/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -180,11 +180,11 @@ module.exports = {
           links: [
             {
               title: "ts4900",
-              link: "https://files.resin.io/images/ts4900/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/ts4900/2.0.0-beta.1/resin-dev.zip"
             },
             {
               title: "ts7700",
-              link: "https://files.resin.io/images/ts7700/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/ts7700/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -193,7 +193,7 @@ module.exports = {
           links: [
             {
               title: "hummingboard",
-              link: "https://files.resin.io/images/hummingboard/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/hummingboard/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -202,7 +202,7 @@ module.exports = {
           links: [
             {
               title: "nitrogen6x",
-              link: "https://files.resin.io/images/nitrogen6x/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/nitrogen6x/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         },
@@ -211,7 +211,7 @@ module.exports = {
           links: [
             {
               title: "colibri-imx6dl",
-              link: "https://files.resin.io/images/colibri-imx6dl/2.0.0-beta.1/resin-dev.zip"
+              link: "https://files.resin.io/resinos/colibri-imx6dl/2.0.0-beta.1/resin-dev.zip"
             }
           ],
         }
