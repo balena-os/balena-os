@@ -1,13 +1,10 @@
-# resinos.io
+# resinos
 
-### Developing
+[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/resin-os/chat)
 
-Install deps
-```
-npm i
-```
+Links:
 
-Build an run site
-```
-gulp GH_TOKEN=<github_api_token> GH_USERNAME=<github_api_user> ENV=dev gulp dev
-```
+* [Feature request / Report a bug](https://github.com/resin-os/resinos/issues)
+* [Documentation](https://resinos.io/docs/)
+* [meta-resin](https://github.com/resin-os/meta-resin) - *meta-resin is a Yocto layer used to build resin.io operating system images*
+* [Contribute to resinos.io website](/CONTRIBUTING.md)
