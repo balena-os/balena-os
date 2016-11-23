@@ -14,7 +14,7 @@ To get a resinOS device setup, we will first need to flash a system image on to 
 
 Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!
 ``` bash
-$ wget https://files.resin.io/images/{{ $device.id }}/2.0.0-beta.1/resin-dev.zip
+$ wget https://files.resin.io/resinos/{{ $device.id }}/2.0.0-beta.1/resin-dev.zip
 ```
 
 ## Install Resin Device Toolbox
