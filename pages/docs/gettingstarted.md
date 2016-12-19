@@ -381,6 +381,8 @@ COPY . .
 CMD ["node", "main.js"]
 ```
 
+__NOTE:__ Add `node_modules` to your `.dockerignore` file, otherwise your local modules might be copied to the device with the above `Dockerfile`, and they are likely the wrong architecture for your application!
+
 We can now deploy our new webserver container again with `rdt`:
 
 ``` bash
