@@ -60,7 +60,7 @@
   "dependencies": {
     "@resin.io/doxx": "^0.9.3",
     "bluebird": "^3.4.6",
-    "bootstrap": "^4.0.0-alpha.4",
+    "bootstrap": "4.0.0-alpha.4",
     "express": "^4.14.0",
     "headroom.js": "^0.9.3",
     "jquery": "^2.0.0",
