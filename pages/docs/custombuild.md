@@ -196,7 +196,7 @@ The directory structure then looks similar to this:
 
 ### Building
 
-See the [meta-resin Readme](https://github.com/resin-os/meta-resin/blob/master/README.md) on how to build the new resinOS image after setting up the new board package as definted above.
+See the [meta-resin Readme](https://github.com/resin-os/meta-resin/blob/master/README.md) on how to build the new resinOS image after setting up the new board package as defined above.
 
 ### Troubleshooting
 
