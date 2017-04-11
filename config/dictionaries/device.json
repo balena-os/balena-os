@@ -3,126 +3,147 @@
     "id": "artik5",
     "name": "ARTIK 520",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev1",
     "icon": "/images/docs/icons/artik5.svg"
   },
   {
     "id": "artik10",
     "name": "ARTIK 1020",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
     "icon": "/images/docs/icons/artik10.svg"
   },
   {
     "id": "beaglebone-black",
     "name": "Beaglebone",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev1",
     "icon": "/images/docs/icons/beaglebone-black.svg"
   },
   {
     "id": "beaglebone-green",
     "name": "Beaglebone Green",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev1",
     "icon": "/images/docs/icons/beaglebone-black.svg"
   },
   {
     "id": "beaglebone-green-wifi",
     "name": "Beaglebone Green Wireless",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev1",
     "icon": "/images/docs/icons/beaglebone-black.svg"
   },
   {
     "id": "cubox-i",
     "name": "HummingBoard i2",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
     "icon": "/images/docs/icons/odroid.svg"
   },
   {
     "id": "intel-nuc",
     "name": "Intel NUC",
 		"bootMedia": "USB drive",
+    "os_version": "2.0.0+rev1",
     "icon": "/images/docs/icons/nuc.svg"
   },
   {
     "id": "odroid-c1",
     "name": "Odroid C1/C1+",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev1",
     "icon": "/images/docs/icons/odroid.svg"
   },
   {
     "id": "odroid-xu4",
     "name": "Odroid xu4",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev1",
     "icon": "/images/docs/icons/odroid.svg"
   },
   {
     "id": "odroid-ux3",
     "name": "Odroid XU4",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev1",
     "icon": "/images/docs/icons/odroid.svg"
   },
   {
     "id": "raspberry-pi",
     "name": "Raspberry Pi 1",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev2",
     "icon": "/images/docs/icons/raspberry-pi.svg"
   },
 	{
     "id": "raspberry-pi2",
     "name": "Raspberry Pi 2",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev2",
     "icon": "/images/docs/icons/raspberry-pi2.svg"
   },
 	{
     "id": "raspberrypi3",
     "name": "Raspberry Pi 3",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev2",
     "icon": "/images/docs/icons/raspberry-pi3.svg"
   },
   {
     "id": "via-vab820-quad",
     "name": "VIA vab820",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
     "icon": "/images/docs/icons/odroid.svg"
   },
   {
     "id": "zynq-xz702",
     "name": "Zynq Board XZ702",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
     "icon": "/images/docs/icons/odroid.svg"
   },
   {
     "id": "colibri-imx6dl",
     "name": "Colibri imx6dl",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
     "icon": "/images/docs/icons/odroid.svg"
   },
   {
     "id": "Hummingboard",
     "name": "hummingboard",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
     "icon": "/images/docs/icons/odroid.svg"
   },
   {
     "id": "ts4900",
     "name": "ts4900",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
     "icon": "/images/docs/icons/odroid.svg"
   },
   {
     "id": "ts7700",
     "name": "ts7700",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
     "icon": "/images/docs/icons/odroid.svg"
   },
   {
     "id": "nitrogen6x",
     "name": "Nitrogen 6x",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
     "icon": "/images/docs/icons/odroid.svg"
   },
   {
     "id": "parallella",
     "name": "Parallella",
 		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
     "icon": "/images/docs/icons/odroid.svg"
   }
 ]
