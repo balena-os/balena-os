@@ -18,8 +18,19 @@
         <tbody>
           <% jq.each(downloads, function(index, download) { %>
             <tr>
-              <td><%- download.title %></td>
-              <td><a class="js-download-link" data-device-name="<%- download.title %>" data-track="download" data-track-meta='{ "image": "<%- download.title %>", "href": "<%- download.link %>", "deviceType": "<%- catTitle %>", "position": "downloads" }' href="<%- download.link %>">resinOS {{ downloads.version.number }} <i class="fa fa-download" aria-hidden="true"></i></a></td>
+              <td><%- download.name %></td>
+              <td>
+                <a
+                class="js-download-link"
+                data-device-name="<%- download.name %>"
+                data-track="download"
+                data-track-meta='{ "image": "<%- download.name %>", "href": "{{ downloads.baseUrl }}/<%- download.id %>/<%- download.os_version %>/resin-dev.zip", "deviceType": "<%- download.name %>", "position": "downloads" }'
+                href="{{ downloads.baseUrl }}/<%- download.id %>/<%- download.os_version %>/resin-dev.zip"
+                >
+                  resinOS {{ download.version }}
+                  <i class="fa fa-download" aria-hidden="true"></i>
+                </a>
+              </td>
               <td>Coming Soon</td>
             </tr>
           <% }); %>
