@@ -129,68 +129,68 @@ To help getting started with containers on embedded systems, resinOS comes with 
 Debian, Fedora and Alpine Linux distributions, as well as Nodejs, Python, Go and Java language base images. For a more in-depth look into all the available base images head over
 to the [resin.io base images wiki](http://docs.resin.io/runtime/resin-base-images/) or the [resin dockerhub repository](https://hub.docker.com/u/resin/).
 
-### Resin Command Line Tool
+### Resin Device Toolbox
 
-The resin CLI is a set of useful tools that help with setting up and developing containers with a resinOS device. The goal of the CLI is to provide
-a simple and intuitive developer experience. Currently, local mode part of the CLI are evolving fast and is considered 'beta', so as always, we love it when you report bugs,
-you can report them here: [github.com/resin-io/resin-cli](https://github.com/resin-io/resin-cli)
+The Resin Device Toolbox or `rdt` for short, is a set of useful tools that help with setting up and developing containers with a resinOS device. The goal of `rdt` is to provide
+a simple and intuitive developer experience. Currently, `rdt` is evolving fast and is considered 'alpha', so as always, we love it when you report bugs,
+you can report them here: [github.com/resin-os/resin-device-toolbox](https://github.com/resin-os/resin-device-toolbox/issues)
 
 #### Installation
-Currently the CLI is a node.js based command line tool which requires that our system has the following dependencies installed and in our path:
+Currently `rdt` is a node.js based command line tool which requires that our system has the following dependencies installed and in our path:
 
 * [node.js 6.x](https://nodejs.org/en/)
 * [npm package manager](https://www.npmjs.com/)
 * [rsync](https://download.samba.org/pub/rsync/rsync.html)
 * [ssh](http://www.openssh.com/)
 
-Once we have those setup we can install the CLI using npm:
+Once we have those setup we can install `rdt` using npm:
 ``` bash
-$ npm install --global --production resin-cli
+$ npm install -g resin-device-toolbox
 ```
 #### Usage
 ##### Configure
-`resin local configure` allows you configure or reconfigure a resinOS system image or SD card. Currently, this allows for configuration of wifi settings, hostname and enablement of
+`rdt configure` allows you configure or reconfigure a resinOS system image or SD card. Currently, this allows for configuration of wifi settings, hostname and enablement of
 persistent journald logs.
 
 ``` bash
-$ resin help local configure
-Usage: local configure <target>
+$ rdt help configure
+Usage: configure <target>
 
-Use this command to configure or reconfigure a resinOS drive or image.
+Use this command to configure or reconfigure a ResinOS drive or image.
 
 Examples:
 
-	$ resin local configure /dev/sdc
-	$ resin local configure path/to/image.img
+	$ rdt configure /dev/sdc
+	$ rdt configure path/to/image.img
 ```
 
 ##### Flash
-`resin local flash` command helps to easily and safely flash the resinOS system image on an SD card or USB drive.
+`rdt flash` command helps to easily and safely flash the resinOS system image on an SD card or USB drive.
 
-__Note:__ Currently, `resin local flash` doesn't work with the Intel Edison board.
+__Note:__ Currently, `rdt flash` doesn't work with the Intel Edison board.
 
 ``` bash
-$ resin help local flash
-Usage: local flash <image>
+$ rdt help flash
+Usage: flash <image>
 
-Use this command to flash a resinOS image to a drive.
+Use this command to flash a ResinOS image to a drive.
 
 Examples:
 
-	$ resin local flash path/to/resinos.img
-	$ resin local flash path/to/resinos.img --drive /dev/disk2
-	$ resin local flash path/to/resinos.img --drive /dev/disk2 --yes
+	$ rdt flash path/to/resinos.img
+	$ rdt flash path/to/resinos.img --drive /dev/disk2
+	$ rdt flash path/to/resinos.img --drive /dev/disk2 --yes
 
 Options:
 
     --yes, -y                           confirm non-interactively          
-    --drive, -d <drive>                 drive     
+    --drive, -d <drive>                 drive      
 ```
 
 ##### Push
-The `resin local push` command enables you to quickly build and deploy a docker container to a target device. It also allows you to easily sync code between your laptop
+The `rdt push` command enables you to quickly build and deploy a docker container to a target device. It also allows you to easily sync code between your laptop
 directory and your running container on the target. Once you have a resinOS host device running and advertising on the network,
-`resin local push` will allow you to iterate code on a container service. `push` has a lot of advanced functionality, which all gets encoded into the `.resin-sync.yml` file in your
+`rdt push` will allow you to iterate code on a container service. `push` has a lot of advanced functionality, which all gets encoded into the `.resin-sync.yml` file in your
 project directory. To better understand the `.yml` file, let's look at an example:
 
 ```
@@ -215,23 +215,20 @@ entire container.
 * `ignore:` is a list of files or directories that you would like to be ignored during the directory sync. This is useful in the case where you have `node_modules` in your source
 directory that is compiled to run on your x86 laptop, but you are pushing your code over to an ARM based embedded device.
 
-The push has quite a bit of functionality and a few useful flags. Check out the `resin help local push`:
+The push has quite a bit of functionality and a few useful flags. Check out the `rdt help push`:
 
 ``` bash
-$ resin help local push
-Usage: local push [deviceIp]
+$ rdt help push
+Usage: push [deviceIp]
 
-Warning: 'resin local push' requires an openssh-compatible client and 'rsync' to
-be correctly installed in your shell environment. For more information (including
-Windows support) please check the README here: https://github.com/resin-io/resin-cli
+WARNING: If you're running Windows, this command only supports `cmd.exe`.
 
 Use this command to push your local changes to a container on a LAN-accessible resinOS device on the fly.
 
-If `Dockerfile` or any file in the 'build-triggers' list is changed,
-a new container will be built and run on your device.
+If `Dockerfile` or any file in the 'build-triggers' list is changed, a new container will be built and run on your device.
 If not, changes will simply be synced with `rsync` into the application container.
 
-After every 'resin local push' the updated settings will be saved in
+After every 'rdt push' the updated settings will be saved in
 '<source>/.resin-sync.yml' and will be used in later invocations. You can
 also change any option by editing '.resin-sync.yml' directly.
 
@@ -253,82 +250,79 @@ excluded when using rsync to update the container. You can choose to change this
 
 Examples:
 
-	$ resin local push
-	$ resin local push --app-name test-server --build-triggers package.json,requirements.txt
-	$ resin local push --force-build
-	$ resin local push --force-build --skip-logs
-	$ resin local push --ignore lib/
-	$ resin local push --verbose false
-	$ resin local push 192.168.2.10 --source . --destination /usr/src/app
-	$ resin local push 192.168.2.10 -s /home/user/myResinProject -d /usr/src/app --before 'echo Hello' --after 'echo Done'
+	$ rdt push
+	$ rdt push --app-name test_server --build-triggers package.json,requirements.txt
+	$ rdt push --force-build
+	$ rdt push --ignore lib/
+	$ rdt push --verbose false
+	$ rdt push 192.168.2.10 --source . --destination /usr/src/app
+	$ rdt push 192.168.2.10 -s /home/user/myResinProject -d /usr/src/app --before 'echo Hello' --after 'echo Done'
 
 Options:
 
-    --source, -s <path>                 root of project directory to push                                                                                       
-    --destination, -d <path>            destination path on device container                                                                                    
-    --ignore, -i <paths>                comma delimited paths to ignore when syncing with 'rsync'                                                               
-    --skip-gitignore                    do not parse excluded/included files from .gitignore                                                                    
-    --before, -b <command>              execute a command before pushing                                                                                        
-    --after, -a <command>               execute a command after pushing                                                                                         
-    --progress, -p                      show progress                                                                                                           
-    --skip-logs                         do not stream logs after push                                                                                           
-    --verbose, -v                       increase verbosity                                                                                                      
-    --app-name, -n <name>               application name - may contain lowercase characters, digits and one or more dashes. It may not start or end with a dash.
-    --build-triggers, -r <files>        comma delimited file list that will trigger a container rebuild if changed                                              
-    --force-build, -f                   force a container build and run                                                                                         
-    --env, -e <env>                     environment variable (e.g. --env 'ENV=value'). Multiple --env parameters are supported.              
+    --source, -s <path>                 root of project directory to push                                                            
+    --destination, -d <path>            destination path on device container                                                         
+    --ignore, -i <paths>                comma delimited paths to ignore when syncing with 'rsync'                                    
+    --skip-gitignore                    do not parse excluded/included files from .gitignore                                         
+    --before, -b <command>              execute a command before pushing                                                             
+    --after, -a <command>               execute a command after pushing                                                              
+    --progress, -p                      show progress                                                                                
+    --skip-logs                         do not stream logs after push
+    --verbose, -v                       increase verbosity                                                                           
+    --app-name, -n <name>               name of application container - should be unique among other containers running on the device
+    --build-triggers, -r <files>        comma delimited file list that will trigger a container rebuild if changed                   
+    --force-build, -f                   force a container build and run                
 ```
 
 ##### SSH
-`resin local ssh` discovers resinOS devices on the local network and allows you to drop a SSH session into any of the containers running on the device. It also enables to you to
-drop in to the underlying host OS by doing `resin local ssh --host`, however you can of course always just do `ssh root@resin.local -p22222`.
+`rdt ssh` discovers resinOS devices on the local network and allows you to drop a SSH session into any of the containers running on the device. It also enables to you to
+drop in to the underlying host OS by doing `rdt ssh --host`, however you can of course always just do `ssh root@resin.local -p22222`.
 
 ```
-$ resin help local ssh
-Usage: local ssh [deviceIp]
+$ rdt help ssh
+Usage: ssh [deviceIp]
 
-Warning: 'resin local ssh' requires an openssh-compatible client to be correctly
-installed in your shell environment. For more information (including Windows
-support) please check the README here: https://github.com/resin-io/resin-cli
+If you're running Windows, this command only supports `cmd.exe`.
 
 Use this command to get a shell into the running application container of
 your device.
 
-The '--host' option will get you a shell into the Host OS of the resinOS device.
+The '--host' option will get you a shell into the Host OS of the ResinOS device.
 No option will return a list of containers to enter or you can explicitly select
 one by passing its name to the --container option
 
 Examples:
 
-	$ resin local ssh
-	$ resin local ssh --host
-	$ resin local ssh --container chaotic_water
-	$ resin local ssh --container chaotic_water --port 22222
-	$ resin local ssh --verbose
+	$ rdt ssh
+	$ rdt ssh --host
+	$ rdt ssh --container chaotic_water
+	$ rdt ssh --container chaotic_water --port 22222
+	$ rdt ssh --verbose
 
 Options:
 
     --verbose, -v                       increase verbosity                 
     --host, -s                          get a shell into the host OS       
     --container, -c <container>         name of container to access        
-    --port, -p <port>                   ssh port number (default: 22222)  
+    --port, -p <port>                   ssh port number (default: 22222)   
+
 ```
 
 ##### Logs
-`resin local logs` allows the fetching of logs from any of the running containers on the device.
+`rdt logs` allows the fetching of logs from any of the running containers on the device.
 
 ``` bash
-$ resin help local logs
-Usage: local logs [deviceIp]
+$ rdt help logs
+Usage: logs [deviceIp]
 
 
 Examples:
 
-	$ resin local logs
-	$ resin local logs -f
-	$ resin local logs 192.168.1.10
-	$ resin local logs 192.168.1.10 -f
-	$ resin local logs 192.168.1.10 -f --app-name myapp
+	$ rdt logs
+	$ rdt logs -f
+	$ rdt logs 192.168.1.10
+	$ rdt logs 192.168.1.10 -f
+	$ rdt logs 192.168.1.10 -f --app-name myapp
 
 Options:
 

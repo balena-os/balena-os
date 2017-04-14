@@ -7,20 +7,20 @@ dynamic:
 
 # Getting Started on the {{ $device.name }}
 
-In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use the `resin` CLI tool to make things super easy. However, for those that like to do things the hard way, we got you covered as well.
+In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use a tool called `rdt` (A.K.A Resin Device Tool) to make things super easy. However, for those that like to do things the hard way, we got you covered as well.
 
 ## Download an Image
 To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to [resinos.io](https://resinos.io/#downloads) and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the [Supported Boards](/docs/supportedboards/) section for more details.
 
 Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!
 ``` bash
-$ wget {{ $device.download_url }}
+$ wget https://files.resin.io/resinos/{{ $device.id }}/2.0.0-beta.1/resin-dev.zip
 ```
 
-## Install the Resin CLI
-The resin cli, is a collection of utilities which helps us to develop resinOS based application containers. It’s not strictly necessary, but makes life so so much sweeter, but if you like doing things the hard way, skip over to the next section.
+## Install Resin Device Toolbox
+`rdt` or Resin Device Toolbox, is a collection of utilities which helps us to develop resinOS based application containers. It’s not strictly necessary, but makes life so so much sweeter, but if you like doing things the hard way, skip over to the next section.
 
-Currently the CLI is a node.js based command line tool which requires that our system has the following dependencies installed and in our path:
+Currently `rdt` is a node.js based command line tool which requires that our system has the following dependencies installed and in our path:
 
 
 * [node.js 6.x](https://nodejs.org/en/)
@@ -28,17 +28,15 @@ Currently the CLI is a node.js based command line tool which requires that our s
 * [rsync](https://download.samba.org/pub/rsync/rsync.html)
 * [ssh](http://www.openssh.com/)
 
-Once we have those setup we can install `resin` CLI using npm:
+Once we have those setup we can install `rdt` using npm:
 ``` bash
-$ npm install --global --production resin-cli
+$ npm install -g resin-device-toolbox
 ```
 
-__Note:__ Depending on you node.js installation, you may need to use administrative privileges to install the CLI.
-
 ## Configure the Image
-To allow resinOS images to be easily configurable before boot, some key config files are added to boot partition. In this step we will use the CLI to configure the network, set our hostname to `resin` and disable persistent logging, because we don’t want to kill our poor flash storage with excessive writes.
+To allow resinOS images to be easily configurable before boot, some key config files are added to boot partition. In this step we will use `rdt` to configure the network, set our hostname to `resin` and disable persistent logging, because we don’t want to kill our poor flash storage with excessive writes.
 ``` bash
-$ sudo resin local configure ~/Downloads/resin.img
+$ rdt configure ~/Downloads/resinos-dev.img
 ? Network SSID super_wifi
 ? Network Key super secure password
 ? Do you want to set advanced settings? Yes
@@ -47,7 +45,7 @@ $ sudo resin local configure ~/Downloads/resin.img
 Done!
 ```
 
-If you are not using the resin CLI, you will need to mount the boot partition of the image and edit the configuration manually.
+If you are not using `rdt`, you will need to mount the boot partition of the image and edit the configuration manually.
 
 Edit `/boot/config.json` so it looks like this:
 ``` json
@@ -80,26 +78,24 @@ addr-gen-mode=stable-privacy
 method=auto
 ```
 
-If you only want to use an ethernet connection on your device, you don't need to add anything. The device will automatically set up an ethernet connection by default.
-
 ## Get the Device Up and Running
-Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step the CLI provides a handy flashing utility, you can however flash this image using etcher.io or `dd` if you must.
+Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step `rdt` provides a handy flashing utility, you can however flash this image using etcher.io or `dd` if you must.
 
 ### Flash {{ $device.bootMedia }}
-To get flashing, just point the `resin local flash` command to the image we just downloaded and follow the prompts. If you hate prompts, the CLI also allows you to skip them, check the [resin CLI docs](https://resinos.io/docs/architecture/#resin-command-line-tool) on how to do this.
+To get flashing, just point the `rdt flash` command to the image we just downloaded and follow the prompts. If you hate prompts, `rdt` also allows you to skip them, check the [`rdt` docs](https://resinos.io/docs/architecture/#resin-device-toolbox) on how to do this.
 
-__NOTE:__ `resin local flash` requires administrative privileges because it needs to access the {{ $device.bootMedia }}.
+__NOTE:__ `rdt flash` requires administrative privileges because it needs to access the {{ $device.bootMedia }}.
 
 ``` bash
-$ sudo resin local flash ~/Downloads/resin.img
+$ sudo rdt flash ~/Downloads/resinos-dev.img
 Password:
 x No available drives were detected, plug one in!
 ```
 
-Once you plug in your {{ $device.bootMedia }}, the CLI should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as this will completely write over the drive.
+Once you plug in your {{ $device.bootMedia }}, `rdt` should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as `rdt` will completely write over the entire drive.
 
 ``` bash
-$ sudo resin local flash ~/Downloads/resin.img
+$ sudo rdt flash ~/Downloads/resinos-dev.img
 Password:
 ? Select drive (Use arrow keys)
 ❯ /dev/disk3 (7.9 GB) - STORAGE DEVICE
@@ -109,14 +105,12 @@ Once you are happy you have selected the correct drive, hit enter and wait while
 It should only take about 3 minutes, depending on the quality of your drive, so this is a great time to go grab a caffeinated beverage.
 
 ``` bash
-$ sudo resin local flash ~/Downloads/resin.img
+$ sudo rdt flash ~/Downloads/resinos-dev.img
 ? Select drive /dev/disk3 (7.9 GB) - STORAGE DEVICE
 ? This will erase the selected drive. Are you sure? Yes
 Flashing [========================] 100% eta 0s  
 Validating [========================] 100% eta 0s
 ```
-
-__Note:__ Remember to safely remove your {{ $device.bootMedia }} before pulling it out.
 
 ### Boot the device
 
@@ -181,16 +175,15 @@ $ git clone https://github.com/resin-io-playground/resinos-sample
 
 ### Get a Container Running
 ``` bash
-$ sudo resin local push resin.local --source .
+$ rdt push resin -s .
 ```
-This command will use the image specified by the `Dockerfile` in the root of your project directory (--source specifies where to find your project). The build of this image will happen on your resinOS device and once completed, the command will start up a container from that newly built image. For more details look at the [Creating a Project from Scratch](#creating-a-project-from-scratch) section below.
 
 ## Poking Around resinOS
-To help explore resinOS devices and application containers more easily, the resin CLI has an ssh command which will help you connect either to the HostOS or a running container on the device.
+To help explore resinOS devices and application containers more easily, `rdt` has an ssh command which will help you connect either to the HostOS or a running container on the device.
 
 #### To ssh into the host:
 ``` bash
-$ sudo resin local ssh --host
+$ rdt ssh --host
 ```
 **OR**
 ``` bash
@@ -199,7 +192,7 @@ $ ssh root@resin.local -p22222
 
 #### To ssh into a particular container:
 ``` bash
-$ sudo resin local ssh resin.local
+$ rdt ssh resin.local
 ```
 **OR**
 ``` bash
@@ -212,11 +205,11 @@ root@resin:~# docker exec -it myapp bash
 
 Either mount the {{ $device.bootMedia }} and run:
 ``` bash
-$ sudo resin local configure /path/to/drive
+$ rdt configure /path/to/drive
 ```
 And select `y` when asked if you want to add advanced settings.
 
-Alternatively you can add `“persistentLogging”: true` to `config.json` in your boot partition of the {{ $device.bootMedia }}.
+Alternatevely you can add `“persistentLogging”: true` to `config.json` in your boot partition of the {{ $device.bootMedia }}.
 
 To Enable persistent logs in a running device, add `“persistentLogging”: true` to `/mnt/boot/config.json` and reboot.
 
@@ -224,7 +217,7 @@ The journal can be found at  `/var/log/journal/` which is bind mounted to `root-
 When logging is not persistent, the logs can be found at `/run/log/journal/` and this log is volatile so you will loose all logs when you power the device down.
 
 ## Creating a Project from Scratch
-Alright! So we have an awesome container machine up and running on our network. So let’s start pushing some application containers onto it. In this section we will do a quick walk through of setting up a `Dockerfile` and make a simple little node.js webserver.
+Alright! So we have an awesome container machine up and running on our network. So let’s start pushing some application containers onto it. In this section we will do a quick walk through of setting up a dockerfile and make a simple little node.js webserver.
 
 To get started, let’s create a new project directory called “myapp” and create a new file called `Dockerfile`.
 
@@ -241,9 +234,9 @@ CMD [“cat”, “/etc/os-release”]
 
 The `FROM` tells docker what our container will be based on. In this case an Alpine Linux userspace with just the bare essentials needed for the node.js runtime. The `CMD` just defines what our container runs on startup. In this case, it’s not very exciting yet.
 
-Now to get our application running on our device we can use the `resin local push` functionality.
+Now to get our application running on our device we can use the `rdt push` functionality.
 ```bash
-$ sudo resin local push resin.local --source .
+$ rdt push --source .
 * Building..
 - Stopping and Removing any previous 'myapp' container
 - Removing any existing container images for 'myapp'
@@ -272,20 +265,20 @@ resin push completed successfully!
 
 This command will discover your resinOS-dev device on the network and start a build of whatever you have in the `--source` directory. In the example above, we have just told it to build from the root of the directory we are in, in this case `myapp`.
 
-A number of things have happened in this step, so let’s pause here and dig in a little more. When we first run `resin local push` we are asked to define a name for our app and after that, it starts a docker build on your device. At the same time, the CLI has added a file to our project called `.resin-sync.yml` which stores all the project defaults. Let’s have a quick look at that:
+A number of things have happened in this step, so let’s pause here and dig in a little more. When we first run `rdt push` we are asked to define a name for our app and after that, it starts a docker build on your device. At the same time, `rdt` has added a file to our project called `.resin-sync.yml` which stores all the default for `rdt`. Let’s have a quick look at that:
 
-``` yaml
+``` yml
 local_resinos:
   app-name: myapp
   build-triggers:
     - Dockerfile: 6275495dc9620c3c74aa5a25ef29bbb109fbcb4e46de941b14235aeea02cc184
 ```
 
-We can see that for our local resinOS device we have an app called “myapp” which will map over to a docker image and container on our device. The next interesting section is build-triggers. This is a list of files and their hashes, which will result in a docker build. In our case it’s just the `Dockerfile`, so when we change things here, the CLI will rebuild our app. This will be important a bit later.
+We can see that for our local resinOS device we have an app called “myapp” which will map over to a docker image and container on our device. The next interesting section is build-triggers. This is a list of files and their hashes, which will result in a docker build. In our case it’s just the `Dockerfile`, so when we change things here, `rdt` will rebuild our app. This will be important a bit later.
 
 So now that we are building, let’s start adding some actual code! We will just add `main.js` file in the root of our `myapp` directory.
 
-``` javascript
+``` javacript
 //main.js
 console.log("Hey… I’m a node.js app running in a container!!");
 ```
@@ -346,7 +339,7 @@ Now it’s time to add some dependencies. For our little webserver, we will use 
 
 Now all we need to do is add a few more lines of javacript to our main.js and we are off to the races.
 
-``` javascript
+``` javacript
 //main.js
 
 var express = require('express');
@@ -390,10 +383,10 @@ CMD ["node", "main.js"]
 
 __NOTE:__ Add `node_modules` to your `.dockerignore` file, otherwise your local modules might be copied to the device with the above `Dockerfile`, and they are likely the wrong architecture for your application!
 
-We can now deploy our new webserver container again with:
+We can now deploy our new webserver container again with `rdt`:
 
 ``` bash
-$ sudo resin local push -s .
+$ rdt push --source .
 ```
 
 You should now be able to point your web browser on your laptop to the IP address of your device and see the "Hello, World!" message.
