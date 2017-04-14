@@ -14,10 +14,10 @@ To get a resinOS device setup, we will first need to flash a system image on to 
 
 Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!
 ``` bash
-$ wget https://files.resin.io/resinos/{{ $device.id }}/{{ $device.os_version }}/resin-dev.zip
+$ wget {{ $device.download_url }}
 ```
 
-## Install Resin Device Toolbox
+## Install the Resin CLI
 The resin cli, is a collection of utilities which helps us to develop resinOS based application containers. It’s not strictly necessary, but makes life so so much sweeter, but if you like doing things the hard way, skip over to the next section.
 
 Currently the CLI is a node.js based command line tool which requires that our system has the following dependencies installed and in our path:
@@ -86,7 +86,7 @@ If you only want to use an ethernet connection on your device, you don't need to
 Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step the CLI provides a handy flashing utility, you can however flash this image using etcher.io or `dd` if you must.
 
 ### Flash {{ $device.bootMedia }}
-To get flashing, just point the `resin local flash` command to the image we just downloaded and follow the prompts. If you hate prompts, the CLI also allows you to skip them, check the [resin CLI docs](https://resinos.io/docs/architecture/#resin-device-toolbox) on how to do this.
+To get flashing, just point the `resin local flash` command to the image we just downloaded and follow the prompts. If you hate prompts, the CLI also allows you to skip them, check the [resin CLI docs](https://resinos.io/docs/architecture/#resin-command-line-tool) on how to do this.
 
 __NOTE:__ `resin local flash` requires administrative privileges because it needs to access the {{ $device.bootMedia }}.
 
