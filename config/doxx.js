@@ -76,10 +76,10 @@ module.exports = {
     ],
     downloads: {
       version: {
-        number: '2.0.0-beta.1',
+        number: '2.0.0',
         name: 'Affogato'
       },
-      baseUrl: 'https://files.resin.io/resinos',
+      baseUrl: 'https://s3.amazonaws.com/resin-production-img-cloudformation/resinos',
       categories: _.mapValues(_.groupBy(deviceDict, 'family'))
     }
   }

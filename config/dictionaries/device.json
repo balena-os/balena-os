@@ -3,28 +3,28 @@
     "id": "raspberry-pi",
     "name": "Raspberry Pi 1",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0+rev4",
+    "os_version": "2.0.0%2Brev3.dev",
     "family": "Raspberry Pi"
   },
 	{
     "id": "raspberry-pi2",
     "name": "Raspberry Pi 2",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0+rev4",
+    "os_version": "2.0.0%2Brev3.dev",
     "family": "Raspberry Pi"
   },
 	{
     "id": "raspberrypi3",
     "name": "Raspberry Pi 3",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0+rev4",
+    "os_version": "2.0.0%2Brev3.dev",
     "family": "Raspberry Pi"
   },
   {
     "id": "artik5",
     "name": "ARTIK 520",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0+rev1",
+    "os_version": "2.0.0-beta.1",
     "family": "Artik"
   },
   {
@@ -38,42 +38,42 @@
     "id": "artik710",
     "name": "ARTIK 710",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0-beta.1",
+    "os_version": "2.0.0%2Brev5.dev",
     "family": "Artik"
   },
   {
     "id": "imx6ul-var-dart",
     "name": "Variscite DART-6UL",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0-beta.1",
+    "os_version": "2.0.0%2Brev4.dev",
     "family": "Variscite"
   },
   {
-    "id": "UP board",
-    "name": "Variscite DART-6UL",
+    "id": "up-board",
+    "name": "UP board",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0-beta.1",
+    "os_version": "2.0.0%2Brev3.dev",
     "family": "UP"
   },
   {
     "id": "beaglebone-black",
     "name": "Beaglebone",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0+rev1",
+    "os_version": "2.0.0%2Brev4",
     "family": "Beagle Bone"
   },
   {
     "id": "beaglebone-green",
     "name": "Beaglebone Green",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0+rev1",
+    "os_version": "2.0.0%2Brev4",
     "family": "Beagle Bone"
   },
   {
     "id": "beaglebone-green-wifi",
     "name": "Beaglebone Green Wireless",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0+rev1",
+    "os_version": "2.0.0-beta.1",
     "family": "Beagle Bone"
   },
   {
@@ -87,43 +87,22 @@
     "id": "intel-nuc",
     "name": "Intel NUC",
 		"bootMedia": "USB drive",
-    "os_version": "2.0.0+rev1",
+    "os_version": "2.0.0%2Brev3.dev",
     "family": "Intel"
   },
   {
     "id": "odroid-c1",
     "name": "Odroid C1/C1+",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0+rev1",
-    "family": "Odroid"
-  },
-  {
-    "id": "odroid-xu4",
-    "name": "Odroid xu4",
-		"bootMedia": "SD card",
-    "os_version": "2.0.0+rev1",
+    "os_version": "2.0.0-beta.1",
     "family": "Odroid"
   },
   {
     "id": "odroid-ux3",
     "name": "Odroid XU4",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0+rev1",
+    "os_version": "2.0.0-beta.1",
     "family": "Odroid"
-  },
-  {
-    "id": "via-vab820-quad",
-    "name": "VIA vab820",
-		"bootMedia": "SD card",
-    "os_version": "2.0.0-beta.1",
-    "family": "Via"
-  },
-  {
-    "id": "zynq-xz702",
-    "name": "Zynq Board XZ702",
-		"bootMedia": "SD card",
-    "os_version": "2.0.0-beta.1",
-    "family": "Zynq"
   },
   {
     "id": "colibri-imx6dl",
@@ -133,24 +112,10 @@
     "family": "Toradex"
   },
   {
-    "id": "Hummingboard",
-    "name": "hummingboard",
-		"bootMedia": "SD card",
-    "os_version": "2.0.0-beta.1",
-    "family": "Solid Run"
-  },
-  {
     "id": "ts4900",
     "name": "ts4900",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0-beta.1",
-    "family": "Technologic Systems"
-  },
-  {
-    "id": "ts7700",
-    "name": "ts7700",
-		"bootMedia": "SD card",
-    "os_version": "2.0.0-beta.1",
+    "os_version": "2.0.0%2Brev3.dev",
     "family": "Technologic Systems"
   },
   {
@@ -159,12 +124,5 @@
 		"bootMedia": "SD card",
     "os_version": "2.0.0-beta.1",
     "family": "Boundary"
-  },
-  {
-    "id": "parallella",
-    "name": "Parallella",
-		"bootMedia": "SD card",
-    "os_version": "2.0.0-beta.1",
-    "family": "Parallella"
   }
 ]
