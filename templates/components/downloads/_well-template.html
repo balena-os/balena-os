@@ -24,9 +24,8 @@
                 class="js-download-link"
                 data-device-name="<%- download.name %>"
                 data-track="download"
-                data-track-meta='{ "image": "<%- download.name %>", "href": "{{ downloads.baseUrl }}/<%- download.id %>/<%- download.os_version %>/image/resin.img.zip", "deviceType": "<%- download.name %>", "position": "downloads" }'
-                href="{{ downloads.baseUrl }}/<%- download.id %>/<%- download.os_version %>/image/resin.img.zip"
-                >
+                data-track-meta='{ "image": "<%- download.name %>", "href": "{{ downloads.baseUrl }}/<%- download.download_url %>/<%- download.os_version %>/image/resin.img.zip", "deviceType": "<%- download.name %>", "position": "downloads" }'
+                href="<%- download.download_url %>">
                   resinOS {{ download.version }}
                   <i class="fa fa-download" aria-hidden="true"></i>
                 </a>

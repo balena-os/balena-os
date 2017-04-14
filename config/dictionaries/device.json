@@ -4,6 +4,7 @@
     "name": "Raspberry Pi 1",
 		"bootMedia": "SD card",
     "os_version": "2.0.0%2Brev3.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberry-pi/2.0.0%2Brev3.dev/image/resin.img.zip",
     "family": "Raspberry Pi"
   },
 	{
@@ -11,6 +12,7 @@
     "name": "Raspberry Pi 2",
 		"bootMedia": "SD card",
     "os_version": "2.0.0%2Brev3.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberry-pi3/2.0.0%2Brev3.dev/image/resin.img.zip",
     "family": "Raspberry Pi"
   },
 	{
@@ -18,6 +20,7 @@
     "name": "Raspberry Pi 3",
 		"bootMedia": "SD card",
     "os_version": "2.0.0%2Brev3.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberrypi3/2.0.0%2Brev3.dev/image/resin.img.zip",
     "family": "Raspberry Pi"
   },
   {
@@ -25,6 +28,7 @@
     "name": "ARTIK 520",
 		"bootMedia": "SD card",
     "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/artik5/2.0.0-beta.1/resin-dev.zip",
     "family": "Artik"
   },
   {
@@ -32,6 +36,7 @@
     "name": "ARTIK 1020",
 		"bootMedia": "SD card",
     "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/artik10/2.0.0-beta.1/resin-dev.zip",
     "family": "Artik"
   },
   {
@@ -39,6 +44,7 @@
     "name": "ARTIK 710",
 		"bootMedia": "SD card",
     "os_version": "2.0.0%2Brev5.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/artik710/2.0.0%2Brev5.dev/image/resin.img.zip",
     "family": "Artik"
   },
   {
@@ -46,6 +52,7 @@
     "name": "Variscite DART-6UL",
 		"bootMedia": "SD card",
     "os_version": "2.0.0%2Brev4.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/imx6ul-var-dart/2.0.0%2Brev4.dev/image/resin.img.zip",
     "family": "Variscite"
   },
   {
@@ -53,6 +60,7 @@
     "name": "UP board",
 		"bootMedia": "SD card",
     "os_version": "2.0.0%2Brev3.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/up-board/2.0.0%2Brev3.dev/image/resin.img.zip",
     "family": "UP"
   },
   {
@@ -60,6 +68,7 @@
     "name": "Beaglebone",
 		"bootMedia": "SD card",
     "os_version": "2.0.0%2Brev4",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/beaglebone-black/2.0.0%2Brev4.dev/image/resin.img.zip",
     "family": "Beagle Bone"
   },
   {
@@ -67,6 +76,7 @@
     "name": "Beaglebone Green",
 		"bootMedia": "SD card",
     "os_version": "2.0.0%2Brev4",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/beaglebone-green/2.0.0%2Brev4.dev/image/resin.img.zip",
     "family": "Beagle Bone"
   },
   {
@@ -74,6 +84,7 @@
     "name": "Beaglebone Green Wireless",
 		"bootMedia": "SD card",
     "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/beaglebone-green-wifi/2.0.0-beta.1/resin-dev.zip",
     "family": "Beagle Bone"
   },
   {
@@ -81,6 +92,7 @@
     "name": "HummingBoard i2",
 		"bootMedia": "SD card",
     "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/hummingboard/2.0.0-beta.1/resin-dev.zip",
     "family": "Solid Run"
   },
   {
@@ -88,6 +100,7 @@
     "name": "Intel NUC",
 		"bootMedia": "USB drive",
     "os_version": "2.0.0%2Brev3.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/intel-nuc/2.0.0%2Brev3.dev/image/resin.img.zip",
     "family": "Intel"
   },
   {
@@ -95,6 +108,7 @@
     "name": "Odroid C1/C1+",
 		"bootMedia": "SD card",
     "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/odroid-c1/2.0.0-beta.1/resin-dev.zip",
     "family": "Odroid"
   },
   {
@@ -102,6 +116,7 @@
     "name": "Odroid XU4",
 		"bootMedia": "SD card",
     "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/odroid-xu4/2.0.0-beta.1/resin-dev.zip",
     "family": "Odroid"
   },
   {
@@ -109,6 +124,7 @@
     "name": "Colibri imx6dl",
 		"bootMedia": "SD card",
     "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/colibri-imx6dl/2.0.0-beta.1/resin-dev.zip",
     "family": "Toradex"
   },
   {
@@ -116,6 +132,7 @@
     "name": "ts4900",
 		"bootMedia": "SD card",
     "os_version": "2.0.0%2Brev3.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/ts4900/2.0.0%2Brev3.dev/image/resin.img.zip",
     "family": "Technologic Systems"
   },
   {
@@ -123,6 +140,7 @@
     "name": "Nitrogen 6x",
 		"bootMedia": "SD card",
     "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/nitrogen6x/2.0.0-beta.1/resin-dev.zip",
     "family": "Boundary"
   }
 ]

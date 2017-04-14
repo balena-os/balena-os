@@ -79,7 +79,7 @@ module.exports = {
         number: '2.0.0',
         name: 'Affogato'
       },
-      baseUrl: 'https://s3.amazonaws.com/resin-production-img-cloudformation/resinos',
+      baseUrl: 'https://',
       categories: _.mapValues(_.groupBy(deviceDict, 'family'))
     }
   }
