@@ -1,128 +1,146 @@
 [
   {
-    "id": "artik5",
-    "name": "ARTIK 520",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/artik5.svg"
-  },
-  {
-    "id": "artik10",
-    "name": "ARTIK 1020",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/artik10.svg"
-  },
-  {
-    "id": "beaglebone-black",
-    "name": "Beaglebone",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/beaglebone-black.svg"
-  },
-  {
-    "id": "beaglebone-green",
-    "name": "Beaglebone Green",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/beaglebone-black.svg"
-  },
-  {
-    "id": "beaglebone-green-wifi",
-    "name": "Beaglebone Green Wireless",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/beaglebone-black.svg"
-  },
-  {
-    "id": "cubox-i",
-    "name": "HummingBoard i2",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/odroid.svg"
-  },
-  {
-    "id": "intel-nuc",
-    "name": "Intel NUC",
-		"bootMedia": "USB drive",
-    "icon": "/images/docs/icons/nuc.svg"
-  },
-  {
-    "id": "odroid-c1",
-    "name": "Odroid C1/C1+",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/odroid.svg"
-  },
-  {
-    "id": "odroid-xu4",
-    "name": "Odroid xu4",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/odroid.svg"
-  },
-  {
-    "id": "odroid-ux3",
-    "name": "Odroid XU4",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/odroid.svg"
+    "id": "raspberrypi3",
+    "name": "Raspberry Pi 3",
+    "bootMedia": "SD card",
+    "os_version": "2.0.0+rev3.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberrypi3/2.0.0%2Brev3.dev/image/resin.img.zip",
+    "family": "Raspberry Pi"
   },
   {
     "id": "raspberry-pi",
     "name": "Raspberry Pi 1",
 		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/raspberry-pi.svg"
+    "os_version": "2.0.0+rev3.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberry-pi/2.0.0%2Brev3.dev/image/resin.img.zip",
+    "family": "Raspberry Pi"
   },
 	{
     "id": "raspberry-pi2",
     "name": "Raspberry Pi 2",
 		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/raspberry-pi2.svg"
-  },
-	{
-    "id": "raspberrypi3",
-    "name": "Raspberry Pi 3",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/raspberry-pi3.svg"
+    "os_version": "2.0.0+rev3.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberry-pi3/2.0.0%2Brev3.dev/image/resin.img.zip",
+    "family": "Raspberry Pi"
   },
   {
-    "id": "via-vab820-quad",
-    "name": "VIA vab820",
+    "id": "artik5",
+    "name": "ARTIK 520",
 		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/odroid.svg"
+    "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/artik5/2.0.0-beta.1/resin-dev.zip",
+    "family": "Artik"
   },
   {
-    "id": "zynq-xz702",
-    "name": "Zynq Board XZ702",
+    "id": "artik10",
+    "name": "ARTIK 1020",
 		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/odroid.svg"
+    "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/artik10/2.0.0-beta.1/resin-dev.zip",
+    "family": "Artik"
+  },
+  {
+    "id": "artik710",
+    "name": "ARTIK 710",
+		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev5.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/artik710/2.0.0%2Brev5.dev/image/resin.img.zip",
+    "family": "Artik"
+  },
+  {
+    "id": "imx6ul-var-dart",
+    "name": "Variscite DART-6UL",
+		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev4.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/imx6ul-var-dart/2.0.0%2Brev4.dev/image/resin.img.zip",
+    "family": "Variscite"
+  },
+  {
+    "id": "up-board",
+    "name": "UP board",
+		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev3.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/up-board/2.0.0%2Brev3.dev/image/resin.img.zip",
+    "family": "UP"
+  },
+  {
+    "id": "beaglebone-black",
+    "name": "Beaglebone",
+		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev4",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/beaglebone-black/2.0.0%2Brev4.dev/image/resin.img.zip",
+    "family": "Beagle Bone"
+  },
+  {
+    "id": "beaglebone-green",
+    "name": "Beaglebone Green",
+		"bootMedia": "SD card",
+    "os_version": "2.0.0+rev4",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/beaglebone-green/2.0.0%2Brev4.dev/image/resin.img.zip",
+    "family": "Beagle Bone"
+  },
+  {
+    "id": "beaglebone-green-wifi",
+    "name": "Beaglebone Green Wireless",
+		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/beaglebone-green-wifi/2.0.0-beta.1/resin-dev.zip",
+    "family": "Beagle Bone"
+  },
+  {
+    "id": "cubox-i",
+    "name": "HummingBoard i2",
+		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/hummingboard/2.0.0-beta.1/resin-dev.zip",
+    "family": "Solid Run"
+  },
+  {
+    "id": "intel-nuc",
+    "name": "Intel NUC",
+		"bootMedia": "USB drive",
+    "os_version": "2.0.0+rev3.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/intel-nuc/2.0.0%2Brev3.dev/image/resin.img.zip",
+    "family": "Intel"
+  },
+  {
+    "id": "odroid-c1",
+    "name": "Odroid C1/C1+",
+		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/odroid-c1/2.0.0-beta.1/resin-dev.zip",
+    "family": "Odroid"
+  },
+  {
+    "id": "odroid-ux3",
+    "name": "Odroid XU4",
+		"bootMedia": "SD card",
+    "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/odroid-xu4/2.0.0-beta.1/resin-dev.zip",
+    "family": "Odroid"
   },
   {
     "id": "colibri-imx6dl",
     "name": "Colibri imx6dl",
 		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/odroid.svg"
-  },
-  {
-    "id": "Hummingboard",
-    "name": "hummingboard",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/odroid.svg"
+    "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/colibri-imx6dl/2.0.0-beta.1/resin-dev.zip",
+    "family": "Toradex"
   },
   {
     "id": "ts4900",
     "name": "ts4900",
 		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/odroid.svg"
-  },
-  {
-    "id": "ts7700",
-    "name": "ts7700",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/odroid.svg"
+    "os_version": "2.0.0+rev3.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/ts4900/2.0.0%2Brev3.dev/image/resin.img.zip",
+    "family": "Technologic Systems"
   },
   {
     "id": "nitrogen6x",
     "name": "Nitrogen 6x",
 		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/odroid.svg"
-  },
-  {
-    "id": "parallella",
-    "name": "Parallella",
-		"bootMedia": "SD card",
-    "icon": "/images/docs/icons/odroid.svg"
+    "os_version": "2.0.0-beta.1",
+    "download_url": "https://files.resin.io/resinos/nitrogen6x/2.0.0-beta.1/resin-dev.zip",
+    "family": "Boundary"
   }
 ]

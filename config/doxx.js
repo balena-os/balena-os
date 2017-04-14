@@ -1,5 +1,6 @@
 var _ = require('lodash')
 var path = require('path')
+var deviceDict = require('./dictionaries/device.json')
 
 module.exports = {
   rootDir: path.resolve(__dirname, '..'),
@@ -75,147 +76,11 @@ module.exports = {
     ],
     downloads: {
       version: {
-        number: '2.0.0-beta.1',
+        number: '2.0.0',
         name: 'Affogato'
       },
-      categories: [
-        {
-          title: "Raspberry Pi",
-          links:[
-            {
-              title: "Raspberry Pi 1",
-              link: "https://files.resin.io/resinos/raspberry-pi/2.0.0-beta.1/resin-dev.zip"
-            },
-            {
-              title: "Raspberry Pi 2",
-              link: "https://files.resin.io/resinos/raspberry-pi2/2.0.0-beta.1/resin-dev.zip"
-            },
-            {
-              title: "Raspberry Pi 3",
-              link: "https://files.resin.io/resinos/raspberrypi3/2.0.0-beta.1/resin-dev.zip"
-            }
-          ],
-        },
-        {
-          title: "Beagle Bone",
-          links:[
-            {
-              title: "Beaglebone Black",
-              link: "https://files.resin.io/resinos/beaglebone-black/2.0.0-beta.1/resin-dev.zip"
-            },
-            {
-              title: "Beaglebone Green",
-              link: "https://files.resin.io/resinos/beaglebone-green/2.0.0-beta.1/resin-dev.zip"
-            },
-            {
-              title: "Beaglebone Green Wifi",
-              link: "https://files.resin.io/resinos/beaglebone-green-wifi/2.0.0-beta.1/resin-dev.zip"
-            }
-          ],
-        },
-        {
-          title: "Intel",
-          links: [
-            {
-              title: "Intel Nuc",
-              link: "https://files.resin.io/resinos/intel-nuc/2.0.0-beta.1/resin-dev.zip"
-            }
-          ],
-        },
-        {
-          title: "Artik",
-          links: [
-            {
-              title: "Artik 5",
-              link: "https://files.resin.io/resinos/artik5/2.0.0-beta.1/resin-dev.zip"
-            },
-            {
-              title: "Artik 10",
-              link: "https://files.resin.io/resinos/artik10/2.0.0-beta.1/resin-dev.zip"
-            }
-          ],
-        },
-        {
-          title: "Odroid",
-          links: [
-            {
-              title: "odroid-c1",
-              link: "https://files.resin.io/resinos/odroid-c1/2.0.0-beta.1/resin-dev.zip"
-            },
-            {
-              title: "odroid-xu4",
-              link: "https://files.resin.io/resinos/odroid-xu4/2.0.0-beta.1/resin-dev.zip"
-            }
-          ],
-        },
-        {
-          title: "Via",
-          links: [
-            {
-              title: "via-vab820-quad",
-              link: "https://files.resin.io/resinos/via-vab820-quad/2.0.0-beta.1/resin-dev.zip"
-            }
-          ],
-        },
-        {
-          title: "Zynq",
-          links: [
-            {
-              title: "zynq-xz702",
-              link: "https://files.resin.io/resinos/zynq-xz702/2.0.0-beta.1/resin-dev.zip"
-            }
-          ],
-        },
-        {
-          title: "Parallella",
-          links: [
-            {
-              title: "Parallella",
-              link: "https://files.resin.io/resinos/parallella/2.0.0-beta.1/resin-dev.zip"
-            }
-          ],
-        },
-        {
-          title: "Technologic Systems",
-          links: [
-            {
-              title: "ts4900",
-              link: "https://files.resin.io/resinos/ts4900/2.0.0-beta.1/resin-dev.zip"
-            },
-            {
-              title: "ts7700",
-              link: "https://files.resin.io/resinos/ts7700/2.0.0-beta.1/resin-dev.zip"
-            }
-          ],
-        },
-        {
-          title: "Solid Run",
-          links: [
-            {
-              title: "hummingboard",
-              link: "https://files.resin.io/resinos/hummingboard/2.0.0-beta.1/resin-dev.zip"
-            }
-          ],
-        },
-        {
-          title: "Boundary",
-          links: [
-            {
-              title: "nitrogen6x",
-              link: "https://files.resin.io/resinos/nitrogen6x/2.0.0-beta.1/resin-dev.zip"
-            }
-          ],
-        },
-        {
-          title: "Toradex",
-          links: [
-            {
-              title: "colibri-imx6dl",
-              link: "https://files.resin.io/resinos/colibri-imx6dl/2.0.0-beta.1/resin-dev.zip"
-            }
-          ],
-        }
-      ]
+      baseUrl: 'https://',
+      categories: _.mapValues(_.groupBy(deviceDict, 'family'))
     }
   }
 }
