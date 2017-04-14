@@ -38,7 +38,7 @@ __Note:__ Depending on you node.js installation, you may need to use administrat
 ## Configure the Image
 To allow resinOS images to be easily configurable before boot, some key config files are added to boot partition. In this step we will use the CLI to configure the network, set our hostname to `resin` and disable persistent logging, because we don’t want to kill our poor flash storage with excessive writes.
 ``` bash
-$ sudo resin local configure ~/Downloads/resinos-dev.img
+$ sudo resin local configure ~/Downloads/resin.img
 ? Network SSID super_wifi
 ? Network Key super secure password
 ? Do you want to set advanced settings? Yes
@@ -91,7 +91,7 @@ To get flashing, just point the `resin local flash` command to the image we just
 __NOTE:__ `resin local flash` requires administrative privileges because it needs to access the {{ $device.bootMedia }}.
 
 ``` bash
-$ sudo resin local flash ~/Downloads/resinos-dev.img
+$ sudo resin local flash ~/Downloads/resin.img
 Password:
 x No available drives were detected, plug one in!
 ```
@@ -99,7 +99,7 @@ x No available drives were detected, plug one in!
 Once you plug in your {{ $device.bootMedia }}, the CLI should detect it and show you the following selection dialog. Make sure to select the correct drive if you have a few listed, as this will completely write over the drive.
 
 ``` bash
-$ sudo resin local flash ~/Downloads/resinos-dev.img
+$ sudo resin local flash ~/Downloads/resin.img
 Password:
 ? Select drive (Use arrow keys)
 ❯ /dev/disk3 (7.9 GB) - STORAGE DEVICE
@@ -109,7 +109,7 @@ Once you are happy you have selected the correct drive, hit enter and wait while
 It should only take about 3 minutes, depending on the quality of your drive, so this is a great time to go grab a caffeinated beverage.
 
 ``` bash
-$ sudo resin local flash ~/Downloads/resinos-dev.img
+$ sudo resin local flash ~/Downloads/resin.img
 ? Select drive /dev/disk3 (7.9 GB) - STORAGE DEVICE
 ? This will erase the selected drive. Are you sure? Yes
 Flashing [========================] 100% eta 0s  
@@ -272,7 +272,7 @@ resin push completed successfully!
 
 This command will discover your resinOS-dev device on the network and start a build of whatever you have in the `--source` directory. In the example above, we have just told it to build from the root of the directory we are in, in this case `myapp`.
 
-A number of things have happened in this step, so let’s pause here and dig in a little more. When we first run `resin local push` we are asked to define a name for our app and after that, it starts a docker build on your device. At the same time, the CLI has added a file to our project called `.resin-sync.yml` which stores all the project default. Let’s have a quick look at that:
+A number of things have happened in this step, so let’s pause here and dig in a little more. When we first run `resin local push` we are asked to define a name for our app and after that, it starts a docker build on your device. At the same time, the CLI has added a file to our project called `.resin-sync.yml` which stores all the project defaults. Let’s have a quick look at that:
 
 ``` yaml
 local_resinos:
