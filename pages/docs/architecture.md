@@ -24,11 +24,11 @@ This document will not go into detailed explanation about how the [Yocto Project
 
 | Codename | Yocto Project Version | Release Date | Current Version | Support Level | Poky Version | BitBake branch |
 |:--------:|:---------------------:|:------------:|:---------------:|:-------------:|:------------:|:--------------:|
-|   Pyro   |          2.3          |   Apr. 2017  |                 |  Development  |              |                |
-|   Morty  |          2.2          |   Oct. 2016  |                 |  Development  |              |                |
-|  Krogoth |          2.1          |   Apr 2016   |       2.1       |     Stable    |     15.0     |      1.30      |
-|  Jethro  |          2.0          |   Nov 2015   |       2.0       |     Stable    |     14.0     |      1.28      |
-|   Fido   |          1.8          |   Apr 2015   |      1.8.1      |   Community   |     13.0     |      1.26      |
+|   Pyro   |          2.3          |   Apr 2017   |                 |  Development  |              |                |
+|   Morty  |          2.2          |   Oct 2016   |      2.2.1      |     Stable    |     16.0     |      1.32      |
+|  Krogoth |          2.1          |   Apr 2016   |      2.1.2      |     Stable    |     15.0     |      1.30      |
+|  Jethro  |          2.0          |   Nov 2015   |      2.0.3      |   Community   |     14.0     |      1.28      |
+|   Fido   |          1.8          |   Apr 2015   |      1.8.2      |   Community   |     13.0     |      1.26      |
 |   Dizzy  |          1.7          |   Oct 2014   |      1.7.3      |   Community   |     12.0     |      1.24      |
 |   Daisy  |          1.6          |   Apr 2014   |      1.6.3      |   Community   |     11.0     |      1.22      |
 |   Dora   |          1.5          |   Oct 2013   |      1.5.4      |   Community   |     10.0     |      1.20      |
