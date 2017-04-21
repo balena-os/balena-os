@@ -7,7 +7,7 @@
 
   var openWell = function(that) {
     var cat = $(that).data('cat')
-    var catId = cat[0].family.replace(/ /g, '').toLowerCase()
+    var catId = cat.title.replace(/ /g, '').toLowerCase()
     if ($('.downloads__well')) {
       $('.downloads__well').remove()
       $('.downloads__category--active').removeClass('downloads__category--active')
@@ -22,7 +22,7 @@
 
     if (catId != catRef) {
       $(that).addClass('downloads__category--active')
-      $(compiled({ 'catId': catId, 'catTitle': cat[0].family, 'downloads': cat })).insertAfter( container )
+      $(compiled({ 'catId': catId,'catTitle': cat.title, 'downloads': cat.links })).insertAfter( container )
       // keep a ref so we can toggle if already open
       catRef = catId
     } else {
@@ -49,6 +49,7 @@
     })
 
     $("body").on('click', '.js-download-link', function(){
+      console.log("FIRE")
       displayDocsLink(this)
     })
 

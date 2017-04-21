@@ -6,18 +6,14 @@
       <p class="lead section__lead">Select your device type</p>
     </div>
     <div class="row downloads__row">
-      {% for title, cat in downloads.categories %}
+      {% for cat in downloads.categories %}
         <div class="col-md-3">
-          <a id="downloads-{{ title|replace(' ', '', 'g')|lower }}" class="downloads__category" href="#downloads-{{ title|replace(' ', '', 'g')|lower }}" data-cat="{{ cat|json }}">
-            <img class="downloads__category__image" src="/images/icons/downloads/{{ title|replace(' ', '', 'g')|lower }}.png" srcset="/images/icons/downloads/{{ title|replace(' ', '', 'g')|lower  }}@2x.png 2x">
+          <a id="downloads-{{ cat.title|replace(' ', '', 'g')|lower }}" class="downloads__category" href="#downloads-{{ cat.title|replace(' ', '', 'g')|lower }}" data-cat="{{ cat|json }}">
+            <img class="downloads__category__image" src="/images/icons/downloads/{{ cat.title|replace(' ', '', 'g')|lower }}.png" srcset="/images/icons/downloads/{{ cat.title|replace(' ', '', 'g')|lower  }}@2x.png 2x">
           </a>
         </div>
-        {% if loop.index % 4 == 0 %}
-          </div><div class="row downloads__row">
-        {% endif %}
+        {% if loop.index % 4 == 0 %} </div><div class="row downloads__row"> {% endif %}
       {% endfor %}
-    </div>
-    <div class="row">
       <div class="col-sm-12">
         <a data-track="link click" data-track-attr='{ "title": "Build your own", "href": "/docs/custombuild/#supporting-your-own-board", "position": "downloads" }' class="downloads__category downloads__category--custom" href="/docs/custombuild/#supporting-your-own-board">
           <div class="downloads__category--custom__container">
@@ -26,6 +22,6 @@
           </div>
         </a>
       </div>
-    </div>
+  </div>
   <hr class="section__hr">
 </section>
