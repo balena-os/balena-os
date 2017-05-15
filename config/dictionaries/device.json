@@ -3,24 +3,24 @@
     "id": "raspberrypi3",
     "name": "Raspberry Pi 3",
     "bootMedia": "SD card",
-    "os_version": "2.0.0+rev3.dev",
-    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberrypi3/2.0.0%2Brev3.dev/image/resin.img.zip",
+    "os_version": "2.0.3+rev1.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberrypi3/2.0.3%2Brev1.dev/image/resin.img.zip",
     "family": "Raspberry Pi"
   },
   {
     "id": "raspberry-pi",
     "name": "Raspberry Pi 1",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0+rev3.dev",
-    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberry-pi/2.0.0%2Brev3.dev/image/resin.img.zip",
+    "os_version": "2.0.3+rev1.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberry-pi/2.0.3%2Brev1.dev/image/resin.img.zip",
     "family": "Raspberry Pi"
   },
 	{
     "id": "raspberry-pi2",
     "name": "Raspberry Pi 2",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0+rev3.dev",
-    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberry-pi3/2.0.0%2Brev3.dev/image/resin.img.zip",
+    "os_version": "2.0.3+rev1.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberry-pi2/2.0.3%2Brev1.dev/image/resin.img.zip",
     "family": "Raspberry Pi"
   },
   {
