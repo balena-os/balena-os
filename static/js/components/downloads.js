@@ -71,8 +71,8 @@
   }
 
   var displayDocsLink = function(that) {
-    var slug = $(that).attr('href').split('/')[4];
-    var name = $(that).data('device-name')
+    var slug = $(that).data('device-id');
+    var name = $(that).data('device-name');
     $('.downloads__well__footer').show();
     $('.downloads__well__footer__link').attr('href', '/docs/' + slug + '/gettingstarted/').text('Get Started with the ' + name)
   }
