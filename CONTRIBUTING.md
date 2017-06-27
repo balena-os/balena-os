@@ -2,8 +2,6 @@ Thanks for your interest in contributing to this project! This document aims to 
 
 # Running locally
 
-This site requires a (any) github API key to build.
-
 Install deps
 ```
 npm i
@@ -11,9 +9,19 @@ npm i
 
 Build an run site
 ```
-gulp dev
+npm run dev
+```
+
+If you get rate limited by github, you can pass a github token.
+
+```
+GH_TOKEN=**** npm run dev
 ```
 
 # Deploying
 
-Send a PR, when an admin approves and merges, the site is automatically built and deployed by travis.
+After a PR has been created, a member of the resin team will review and merge into master.
+
+Shortly after merging to master it'll automatically be deployed to our [staging environment](https://resin-os-staging.herokuapp.com/) (This should only take a few minutes).
+
+Once deployed to staging, you can preview your changes. If everything looks good, a member of the resin team will make another PR from master into the production branch. When this is merged, the changes will automatically deploy to production.
