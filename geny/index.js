@@ -37,7 +37,7 @@ module.exports.run = function(doxxConfig) {
       return doxxConfig
     })
   }).catch(err => {
-    console.log(err)
-    throw err
+    console.error(err)
+    process.exit(1)
   })
 }

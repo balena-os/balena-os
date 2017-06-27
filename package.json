@@ -1,39 +1,25 @@
 {
-  "name": "noise",
+  "name": "resinos",
   "version": "0.0.1",
-  "description": "A boilerplate for resin.io project sites",
+  "description": "The central place for all things ResinOS related.",
   "scripts": {
     "start": "node index.js",
+    "postinstall": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp",
     "build": "gulp build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/radiovisual/metalsmith-boilerplate.git"
+    "url": "git+https://github.com/resin-os/resinos"
   },
-  "keywords": [
-    "metalsmith",
-    "boilerplate",
-    "starter",
-    "static-site",
-    "static",
-    "empty",
-    "gulp",
-    "browserify",
-    "sass",
-    "minify",
-    "browersync",
-    "live",
-    "reload"
-  ],
   "author": "Craig Mulligan <craig@resin.io>",
   "license": "CC0-1.0",
   "bugs": {
-    "url": "https://github.com/resin-io-playground/noise/issues"
+    "url": "https://github.com/resin-os/resinos/issues"
   },
-  "homepage": "https://github.com/resin-io-playground/noise#readme",
-  "devDependencies": {
+  "homepage": "https://github.com/resin-os/resinos#readme",
+  "dependencies": {
     "browserify": "^13.1.0",
     "connect-livereload": "^0.6.0",
     "del": "^2.2.2",
@@ -56,9 +42,7 @@
     "cheerio": "^0.18.0",
     "entities": "^1.1.1",
     "extend": "^2.0.0",
-    "marked": "^0.3.3"
-  },
-  "dependencies": {
+    "marked": "^0.3.3",
     "@resin.io/doxx": "^0.9.3",
     "bluebird": "^3.4.6",
     "bootstrap": "4.0.0-alpha.4",
