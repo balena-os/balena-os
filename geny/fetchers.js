@@ -16,11 +16,10 @@ var github = new GitHubApi({
     timeout: 5000
 });
 
-if (process.env.GH_USERNAME && process.env.GH_TOKEN) {
+if (process.env.GH_TOKEN) {
   github.authenticate({
-      type: "basic",
-      username: process.env.GH_USERNAME,
-      password: process.env.GH_TOKEN
+    type: "token",
+    token: process.env.GH_TOKEN
   });
 } else {
   console.log("No github credentials provided")
