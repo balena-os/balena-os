@@ -107,7 +107,7 @@
     "id": "odroid-c1",
     "name": "Odroid C1/C1+",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0-beta12.rev1",
+    "os_version": "2.0.0-beta.1",
     "download_url": "https://files.resin.io/resinos/odroid-c1/2.0.0-beta.1/resin-dev.zip",
     "family": "Odroid"
   },
@@ -115,17 +115,9 @@
     "id": "odroid-ux3",
     "name": "Odroid XU4",
 		"bootMedia": "SD card",
-    "os_version": "2.0.0-beta12.rev1",
+    "os_version": "2.0.0-beta.1",
     "download_url": "https://files.resin.io/resinos/odroid-xu4/2.0.0-beta.1/resin-dev.zip",
     "family": "Odroid"
-  },
-  {
-    "id": "colibri-imx6dl",
-    "name": "Colibri imx6dl",
-		"bootMedia": "SD card",
-    "os_version": "2.0.0-beta12.rev1",
-    "download_url": "https://files.resin.io/resinos/colibri-imx6dl/2.0.0-beta.1/resin-dev.zip",
-    "family": "Toradex"
   },
   {
     "id": "ts4900",
