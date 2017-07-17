@@ -19,8 +19,8 @@
     "id": "raspberry-pi2",
     "name": "Raspberry Pi 2",
 		"bootMedia": "SD card",
-    "os_version": "2.0.6+rev3.dev",
-    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberry-pi2/2.0.6%2Brev3.dev/image/resin.img.zip",
+    "os_version": "2.0.6+rev4.dev",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/raspberry-pi2/2.0.6%2Brev4.dev/image/resin.img.zip",
     "family": "Raspberry Pi"
   },
   {
