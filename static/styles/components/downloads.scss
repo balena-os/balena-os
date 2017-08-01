@@ -94,8 +94,10 @@ $border-width: 1px;
 
 .downloads__well__profile__icon {
   display: inline-block;
+  background: #fff;
   @include rem(width, 50px);
   @include rem(margin-right, 15px);
+  @include border-radius(5px);
 }
 
 .downloads__well__footer {
