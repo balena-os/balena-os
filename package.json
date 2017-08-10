@@ -7,7 +7,8 @@
     "postinstall": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp",
-    "build": "gulp build"
+    "updateDeviceVersions": "node ./config/updateDeviceVersions",
+    "build": "npm run updateDeviceVersions && gulp build"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/resin-os/resinos#readme",
   "dependencies": {
+    "axios": "0.16.2",
     "browserify": "^13.1.0",
     "connect-livereload": "^0.6.0",
     "del": "^2.2.2",
