@@ -134,5 +134,14 @@
     "os_version": "2.0.0-beta.1",
     "download_url": "https://files.resin.io/resinos/nitrogen6x/2.0.0-beta.1/resin-dev.zip",
     "family": "Boundary"
+  },
+  {
+    "id": "jetson-tx2",
+    "name": "Jetson TX2",
+    "arch": "aarch64",
+    "bootMedia": "SD card",
+    "os_version": "2.2.0+rev1",
+    "download_url": "https://s3.amazonaws.com/resin-production-img-cloudformation/resinos/jetson-tx2/2.2.0%2Brev1.dev/image/resin.img.zip",
+    "family": "Nvidia"
   }
 ]
