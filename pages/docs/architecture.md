@@ -68,8 +68,8 @@ The resinOS userspace tries to package only the bare essentials for running cont
 We use systemd as the init system for resinOS and it is responsible for launching and managing all the other services. We leverage many of the great features of systemd, such as adjusting OOM scores for critical services and running services in separate mount namespaces. Systemd also allows us to easily manage service dependencies.
 
 ### Docker
-The docker engine is a lightweight container runtime that allows us to build and run linux containers on resinOS. ResinOS has been optimized to run docker containers and has been set up to use the journald log driver and DNSmasq for container DNS resolution.
-We use AUFS as the underlying storage driver since it is arguably the most production tested storage driver in the docker ecosystem. It also allows us to more easily support devices with older kernel versions and additionally gives us the ability to run on devices with Unmanaged NAND flash.
+The Docker engine is a lightweight container runtime that allows us to build and run linux containers on resinOS. ResinOS has been optimized to run Docker containers and has been set up to use the journald log driver and DNSmasq for container DNS resolution.
+We use AUFS as the underlying storage driver since it is arguably the most production tested storage driver in the Docker ecosystem. It also allows us to more easily support devices with older kernel versions and additionally gives us the ability to run on devices with Unmanaged NAND flash.
 
 ### NetworkManager and ModemManager
 ResinOS uses NetworkManager accompanied by ModemManager, to deliver a stable and reliable connection to the internet, be it via ethenet, wifi or cellular modem. Additionally to make headless configuration of the device’s network easy, we have added a `system-connections` folder in the boot partition which is copied into `/etc/NetworkManager/system-connections`. So any valid NetworkManager connection file can just be dropped into the boot partition before device commissioning.
@@ -94,7 +94,7 @@ The first partition, resin-boot, is meant to hold boot important bits according 
 Resin-root is the partition that holds our read-only root filesystem; it holds almost everything that ResinOS is.
 Resin-update is an empty partition that is only used when the rootfs is to be updated. We follow the Blue-Green deployment strategy. Essentially we have one active partition that is the OS’s current rootfs and one dormant one that is empty, we download the new rootfs to the dormant partition and try to switch them, if the switch is successful the dormant partition becomes the new rootfs, if not, we rollback to the old active partition.
 Resin-conf is the partition that holds persistent data as explained in the [Stateless and Read-only rootfs](#stateless-and-read-only-rootfs).
-Resin-data is the partition that holds downloaded docker images. Generally any container data will be found here.
+Resin-data is the partition that holds downloaded Docker images. Generally any container data will be found here.
 
 ## Stateless and Read-Only rootFS
 
@@ -127,7 +127,7 @@ the `"persistentLogging": true` key in the `config.json` file in the boot partit
 
 To help getting started with containers on embedded systems, resinOS comes with a full complement of over 500 Docker base images. We currently have base images for
 Debian, Fedora and Alpine Linux distributions, as well as Nodejs, Python, Go and Java language base images. For a more in-depth look into all the available base images head over
-to the [resin.io base images wiki](http://docs.resin.io/runtime/resin-base-images/) or the [resin dockerhub repository](https://hub.docker.com/u/resin/).
+to the [resin.io base images wiki](http://docs.resin.io/runtime/resin-base-images/) or the [resin Docker Hub repository](https://hub.docker.com/u/resin/).
 
 ### Resin Command Line Tool
 
@@ -188,7 +188,7 @@ Options:
 ```
 
 ##### Push
-The `resin local push` command enables you to quickly build and deploy a docker container to a target device. It also allows you to easily sync code between your laptop
+The `resin local push` command enables you to quickly build and deploy a Docker container to a target device. It also allows you to easily sync code between your laptop
 directory and your running container on the target. Once you have a resinOS host device running and advertising on the network,
 `resin local push` will allow you to iterate code on a container service. `push` has a lot of advanced functionality, which all gets encoded into the `.resin-sync.yml` file in your
 project directory. To better understand the `.yml` file, let's look at an example:
@@ -206,7 +206,7 @@ ignore:
 
 Let's look a bit into some of these settings keys.
 
-* `app-name:` represents the name of the docker image and corresponding running container on the target device.
+* `app-name:` represents the name of the Docker image and corresponding running container on the target device.
 * `build-triggers:` is a list of file names and their content hashes. Any changes in the files contained in this list will result in a `docker build .` on the
 target device.
 * `destination:` this sets the destination sync directory in the container running on the device. This allows you to synchronise a `--source` directory on your laptop to a running
