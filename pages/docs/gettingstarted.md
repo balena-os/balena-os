@@ -7,7 +7,7 @@ dynamic:
 
 # Getting Started on the {{ $device.name }}
 
-In resinOS all application logic and services are encapsulated in docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use the `resin` CLI tool to make things super easy. However, for those that like to do things the hard way, we got you covered as well.
+In resinOS all application logic and services are encapsulated in Docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use the `resin` CLI tool to make things super easy. However, for those that like to do things the hard way, we got you covered as well.
 
 ## Download an Image
 To get a resinOS device setup, we will first need to flash a system image on to the device, so head over to [resinos.io](https://resinos.io/#downloads) and grab the development OS for your board. Currently resinOS supports 20 different boards and several different architectures. See the [Supported Boards](/docs/supportedboards/) section for more details.
@@ -239,7 +239,7 @@ FROM resin/{{ $device.id }}-alpine-node:slim
 CMD [“cat”, “/etc/os-release”]
 ```
 
-The `FROM` tells docker what our container will be based on. In this case an Alpine Linux userspace with just the bare essentials needed for the node.js runtime. The `CMD` just defines what our container runs on startup. In this case, it’s not very exciting yet.
+The `FROM` tells Docker what our container will be based on. In this case an Alpine Linux userspace with just the bare essentials needed for the node.js runtime. The `CMD` just defines what our container runs on startup. In this case, it’s not very exciting yet.
 
 Now to get our application running on our device we can use the `resin local push` functionality.
 ```bash
@@ -272,7 +272,7 @@ resin push completed successfully!
 
 This command will discover your resinOS-dev device on the network and start a build of whatever you have in the `--source` directory. In the example above, we have just told it to build from the root of the directory we are in, in this case `myapp`.
 
-A number of things have happened in this step, so let’s pause here and dig in a little more. When we first run `resin local push` we are asked to define a name for our app and after that, it starts a docker build on your device. At the same time, the CLI has added a file to our project called `.resin-sync.yml` which stores all the project defaults. Let’s have a quick look at that:
+A number of things have happened in this step, so let’s pause here and dig in a little more. When we first run `resin local push` we are asked to define a name for our app and after that, it starts a Docker build on your device. At the same time, the CLI has added a file to our project called `.resin-sync.yml` which stores all the project defaults. Let’s have a quick look at that:
 
 ``` yaml
 local_resinos:
@@ -281,7 +281,7 @@ local_resinos:
     - Dockerfile: 6275495dc9620c3c74aa5a25ef29bbb109fbcb4e46de941b14235aeea02cc184
 ```
 
-We can see that for our local resinOS device we have an app called “myapp” which will map over to a docker image and container on our device. The next interesting section is build-triggers. This is a list of files and their hashes, which will result in a docker build. In our case it’s just the `Dockerfile`, so when we change things here, the CLI will rebuild our app. This will be important a bit later.
+We can see that for our local resinOS device we have an app called “myapp” which will map over to a Docker image and container on our device. The next interesting section is build-triggers. This is a list of files and their hashes, which will result in a Docker build. In our case it’s just the `Dockerfile`, so when we change things here, the CLI will rebuild our app. This will be important a bit later.
 
 So now that we are building, let’s start adding some actual code! We will just add `main.js` file in the root of our `myapp` directory.
 
