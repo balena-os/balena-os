@@ -10,7 +10,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var through = require('through2');
 var gutil = require('gulp-util');
-var sourcemaps = require('gulp-sourcemaps');gutil
+var sourcemaps = require('gulp-sourcemaps');
 var del = require('del');
 var server = require('gulp-express');
 
@@ -92,7 +92,7 @@ gulp.task('reload', function(done) {
 })
 
 // builds all static assets
-gulp.task('build', gulp.series('clean', 'doxx', 'move-images', 'js', 'css'), function(done) {
+gulp.task('build', gulp.series('clean', 'doxx', gulp.parallel('move-images', 'js', 'css')), function(done) {
   done()
 })
 
