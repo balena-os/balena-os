@@ -97,6 +97,6 @@ gulp.task('build', gulp.series('clean', 'doxx', gulp.parallel('move-images', 'js
 })
 
 // pull data build + serve
-gulp.task('dev', gulp.series('build', 'serve', 'reload'), function(done) {
+gulp.task('default', gulp.series('build', 'serve', 'reload'), function(done) {
   done()
 })
