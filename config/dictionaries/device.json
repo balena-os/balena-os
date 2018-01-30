@@ -3,24 +3,24 @@
     "id": "raspberrypi3",
     "name": "Raspberry Pi 3",
     "bootMedia": "SD card",
-    "os_version": "2.3.0+rev1.dev",
-    "download_url": "https://files.resin.io/resinos/raspberrypi3/2.3.0%2Brev1.dev/image/resin.img.zip",
+    "os_version": "2.9.6+rev1.dev",
+    "download_url": "https://files.resin.io/resinos/raspberrypi3/2.9.6%2Brev1.dev/image/resin.img.zip",
     "family": "Raspberry Pi"
   },
   {
     "id": "raspberry-pi",
     "name": "Raspberry Pi 1",
     "bootMedia": "SD card",
-    "os_version": "2.2.0+rev1.dev",
-    "download_url": "https://files.resin.io/resinos/raspberry-pi/2.2.0%2Brev1.dev/image/resin.img.zip",
+    "os_version": "2.9.6+rev1.dev",
+    "download_url": "https://files.resin.io/resinos/raspberry-pi/2.9.6%2Brev1.dev/image/resin.img.zip",
     "family": "Raspberry Pi"
   },
   {
     "id": "raspberry-pi2",
     "name": "Raspberry Pi 2",
     "bootMedia": "SD card",
-    "os_version": "2.2.0+rev1.dev",
-    "download_url": "https://files.resin.io/resinos/raspberry-pi2/2.2.0%2Brev1.dev/image/resin.img.zip",
+    "os_version": "2.9.6+rev1.dev",
+    "download_url": "https://files.resin.io/resinos/raspberry-pi2/2.9.6%2Brev1.dev/image/resin.img.zip",
     "family": "Raspberry Pi"
   },
   {
@@ -51,24 +51,24 @@
     "id": "imx6ul-var-dart",
     "name": "Variscite DART-6UL",
     "bootMedia": "SD card",
-    "os_version": "2.2.0+rev1.dev",
-    "download_url": "https://files.resin.io/resinos/imx6ul-var-dart/2.2.0%2Brev1.dev/image/resin.img.zip",
+    "os_version": "2.9.6+rev1.dev",
+    "download_url": "https://files.resin.io/resinos/imx6ul-var-dart/2.9.6%2Brev1.dev/image/resin.img.zip",
     "family": "Variscite"
   },
   {
     "id": "up-board",
     "name": "UP board",
     "bootMedia": "SD card",
-    "os_version": "2.2.0+rev1.dev",
-    "download_url": "https://files.resin.io/resinos/up-board/2.2.0%2Brev1.dev/image/resin.img.zip",
+    "os_version": "2.9.7+rev1.dev",
+    "download_url": "https://files.resin.io/resinos/up-board/2.9.7%2Brev1.dev/image/resin.img.zip",
     "family": "UP"
   },
   {
     "id": "beaglebone-black",
     "name": "Beaglebone",
     "bootMedia": "SD card",
-    "os_version": "2.2.0+rev1.dev",
-    "download_url": "https://files.resin.io/resinos/beaglebone-black/2.2.0%2Brev1.dev/image/resin.img.zip",
+    "os_version": "2.7.5+rev2.dev",
+    "download_url": "https://files.resin.io/resinos/beaglebone-black/2.7.5%2Brev2.dev/image/resin.img.zip",
     "family": "Beagle Bone"
   },
   {
@@ -99,8 +99,8 @@
     "id": "intel-nuc",
     "name": "Intel NUC",
     "bootMedia": "USB drive",
-    "os_version": "2.2.0+rev1.dev",
-    "download_url": "https://files.resin.io/resinos/intel-nuc/2.2.0%2Brev1.dev/image/resin.img.zip",
+    "os_version": "2.9.6+rev1.dev",
+    "download_url": "https://files.resin.io/resinos/intel-nuc/2.9.6%2Brev1.dev/image/resin.img.zip",
     "family": "Intel"
   },
   {
@@ -123,8 +123,8 @@
     "id": "ts4900",
     "name": "ts4900",
     "bootMedia": "SD card",
-    "os_version": "2.4.1+rev1.dev",
-    "download_url": "https://files.resin.io/resinos/ts4900/2.4.1%2Brev1.dev/image/resin.img.zip",
+    "os_version": "2.7.8+rev1.dev",
+    "download_url": "https://files.resin.io/resinos/ts4900/2.7.8%2Brev1.dev/image/resin.img.zip",
     "family": "Technologic Systems"
   },
   {
