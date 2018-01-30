@@ -1,6 +1,6 @@
 {
   "name": "resinos",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The central place for all things ResinOS related.",
   "scripts": {
     "start": "node index.js",
@@ -39,8 +39,8 @@
     "jsdom": "^9.6.0",
     "moment": "^2.15.1",
     "through2": "^2.0.0",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
     "cheerio": "^0.18.0",
     "entities": "^1.1.1",
     "extend": "^2.0.0",
