@@ -37,21 +37,21 @@ gulp.task('css', function() {
 
 // Bundle js with browserify.
 gulp.task('js', function () {
- // set up the browserify instance on a task basis
+  // set up the browserify instance on a task basis
   var b = browserify({
     entries: './static/js/main.js',
     debug: true
   })
 
-return b.bundle()
-  .pipe(source('bundle.js'))
-  .pipe(buffer())
-  .pipe(sourcemaps.init({loadMaps: true}))
-     // Add transformation tasks to the pipeline here.
-    .pipe(uglify())
-    .on('error', gutil.log)
-  .pipe(sourcemaps.write('./'))
-  .pipe(gulp.dest('./public/assets/'));
+  return b.bundle()
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({loadMaps: true}))
+       // Add transformation tasks to the pipeline here.
+      .pipe(uglify())
+      .on('error', gutil.log)
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest('./public/assets/'));
 });
 
 // simply copys images to /public folder
