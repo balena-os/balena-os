@@ -10,6 +10,9 @@
     "updateDeviceVersions": "node ./config/updateDeviceVersions",
     "build": "npm run updateDeviceVersions && gulp build"
   },
+  "engines": {
+    "node": "~6.11.5"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/resin-os/resinos"
