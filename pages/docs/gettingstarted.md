@@ -140,7 +140,7 @@ Now if we want to poke around a bit inside resinOS we can just ssh in with:
 $ ssh root@resin.local -p22222
 root@resin:~# uname -a
 Linux resin 4.1.21 #1 SMP Fri Oct 7 23:37:01 CEST 2016 armv7l GNU/Linux
-root@resin:~# docker info
+root@resin:~# balena info
 Containers: 1
  Running: 0
  Paused: 0
@@ -148,7 +148,7 @@ Containers: 1
 Images: 7
 Server Version: 1.10.3
 Storage Driver: aufs
- Root Dir: /var/lib/docker/aufs
+ Root Dir: /var/lib/balena/aufs
  Backing Filesystem: extfs
  Dirs: 22
  Dirperm1 Supported: true
@@ -166,6 +166,8 @@ Total Memory: 972.5 MiB
 Name: resin
 ID: FOZ2:5KHG:RTSS:UQ7S:F2J6:QYLL:MERX:5ZVU:4WVL:3G2G:T2YA:LX3D
 ```
+
+__Note:__ Beginning with version 2.9.0, resinOS uses the [balena](https://www.balena.io/) container engine to manage Docker containers. If you are using an earlier version of the OS, replace `balena` commands with `docker`.
 
 ## Running your first Container
 ### Clone a demo Project
@@ -204,7 +206,7 @@ $ sudo resin local ssh resin.local
 **OR**
 ``` bash
 $ ssh root@resin.local -p22222
-root@resin:~# docker exec -it myapp bash
+root@resin:~# balena exec -it myapp bash
 ```
 
 ## Going Further
