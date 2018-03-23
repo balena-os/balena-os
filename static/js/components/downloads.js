@@ -5,6 +5,30 @@
   var catRef = null
   var caretOffsetRef = null
 
+  var getLatestVersion = (function() {
+    var cache = {}
+
+    return function(slug, callback) {
+      if (cache.hasOwnProperty(slug)) {
+        callback(null, cache[slug])
+      }
+
+      $.get('https://img.resin.io/api/v1/image/' + slug + '/versions', function(response) {
+        var version = response.latest.replace(/\.prod/, '.dev');
+        var url = 'https://files.resin.io/resinos/' + slug + '/' +
+          encodeURIComponent(version) + '/image/resin.img.zip'
+        var data = {
+          version: version,
+          url: url
+        }
+        cache[slug] = data
+        callback(null, data)
+      }).fail(function() {
+        callback('Error retrieving latest OS version', null)
+      })
+    }
+  }())
+
   var openWell = function(that) {
     var cat = $(that).data('cat')
     var catId = cat[0].family.replace(/ /g, '').toLowerCase()
@@ -23,6 +47,28 @@
     if (catId != catRef) {
       $(that).addClass('downloads__category--active')
       $(compiled({ 'catId': catId, 'catTitle': cat[0].family, 'downloads': cat })).insertAfter( container )
+
+      // Load the latest version for each device type listed in this category
+      cat.forEach(function(deviceType) {
+        getLatestVersion(deviceType.id, function(err, data) {
+          var $link = $('a.js-download-link[data-device-id="' + deviceType.id + '"]');
+          if ($link.length) {
+            $link.prev('i.fa-cog').hide()
+
+            if (err) {
+              $link.parent().append('<span class="error-message">' + err + '</span>')
+            } else {
+              $link.parent().find('.error-message').remove()
+              $link.find('.os-label').text('resinOS ' + data.version)
+              $link
+                .attr('href', data.url)
+                .show()
+                .prev('i.fa-cog').hide()
+            }
+          }
+        })
+      })
+
       // keep a ref so we can toggle if already open
       catRef = catId
     } else {
