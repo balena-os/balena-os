@@ -19,14 +19,15 @@
             <tr>
               <td><%- download.name %></td>
               <td>
+                <i class="fa fa-cog fa-spin"></i>
                 <a
+                style="display: none"
                 class="js-download-link"
                 data-device-name="<%- download.name %>"
                 data-device-id="<%- download.id %>"
                 data-track="download"
-                data-track-meta='{ "image": "<%- download.name %>", "href": "{{ downloads.baseUrl }}/<%- download.download_url %>/<%- download.os_version %>/image/resin.img.zip", "deviceType": "<%- download.name %>", "position": "downloads" }'
-                href="<%- download.download_url %>">
-                  resinOS <%- download.os_version %>
+                href="#">
+                  <span class="os-label"></span>
                   <i class="fa fa-download" aria-hidden="true"></i>
                 </a>
               </td>
