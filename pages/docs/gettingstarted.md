@@ -30,7 +30,7 @@ Currently the CLI is a node.js based command line tool which requires that our s
 
 Once we have those setup we can install `resin` CLI using npm:
 ``` bash
-$ npm install --global --production resin-cli
+$ npm install --global --production --unsafe-perm resin-cli
 ```
 
 __Note:__ Depending on you node.js installation, you may need to use administrative privileges to install the CLI.
