@@ -1,6 +1,6 @@
 {
   "name": "resinos",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "The central place for all things ResinOS related.",
   "scripts": {
     "start": "node index.js",
