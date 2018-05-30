@@ -48,6 +48,12 @@
     "family": "UP"
   },
   {
+    "id": "bananapi-m1-plus",
+    "name": "Banana Pi M1+",
+    "bootMedia": "SD card",
+    "family": "Banana Pi"
+  },
+  {
     "id": "beaglebone-black",
     "name": "Beaglebone",
     "bootMedia": "SD card",
@@ -90,10 +96,22 @@
     "family": "Odroid"
   },
   {
+    "id": "orangepi-plus2",
+    "name": "Orange Pi Plus2",
+    "bootMedia": "SD card",
+    "family": "Orange Pi"
+  },
+  {
     "id": "ts4900",
     "name": "ts4900",
     "bootMedia": "SD card",
     "family": "Technologic Systems"
+  },
+  {
+    "id": "jetson-tx1",
+    "name": "Nvidia Jetson TX1",
+    "bootMedia": "SD card",
+    "family": "Nvidia"
   },
   {
     "id": "jetson-tx2",
