@@ -17,7 +17,7 @@ from with in the repo.
 
 Now to actually build a development version of resinOS for the Raspberry Pi 3, we can run the following:
 ``` bash
-./resin-yocto-scripts/build/barys -r --shared-downloads $(pwd)/shared-downloads/ --shared-sstate $(pwd)/shared-sstate/ -m raspberrypi3
+./resin-yocto-scripts/build/barys -m raspberrypi3
 ```
 
 **NOTE:** To create a managed build (one that communicates with and can be managed through resin.io's services),
