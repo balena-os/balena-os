@@ -24,6 +24,18 @@
     "family": "Artik"
   },
   {
+    "id": "artik530",
+    "name": "ARTIK 530",
+    "bootMedia": "SD card",
+    "family": "Artik"
+  },
+  {
+    "id": "artik533s",
+    "name": "ARTIK 530s 1G",
+    "bootMedia": "SD card",
+    "family": "Artik"
+  },
+  {
     "id": "artik10",
     "name": "ARTIK 1020",
     "bootMedia": "SD card",
