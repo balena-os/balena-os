@@ -60,6 +60,12 @@
     "family": "UP"
   },
   {
+    "id": "fincm3",
+    "name": "Balena Fin (CM3)",
+    "bootMedia": "internal MMC",
+    "family": "Balena Fin"
+  },
+  {
     "id": "bananapi-m1-plus",
     "name": "Banana Pi M1+",
     "bootMedia": "SD card",
