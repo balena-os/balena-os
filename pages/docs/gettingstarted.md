@@ -83,7 +83,7 @@ method=auto
 If you only want to use an ethernet connection on your device, you don't need to add anything. The device will automatically set up an ethernet connection by default.
 
 ## Get the Device Up and Running
-Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step the CLI provides a handy flashing utility, you can however flash this image using etcher.io or `dd` if you must.
+Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step the CLI provides a handy flashing utility, you can however flash this image using [Etcher](https://etcher.io) or `dd` if you must.
 
 ### Flash {{ $device.bootMedia }}
 To get flashing, just point the `resin local flash` command to the image we just downloaded and follow the prompts. If you hate prompts, the CLI also allows you to skip them, check the [resin CLI docs](https://resinos.io/docs/architecture/#resin-command-line-tool) on how to do this.
