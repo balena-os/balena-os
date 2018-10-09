@@ -7,7 +7,7 @@ layout: docs.html
 
 ## Bake your own Image
 In order to build your very own version of resinOS for one of our supported boards, you will first need to make sure you have a working [Yocto environment setup](http://www.yoctoproject.org/docs/current/yocto-project-qs/yocto-project-qs.html).
-Then pick the device type you wanna build, in this example we will use the raspberry pi 3. So first we need to grab the [`resin-raspberrypi`](https://github.com/resin-os/resin-raspberrypi) and initialise all its submodules.
+Then pick the device type you want to build, in this example we will use the Raspberry Pi 3. So first we need to grab the [`resin-raspberrypi`](https://github.com/resin-os/resin-raspberrypi) and initialise all its submodules.
 ``` bash
 git clone https://github.com/resin-os/resin-raspberrypi
 git submodule update --init --recursive
@@ -23,13 +23,13 @@ Now to actually build a development version of resinOS for the Raspberry Pi 3, w
 **NOTE:** To create a managed build (one that communicates with and can be managed through resin.io's services),
 you'll need to specify the `--resinio` flag, as resinOS builds are unmanaged by default.
 
-Now sit tight and maybe go and make several cups of tea, this is gonna take a little while.
+Now sit tight and maybe go and make several cups of tea, this is going to take a little while.
 
 ## Supporting your Own Board
 
 Pre-requisites: a [Yocto](https://www.yoctoproject.org) Board Support Package (BSP) layer for your particular board. It should be compatible to the Yocto releases resinOS supports.
 
-Repositories used to build resinOS host Operating System (OS) are typically named resin-`<board-family>`. For example, consider [resin-raspberrypi](https://github.com/resin-os/resin-raspberrypi) which is used for building the OS for [Raspberryi Pi](https://raspberrypi.org), or [resin-intel](https://github.com/resin-os/resin-intel) repository which can be used to build a resin.io image for the Intel NUC boards.
+Repositories used to build resinOS host Operating System (OS) are typically named `resin-<board-family>`. For example, consider [resin-raspberrypi](https://github.com/resin-os/resin-raspberrypi) which is used for building the OS for [Raspberryi Pi](https://raspberrypi.org), or [resin-intel](https://github.com/resin-os/resin-intel) repository which can be used to build a resin.io image for the Intel NUC boards.
 
 Contributing support for a new board consist of creating a a Yocto package that includes:
 
@@ -37,11 +37,11 @@ Contributing support for a new board consist of creating a a Yocto package that 
 * the resinOS-specific software features,
 * deployment-specific features (i.e. settings to create SD card images or self-flashing images)
 
-The following documentations walks you through the steps of creating such a Yocto package. Because of the substantial difference between the hardware of many boards, this document provides general directions, and often it might be helpful to see the examples of already supported boards. The list of the relevant repositories is found the end of this document.
+The following documentation walks you through the steps of creating such a Yocto package. Because of the substantial difference between the hardware of many boards, this document provides general directions, and often it might be helpful to see the examples of already supported boards. The list of the relevant repositories is found the end of this document.
 
 ### Board Support Repository Breakout
 
-The resin-`<board-family>` repositories use [git submodules](https://git-scm.com/docs/git-submodule) for including required Yocto layers from the relevant sub-projects.
+The `resin-<board-family>` repositories use [git submodules](https://git-scm.com/docs/git-submodule) for including required Yocto layers from the relevant sub-projects.
 
 The root directory shall contain 2 directory entries:
 
@@ -79,7 +79,7 @@ The `layers` directory contains the git submodules of the yocto layers used in t
 - Yocto BSP layer for the board (for example, the BSP layer for Raspberry Pi is [meta-raspberrypi](https://github.com/agherzan/meta-raspberrypi))
 - any additional Yocto layers required by the board BSP (check the Yocto BSP layer of the respective board for instructions on how to build the BSP and what are the Yocto dependencies of that particular BSP layer)
 
-In addition to the above git submodules, the "layers" directory also contains a meta-resin-`<board-family>` directory (please note this directory is _not_ a git submodule, but an actual directory in the ). This directory contains the required customization for making a board resin.io enabled. For example, the [resin-raspberrypi](https://github.com/resin-os/resin-raspberrypi) repository contains the directory `layers/meta-resin-raspberrypi` to supplement the BSP from `layers/meta-raspberrypi` git submodule, with any changes that might be required by resinOS.
+In addition to the above git submodules, the "layers" directory also contains a `meta-resin-<board-family>` directory (please note this directory is _not_ a git submodule, but an actual directory in the ). This directory contains the required customization for making a board resin.io enabled. For example, the [resin-raspberrypi](https://github.com/resin-os/resin-raspberrypi) repository contains the directory `layers/meta-resin-raspberrypi` to supplement the BSP from `layers/meta-raspberrypi` git submodule, with any changes that might be required by resinOS.
 
 The layout so far looks as follows:
 
