@@ -2,12 +2,12 @@
   "name": "resinos",
   "version": "1.6.1",
   "description": "The central place for all things ResinOS related.",
+  "main": "landr.conf.js",
   "scripts": {
-    "start": "node index.js",
-    "postinstall": "gulp build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp",
-    "build": "gulp build"
+    "start": "landr",
+    "build": "landr build",
+    "serve": "landr serve",
+    "deploy": "landr deploy"
   },
   "engines": {
     "node": "~6.11.5"
@@ -22,11 +22,21 @@
     "url": "https://github.com/resin-os/resinos/issues"
   },
   "homepage": "https://github.com/resin-os/resinos#readme",
+  "devDependencies": {
+    "landr": "2.3.0"
+  },
   "dependencies": {
+    "@resin.io/doxx": "^0.9.3",
     "axios": "0.16.2",
+    "bluebird": "^3.4.6",
+    "bootstrap": "4.0.0-alpha.4",
     "browserify": "^13.1.0",
+    "cheerio": "^0.18.0",
     "connect-livereload": "^0.6.0",
     "del": "^2.2.2",
+    "entities": "^1.1.1",
+    "express": "^4.14.0",
+    "extend": "^2.0.0",
     "github": "^3.1.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-concat": "^2.6.0",
@@ -38,23 +48,17 @@
     "gulp-streamify": "^1.0.0",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.6",
-    "jsdom": "^9.6.0",
-    "moment": "^2.15.1",
-    "through2": "^2.0.0",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
-    "cheerio": "^0.18.0",
-    "entities": "^1.1.1",
-    "extend": "^2.0.0",
-    "marked": "^0.3.3",
-    "@resin.io/doxx": "^0.9.3",
-    "bluebird": "^3.4.6",
-    "bootstrap": "4.0.0-alpha.4",
-    "express": "^4.14.0",
     "headroom.js": "^0.9.3",
     "jquery": "^2.0.0",
+    "jsdom": "^9.6.0",
+    "landr": "2.3.0",
     "lodash": "^4.16.2",
+    "marked": "^0.3.3",
     "mixpanel-browser": "^2.9.15",
-    "tether": "^1.3.7"
+    "moment": "^2.15.1",
+    "tether": "^1.3.7",
+    "through2": "^2.0.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
   }
 }
