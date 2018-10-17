@@ -14,6 +14,13 @@ module.exports = {
         component: `${containers}/Docs`,
         title: 'Docs',
         path: '/docs',
+        children: siteProps.docs.map(doc => {
+          return {
+            component: `${containers}/Doc`,
+            title: doc.title,
+            path: `/${doc.slug}`,
+          };
+        }),
       },
       {
         component: `${containers}/Changelog`,

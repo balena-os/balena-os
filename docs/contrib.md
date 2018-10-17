@@ -1,5 +1,7 @@
 ---
 layout: docs.html
+order: 5
+
 ---
 
 # Contribute to ResinOS

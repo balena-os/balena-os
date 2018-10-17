@@ -1,8 +1,12 @@
 ---
+
+
 dynamic:
   variables: [ $os, $language ]
   ref: docs/$os/$language/dynamic
   $switch_text: Getting Started with $os and $language
+order: 10
+
 ---
 
 # Dynamic page about {{ $os.name }} & {{ $language.name }}

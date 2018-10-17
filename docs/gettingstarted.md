@@ -1,8 +1,11 @@
 ---
+
 dynamic:
   variables: [ $device ]
   ref: docs/$device/gettingstarted
   $switch_text: Getting Started with $device
+  order: 1
+
 ---
 
 # Getting Started on the {{ $device.name }}
@@ -112,7 +115,7 @@ It should only take about 3 minutes, depending on the quality of your drive, so 
 $ sudo resin local flash ~/Downloads/resin.img
 ? Select drive /dev/disk3 (7.9 GB) - STORAGE DEVICE
 ? This will erase the selected drive. Are you sure? Yes
-Flashing [========================] 100% eta 0s  
+Flashing [========================] 100% eta 0s
 Validating [========================] 100% eta 0s
 ```
 

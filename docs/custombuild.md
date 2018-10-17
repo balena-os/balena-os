@@ -1,6 +1,9 @@
 ---
+
 title: Architecture
 layout: docs.html
+order: 3
+
 ---
 
 # Building your Own

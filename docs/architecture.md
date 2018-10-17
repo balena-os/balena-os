@@ -1,6 +1,9 @@
 ---
+
 title: Architecture
 layout: docs.html
+order: 2
+
 ---
 
 # Architecture Overview
@@ -183,8 +186,8 @@ Examples:
 
 Options:
 
-    --yes, -y                           confirm non-interactively          
-    --drive, -d <drive>                 drive     
+    --yes, -y                           confirm non-interactively
+    --drive, -d <drive>                 drive
 ```
 
 ##### Push
@@ -264,19 +267,19 @@ Examples:
 
 Options:
 
-    --source, -s <path>                 root of project directory to push                                                                                       
-    --destination, -d <path>            destination path on device container                                                                                    
-    --ignore, -i <paths>                comma delimited paths to ignore when syncing with 'rsync'                                                               
-    --skip-gitignore                    do not parse excluded/included files from .gitignore                                                                    
-    --before, -b <command>              execute a command before pushing                                                                                        
-    --after, -a <command>               execute a command after pushing                                                                                         
-    --progress, -p                      show progress                                                                                                           
-    --skip-logs                         do not stream logs after push                                                                                           
-    --verbose, -v                       increase verbosity                                                                                                      
+    --source, -s <path>                 root of project directory to push
+    --destination, -d <path>            destination path on device container
+    --ignore, -i <paths>                comma delimited paths to ignore when syncing with 'rsync'
+    --skip-gitignore                    do not parse excluded/included files from .gitignore
+    --before, -b <command>              execute a command before pushing
+    --after, -a <command>               execute a command after pushing
+    --progress, -p                      show progress
+    --skip-logs                         do not stream logs after push
+    --verbose, -v                       increase verbosity
     --app-name, -n <name>               application name - may contain lowercase characters, digits and one or more dashes. It may not start or end with a dash.
-    --build-triggers, -r <files>        comma delimited file list that will trigger a container rebuild if changed                                              
-    --force-build, -f                   force a container build and run                                                                                         
-    --env, -e <env>                     environment variable (e.g. --env 'ENV=value'). Multiple --env parameters are supported.              
+    --build-triggers, -r <files>        comma delimited file list that will trigger a container rebuild if changed
+    --force-build, -f                   force a container build and run
+    --env, -e <env>                     environment variable (e.g. --env 'ENV=value'). Multiple --env parameters are supported.
 ```
 
 ##### SSH
@@ -308,10 +311,10 @@ Examples:
 
 Options:
 
-    --verbose, -v                       increase verbosity                 
-    --host, -s                          get a shell into the host OS       
-    --container, -c <container>         name of container to access        
-    --port, -p <port>                   ssh port number (default: 22222)  
+    --verbose, -v                       increase verbosity
+    --host, -s                          get a shell into the host OS
+    --container, -c <container>         name of container to access
+    --port, -p <port>                   ssh port number (default: 22222)
 ```
 
 ##### Logs
@@ -332,6 +335,6 @@ Examples:
 
 Options:
 
-    --follow, -f                        follow log                         
+    --follow, -f                        follow log
     --app-name, -a <name>               name of container to get logs from
 ```

@@ -1,6 +1,9 @@
 ---
+
 title: Supported Architectures
 layout: docs.html
+order: 4
+
 ---
 
 # Supported Boards
