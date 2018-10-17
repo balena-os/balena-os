@@ -47,7 +47,7 @@ export default withTheme(props => {
 	});
 
 	return (
-		<FeaturesBox py={120} mt={30}>
+		<FeaturesBox py={120} mt={30} id="features">
 			<Container>
 				<Flex wrap mb={5} mx={-10}>
 					<Flex

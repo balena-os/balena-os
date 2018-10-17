@@ -1,15 +1,24 @@
 export const navigationLinks = [
   {
-    text: 'Download',
+    text: 'Features',
+    link: '/#features',
+    withHash: true,
+    group: 1,
+  },
+  {
+    text: 'Downloads',
     link: '/#download',
-    withHash: true
+    withHash: true,
+    group: 1,
   },
   {
     text: 'Docs',
     link: '/docs',
+    group: 2,
   },
   {
-    text: 'Changelog',
-    link: '/changelog',
+    text: 'Getting Started',
+    link: '/docs/getting-started',
+    group: 2,
   },
 ];

@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import axios from 'axios';
 import styled, { withTheme } from 'styled-components';
-import { Flex, Box, Container, Image, Link, Heading } from 'resin-components';
+import { Flex, Box, Container, Image, Text, Heading, Link } from 'resin-components';
 import { assets } from 'landr';
 
+import Button from '../components/Button';
 import Table from '../components/Table';
-
 import backgroundShape from '../images/background.svg';
 
 const DownloadsWrapper = styled(Box)`
   background-image: url(${backgroundShape});
   background-repeat: no-repeat;
   background-position: top;
-  background-size: contain;
+  background-size: cover;
 `;
 
 const Card = styled(Flex)`
@@ -33,6 +33,19 @@ const Card = styled(Flex)`
 
   &.active {
     border-color: ${props => props.theme.colors.primary.main};
+  }
+
+  &.dashed {
+    border: 1px dashed ${props => props.theme.colors.primary.main};
+  }
+`;
+
+const StyledLink = styled(Link)`
+  && {
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
   }
 `;
 
@@ -104,7 +117,7 @@ class Downloads extends Component {
     const panelArrowPosition = boardPosition % 4;
 
     return (
-      <DownloadsWrapper py={120}>
+      <DownloadsWrapper py={150}>
         <Container align="center">
           <Heading.h5
             id="download"
@@ -124,7 +137,7 @@ class Downloads extends Component {
               const position = index;
               return (
                 <Box
-                  width={[1/4, 1 / 4, 1 / 4, 1 / 4]}
+                  width={[1 / 4, 1 / 4, 1 / 4, 1 / 4]}
                   key={slug}
                   p={20}
                   order={position}
@@ -159,6 +172,20 @@ class Downloads extends Component {
               </Box>
             )}
           </Flex>
+          <Card direction="column" p={40} mt={50} className="dashed">
+            <Heading.h2 bold fontSize={34} mb={20}>
+              Add your own board
+            </Heading.h2>
+            <Text align="center" mb={20}>
+              Learn how to build your very own version of BalenaOS
+              <br /> for one of our supported boards.
+            </Text>
+            <Button round primary>
+              <StyledLink href="/docs/custombuild/#supporting-your-own-board">
+                Leard more
+              </StyledLink>
+            </Button>
+          </Card>
         </Container>
       </DownloadsWrapper>
     );

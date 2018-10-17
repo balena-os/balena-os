@@ -2,7 +2,6 @@ import { Button as RButton } from 'resin-components';
 import styled from 'styled-components';
 
 const Button = styled(RButton)`
-  && {
     font-size: 14px;
     font-weight: bold;
     border-radius: ${props => (props.round ? '20px' : 'inherit')};
@@ -14,7 +13,6 @@ const Button = styled(RButton)`
         color: ${props => (props.outline ? '#fff' : 'auto')};
       }
     }
-  }
 `;
 
 export default Button;
