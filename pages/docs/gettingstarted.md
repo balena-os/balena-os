@@ -10,7 +10,7 @@ dynamic:
 In balenaOS all application logic and services are encapsulated in Docker containers. In this getting started guide we will walk you through setting up one of our pre-built development OS images and creating a simple application container. In the guide we will use the `balena` CLI tool to make things super easy. However, for those that like to do things the hard way, we got you covered as well.
 
 ## Download an Image
-To get a balenaOS device setup, we will first need to flash a system image on to the device, so head over to [balenaos.io](https://balenaos.io/) and grab the development OS for your board. Currently balenaOS supports 20 different boards and several different architectures. See the [Supported Boards](/docs/supportedboards/) section for more details.
+To get a balenaOS device setup, we will first need to flash a system image on to the device, so head over to [balena.io/os](https://balena.io/os) and grab the development OS for your board. Currently balenaOS supports 20 different boards and several different architectures. See the [Supported Boards](/docs/supportedboards/) section for more details.
 
 Once the download is finished, make sure to decompress it and keep it somewhere safe, we will need it very soon!
 ``` bash
@@ -86,7 +86,7 @@ If you only want to use an ethernet connection on your device, you don't need to
 Okay, so now we have a fully configured image ready to go, so let’s burn and boot this baby. For this step the CLI provides a handy flashing utility, you can however flash this image using etcher.io or `dd` if you must.
 
 ### Flash {{ $device.bootMedia }}
-To get flashing, just point the `balena local flash` command to the image we just downloaded and follow the prompts. If you hate prompts, the CLI also allows you to skip them, check the [balena CLI docs](https://balenaos.io/docs/architecture/#balena-command-line-tool) on how to do this.
+To get flashing, just point the `balena local flash` command to the image we just downloaded and follow the prompts. If you hate prompts, the CLI also allows you to skip them, check the [balena CLI docs](https://balena.io/docs/architecture/#balena-command-line-tool) on how to do this.
 
 __NOTE:__ `balena local flash` requires administrative privileges because it needs to access the {{ $device.bootMedia }}.
 
