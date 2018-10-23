@@ -90,16 +90,16 @@ BalenaOS will provide the user with an OpenVPN server that they might use. It is
 
 <img src="/images/docs/arch/partition-layout.png" width="90%">
 
-The first partition, balena-boot, is meant to hold boot important bits according to each board (e.g. kernel image, bootloader image). It also holds a very important file that you will find mentioned elsewhere in this document (i.e. `config.json`). The config.json file is the central point of configuring balenaOS and defining its behaviour, for example you can set your hostname, allow persistent logging, etc.
-Balena-root is the partition that holds our read-only root filesystem; it holds almost everything that balenaOS is.
-Balena-update is an empty partition that is only used when the rootfs is to be updated. We follow the Blue-Green deployment strategy. Essentially we have one active partition that is the OS’s current rootfs and one dormant one that is empty, we download the new rootfs to the dormant partition and try to switch them, if the switch is successful the dormant partition becomes the new rootfs, if not, we rollback to the old active partition.
-Balena-conf is the partition that holds persistent data as explained in the [Stateless and Read-only rootfs](#stateless-and-read-only-rootfs).
-Balena-data is the partition that holds downloaded Docker images. Generally any container data will be found here.
+The first partition, resin-boot, is meant to hold boot important bits according to each board (e.g. kernel image, bootloader image). It also holds a very important file that you will find mentioned elsewhere in this document (i.e. `config.json`). The config.json file is the central point of configuring balenaOS and defining its behaviour, for example you can set your hostname, allow persistent logging, etc.
+Resin-rootA is the partition that holds our read-only root filesystem; it holds almost everything that balenaOS is.
+Resin-rootB is an empty partition that is only used when the rootfs is to be updated. We follow the Blue-Green deployment strategy. Essentially we have one active partition that is the OS’s current rootfs and one dormant one that is empty, we download the new rootfs to the dormant partition and try to switch them, if the switch is successful the dormant partition becomes the new rootfs, if not, we rollback to the old active partition.
+Resin-state is the partition that holds persistent data as explained in the [Stateless and Read-only rootfs](#stateless-and-read-only-rootfs).
+Resin-data is the partition that holds downloaded Docker images. Generally any container data will be found here.
 
 ## Stateless and Read-Only rootFS
 
 BalenaOS comes with a read-only root filesystem, so we can ensure our hostOS is stateless, but we still need some data to be persistent over system reboots. We achieve this with a very simple mechanism, i.e. bind mounts.
-BalenaOS contains a partition named balena-conf that is meant to hold all this persistent data, inside we populate a Linux filesystem hierarchy standard with the rootfs paths that we require to be persistent. After this partition is populated we are ready to bind mount the respective rootfs paths to this read-write location, thus allowing different components (e.g. journald) to be able to write data to disk. A mechanism to purge this partition is provided, thus allowing users to rollback to an unconfigured balenaOS image.
+BalenaOS contains a partition named resin-state that is meant to hold all this persistent data, inside we populate a Linux filesystem hierarchy standard with the rootfs paths that we require to be persistent. After this partition is populated we are ready to bind mount the respective rootfs paths to this read-write location, thus allowing different components (e.g. journald) to be able to write data to disk. A mechanism to purge this partition is provided, thus allowing users to rollback to an unconfigured balenaOS image.
 
 A diagram of our read-only rootfs can be seen below:
 

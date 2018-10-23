@@ -57,7 +57,7 @@ Edit `/boot/config.json` so it looks like this:
 }
 ```
 
-And edit the `ssid` and `psk` values in the `/boot/system-connections/balena-sample` connection file.
+And edit the `ssid` and `psk` values in the `/boot/system-connections/resin-sample` connection file.
 ```
 [connection]
 id=balena-sample
@@ -222,7 +222,7 @@ Alternatively you can add `“persistentLogging”: true` to `config.json` in yo
 
 To Enable persistent logs in a running device, add `“persistentLogging”: true` to `/mnt/boot/config.json` and reboot.
 
-The journal can be found at  `/var/log/journal/` which is bind mounted to `root-overlay/var/log/journal` in the `balena-conf` partition.
+The journal can be found at  `/var/log/journal/` which is bind mounted to `root-overlay/var/log/journal` in the `resin-state` partition.
 When logging is not persistent, the logs can be found at `/run/log/journal/` and this log is volatile so you will loose all logs when you power the device down.
 
 ## Creating a Project from Scratch
@@ -259,7 +259,7 @@ Verifying Checksum=============================================>] 1.987 MB/1.987
 Pull complete=================================================>]    12 MB/12 MB
 Pull complete
 Digest: sha256:410a5add3aa281d97afea1ae4fcdbec203c69ea34faea8d84349456c211f33a3
-Status: Downloaded newer image for balena/{{ $device.id }}-alpine-node:slim
+Status: Downloaded newer image for resin/{{ $device.id }}-alpine-node:slim
  ---> bf37b6350e63
 Step 2 : CMD [“cat”, “/etc/os-release”]
  ---> Running in a376f4a781d5
@@ -274,7 +274,7 @@ balena push completed successfully!
 
 This command will discover your balenaOS-dev device on the network and start a build of whatever you have in the `--source` directory. In the example above, we have just told it to build from the root of the directory we are in, in this case `myapp`.
 
-A number of things have happened in this step, so let’s pause here and dig in a little more. When we first run `balena local push` we are asked to define a name for our app and after that, it starts a Docker build on your device. At the same time, the CLI has added a file to our project called `.balena-sync.yml` which stores all the project defaults. Let’s have a quick look at that:
+A number of things have happened in this step, so let’s pause here and dig in a little more. When we first run `balena local push` we are asked to define a name for our app and after that, it starts a Docker build on your device. At the same time, the CLI has added a file to our project called `.resin-sync.yml` which stores all the project defaults. Let’s have a quick look at that:
 
 ``` yaml
 local_balenaos:

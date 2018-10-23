@@ -132,7 +132,7 @@ from external storage (these boards do not have internal storage to install bale
 
     - `IMAGE_FSTYPES_<yocto-machine-name>`: this variable is used to declare the type of the produced image (it can be ext3, ext4, balenaos-img etc. The usual type for a board that can boot from SD card, USB, is "balenaos-img").
 
-    - `BALENA_BOOT_PARTITION_FILES_<yocto-machine-name>`: this allows adding files from the build's deploy directory into the vfat formatted balena-boot partition (can be used to add bootloader config files, first stage bootloader, initramfs or anything else needed for the booting process to take place for your particular board). If the board uses different bootloader configuration files when booting from either external media (USB thumb drive, SD card etc.) or from internal media (mSATA, eMMC etc) then you would want make use of this variable to make sure the different bootloader configuration files get copied over and further manipulated as needed (see `INTERNAL_DEVICE_BOOTLOADER_CONFIG_<yocto-machine-name>` and `INTERNAL_DEVICE_BOOTLOADER_CONFIG_PATH_<yocto-machine-name>` below). Please note that you only reference these files here, it is the responsibility of a `.bb` or `.bbappend` to provide and deploy them (for bootloader config files this is done with an append typically in `recipes-bsp/<your board's bootloader>/<your board's bootloader>.bbappend`, see [balena-intel grub bbappend](https://github.com/balena-os/balena-intel/blob/master/layers/meta-balena-genericx86/recipes-bsp/grub/grub_%25.bbappend) for an example)
+    - `BALENA_BOOT_PARTITION_FILES_<yocto-machine-name>`: this allows adding files from the build's deploy directory into the vfat formatted resin-boot partition (can be used to add bootloader config files, first stage bootloader, initramfs or anything else needed for the booting process to take place for your particular board). If the board uses different bootloader configuration files when booting from either external media (USB thumb drive, SD card etc.) or from internal media (mSATA, eMMC etc) then you would want make use of this variable to make sure the different bootloader configuration files get copied over and further manipulated as needed (see `INTERNAL_DEVICE_BOOTLOADER_CONFIG_<yocto-machine-name>` and `INTERNAL_DEVICE_BOOTLOADER_CONFIG_PATH_<yocto-machine-name>` below). Please note that you only reference these files here, it is the responsibility of a `.bb` or `.bbappend` to provide and deploy them (for bootloader config files this is done with an append typically in `recipes-bsp/<your board's bootloader>/<your board's bootloader>.bbappend`, see [balena-intel grub bbappend](https://github.com/balena-os/balena-intel/blob/master/layers/meta-balena-genericx86/recipes-bsp/grub/grub_%25.bbappend) for an example)
 
     It is a space separated list of items with the following format: *FilenameRelativeToDeployDir:FilenameOnTheTarget*. If *FilenameOnTheTarget* is omitted then the *FilenameRelativeToDeployDir* will be used.
 
@@ -154,7 +154,7 @@ from external storage (these boards do not have internal storage to install bale
   - `INTERNAL_DEVICE_KERNEL_<yocto-machine-name>`: this variable is used to identify the internal storage where balena will be written to.
   - `INTERNAL_DEVICE_BOOTLOADER_CONFIG_<yocto-machine-name>`: this variable is used to specify the filename of the bootloader configuration file used by your board when booting from internal media (must be the same with the *FilenameOnTheTarget* parameter of the bootloader internal config file used in the `BALENA_BOOT_PARTITION_FILES_<yocto-machine-name>` variable from `recipes-core/images/balena-image-flasher.bbappend`)
 
-  - `INTERNAL_DEVICE_BOOTLOADER_CONFIG_PATH_<yocto-machine-name>`: this variable is used to specify the relative path (including filename) to the balena-boot partition where `INTERNAL_DEVICE_BOOTLOADER_CONFIG_<yocto-machine-name>` will be copied to.
+  - `INTERNAL_DEVICE_BOOTLOADER_CONFIG_PATH_<yocto-machine-name>`: this variable is used to specify the relative path (including filename) to the resin-boot partition where `INTERNAL_DEVICE_BOOTLOADER_CONFIG_<yocto-machine-name>` will be copied to.
 
     For example, setting
 
@@ -165,7 +165,7 @@ from external storage (these boards do not have internal storage to install bale
     ```sh
     INTERNAL_DEVICE_BOOTLOADER_CONFIG_PATH_intel-corei7-64 = "/EFI/BOOT/grub.cfg"
     ```
-    will result that after flashing the file `grub.cfg`_internal is copied with the name `grub.cfg` to the /EFI/BOOT/ directory on the balena-boot partition.
+    will result that after flashing the file `grub.cfg`_internal is copied with the name `grub.cfg` to the /EFI/BOOT/ directory on the resin-boot partition.
 
 
 The directory structure then looks similar to this:
