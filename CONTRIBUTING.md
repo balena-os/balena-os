@@ -20,8 +20,8 @@ GH_TOKEN=**** npm run dev
 
 # Deploying
 
-After a PR has been created, a member of the resin team will review and merge into master.
+After a PR has been created, a member of the balena team will review and merge into master.
 
-Shortly after merging to master it'll automatically be deployed to our [staging environment](https://resin-os-staging.herokuapp.com/) (This should only take a few minutes).
+Shortly after merging to master it'll automatically be deployed to our [staging environment](https://balena-os-staging.herokuapp.com/) (This should only take a few minutes).
 
-Once deployed to staging, you can preview your changes. If everything looks good, a member of the resin team will make another PR from master into the production branch. When this is merged, the changes will automatically deploy to production.
+Once deployed to staging, you can preview your changes. If everything looks good, a member of the balena team will make another PR from master into the production branch. When this is merged, the changes will automatically deploy to production.
