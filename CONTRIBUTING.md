@@ -2,17 +2,17 @@ Thanks for your interest in contributing to this project! This document aims to 
 
 # Running locally
 
-Install deps
+Install all dependencies
 ```
 npm i
 ```
 
-Build an run site
+Build and run the site
 ```
 npm run dev
 ```
 
-If you get rate limited by github, you can pass a github token.
+If you get rate limited by Github, you can pass a Github token.
 
 ```
 GH_TOKEN=**** npm run dev
