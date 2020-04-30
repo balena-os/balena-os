@@ -10,6 +10,7 @@ In order to build your very own version of balenaOS for one of our supported boa
 Then pick the device type you want to build, in this example we will use the Raspberry Pi 3. So first we need to grab the [`balena-raspberrypi`](https://github.com/balena-os/balena-raspberrypi) and initialise all its submodules.
 ``` bash
 git clone https://github.com/balena-os/balena-raspberrypi
+cd balena-raspberrypi/
 git submodule update --init --recursive
 ```
 We can then use the helpful `BARYS` tool to setup up and start our build. To see all the functionality `BARYS` provides run `./balena-yocto-scripts/build/barys -h`
@@ -81,7 +82,7 @@ The `layers` directory contains the git submodules of the yocto layers used in t
 - Yocto BSP layer for the board (for example, the BSP layer for Raspberry Pi is [meta-raspberrypi](https://github.com/agherzan/meta-raspberrypi))
 - any additional Yocto layers required by the board BSP (check the Yocto BSP layer of the respective board for instructions on how to build the BSP and what are the Yocto dependencies of that particular BSP layer)
 
-In addition to the above git submodules, the "layers" directory also contains a `meta-balena-<board-family>` directory (please note this directory is _not_ a git submodule, but an actual directory in the ). This directory contains the required customization for making a board balena enabled. For example, the [balena-raspberrypi](https://github.com/balena-os/balena-raspberrypi) repository contains the directory `layers/meta-balena-raspberrypi` to supplement the BSP from `layers/meta-raspberrypi` git submodule, with any changes that might be required by balenaOS.
+In addition to the above git submodules, the "layers" directory also contains a `meta-balena-<board-family>` directory (please note this directory is _not_ a git submodule, but an actual directory in the repository). This directory contains the required customization for making a board balena enabled. For example, the [balena-raspberrypi](https://github.com/balena-os/balena-raspberrypi) repository contains the directory `layers/meta-balena-raspberrypi` to supplement the BSP from `layers/meta-raspberrypi` git submodule, with any changes that might be required by balenaOS.
 
 The layout so far looks as follows:
 
