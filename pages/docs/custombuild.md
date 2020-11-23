@@ -25,6 +25,8 @@ you'll need to specify the `--balenaio` flag, as balenaOS builds are unmanaged b
 
 Now sit tight and maybe go and make several cups of tea, this is going to take a little while.
 
+By default, the images are created in the `build/tmp/deploy/<yocto-machine-name>` directory with the file extension `.resinos-img` or `.balenaos-img`.  Rename the file extension to `.img` to flash the image to a SD card or USB drive using [balenaEtcher](https://www.balena.io/etcher/).
+
 ## Supporting your Own Board
 
 Pre-requisites: a [Yocto](https://www.yoctoproject.org) Board Support Package (BSP) layer for your particular board. It should be compatible to the Yocto releases balenaOS supports.
