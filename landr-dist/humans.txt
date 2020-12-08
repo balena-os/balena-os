@@ -1,0 +1,29 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+https://github.com/shaunmulligan
+https://github.com/lurch
+https://github.com/LucianBuzzo
+https://github.com/imrehg
+https://github.com/chrisys
+https://github.com/xginn8
+https://github.com/kennethlimcp
+https://github.com/Page-
+https://github.com/emirotin
+https://github.com/fboudra
+https://github.com/jhermsmeier
+https://github.com/petrosagg
+https://github.com/zwalchuk
+https://github.com/ZubairLK
+https://github.com/dimitrisnl
+https://github.com/gmacario
+https://github.com/thgreasi
+https://github.com/pimterry
+https://github.com/tvi
+https://github.com/willnewton
+
+# TECHNOLOGY COLOPHON
+
+React, React Static, Rendition, Landr
