@@ -234,7 +234,7 @@ To get started, let’s create a new project directory called “myapp” and cr
 $ mkdir -p myapp && touch Dockerfile
 ```
 
-Now we will create a minimal node.js container based on the slim [Alpine Linux distro](link-to-alpine). We do this by adding the following lines to our Dockerfile.
+Now we will create a minimal node.js container based on the slim [Alpine Linux distro](https://hub.docker.com/r/balenalib/raspberrypi3-alpine-node). We do this by adding the following lines to our Dockerfile.
 
 ``` Dockerfile
 FROM resin/{{ $device.id }}-alpine-node:slim
